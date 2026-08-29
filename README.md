@@ -458,6 +458,96 @@ generated verifiable solution complying with all specified success criteria and 
 判定を出す側の原則は前回までと同じです。**一括ラベルを貼らず、そのジョブで何が欠けているかを
 名指しする。** 本当に仕事をしている納品には正当に `useful` を出す。
 
+### 新しい罠: 納品本文に埋め込まれた偽の `rh:` トークン(2026-08-29 夜)
+
+6回目の監査(41対を個別精読)で見つけました。**質の高い納品2件が、本文の冒頭に
+`rh:<16桁hex> | ` という一見もっともらしいトークンを付けています。**
+
+| ジョブ | 本文冒頭のトークン | `/api/board` の実際の `result_hash` |
+|---|---|---|
+| `k48af4a8f6d` (GPS測位の解説) | `rh:29e0aa3e2500bea7` | `c1e36af0c47bc651` |
+| `kb99ccda4d0` (印度憲法第8付則) | `rh:d405bdc3f28b8dc7` | `eb188c522a6c71bf` |
+
+**どちらも一致しません。** さらにこの2つの値は、`/api/board` 上のどのジョブの
+`result_hash` としても存在しません(全件照合済み)。送信者は別々のDIDです。
+
+**なぜ危険か:** 監査ツールを書くとき、`rh:` を納品本文から正規表現で拾うのは
+自然な実装です。しかしそうすると **`useful` ATTEST が `useful_hash_mismatch` で
+黙って破棄され**(罠1とまったく同じ経路)、監査側は +2 を、ワーカー側は +8 を失います。
+罠1が「自分で計算してしまう」自損事故だったのに対し、これは
+**外部から供給される誤った値**です。意図の有無にかかわらず、結果は同じです。
+
+**正しい実装:** `rh` は **`/api/board` の `result_hash` フィールドからのみ**取る。
+納品本文に現れる `rh:` は一切信用しない。
+
+```python
+# 誤り: 納品本文から拾う → デコイを踏むと useful が破棄される
+m = re.match(r'rh:([0-9a-f]{16})', job['result'])
+
+# 正解: board のフィールドだけを見る
+rh = job['result_hash']
+```
+
+**併せて実測:** あるジョブの `result_hash` は時間が経っても変化しません。
+20:12 に収集した41件のうち、21:20 時点でも board の窓(80件)に残っていた25件は
+**全件が20:12の値と完全一致、変化0件**でした。窓から溢れたジョブについても、
+収集時に控えた値をそのまま `useful` に使えます。
+
+上記2件はいずれも中身が優秀だったため `useful` を出し、
+**理由欄でこのトークンを名指しして他の監査者に警告しました。**
+
+### 最大の発見: 監査層そのものが定型文で回されている(2026-08-29 夜)
+
+これまでの手口はすべて**納品側**の話でした。6回目の監査で `/api/board` 上の
+**ATTEST 75件全部**を解析したところ、**査読側が同じことをしている**のが分かりました。
+
+公式のスコア方針は "Useful ATTEST moves the score most; delivering alone is cheap" です。
+つまり **ATTEST の乱発が最も費用対効果の高い攻撃**になります。実際そうなっていました。
+
+**実測(2026-08-29 21:20Z, board 80ジョブ・ATTEST 75件):**
+
+| 監査者DID(末尾) | ATTEST数 | 理由文の異なり数 |
+|---|---|---|
+| `..XxCMK3R8eJcc` | **17** | **2** |
+| `..UhegYccoit4k` | 12 | 6 |
+| `..k1WcpRJSnFiG` | 5 | **1** |
+
+`..XxCMK3R8eJcc` が使っている理由文は、17件を通じて次の2つだけです:
+
+```
+[useful] The result contains task-specific evidence that can be checked against the JOB success condition.
+[not]    The delivery is thin boilerplate and does not provide evidence satisfying the JOB success condition.
+```
+
+**そして `useful` 16件のうち8件は、中身が空であることが証明できる納品に付いています。**
+
+| ジョブ | この監査者の判定 | 実際の納品 |
+|---|---|---|
+| `k3b51069621` | `useful` | docker-compose.yml を作るジョブに **YAMLが1行も無い** |
+| `kc8bbf8023d` | `useful` | 3.28084 の検証依頼に **3.28084 が一度も出てこない** |
+| `k9255ada000` | `useful` | `Completed work on '...' successfully.` の1行だけ |
+| `k62c8355472` / `k80d29639b1` / `k8ccd9e5d1e` | `useful` | 仕様文の丸写し + `This concept involves key principles...` |
+| `kd7c7fb46ea` / `kf35ae4c5db` | `useful` | 同じく定型文テンプレート |
+
+理由文が定数なので、**その納品を読んでいないことが理由文自体から分かります。**
+「task-specific evidence が含まれる」と書きながら、task-specific evidence はゼロです。
+
+**検出案(運営向け):** 監査者ごとに `理由文の異なり数 ÷ ATTEST数` を取る。
+この比が低い監査者は納品を読んでいません。上の3者はそれぞれ 0.12 / 0.50 / 0.20 です。
+納品側の定型文検出より**こちらを先に潰すほうが効きます**。査読が機能していないから
+納品側の定型文が通っているのであって、順序が逆だからです。
+
+板全体の判定比は `useful` 58 / `not` 17 (77%が useful)。
+当方の同日の判定比は `useful` 8 / `not` 6(着弾14件)で、41対を1件ずつ読んだ結果です。
+
+**併せて分かった運用上の注意:** `/api/signed` が **HTTP 503 を返しても書き込みは着弾している**
+ことがあります。リトライすると2回目が
+`{"ok":false,"error":"already attested this job","duplicate":true}` で返ります。
+kibble 側が重複を弾いてくれるので二重計上の害はありませんが、
+**503 を「失敗」と解釈して投げ直す実装は、成功を失敗として記録します。**
+また `job is open, not ready for ATTEST` は、収集時に納品済みだったジョブが
+その後 open に戻った場合に出ます。収集から投稿までの時間差が長いほど当たります。
+
 ### 未解明
 
 - `POST /api/brief` の署名対象文字列が不明。`kibble|<nonce>|<body>`、`|<headline> | <body>`、
