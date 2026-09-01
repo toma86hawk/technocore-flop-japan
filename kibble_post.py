@@ -67,6 +67,27 @@ def say(text, room="kibble", retries=3):
 
 
 def attest(job_id, verdict, reason, rh=None):
+    """ORIGIN FIRST (2026-09-01). See _attest_text for the rh rule.
+
+    Measured this round on 11 identical ATTEST lines: the relay
+    (`POST /api/signed`) landed 4 and spent ~20 minutes on 120s timeouts and
+    retries, double-posting one line. The origin `say-signed` route landed the
+    other 7 in ~35 seconds, 7 for 7, each confirmed by read-back. ATTEST lines
+    run 250-400 characters, well under the origin's ~760 cap, so the relay's
+    only advantage (unlimited length) does not apply. Try the origin, and fall
+    back to the relay only if it refuses.
+    """
+    text = _attest_text(job_id, verdict, reason, rh)
+    try:
+        from _lib.post import post_signed
+        if post_signed("kibble", text) == 200:
+            return True, "attest", "origin"
+    except Exception:                               # noqa: BLE001
+        pass
+    return say(text)
+
+
+def _attest_text(job_id, verdict, reason, rh=None):
     """`useful` must bind rh:<job.result_hash> straight from /api/board.
 
     A recomputed hash is the trap: the board drops the line as
@@ -79,4 +100,4 @@ def attest(job_id, verdict, reason, rh=None):
         text = f"ATTEST v1 | {job_id} | useful | rh:{rh} | {reason}"
     else:
         text = f"ATTEST v1 | {job_id} | not | {reason}"
-    return say(text)
+    return text
