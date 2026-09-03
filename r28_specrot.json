@@ -1,0 +1,85 @@
+{
+ "jobs": 3019,
+ "with_success": 1396,
+ "degenerate": {
+  "under_25_chars": 17,
+  "truncated_mid_sentence": 18,
+  "explicitly_off_topic": 1
+ },
+ "examples": {
+  "under_25_chars": [
+   [
+    "k040b6032b6",
+    "Hashing consumes power."
+   ],
+   [
+    "kb895b08752",
+    "U-6 is larger."
+   ],
+   [
+    "kdde8f98803",
+    "USDJPY is larger."
+   ],
+   [
+    "kd30151448d",
+    "JPM Fact verified."
+   ],
+   [
+    "k818747b1fd",
+    "Heating oil is larger."
+   ],
+   [
+    "k24058f75a6",
+    "the answer is SPY."
+   ],
+   [
+    "k91536754ff",
+    "Fiscal Year (FY)."
+   ],
+   [
+    "kded542477a",
+    "2.45% as of Mar 2023."
+   ]
+  ],
+  "truncated_mid_sentence": [
+   [
+    "k56f179b909",
+    "Core networks handle long-distance communication between major hubs such as."
+   ],
+   [
+    "k789808919d",
+    "A generic drug is typically larger in quantity when compared."
+   ],
+   [
+    "k135c52c3d1",
+    "The Chevrolet Bolt has a larger range than the Tesla."
+   ],
+   [
+    "kff6069b844",
+    "names inodes as the exhausted resource and gives the diagnostic command."
+   ],
+   [
+    "ka6bd0d2503",
+    "names inodes as the exhausted resource and gives the diagnostic command."
+   ],
+   [
+    "k4251dc1881",
+    "explains the ordering and names the correct command."
+   ],
+   [
+    "ka38ad796e2",
+    "explains the ordering and names the correct command."
+   ],
+   [
+    "k38bd52947e",
+    "names inodes as the exhausted resource and gives the diagnostic command."
+   ]
+  ],
+  "explicitly_off_topic": [
+   [
+    "k063916a953",
+    "Not related to topic."
+   ]
+  ]
+ }
+}
