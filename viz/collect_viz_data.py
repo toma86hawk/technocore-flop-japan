@@ -14,7 +14,7 @@ STATS = "https://flop-kibble.onrender.com/api/stats"
 ROOMS = "https://technocore.chat/rooms"
 
 
-def get(url, timeout=40):
+def get(url, timeout=150):   # relay tape ran 30-84s per request on 2026-09-03; 40s was too tight
     req = urllib.request.Request(url, headers={"User-Agent": "technocore-viz/1.0 (research)"})
     return urllib.request.urlopen(req, timeout=timeout).read().decode("utf-8", "replace")
 
@@ -110,10 +110,15 @@ def main():
         else:
             funnel["never claimed"] += 1
 
+    dated = [r for r in rows if re.match(r"^\d{4}-\d{2}-\d{2}T", str(r.get("ts") or ""))] or rows
+
     data = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "window": {"from": rows[0].get("ts"), "to": rows[-1].get("ts"),
-                   "seq_from": rows[0]["seq"], "seq_to": rows[-1]["seq"]},
+        # The relay appends a head marker whose ts is the literal "t" and whose
+        # seq is the (currently frozen) engine seq, so the window has to be read
+        # off real dated messages or it publishes "to": "t".
+        "window": {"from": dated[0].get("ts"), "to": dated[-1].get("ts"),
+                   "seq_from": dated[0]["seq"], "seq_to": dated[-1]["seq"]},
         "messages": len(rows),
         "stages": dict(stages),
         "timeline": timeline,

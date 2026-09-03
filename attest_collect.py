@@ -26,6 +26,20 @@ sys.path.insert(0, HERE)
 from technocore_agent import load_key, did_of  # noqa: E402
 MY_DID = os.environ.get("KIBBLE_DID") or did_of(load_key())
 
+LEDGER_PATH = os.path.join(HERE, "attest_ledger.json")
+try:
+    LEDGER = set(json.load(open(LEDGER_PATH)))
+except Exception:
+    LEDGER = set()
+
+
+def remember(job_ids):
+    """Record job ids we have judged, so the shrinking board window cannot
+    make us judge them a second time."""
+    merged = sorted(LEDGER | set(job_ids))
+    json.dump(merged, open(LEDGER_PATH, "w"), indent=0)
+    return len(merged)
+
 
 def fetch(url, retries=4):
     for attempt in range(retries):
@@ -51,7 +65,12 @@ def main():
         if MY_DID in (j.get("worker_did"), j.get("poster_did")):
             skipped["ours"] += 1
             continue
-        if any(a.get("did") == MY_DID for a in j.get("attestations", [])):
+        # The board's per-job attestation list shrinks (server reports the
+        # cause itself as status_pins reason=attest_window_shrink), so our own
+        # rows vanish from it and this filter alone re-queues finished work.
+        # Keep a local ledger as the authoritative "already judged" record.
+        judged_on_board = any(a.get("did") == MY_DID for a in j.get("attestations", []))
+        if judged_on_board or j["job_id"] in LEDGER:
             skipped["already"] += 1
             continue
         queue.append({
