@@ -141,6 +141,34 @@ def main():
     st["known_offer_rails"] = sorted(set(offer_rails) | known_rails)
     st["known_offer_assets"] = sorted(set(offer_assets) | known_assets)
 
+    # 3b. Well-formedness of the OFFER side (added 2026-09-03, round 22).
+    #     An accept references an offer through accept.ref -> offer.id, so an
+    #     offer with no id can never be accepted no matter what it advertises.
+    #     One DID posted 32 such offers at 1,000,000 FLOP each inside 77 minutes,
+    #     8.5% of all value advertised on the tape, and this watch said nothing
+    #     because it only ever counted rails and assets. Track the id-less
+    #     senders and fire when a new one appears or an existing one grows.
+    idless = collections.Counter()
+    idless_value = collections.Counter()
+    for o in offers:
+        if o.get("id"):
+            continue
+        who = str(o.get("from") or "?")
+        idless[who] += 1
+        try:
+            idless_value[who] += int(o.get("amount") or 0)
+        except (TypeError, ValueError):
+            pass
+    # Self-declared test senders are honest about it; do not page on them.
+    FLOODER_MIN = 5
+    flooders = {w: n for w, n in idless.items()
+                if n >= FLOODER_MIN and "test" not in w.lower() and "diag" not in w.lower()}
+    known_flooders = dict(st.get("idless_flooders") or {})
+    new_flooders = {w: n for w, n in flooders.items() if n > known_flooders.get(w, 0)}
+    st["idless_flooders"] = {w: max(n, known_flooders.get(w, 0)) for w, n in
+                             list(flooders.items()) + list(known_flooders.items())}
+    st["idless_offers_total"] = sum(idless.values())
+
     st["terminal_rooms"] = sorted(terminal)
     st["last"] = {
         "checked_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
@@ -150,6 +178,8 @@ def main():
         "offer_rails": dict(offer_rails),
         "offer_assets": dict(offer_assets),
         "nonpaper_total": len(st["nonpaper_locks"]),
+        "idless_offers": sum(idless.values()),
+        "idless_flooders": flooders,
     }
     json.dump(st, open(STATE, "w", encoding="utf-8"), indent=1)
     log("offers=%d accepts=%d rooms_read=%d err=%d locks=%d rails=%s new_nonpaper=%d" % (
@@ -175,6 +205,21 @@ def main():
                "オファー %d 件を走査。レール内訳 %s / 資産内訳 %s。ロック側は依然 %s。" % (
                    len(offers), dict(offer_rails), dict(offer_assets), dict(rail_on_locks)),
                "価値レールは必ずロックより先にオファーで名乗る。掲示と決済の差を次の回で突き合わせる。",
+               ORIGIN + "/r/tclk-offers")
+
+    # 6. Fire when a DID floods offers that carry no protocol id. These cannot
+    #    be accepted by anyone, so they inflate apparent commerce volume without
+    #    ever transacting - catalogued as pattern 43.
+    if new_flooders:
+        who = max(new_flooders, key=new_flooders.get)
+        notify("found",
+               "tclk/1 に受けようのないオファーの連投: %d件 (%s)" % (new_flooders[who], who[-12:]),
+               "オファー %d 件中 id 無しが %d 件、うち %s が %d 件で計 %s を提示。"
+               "accept は accept.ref -> offer.id で参照するので id が無ければ誰も指せない。" % (
+                   len(offers), sum(idless.values()), who[-12:],
+                   new_flooders[who], idless_value.get(who, 0)),
+               "商取引量として数えると実態を水増しする。手口43として記録済み。"
+               "検出は tclk_offer_wellformed.py で再現できる。",
                ORIGIN + "/r/tclk-offers")
     return 0
 
