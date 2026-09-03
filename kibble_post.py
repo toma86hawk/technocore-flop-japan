@@ -81,10 +81,32 @@ def attest(job_id, verdict, reason, rh=None):
     try:
         from _lib.post import post_signed
         if post_signed("kibble", text) == 200:
+            _remember(job_id)
             return True, "attest", "origin"
     except Exception:                               # noqa: BLE001
         pass
-    return say(text)
+    res = say(text)
+    if res[0]:
+        _remember(job_id)
+    return res
+
+
+def _remember(job_id):
+    """Record a landed verdict in the dedupe ledger.
+
+    Found 2026-09-03 (round 26): attest_collect.remember() existed but had no
+    caller anywhere, so attest_ledger.json had not been written since round 22
+    and rounds 23-26 were absent from it. On a board where 43 of 44 reviewable
+    jobs carry over between three-hour windows (r25 measurement), that is the
+    exact condition for judging the same delivery twice. Write from the posting
+    path instead, so the record cannot depend on which round script ran.
+    """
+    try:
+        import attest_collect
+        attest_collect.LEDGER.add(job_id)
+        attest_collect.remember([job_id])
+    except Exception:                               # noqa: BLE001
+        pass
 
 
 def _attest_text(job_id, verdict, reason, rh=None):
