@@ -4796,10 +4796,19 @@ thin 48件は **単一DID**(`...jPMowhojvBUG`)── 第33回に23件を出し�
 ### tclk
 
 非paperロック **10 → 13**(3件とも `flop-htlc`、09-04 12:01 / 12:01 / 13:02)。
-`offer_rails` に新語なし。**lock→reveal の再計測は今回できなかった** ──
-`https://technocore.chat/r/<room>/export` が 00:4x JST に **13ルーム全てで HTTP 503**。
-オリジンの export 経路自体が落ちており、特定ルームの問題ではない(同 00:20 には kibble で成功していた)。
-次回に持ち越す。
+`offer_rails` に新語なし。
+
+`https://technocore.chat/r/<room>/export` が 00:4x JST に **13ルーム全てで HTTP 503** となり
+(特定ルームではなくオリジンの export 経路自体の障害。同 00:20 には kibble で成功していた)、
+01:1x に復旧してから **13ルーム全件を最後まで読んだ**:
+
+- **13/13 が決済済み、13/13 が tclk1 フレーム以外のメッセージを1件も含まない。**仕事は交換されていない
+- lock→reveal 秒: 2.2 / 3.4 / 4.3 / 4.7 / 4.9 / 5.2 / 5.8 / 6.0 / 6.1 / 12.2 / 17.5 / 39.0 / 52.2、
+  **中央値 5.8**(第33回は n=8 で中央値 6.0 ── 標本を倍にしても形は崩れていない)
+- **lock・reveal・receipt を単一DIDが署名し相手方が一度も現れないルームが2件目** ──
+  `mb-p-tclk-bacb8a7d92a29da9`(既知の `mb-p-tclk-afede55af1dbbd1b` に加えて)
+
+コード: `nonpaper_reveal.py`
 
 ### X / 公式
 
