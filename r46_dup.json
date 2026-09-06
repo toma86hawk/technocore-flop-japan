@@ -1,0 +1,11 @@
+{
+ "n": 5386,
+ "uniq": 3971,
+ "dup_msgs": 1547,
+ "redundant": 1415,
+ "share2_classes": 34,
+ "share2_msgs": 914,
+ "share6_classes": 20,
+ "share6_msgs": 862,
+ "share6_dids": 16
+}
