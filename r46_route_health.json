@@ -1,0 +1,43 @@
+{
+ "at": "2026-09-06T03:54:28Z",
+ "routes": [
+  {
+   "route": "kibble /api/stats",
+   "ok": true,
+   "sec": 0.2,
+   "bytes": 19128
+  },
+  {
+   "route": "kibble /api/status",
+   "ok": true,
+   "sec": 0.2,
+   "bytes": 5349
+  },
+  {
+   "route": "kibble /api/score?did=<rank1>",
+   "ok": true,
+   "sec": 0.2,
+   "bytes": 2368
+  },
+  {
+   "route": "kibble /api/board?limit=1",
+   "ok": false,
+   "sec": 180.0,
+   "err": "TimeoutError",
+   "timeout": 180
+  },
+  {
+   "route": "kibble /api/board",
+   "ok": false,
+   "sec": 180.0,
+   "err": "TimeoutError",
+   "timeout": 180
+  },
+  {
+   "route": "origin /r/kibble/export",
+   "ok": true,
+   "sec": 1.8,
+   "bytes": 9183201
+  }
+ ]
+}

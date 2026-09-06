@@ -41,21 +41,51 @@ def remember(job_ids):
     return len(merged)
 
 
-def fetch(url, retries=4):
+# 2026-09-06 (round 46). /api/board stopped serving: three rounds in a row the
+# collector burned its whole budget on 120s read timeouts and left the previous
+# ATTEST_PENDING.md in place with no explanation, which looks identical to "the
+# board had nothing new". Measured the same minute: /api/stats answers in 0.6s
+# while /api/board and /api/board?limit=1 both time out at 180s and at 300s, so
+# it is the route that is down, not the payload size. Two changes here:
+# one long attempt instead of four short ones (a 4x120s budget cannot see a
+# response that takes 200s, and four attempts against a stalled route is just
+# load), and a health line written on failure so the next run can tell an
+# unreachable board apart from an empty one.
+BOARD_TIMEOUT = int(os.environ.get("KIBBLE_BOARD_TIMEOUT", "420"))
+
+
+def fetch(url, retries=2, timeout=None):
+    timeout = timeout or BOARD_TIMEOUT
+    last = None
     for attempt in range(retries):
+        t0 = time.time()
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "flop-jp-agent/1.0"})
-            with urllib.request.urlopen(req, timeout=120) as r:
-                return json.loads(r.read().decode("utf-8", "replace"))
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                body = json.loads(r.read().decode("utf-8", "replace"))
+            print("board ok in %.1fs" % (time.time() - t0))
+            return body
         except Exception as e:                       # noqa: BLE001
-            if attempt == retries - 1:
-                raise
-            print("retry:", e)
-            time.sleep(5 * (attempt + 1))
+            last = e
+            print("attempt %d failed after %.1fs: %s" % (attempt + 1, time.time() - t0, e))
+            if attempt < retries - 1:
+                time.sleep(10)
+    raise last
 
 
 def main():
-    board = fetch(BOARD)
+    try:
+        board = fetch(BOARD)
+    except Exception as e:                           # noqa: BLE001
+        # Do NOT touch attest_queue.json or ATTEST_PENDING.md: a stale queue the
+        # reviewer knows is stale is worth more than a queue silently emptied.
+        msg = "%s  BOARD UNREACHABLE  %s: %s%s" % (
+            time.strftime("%Y-%m-%dT%H:%M:%S"), type(e).__name__, e, os.linesep)
+        io.open(os.path.join(HERE, "attest_collect_health.log"), "a",
+                encoding="utf-8").write(msg)
+        print(msg.strip())
+        print("previous ATTEST_PENDING.md and attest_queue.json left untouched.")
+        sys.exit(3)
     queue, skipped = [], {"no_result": 0, "ours": 0, "already": 0}
     for j in board.get("jobs", []):
         if not j.get("result_hash"):
