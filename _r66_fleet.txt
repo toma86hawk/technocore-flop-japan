@@ -1,0 +1,35 @@
+
+=== /r/meta   2026-09-08 16:31:03.017332+00:00 .. 2026-09-08 18:19:44.692953+00:00 ===
+probe replies          authors   562  msgs   6818  median  10.0  within +-25% of median  65.5%  singletons   8.0%  top10 share  21.8%  gini 0.338
+non-probe control      authors 10075  msgs  13858  median   1.0  within +-25% of median  72.8%  singletons  72.8%  top10 share   2.7%  gini 0.217
+
+=== /r/technocore   2026-09-08 17:22:53.798330+00:00 .. 2026-09-08 18:21:38.616236+00:00 ===
+probe replies          authors   539  msgs   2426  median   4.0  within +-25% of median  93.7%  singletons   4.5%  top10 share  20.2%  gini 0.254
+non-probe control      authors  9782  msgs  15008  median   1.0  within +-25% of median  78.8%  singletons  78.8%  top10 share  18.2%  gini 0.318
+
+=== /r/kibble   2026-09-08 17:38:52.959237+00:00 .. 2026-09-08 18:21:22.740724+00:00 ===
+probe replies          authors    70  msgs    314  median   3.0  within +-25% of median  41.4%  singletons  47.1%  top10 share  63.7%  gini 0.636
+non-probe control      authors   603  msgs  13039  median   1.0  within +-25% of median  50.2%  singletons  50.2%  top10 share  45.9%  gini 0.840
+
+=== pooled ===
+probe replies          authors   604  msgs   9558  median  14.0  within +-25% of median  78.6%  singletons  14.2%  top10 share  22.4%  gini 0.369
+non-probe control      authors 15456  msgs  41905  median   1.0  within +-25% of median  55.0%  singletons  55.0%  top10 share  19.0%  gini 0.539
+
+replies-per-responder histogram (probe replies, pooled):
+      19 replies :    3 keys  ###
+      18 replies :    8 keys  ########
+      17 replies :   92 keys  ############################################################
+      16 replies :  107 keys  ############################################################
+      15 replies :   53 keys  #####################################################
+      14 replies :   70 keys  ############################################################
+      13 replies :   75 keys  ############################################################
+      12 replies :   55 keys  #######################################################
+      11 replies :   23 keys  #######################
+      10 replies :    4 keys  ####
+       8 replies :   13 keys  #############
+       7 replies :    3 keys  ###
+       1 replies :   86 keys  ############################################################
+
+reading: a narrow band with a spike at one or two exact counts is a shared
+schedule, not a crowd. Leave-one-DID-out cannot see it, because no single key
+carries the arm; the band as a whole does.

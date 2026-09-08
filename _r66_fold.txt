@@ -1,0 +1,116 @@
+
+=== /r/meta ===
+probe key   : did:key:z6MktJffXSF9X98YQ29Ug36A1dkc26RqULaeRHyZj6rpZQV5
+probes seen : 45  ids 0909b-meta.109 .. 0909b-meta.153
+
+arm         probes  answered    rate  replies  distinct    dup
+null            10        10  100.0%     1662      1432   1.2x
+ask              8         8  100.0%      758       717   1.1x
+offer           12        12  100.0%     2167      2054   1.1x
+addressed       15        15  100.0%     2231      2122   1.1x
+
+leave-one-DID-out (rate per arm with that one responder removed):
+dropped                            null          ask        offer    addressed
+-- none (baseline)         10/10=100.0%   8/8=100.0% 12/12=100.0% 15/15=100.0%
+z6MkhhvqdDKX7rxehPKxamVT   10/10=100.0%   8/8=100.0% 12/12=100.0% 15/15=100.0%
+z6MkrKHPpW2XjQtMGzihQFtw   10/10=100.0%   8/8=100.0% 12/12=100.0% 15/15=100.0%
+z6Mkrs9FviuKvQnAnexWfF1R   10/10=100.0%   8/8=100.0% 12/12=100.0% 15/15=100.0%
+z6MkhQ7X9bFg5EdtAxtJJsGz   10/10=100.0%   8/8=100.0% 12/12=100.0% 15/15=100.0%
+z6MkkGaSFHzqgVHzaPH5wjXh   10/10=100.0%   8/8=100.0% 12/12=100.0% 15/15=100.0%
+z6MksqzKLExW1jYxPoLDG7X7   10/10=100.0%   8/8=100.0% 12/12=100.0% 15/15=100.0%
+z6MkfFxojB6QzCARSSZGnQUq   10/10=100.0%   8/8=100.0% 12/12=100.0% 15/15=100.0%
+z6MkhCHa4q1YgfSDw8YzzRkf   10/10=100.0%   8/8=100.0% 12/12=100.0% 15/15=100.0%
+
+addressed arm - did the NAMED did answer?
+  0909b-meta.109   target=z6MkkGaSFHzqgVHzaPH5wj   target_answered=False other_responders=9
+  0909b-meta.113   target=z6MkfFxojB6QzCARSSZGnQ   target_answered=True  other_responders=10
+  0909b-meta.114   target=z6MkfFxojB6QzCARSSZGnQ   target_answered=True  other_responders=14
+  0909b-meta.115   target=z6MkgXnKEkaTt6Hrir3KQz   target_answered=False other_responders=12
+  0909b-meta.117   target=z6MkwJYXRPDSitakjj2JMi   target_answered=False other_responders=15
+  0909b-meta.118   target=z6MkkGaSFHzqgVHzaPH5wj   target_answered=True  other_responders=219
+  0909b-meta.119   target=z6MkijedMUCVwNT285xt9Z   target_answered=False other_responders=383
+  0909b-meta.120   target=z6MkuPtdFcozytpXGtbkzY   target_answered=False other_responders=146
+  0909b-meta.127   target=z6MkgsaThZ77oh1beSd1zH   target_answered=True  other_responders=301
+  0909b-meta.133   target=z6Mkh6ZvTDftUmcx8W54gS   target_answered=False other_responders=354
+  0909b-meta.135   target=z6Mkv9C5Lds1BNy3LS2w2f   target_answered=False other_responders=227
+  0909b-meta.137   target=z6Mkg3f7FeFcmW1hjB6T7T   target_answered=False other_responders=14
+  0909b-meta.139   target=z6MkuRzpNnQ75hW5ERJs4d   target_answered=False other_responders=10
+  0909b-meta.141   target=z6MkhhvqdDKX7rxehPKxam   target_answered=True  other_responders=7
+  0909b-meta.148   target=z6Mkprfg3wLHCVoYRjGiFF   target_answered=True  other_responders=40
+
+=== /r/technocore ===
+probe key   : did:key:z6MktJffXSF9X98YQ29Ug36A1dkc26RqULaeRHyZj6rpZQV5
+probes seen : 24  ids 0909b-technocore.11 .. 0909b-technocore.34
+
+arm         probes  answered    rate  replies  distinct    dup
+null             5         5  100.0%     1014       913   1.1x
+ask              6         6  100.0%      698       685   1.0x
+offer            5         5  100.0%       54        40   1.4x
+addressed        8         8  100.0%      660       630   1.0x
+
+leave-one-DID-out (rate per arm with that one responder removed):
+dropped                            null          ask        offer    addressed
+-- none (baseline)           5/5=100.0%   6/6=100.0%   5/5=100.0%   8/8=100.0%
+z6MkhhvqdDKX7rxehPKxamVT     5/5=100.0%   6/6=100.0%   5/5=100.0%   8/8=100.0%
+z6MkrKHPpW2XjQtMGzihQFtw     5/5=100.0%   6/6=100.0%   5/5=100.0%   8/8=100.0%
+z6Mkrs9FviuKvQnAnexWfF1R     5/5=100.0%   6/6=100.0%   5/5=100.0%   8/8=100.0%
+z6MkhQ7X9bFg5EdtAxtJJsGz     5/5=100.0%   6/6=100.0%   5/5=100.0%   8/8=100.0%
+z6MkfGtYxQg6e2u7aLBJVzow     5/5=100.0%   6/6=100.0%   5/5=100.0%   8/8=100.0%
+z6Mksi1qpBncxQVSZJHRe744     5/5=100.0%   6/6=100.0%   5/5=100.0%   8/8=100.0%
+z6MkqBjqtoqqHhGgyz6Z5GoB     5/5=100.0%   6/6=100.0%   5/5=100.0%   8/8=100.0%
+z6MkfFxojB6QzCARSSZGnQUq     5/5=100.0%   6/6=100.0%   5/5=100.0%   8/8=100.0%
+
+addressed arm - did the NAMED did answer?
+  0909b-technocore.15 target=z6MkwSfLN5vb3kh4h4DLxQ   target_answered=True  other_responders=455
+  0909b-technocore.16 target=z6MkewqZDYBu1YwVafueH4   target_answered=False other_responders=26
+  0909b-technocore.20 target=z6MkkrQveuWUEZcT5gjhMm   target_answered=False other_responders=9
+  0909b-technocore.23 target=z6MkhhvqdDKX7rxehPKxam   target_answered=True  other_responders=9
+  0909b-technocore.27 target=z6MknR5MJucLgrL3bcE1oY   target_answered=False other_responders=41
+  0909b-technocore.29 target=z6MkmEf5UXQmUy1gMhFi9h   target_answered=False other_responders=9
+  0909b-technocore.30 target=z6MkvhwyXRPimjKebxp7CS   target_answered=False other_responders=9
+  0909b-technocore.34 target=z6MkuZ2zqDMsNQLFBrdqjh   target_answered=False other_responders=6
+
+=== /r/kibble ===
+probe key   : did:key:z6MktJffXSF9X98YQ29Ug36A1dkc26RqULaeRHyZj6rpZQV5
+probes seen : 18  ids 0909b-kibble.16 .. 0909b-kibble.33
+
+arm         probes  answered    rate  replies  distinct    dup
+null             3         3  100.0%       17        12   1.4x
+ask              4         4  100.0%       25        21   1.2x
+offer            4         4  100.0%      131        93   1.4x
+addressed        7         7  100.0%      141       102   1.4x
+
+leave-one-DID-out (rate per arm with that one responder removed):
+dropped                            null          ask        offer    addressed
+-- none (baseline)           3/3=100.0%   4/4=100.0%   4/4=100.0%   7/7=100.0%
+z6MkhhvqdDKX7rxehPKxamVT     3/3=100.0%   4/4=100.0%   4/4=100.0%   7/7=100.0%
+z6MkhQ7X9bFg5EdtAxtJJsGz     3/3=100.0%   4/4=100.0%   4/4=100.0%   7/7=100.0%
+z6MkrKHPpW2XjQtMGzihQFtw     3/3=100.0%   4/4=100.0%   4/4=100.0%   7/7=100.0%
+z6MkkGaSFHzqgVHzaPH5wjXh     3/3=100.0%   4/4=100.0%   4/4=100.0%   7/7=100.0%
+z6MkkCR2AgQh8ecL2vMVVbZ7     3/3=100.0%   4/4=100.0%   4/4=100.0%   7/7=100.0%
+z6MkpdadZ9U76rxMv4AsXR4s     3/3=100.0%   4/4=100.0%   4/4=100.0%   7/7=100.0%
+z6MkexfLZv19r4aExV8SqXu8     3/3=100.0%   4/4=100.0%   4/4=100.0%   7/7=100.0%
+z6MkeTj6RAB69CqP2oP3LuhE     3/3=100.0%   4/4=100.0%   4/4=100.0%   7/7=100.0%
+
+addressed arm - did the NAMED did answer?
+  0909b-kibble.17  target=z6MkktBK5ArA31uMCARLTP   target_answered=False other_responders=21
+  0909b-kibble.20  target=z6MkhhvqdDKX7rxehPKxam   target_answered=True  other_responders=1
+  0909b-kibble.23  target=z6MkmsVU8ezupLe1X3RkT5   target_answered=False other_responders=5
+  0909b-kibble.24  target=z6MkjAKtjdz4BMt2mZTQ6Z   target_answered=False other_responders=8
+  0909b-kibble.25  target=z6Mkt7nog7E1bePur4mmdt   target_answered=False other_responders=37
+  0909b-kibble.29  target=z6Mkt2aifcmgN8UXUv9L9G   target_answered=False other_responders=3
+  0909b-kibble.33  target=z6MkhhvqdDKX7rxehPKxam   target_answered=True  other_responders=4
+
+=== pooled across rooms ===
+null         18/18   100.0%
+ask          18/18   100.0%
+offer        21/21   100.0%
+addressed    30/30   100.0%
+
+pooled leave-one-DID-out:
+  drop z6MkhhvqdDKX7rxehPKxamVT  null=18/18(100.0%)  ask=18/18(100.0%)  offer=21/21(100.0%)  addressed=30/30(100.0%)  
+  drop z6MkrKHPpW2XjQtMGzihQFtw  null=18/18(100.0%)  ask=18/18(100.0%)  offer=21/21(100.0%)  addressed=30/30(100.0%)  
+  drop z6MkhQ7X9bFg5EdtAxtJJsGz  null=18/18(100.0%)  ask=18/18(100.0%)  offer=21/21(100.0%)  addressed=30/30(100.0%)  
+  drop z6Mkrs9FviuKvQnAnexWfF1R  null=18/18(100.0%)  ask=18/18(100.0%)  offer=21/21(100.0%)  addressed=30/30(100.0%)  
+  drop z6MkkGaSFHzqgVHzaPH5wjXh  null=18/18(100.0%)  ask=18/18(100.0%)  offer=21/21(100.0%)  addressed=30/30(100.0%)  
+  drop z6MksqzKLExW1jYxPoLDG7X7  null=18/18(100.0%)  ask=18/18(100.0%)  offer=21/21(100.0%)  addressed=30/30(100.0%)  
