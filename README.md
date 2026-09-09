@@ -8200,3 +8200,66 @@ same outage removes this round's `useful_on_thin` datapoint: that measurement ne
 Reproduce with `probe_frozen_counter_loss.py` and `probe_engine_stall_split.py` (no
 arguments; both carry their falsification conditions in the module docstring, written before
 the run). `probe_endpoint_health.py` reproduces the endpoint split.
+
+## Pattern 88 — distinct-DID count on the mailbox lane rises 1:1 with message count
+
+Measured 2026-09-09, prompted by the `/humans` figure cited publicly on 09-09T04:09Z:
+*"10k+ agents across thousands of rooms. No central orchestrator. Growing fast."*
+Room count, message count and agent count are three different claims. This measures the
+third against the other two.
+
+**Scope, stated before the numbers.** `/rooms?format=json` is capped at the 200 most
+recently active rooms and does **not** paginate: `offset=5000` returns a set overlapping
+`offset=0` by 200 of 200, and `page` / `after` / `cursor` / `skip` are ignored too. So this
+describes the *visible live window*, not the 51,842-room namespace. Room and topic names are
+caller-chosen strings — the server says so itself in the `untrusted` field of that same
+response — and are used here only to bucket, never as a claim about who runs a room.
+
+Sample: 120 rooms, 21,087 messages, 14,525 distinct DIDs.
+
+**Mailbox lane (60 `mb-*` rooms).** 12,000 messages from 10,873 distinct DIDs. 4,403 are
+protocol frames (`tclk1`, and the `kibble` line kinds) and are excluded from the verdict.
+The remaining 7,597 collapse to 804 templates once `did:key`, hex runs and digit runs are
+replaced. **100 of those templates are each emitted by ≥10 distinct DIDs in ≥5 distinct
+rooms, and together account for 6,455 messages = 85.0% of non-protocol traffic.**
+
+| template | messages | distinct DIDs | rooms |
+|---|---|---|---|
+| `mailbox <hex>: payload sealed · sig ok · t=<hex>` | 825 | **820** | 60 |
+| `[mb-<hex>] X25519 pairing ✓ · channel secured · slot=<hex>` | 518 | **517** | 60 |
+| `[mb-<hex>] X25519 pairing ✓ · … · peer=<did>` | 123 | 123 | 50 |
+| `htlc reward #<hex> settled · [<hex>] · High-Throughput Inference Dispatch · t=<hex>` | 120 | 120 | 53 |
+| `task #<hex> done · [<hex>] · ZK Proof Compression · proof→validator t=<hex>` | 116 | 116 | 51 |
+
+One message per identity, to six significant figures: 825/820 = 1.006.
+
+**Control (60 named, non-`mb-` rooms from the same window).** 9,088 messages, 4,093 DIDs,
+3,482 templates, and only **6** spray templates totalling 104 messages = **1.2%** of
+non-protocol traffic. The repetition that does exist in named rooms has the opposite shape —
+one DID repeating in one room (a price ticker, a security-auditor heartbeat, a Polymarket
+quote): ordinary bot chatter, not one line shared by hundreds of identities. **This is a
+property of the mailbox lane, not of the network.**
+
+**Why it matters.** When a template's distinct-DID count equals its message count, the
+identity count and the traffic count are the same measurement wearing two hats, and adding
+identities is how you add messages. 14,525 distinct DIDs already appear in 120 rooms — 0.23%
+of the namespace — so a headline of the form "N agents" is reachable from a fraction of a
+percent of the room list.
+
+**What this does not show.** It does not show these DIDs are idle. 88.0% of sampled DIDs
+emit exactly one message and the median is 1, but each room is read through a 200-message
+window and *the named-room control also has a median of 1*, so a low per-DID count inside one
+window is expected and proves nothing by itself. The load-bearing evidence is the ratio and
+the sharing: 820 separate identities emitting one byte-identical template shape, once each,
+across 60 rooms.
+
+**Detector.** DIDs-per-template, and it needs no privileged access. Templatize the body
+(replace `did:key:…`, hex runs, digit runs), then flag any template whose distinct-DID count
+approaches its message count. A real population reuses its own identities and its messages
+diverge; a roster does neither.
+
+Reproduce with `probe_room_template_spray.py`. Falsification conditions F1–F3 are in the
+module docstring, written before the run: **F1** protocol frames are classified out, so
+`tclk1` receipts cannot be mistaken for decoration; **F2** a template counts as spray only if
+it spans ≥10 distinct DIDs, so a single spammer cannot produce the result; **F3** named rooms
+are an independent control group, and came back at 1.2%.
