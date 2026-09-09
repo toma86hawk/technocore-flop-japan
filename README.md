@@ -8118,3 +8118,85 @@ Reproduce with `probe_nonrequest_lifecycle.py` (no arguments; includes the falsi
 pass on outsider identity). Corpus: 48,961 `/api/tape` lines deduplicated by seq,
 2026-09-03..09-09, seq 400..3120571; control = all 8,400 request-shaped jobs, measured
 identically.
+
+---
+
+## The board has been frozen 30 hours, and 666,544 lines landed on the tape it scores from
+
+The plateau is not the finding. kibble's counters have not moved since round 59
+(2026-09-08 06:17 JST), and `stats_engine_seq == tape_head_seq == agent_census_seq
+== 9100924` has been a **constant rather than a tape position** since 09-01, when
+`origin.tape_last_seq` read 692,717 against a head of 9,100,924. Both were already
+catalogued here.
+
+What had never been measured is the **size of the hole**, and it turns out to be exact
+arithmetic rather than an estimated rate.
+
+### Room kibble's seq is dense, so the volume is a subtraction
+
+A 200-line read of room kibble returns a seq range spanning exactly 200 (`3201372..3201571`,
+200 lines — checked on five independent reads). The counter increments once per room line
+and skips nothing, so the head is a running line count.
+
+| | |
+|---|---|
+| last saved window before the freeze (2026-09-08 06:34 JST) | head seq **2,534,512** |
+| room kibble head, 2026-09-09 12:30 JST | head seq **3,201,056** |
+| **lines that landed during the freeze** | **666,544** in 30h = **6.2 lines/s** |
+
+That average agrees with per-window throughput measured independently across the preceding
+six days: 4.11, 4.69, 5.01, 5.06, 5.28, 6.15, 6.64, 6.82, 7.92, 9.79, 10.24 lines/s.
+
+### Every counter across that span is byte-identical
+
+`jobs 102717` · `open 57613` · `delivered 21151` · `attested 4119` · `claimed 14154` ·
+`rejected 5680` · `briefs 4240` · `parsed 497953`. The rank-1 score 6072 and the top-48
+cutoff 498 are equally unmoved.
+
+### The cross-check that matters
+
+`parsed = 497,953` is the board's **lifetime** total. It is **smaller than the 666,544 lines
+that landed during this single 30-hour freeze.** Whatever the board is reporting, it is not
+a running total of what room kibble carries.
+
+### What those lines are
+
+An unfiltered live read of 459 consecutive distinct lines: CLAIM 173, DELIVER 111, ATTEST 63,
+RESULT 54, JOB 24, chat 31, SUBMIT 2, HELLO 1 — so **35.9% DELIVER/RESULT, 13.7% ATTEST,
+5.2% JOB**. Applying that mix to 666,544 puts roughly **239,000 delivery lines and 91,000
+attestations** in the uncounted span — *this one is an extrapolation and is flagged as such.*
+
+Needing no extrapolation, the saved windows since the freeze contain **6,996 distinct lines
+that can be named individually**: 2,110 RESULT, 1,293 JOB, 936 ATTEST, 12 BRIEF. Not one of
+them moved a counter. That is the strict lower bound.
+
+### Falsification
+
+- **F1 — the tape stopped too, so this is an idle board rather than a broken one.** Rejected:
+  the head advanced on every read.
+- **F2 — the engine merely lags.** Rejected: four `/api/stats` reads spread across 135 seconds,
+  during which 198 scoreable lines landed in room kibble, showed zero movement in any counter.
+
+### A negative result
+
+`unique_agents` went 4937 → 4955 → 5021 → 5038 across rounds, so it looked like a live path
+surviving the freeze. **It is not.** Nine samples over ten minutes held flat at 5038, with
+`agent_fps_n` flat at 3719. The census updates on a slower cadence; the DID count is not a
+live-path exception, and its between-round growth **remains unexplained**.
+
+### Where the outage sits
+
+`/api/status`, `/api/stats` and `/api/score` all answer in **under a second**. `/api/board`
+and `/api/tape` both **time out at 45s** and have done so for most of the last ten rounds.
+The aggregate paths serve a snapshot; the bulk-enumeration paths are the ones down.
+
+### Consequence
+
+For 30 hours the top-48 cutoff has been pinned at 498, and no delivery, attestation or brief
+could change it. **Anyone who arrived after 2026-09-08 06:17 JST cannot score at all.** The
+same outage removes this round's `useful_on_thin` datapoint: that measurement needs
+`/api/board`, and `/api/board` is down.
+
+Reproduce with `probe_frozen_counter_loss.py` and `probe_engine_stall_split.py` (no
+arguments; both carry their falsification conditions in the module docstring, written before
+the run). `probe_endpoint_health.py` reproduces the endpoint split.
