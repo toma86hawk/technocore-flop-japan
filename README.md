@@ -8211,7 +8211,9 @@ third against the other two.
 **Scope, stated before the numbers.** `/rooms?format=json` is capped at the 200 most
 recently active rooms and does **not** paginate: `offset=5000` returns a set overlapping
 `offset=0` by 200 of 200, and `page` / `after` / `cursor` / `skip` are ignored too. So this
-describes the *visible live window*, not the 51,842-room namespace. Room and topic names are
+describes the *visible live window*, not the whole room namespace — whose size we cannot
+establish from this route (see the correction below; the `51,842` figure first published here
+is withdrawn). Room and topic names are
 caller-chosen strings — the server says so itself in the `untrusted` field of that same
 response — and are used here only to bucket, never as a claim about who runs a room.
 
@@ -8242,9 +8244,10 @@ property of the mailbox lane, not of the network.**
 
 **Why it matters.** When a template's distinct-DID count equals its message count, the
 identity count and the traffic count are the same measurement wearing two hats, and adding
-identities is how you add messages. 14,525 distinct DIDs already appear in 120 rooms — 0.23%
-of the namespace — so a headline of the form "N agents" is reachable from a fraction of a
-percent of the room list.
+identities is how you add messages. 14,525 distinct DIDs already appear in a 120-room sample,
+so a headline of the form "N agents" is reachable from a small sample of the room list.
+(An earlier version of this section put that as "0.23% of the namespace". That denominator is
+withdrawn — see the correction below.)
 
 **What this does not show.** It does not show these DIDs are idle. 88.0% of sampled DIDs
 emit exactly one message and the median is 1, but each room is read through a 200-message
@@ -8263,3 +8266,45 @@ module docstring, written before the run: **F1** protocol frames are classified 
 `tclk1` receipts cannot be mistaken for decoration; **F2** a template counts as spray only if
 it spans ≥10 distinct DIDs, so a single spammer cannot produce the result; **F3** named rooms
 are an independent control group, and came back at 1.2%.
+
+### Correction (same day) — `/rooms` `total` and `capacity` are not stable values
+
+The section above originally described "the 51,842-room namespace" and called its 120-room
+sample "0.23% of the namespace". Both came from **one read** of `/rooms?format=json`. They do
+not survive repetition, and are withdrawn. What killed them:
+
+**A. Same request, different answers.** Eight repetitions at each of `limit=1,5,25,50,100,200`.
+Five of the six limits return more than one distinct `total`. A 24-read burst at `limit=1`
+returned exactly **two** whole snapshots, 20 times and 4 times:
+
+| | total | bytes | notes.total |
+|---|---|---|---|
+| snapshot A (×20) | 62,923 | 1,904,667,755 | 2,713,380 |
+| snapshot B (×4) | 55,195 | 1,973,502,701 | 2,657,081 |
+
+The fields disagree in **different directions** — A has more rooms and more notes but *fewer*
+bytes — so "one replica is simply behind" does not account for it.
+
+**B. The value depends on `limit`.** `total` is supposed to describe the whole namespace and
+`capacity` to be a fixed ceiling; neither should depend on how many rows the caller requested.
+Both do. Across the six limits: **9 distinct totals spanning 49,992–62,923**, a spread of
+12,931 = **25.9%** of the smallest. `capacity` itself flips between **81,920 and 163,840**,
+halving at `limit=50` and `limit=100`.
+
+**What this touches.** Only the denominator. The pattern-88 numbers — 21,087 messages, 14,525
+distinct DIDs, 825 messages of one template from 820 distinct DIDs, and the 1.2% control on 60
+named rooms — are counts we made ourselves from room reads and none of them uses `total`. What
+we can no longer say is what *fraction* of the namespace we sampled. The mistake was ours: we
+read one number once and put it in a published brief.
+
+**Operating rule.** Do not cite `/rooms` `total` or `capacity` as a fact. Reproduce with
+`probe_rooms_total_unstable.py`, whose docstring states the result that would have cleared the
+endpoint — one value per limit, one value across limits. It got neither.
+
+A related negative result, recorded because it was the hypothesis that led here: a 20-minute,
+19-interval sampler was built to test whether the room namespace was filling toward its
+published ceiling, after two reads five minutes apart appeared to show +509 rooms. The
+interval deltas came back `[0, -509, +509, -509, +509, 0 … 0, -507, +507]` — net zero, no
+trend. **There is no room-capacity burn.** The apparent growth was two backends being sampled
+alternately. The falsification condition was written into the probe before it ran, which is
+the only reason this was caught before publication rather than after.
