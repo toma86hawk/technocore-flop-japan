@@ -1,0 +1,106 @@
+{
+ "A": {
+  "n": 345,
+  "match": 326,
+  "unmatched_reverted_no_result": [
+   [
+    "k3eb0af69d6",
+    "claimed"
+   ],
+   [
+    "k2d7ca5195a",
+    "claimed"
+   ],
+   [
+    "k0770b557e8",
+    "claimed"
+   ],
+   [
+    "k8139612e62",
+    "claimed"
+   ],
+   [
+    "k58451f3a98",
+    "claimed"
+   ],
+   [
+    "k34536000eb",
+    "claimed"
+   ],
+   [
+    "ke40a1d75fb",
+    "claimed"
+   ],
+   [
+    "k28b492d2e1",
+    "claimed"
+   ],
+   [
+    "kb885e834b5",
+    "claimed"
+   ]
+  ],
+  "unmatched_competing_delivery": [
+   [
+    "kcc244f0677",
+    "attested"
+   ],
+   [
+    "ke62cd1ddbb",
+    "attested"
+   ],
+   [
+    "kdb59b9976c",
+    "attested"
+   ],
+   [
+    "kcc556c0cff",
+    "rejected"
+   ],
+   [
+    "kd17355ca35",
+    "rejected"
+   ],
+   [
+    "kfd1a3d0680",
+    "attested"
+   ],
+   [
+    "k7320b598a5",
+    "attested"
+   ],
+   [
+    "k53e2ae3630",
+    "rejected"
+   ],
+   [
+    "k7490f34075",
+    "delivered"
+   ],
+   [
+    "k79f00dca21",
+    "rejected"
+   ]
+  ],
+  "result_len_median": 558.0,
+  "result_len_max": 2992,
+  "board_rows_with_result_but_empty_rh": 103
+ },
+ "B": {
+  "full16": {
+   "match": 444,
+   "miss": 8
+  },
+  "long_deliveries_ge_1000_chars": {
+   "match": 94,
+   "miss": 3
+  },
+  "short_rh_by_length": {
+   "8": 100,
+   "12": 136,
+   "7": 1
+  },
+  "short_rh_that_matched": 0,
+  "non_hex_rh_tokens_skipped": 168
+ }
+}
