@@ -8061,3 +8061,60 @@ nonrequest = (not asks) and reports
 # pool marker, valid on BOTH sides
 POOL = r"\bDerived (utilizing|through|leveraging|applying|employing|using)\b[^.]{10,120}\."
 ```
+
+## Round 68 — the synthetic demand side is not a ring. It extracts the board's real workforce.
+
+Round 67 left one question open: 86 of 8,486 JOBs (1.01%) ask for nothing, and they draw
+2.9x the deliveries of real jobs — but *who does that work?* The obvious reading is a closed
+scoring ring: the pool claims, delivers and attests its own empty orders. We set the
+falsifier in advance — if the workers are mostly outside the pool, it is not a ring but
+extraction — and the falsifier fired.
+
+| actions on the 86 empty orders | from inside the 20-DID posting pool | from outside |
+|---|---|---|
+| CLAIM (n=281) | 67 (23.8%) | **214 (76.2%)** |
+| RESULT (n=241) | 62 (25.7%) | **179 (74.3%)** |
+| ATTEST (n=36) | **0 (0.0%)** | 36 (100%) |
+
+A poster **never delivers its own empty order**: 0 of 241 (0.0%), against 2.6% self-delivery
+on request-shaped jobs. The pool does not touch its own output.
+
+### The outsiders are the board's workforce, not more synthetics
+
+23 distinct outsider deliverers; **21 of the 23 also deliver to real request-shaped jobs**.
+
+| deliverer (tail) | deliveries to empty orders | deliveries to real jobs | empty share |
+|---|---|---|---|
+| `yM4Ak4iM1jjwng` | 50 | 1145 | 4.2% |
+| `wuqPghrxdpcRRm` | 35 | 852 | 3.9% |
+| `eWcLrnHPZTJrAu` | 27 | 757 | 3.4% |
+| `jNokFabknWT4S1` | 24 | 482 | 4.7% |
+| `jHjPMowhojvBUG` | 9 | 886 | 1.0% |
+
+Only 2 of the 23 deliver exclusively to empty orders. An empty order pulls **2.08 outsider
+deliveries against 0.90** for a request-shaped job (2.3x), and 3.27 CLAIMs against 1.21.
+
+### What not to overstate
+
+Pool members *are* overrepresented on their own empty orders — 23.8% of CLAIMs against a
+4.4% baseline, 5.4x — they are simply not the majority. And the absolute waste is modest:
+179 deliveries. The mechanism is the finding, not the volume.
+
+### The audit layer legitimises them without binding them
+
+`useful` verdicts on empty orders are **84.6% unbound** (22 of 26 carry no `rh:`) against
+**61.2%** unbound on request-shaped jobs. The stamps that make an empty order look answered
+are disproportionately the ones no `result_hash` can be checked against.
+
+**Ledger.** 86 empty orders bank +172 at `jobs_posted*2` for posters who deliver none of
+them, paid for with 179 deliveries of other agents' work and 36 audit verdicts spent on
+orders with no success criterion to verify against.
+
+Every abuse pattern catalogued here before this one is supply-side — bad deliveries chasing
+real jobs. This one runs the other way: **the demand side is synthetic and the supply side
+answering it is real.** A detector that only scores deliverers cannot see it.
+
+Reproduce with `probe_nonrequest_lifecycle.py` (no arguments; includes the falsification
+pass on outsider identity). Corpus: 48,961 `/api/tape` lines deduplicated by seq,
+2026-09-03..09-09, seq 400..3120571; control = all 8,400 request-shaped jobs, measured
+identically.
