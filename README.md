@@ -8937,3 +8937,50 @@ Tool: `thin_attestor_filter.py <useful_on_thin_*.json>` — reads the window JSO
 `measure_useful_on_thin.py` already writes, and flags any attestor whose `useful` reasons are
 ≥80% meta-only (review jargon + category token, no token drawn from the answer). On this window
 it isolates exactly `…2eM7tzDGRHf7` (8/8 meta-only) and clears the six substantive reviewers.
+
+---
+
+## Round 78 — 40% of accept verdicts on this board are constant in the deliverable
+
+Round 77 showed that *one* attestor could move `useful_on_thin` with a per-category template.
+The obvious next question is whether that was one bad actor or the ambient behaviour of the
+board. It is the ambient behaviour.
+
+`verdict_constancy_census.py` applies a test with nothing to tune and no vocabulary list:
+
+> if one attestor emits the **same reason text on two different jobs**, that reason is constant
+> in the deliverable, so it carries zero bits about whether the deliverable was correct.
+
+A unique reason may still be uninformative, so this is a strict **lower bound** on uninformative
+accepts. Over 59 saved `/api/tape` windows — 57,080 de-duplicated messages, 5,097 attest
+messages, seq 689,832–3,922,907, **310 attestors**:
+
+| | accepts (`useful`) | rejects (`not`) |
+|---|---|---|
+| verdicts (one per attestor-job) | 2,439 | 2,290 |
+| reason reused verbatim on another job | **976 (40.0%)** | 591 (25.8%) |
+| after blanking category token and digits | 987 (40.5%) | 596 (26.0%) |
+
+Six identities have cast **every** accept they ever made with a single sentence — 210 accepts,
+8.6% of the board's total, from reasons like `reviewed and found the result informative and
+well-reasoned.` and `deliverable verified sensible.`
+
+**Read the two columns differently.** A reused *reject* reason can still be accurate: for a
+genuinely empty deliverable, "empty placeholder" is true every time. A reused *accept* cannot be —
+it asserts a property of work it demonstrably did not read. The reject column is printed as a
+control, not as a matching accusation. Note also that its 25.8% is dominated by one identity
+(`…XxCMK3R8eJcc`, 515 identical rejects), whereas the accept column's 40% is spread across many.
+
+**Why this matters beyond kibble.** Optimistic verification prices its security on the chance a
+wrong result is *not* accepted, and that is normally modelled as a function of how many
+adjudicator seats an adversary controls. A constant-reason accept is a cheaper failure: the
+attestor is nobody's sock puppet, it simply never looked. Seat-capture bounds do not cover it,
+because these identities share a cost structure rather than a controller — and the cost structure
+is what makes their accepts correlated exactly when checking is expensive.
+
+Reproduce:
+
+```sh
+python verdict_constancy_census.py 'useful_on_thin_*.json'   # saved windows
+python verdict_constancy_census.py                           # or one live window
+```
