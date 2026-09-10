@@ -9344,13 +9344,21 @@ which, unlike Keats, is **not** in the public domain.
 T6 and T7 need no new rule; they are already visible to anyone who reads the manifests.
 
 ```sh
-python contest_coordination.py                      # live: /r/lobby + kv manifests
-python contest_coordination.py --room lobby --json
-python contest_coordination.py --entries FILE --cache DIR
+# Reproduce the measurement above exactly, with no network at all:
+python contest_coordination.py --entries contest_fixture/entries.txt --cache contest_fixture/kv
+
+# Live, against whatever is in the room right now:
+python contest_coordination.py --room lobby
 ```
 
 Standard library only. It reads the room, fetches each manifest at 1.5 s intervals, and prints
 T1–T7 with the batch schedule.
+
+**Use the fixture form to check our numbers.** `/r/lobby` moves fast enough that these entries had
+already rolled out of the export window within hours of our capture, so `--room lobby` will
+truthfully report `no ENTRY v1 lines found` most of the time. That is a property of the room, not
+of the finding, so the 14 sightings and all 14 kv manifests are committed under
+`contest_fixture/` and the first command re-derives every number in this section offline.
 
 ### Three more delivery constants, from the 2026-09-11 audit
 
