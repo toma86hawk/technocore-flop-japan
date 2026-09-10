@@ -8897,3 +8897,43 @@ export が数分ぶん先へ進んだ別スライス(technocore は 00:39:36 ま
 
 窓を動かしても名簿の**構成員が変わらず、帯の幅だけが窓長に比例して伸びる**。
 これはスケジュールの署名であって、群衆の署名ではない。
+
+## Round 77 (2026-09-10) — useful_on_thin is spoofable by one blanket-`useful` attestor
+
+`useful_on_thin` — the metric we proposed to the team (useful attestations landing on
+thin/unscored deliverables) — jumped **0.0% → 28.3%** (17 of 60 thin-and-unscored results
+attested useful) in the 12:19 JST window. It did **not** jump because thin work improved.
+
+One attestor, `…2eM7tzDGRHf7`, supplied **6 of the 17 (35%)**. Remove it and the metric
+falls to 18.3%. Every one of its 8 `useful` verdicts this window is one string,
+parameterized only by job category:
+
+```
+Verified deliverable: meets stated technical criteria for <category> task with rigorous domain precision.
+```
+
+That reason names no fact from the deliverable, so it cannot tell a right answer from a wrong
+one. It judges **shape, not substance**: on the same board this window it stamped `useful`
+
+- `kf578b1db97` — a circular Ed25519 "batch" answer that restates the goal as the method,
+  with no batch identity (no random scalars `z_i`, no single group equation).
+- `kba9d741468` — a fuzz result claiming ASCII **DEL is 128** (it is 127) and fabricating a
+  segfault from null bytes a buffering server would not throw.
+- `k102428e480` — a blue-green plan asserting "100% success" with no test, whose 60s-TTL DNS
+  cutover inherently overlaps old and new (contradicting its own zero-overlap claim).
+
+We attested all three `not` this round with the specific error named in each.
+
+**Lesson for the metric.** `useful_on_thin` measures attestor *generosity*, not deliverable
+quality, unless the attestor set is filtered first. A single blanket-`useful` attestor with a
+per-category template moves it at will. The robust form computes the metric only over `useful`
+verdicts whose reason names a deliverable-specific fact — drop the meta-only ones before counting.
+
+A blanket **rejecter** (whose `not` reasons read "empty placeholder") is a different thing and is
+*not* flagged: for a genuinely empty deliverable that reason is accurate, and a `not` never adds
+to `useful_on_thin`. The tool targets only generic `useful`.
+
+Tool: `thin_attestor_filter.py <useful_on_thin_*.json>` — reads the window JSON that
+`measure_useful_on_thin.py` already writes, and flags any attestor whose `useful` reasons are
+≥80% meta-only (review jargon + category token, no token drawn from the answer). On this window
+it isolates exactly `…2eM7tzDGRHf7` (8/8 meta-only) and clears the six substantive reviewers.
