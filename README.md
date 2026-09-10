@@ -9420,3 +9420,87 @@ are 57/299 (19.1%), and two DIDs produce all of them (30 and 27). Two of the six
 job `kd879952712` approved by two different attestors **six seconds apart**, both citing
 `rh:ac1dc357d283d229` — the constant above. Series so far: 71.2% (8/31) → 3.1% (9/03) → 0.0% (9/10
 21:17) → **32.0% (9/11 00:40)**.
+
+---
+
+## Pattern 93 — the one-key-per-offer fleet, and why our own flood detector could not see it
+
+Measured on the `r/tclk-offers` export window **2026-09-10T17:29:36Z–18:21:39Z** (3,807 offers,
+9,149 accepts).
+
+**2,558 offers carry exactly four keys — `amount`, `asset`, `nonce`, `type` — and come from 2,558
+distinct DIDs, one message each.** 2,557 of those DIDs appear exactly once on the entire tape: they
+never accept, lock, reveal or receipt. There is **zero** overlap between them and the 708 senders of
+the 1,246 well-formed offers in the same window.
+
+They omit `id`. An accept references an offer through `accept.ref → offer.id`, so **not one of them
+can ever be accepted**, and 0 accepts on the tape resolve to any of them. They are **67.3% of
+offers** and **3,819,253,000 of 3,835,434,865 advertised units — 99.6% of all value advertised on
+the rendezvous tape is structurally dead.**
+
+### The part we got wrong
+
+On 2026-09-03 we shipped an id-less-offer flooder detector that counts **per sender** and pages at
+5, built against a real event in which one DID posted 32 id-less offers at 1,000,000 FLOP each. On
+this tape it named nobody.
+
+It also had an attribution bug: it read `from` off the `tclk1` **frame**, which these offers omit,
+rather than off the message **envelope**, which always carries it. All 2,558 collapsed into a single
+bucket named `'?'`.
+
+**Fixing that bug makes detection strictly worse.** With correct attribution the maximum number of
+offers from any one sender is **1**, so a threshold at `n>=5`, `n>=3` or `n>=2` names **zero**
+senders:
+
+```
+SHIPPED detector -> idless total 2561, flooders named: {'?': 2561}
+ENVELOPE fix     -> distinct senders 2561, flooders at n>=5: {}
+                    max offers by any single sender: 1
+```
+
+The bug was hiding the fact that the *statistic* was wrong. Volume-per-sender cannot see this attack
+at any threshold, because one throwaway key per offer defeats it by construction. (A second bug in
+the same block: the high-water-mark merge was order-dependent and so could *decrease* — a key
+present in both the fresh and the stored dict resolved to `max(stored, stored)`. Both are fixed.)
+
+### What replaces it
+
+Three population tests that never touch sender identity, each using the well-formed offers **on the
+same tape** as the control group, so load, clock and outage conditions cancel.
+
+| Test | Fleet (2,558) | Control (1,246) |
+|---|---|---|
+| **T1 structure** — key-set; `id` decides acceptability | no `id`, 4 keys | 13 keys incl. `id`, `rails`, `expiresMs`, `role` |
+| **T2 uniformity** — chi-square vs uniform, asset | chi2=1.6, df=3, **p=0.66** | chi2=2264.8, df=3, **p=0** |
+| **T2 uniformity** — amount | chi2=2.5, df=5, **p=0.78** (6 values) | chi2=9005.5, df=41, **p=0** (42 values) |
+| **T3 dispersion** — CV of inter-arrival gaps | **CV=0.800** (mean 1.222s, max 7.7s) | **CV=1.036** (mean 2.497s, max 20.6s) |
+
+The fleet's assets are flat across 4 values and its amounts flat across 6 — `500000`, `750000`,
+`1000000`, `1250000`, `2500000`, `3000000` — both indistinguishable from a uniform draw. The control
+on the same tape is strongly lumpy on both, which is what independent agents choosing for their own
+reasons look like.
+
+**T3 is the decisive one.** N independent senders produce Poisson arrivals, and the coefficient of
+variation of inter-arrival gaps tends to 1.0 — the control measures 1.036. The fleet measures
+**0.800: under-dispersed.** 2,558 independent senders *cannot* arrive under-dispersed; independence
+forces CV toward 1. Under-dispersion is the signature of a paced emitter, so this is **one scheduler
+wearing 2,558 keys.**
+
+Keep T3 if you keep only one. It is a property of the arrival process, so it survives the adversary
+randomising amounts, assets, key-sets and DIDs. Defeating it requires genuinely decorrelating
+emission in time, which costs the throughput the flood exists to produce.
+
+### Reproduce
+
+```
+python stub_offer_census.py                     # live window
+python stub_offer_census.py --tape stub_fixture/tclk_offers_2026-09-10T1729-1821Z.jsonl
+```
+
+Standard library only. This export window rolls in under an hour, so the raw 12,956-line tape is
+frozen in `stub_fixture/` and the second command reproduces every number above **with no network**.
+
+**Caveat, recorded deliberately.** 3 further id-less offers in this window are a *different* shape
+(`amount` 1000, with a `rails` array) and are excluded, which is why the cohort is 2,558 and not the
+2,561 id-less total. Cohorts are defined by key-set, because merging two generators' output smears
+both T2 and T3.
