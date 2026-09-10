@@ -8984,3 +8984,96 @@ Reproduce:
 python verdict_constancy_census.py 'useful_on_thin_*.json'   # saved windows
 python verdict_constancy_census.py                           # or one live window
 ```
+
+---
+
+## Round 79 — the unanimity bound cubes a number that does not exist
+
+The FLOP yellowpaper (v0.5.0, published 2026-09-10) bounds seat capture in R3.5d by `q^3`, and
+open item E.45 leaves the "correct adjudication" factor of `p_effective` as `[TBD]`. Discussion on
+that open item has converged on a closed form for three unanimous checkers:
+
+```
+P(unanimous accept | bad work) = (q + (1-q)*s)^3
+```
+
+with `q` the adversary's selection share and `s` the honest accept-on-bad rate. The composition is
+right. The premise underneath it is not: cubing a single `s` is only valid if every seat is a draw
+from the same `Bernoulli(s)`. Under VRF sampling the seats are draws from a **population**, so the
+object is
+
+```
+P(unanimous accept | bad work) = E_p[ (q + (1-q)*p)^3 ]
+```
+
+and by Jensen the population form is always at least the scalar form. Cubing the mean is never
+conservative. Only the magnitude is empirical, so `seat_heterogeneity.py` measures it.
+
+Corpus: the same 59 saved `/api/tape` windows as round 78 — 57,080 de-duplicated messages, 5,126
+parsed `ATTEST v1` lines, seq 689,832–3,922,907, 312 attestors, 4,756 distinct (attestor, job)
+pairs. `p_i` = accepts / verdicts per attestor.
+
+**The seat population is bimodal.** Accept-rate deciles over the 134 seats with ≥5 verdicts:
+
+| bin | .0–.1 | .1–.2 | .2–.3 | .3–.4 | .4–.5 | .5–.6 | .6–.7 | .7–.8 | .8–.9 | .9–1.0 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| seats | 16 | 11 | 23 | 27 | 14 | 9 | 4 | 2 | 4 | 24 |
+
+`E[p] = 0.4396`, and the two largest bins are the two extremes. There is no `s` to cube.
+
+| q | scalar `(q+(1-q)E[p])^3` | population `E[(q+(1-q)p)^3]` | understatement |
+|---|---|---|---|
+| 0.00 | 0.0849 | **0.2357** | 2.78x |
+| 0.10 | 0.1217 | 0.2557 | 2.10x |
+| 0.25 | 0.1948 | 0.3002 | 1.54x |
+| 0.50 | 0.3729 | 0.4289 | 1.15x |
+
+Seats with ≥10 verdicts (n=106): 0.1073 → 0.2574, 2.40x at `q=0`. Volume-weighted rather than
+identity-weighted: `E[p] = 0.5173`, scalar 0.1384, population 0.3539, 2.56x.
+
+**The direction of that column is the finding.** The scalar model is least conservative exactly
+where `q` is smallest — off by 15% at `q=0.50`, off by a factor of 2.8 at `q=0`. The regime where
+the bound is most wrong is the honest-majority regime the protocol assumes it operates in.
+
+Caveat: `p_i` is the accept rate over whatever work each attestor saw, not accept-on-bad.
+Transferring 2.78x to `s` assumes per-seat accept-on-bad is monotone in per-seat accept rate. The
+*direction* assumes nothing — Jensen holds for any heterogeneous population, and what the
+measurement establishes unconditionally is that this population is heterogeneous, so a single `s`
+is not a sufficient statistic for it.
+
+### Filtering "constant-verdict" checkers out of the sampling pool does not work
+
+The remediation proposed against round 78's constancy finding is to drop checkers with a uniform
+verdict history from the VRF pool, testing uniformity on the verdict **text**. Text constancy and
+*accept* constancy are different properties, and the gap is measurable.
+
+Of the 134 seats with ≥5 verdicts, **20 (14.9%) have never once rejected** — 1,236 verdicts, zero
+dissents. Of those 20, **16 (80.0%) emit more than one distinct reason text**, so they pass any
+constancy or entropy test on the text. Only 4 are caught.
+
+| seat | verdicts | rejects | distinct reason texts | leaderboard |
+|---|---|---|---|---|
+| `…69ddcEaX7nZ7` | 233 | 0 | 166 | unranked |
+| `…aUHusBDRVoRz` | 119 | 0 | **119** | **rank 10**, score 1930 |
+| `…qTUNdSro7iDF` | 50 | 0 | 1 | rank 19, score 1164 |
+
+`…aUHusBDRVoRz` has never repeated a sentence and never rejected anything: maximal text entropy,
+zero information. The one seat a text filter *does* catch, `…qTUNdSro7iDF`, is the cheapest to
+detect and the least consequential. And the gate is cheap to buy past from the other side too — a
+"must have dissented at least once" rule costs an always-accept seat **one reject out of a median
+50-verdict history, 2.00%**, and that reject can be spent on an obviously empty deliverable where
+it is also the correct verdict.
+
+Any threshold on the public observable is a threshold the seat can satisfy for far less than the
+cost of re-execution, which is the asymmetry the whole problem is about. Worse, conditioning seat
+eligibility on public verdict history makes assignment a function of a signal the seat controls.
+Pricing the accept — making it carry a value obtainable only by re-running — removes the dependence
+on detection entirely; filtering never does.
+
+Reproduce:
+
+```sh
+python seat_heterogeneity.py 'useful_on_thin_*.json'
+```
+
+Filed as a comment on <https://github.com/flop-labs/yellowpaper/issues/3>.
