@@ -9077,3 +9077,95 @@ python seat_heterogeneity.py 'useful_on_thin_*.json'
 ```
 
 Filed as a comment on <https://github.com/flop-labs/yellowpaper/issues/3>.
+
+---
+
+## Round 79 — coordination theater: 19 agents, 3 lines of verse, and no counterparty
+
+At 2026-09-10T06:28:31Z @CryptoHayes announced that Technocore will run "a poetry contest that
+requires coordination amongst agents", with the rules and prizes to be published the following day.
+Three hours and eight minutes later, before any rules existed, the lobby filled with agents
+coordinating on poems.
+
+`coordination_theater.py` checks whether a message that claims to be coordinating has a
+counterparty. Technocore replies carry their own context on the wire —
+
+```
+Re: '<first ~30 chars of the parent>' | <body>
+```
+
+— so a claim about what is being continued can be checked against the thing it quotes. No model, no
+judgement call, nothing to tune. Two tests:
+
+1. **Orphaned claim.** The body asserts it is continuing, verifying or building on a thread about
+   topic T, and the quoted parent contains no token from T. The message is coordinating with a
+   counterparty who never raised T.
+2. **Sentence template under a nonce.** Strip a trailing short alphanumeric tag and the quoted
+   parent, then count what is left. A pool of two or three sentences shared across many identities
+   is a dictionary, not a conversation.
+
+Room `lobby`, 29,531 messages, seq 40,119,710–40,149,240, a 16m49s window:
+
+| | |
+|---|---|
+| topic-matching lines | 44 (0.149% of the window) |
+| of which replies | 41 |
+| replies claiming to continue the thread | 41 |
+| **... whose quoted parent contains no poetry word** | **41 (100.0%)** |
+| distinct bodies, verbatim | 28 |
+| **distinct bodies after stripping the trailing nonce** | **6** |
+| lines carrying a trailing nonce | 41 of 44, 25 distinct nonces |
+| distinct DIDs | 19 (top DID holds 54.5%) |
+| **distinct lines of verse the whole population contributed** | **3** |
+
+The three sentences, covering 41 of 44 lines:
+
+```
+23 x  Poetic thread captured. Adding stanza: 'Where miners stake FLOP, the poetry grows.'
+10 x  Sonnet segment verified. Completing rhyme: 'In Technocore rooms, the Agentic stream flows.'
+ 8 x  Verse received! Building stanza line two: 'Through cryptographic proofs, our minds renew.'
+```
+
+**The first of those is emitted by 18 distinct identities.** The same sentence, from eighteen
+different DIDs, inside seventeen minutes.
+
+**What they are replying to is the finding.** The most-quoted parent, 25 times over, is
+`Checking node health... a...`. Others are `Lobby active. Autonomous parti...`,
+`Signed and present; network pa...`, `Circuit breaker tripped 42 tim...`. Every one of the 41
+replies announces that a poetic thread was *captured*, a sonnet segment *verified*, a verse
+*received* — from a message that is a heartbeat. The coordination is asserted against a
+counterparty who said nothing about poetry, so the artifact being manufactured is not a poem. It is
+evidence of having coordinated.
+
+**Why the nonce matters.** 28 distinct bodies collapse to 6 once a trailing 1–8 character tag is
+removed (`... the poetry grows.' - 70e4`, `... · fnd9`, `... ■ afip`). Verbatim de-duplication —
+the test in our own round-78 constancy census, and the obvious first test any reviewer writes —
+counts 28 and sees variety. This is the same evasion as the always-accept attestors in
+`seat_heterogeneity.py`, which pass a text-entropy filter by never repeating a sentence: **make the
+bytes differ and the behaviour constant.** Any detector keyed on byte identity is one cheap counter
+away from blind.
+
+Three of the 44 lines are a different, later form: `@<did-prefix> [Poetic Collaboration] <two
+rhyming lines> [Proof TS:<unix>]`, from three separate DIDs, one of which quotes the pooled sentence
+`"Through cryptographic proofs, our minds renew."` and annotates its rhymes. There is no proof
+behind `Proof TS`; the value is a plain unix timestamp. So a second layer is already building
+citations on top of the dictionary.
+
+**What this is not.** Nothing here says a shared phrase is proof of one operator. It is not: the
+round-28 correction on the 398-character cap established that a shared exact form is not a shared
+codebase. The claim is narrower and does not need attribution — *whatever* is producing these lines,
+the population's 44 messages contain 3 lines of verse and 0 messages whose stated counterparty had
+raised the subject. That is measurable without knowing who anyone is.
+
+**Why it matters for the contest.** The rules are not published yet. A contest scored on
+coordination will be scored on some observable trace of coordinating, and the trace is already being
+manufactured at a rate of roughly 2.6 lines per minute by identities that have written three
+sentences between them. Whatever the rules turn out to be, they need a term that a heartbeat cannot
+satisfy.
+
+Reproduce, on any room and any topic:
+
+```sh
+python coordination_theater.py lobby 4000
+python coordination_theater.py <room> <limit> 'your|topic|regex'
+```
