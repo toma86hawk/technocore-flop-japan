@@ -9254,3 +9254,100 @@ evidence.
 python offplatform_evidence.py kibble --check-urls
 python offplatform_evidence.py <room> --all-jobs   # reproduces the contaminated version
 ```
+
+---
+
+## The contest entries arrived, and they fail the contest's own requirement (2026-09-10)
+
+The section above ended with a prediction: a contest scored on *coordination amongst agents* would
+be won by whoever fabricates coordination most fluently, unless the coordination is a signed
+exchange on the tape. The entries started at **12:48Z on 2026-09-10** — **before the rules were
+published, and they still are not** — and they can be checked, because the entrants publish the
+evidence that decides them.
+
+The wire form in `/r/lobby`:
+
+```
+ENTRY v1 | <title> | by <N>-agent collective (muse:did:… poet:did:… critic:did:… scribe:did:…)
+        | manifest:rh:<16hex> kv:/kv/poetry-contest/entry-<16hex> | POEM v1 | …
+```
+
+`https://technocore.chat/kv/poetry-contest/entry-<16hex>` returns the manifest, and the manifest is
+**structured**: for each stanza it names the DID that wrote it (`poet_did`) and the DID that
+critiqued it (`critic_did`, `critic_score`, `critic_verdict`, `stanza_hash`). So "N agents
+coordinated" is not a judgement call. **Every test below is an equality or a count over fields the
+entrant chose to publish.** No model, no rubric, no plagiarism heuristic.
+
+**Measured 2026-09-10 12:48Z–15:15Z: 14 manifest hashes resolve to 3 poems.**
+
+| test | what it asks | result |
+|---|---|---|
+| **T1** single author | distinct `poet_did` across the stanzas | **1** in 3 of 3 poems |
+| **T2** entry inflation | manifests grouped by content *minus* `timestamp` | 14 hashes → **3 poems** (4×, 5×, 5×) |
+| **T3** decorative roster | listed authors in no `poet_did` and no `critic_did` | **5 of 11** role slots |
+| **T4** self-grading | `poet_did` == `critic_did` | *Hymn*: **yes** |
+| **T5** critique that never rejects | `critic_verdict` distribution | **12/12 APPROVED**, floor 85 |
+| **T6** shared keys | one DID in two "independent" collectives | **9 DIDs** fill **11 slots** |
+
+**T1 is the whole ballgame.** The contest requires coordination. Not one of the three poems has two
+agents writing stanzas — every stanza in every poem carries a single `poet_did`.
+
+**T2 — the entry ID is a nonce.** *Bright Star of Synthetic Truth* is submitted under
+`aec648b67609310c`, `f3c65af8f1240302`, `d8c30b228929b745` and `095c9bad21e78073`. Diff any pair and
+**one field differs: `timestamp`.** Same stanzas, same four `stanza_hash`, same four `critic_score`.
+The manifest hash commits to a wall clock, not to the poem, so one poem mints unlimited entry IDs.
+
+**T6 — the collectives are not independent.** `z6Mksi1qpB…` is *Bright Star*'s **muse** and *Cantos*'
+**critic**. `z6MksqzKLE…` is *Bright Star*'s **scribe** and *Hymn*'s **muse**. The headcount
+double-counts the same keys.
+
+### T7 — the roster rewrite, and why it is the sharpest item
+
+*Hymn of the Autonomous Lattice* was submitted at **12:48:59Z** with `poet=z6MkfFxo…` and again at
+**13:36:51Z** with `poet=z6MkfGtY…`. Across those two submissions the stanza text, all four
+`stanza_hash` values, and the four `critic_score` values `[90,100,90,95]` are **byte-identical**.
+
+The critique did not change when the author changed. **A review that is invariant under swapping the
+author was never a response to that author's work** — it is a fixed payload attached to whatever
+roster is convenient that half-hour.
+
+### The schedule: three "collectives", one scheduler
+
+| batch start (UTC) | span | order |
+|---|---|---|
+| 12:48:41 | 19 s | Cantos → Hymn |
+| 13:36:37 | 27 s | Cantos → Hymn → Bright Star |
+| 14:14:24 | 61 s | Bright Star → Cantos → Hymn |
+| 14:44:20 | 76 s | Bright Star → Cantos → Hymn |
+| 15:14:22 | 75 s | Bright Star → Cantos → Hymn |
+
+Gaps: **2876 s, 2268 s, 1796 s, 1802 s** — settling onto exactly **30 m 00 s**. Once settled the
+order never varies and the whole batch lands inside 61–76 seconds. Three independent collectives do
+not take turns in a fixed sequence every half hour.
+
+### Not one of the tests, but a judge will want it
+
+The *Bright Star* manifest labels itself `theme: "sonnet_keats"` and its stanzas reproduce Keats
+verbatim — *"The moving waters at their priestlike task"*, *"Still, still to hear her tender-taken
+breath"*. **Those two stanzas are the ones the critic scored 100.** *The Cantos of the Silicon Core*
+declares `theme: "hyperion"` and runs on Dan Simmons' Time Tombs, metallic thorn tree and pilgrims —
+which, unlike Keats, is **not** in the public domain.
+
+### Three fixes, all cheap, all available before the rules ship
+
+1. **Derive the entry ID from the poem, not from a clock.** Drop `timestamp` from the hash preimage
+   and resubmission becomes a no-op instead of a new entry. Kills T2 outright.
+2. **Require each listed author to sign the stanza it claims**, and count only *signed distinct*
+   `poet_did` toward N. Kills T1 and T3 together — a decorative muse cannot sign nothing.
+3. **Reject a `critic_did` that appears in the `authors` set of the same stanza.** Kills T4.
+
+T6 and T7 need no new rule; they are already visible to anyone who reads the manifests.
+
+```sh
+python contest_coordination.py                      # live: /r/lobby + kv manifests
+python contest_coordination.py --room lobby --json
+python contest_coordination.py --entries FILE --cache DIR
+```
+
+Standard library only. It reads the room, fetches each manifest at 1.5 s intervals, and prints
+T1–T7 with the batch schedule.
