@@ -1,0 +1,548 @@
+{
+ "note": "Per-seat accept counts from flop-kibble ATTEST v1 lines, one verdict per (attestor, job). Attestor DIDs are omitted: the claim is about the SHAPE of the population, and no individual is being labelled. Seats with >= 5 verdicts.",
+ "corpus": {
+  "windows": 63,
+  "deduped_messages": 61080,
+  "parsed_attest_lines": 5673,
+  "distinct_attestor_job_pairs": 5265
+ },
+ "measured": "2026-09-11",
+ "seats": [
+  {
+   "accepts": 87,
+   "verdicts": 640
+  },
+  {
+   "accepts": 126,
+   "verdicts": 330
+  },
+  {
+   "accepts": 256,
+   "verdicts": 256
+  },
+  {
+   "accepts": 0,
+   "verdicts": 145
+  },
+  {
+   "accepts": 66,
+   "verdicts": 123
+  },
+  {
+   "accepts": 121,
+   "verdicts": 121
+  },
+  {
+   "accepts": 17,
+   "verdicts": 115
+  },
+  {
+   "accepts": 112,
+   "verdicts": 112
+  },
+  {
+   "accepts": 110,
+   "verdicts": 110
+  },
+  {
+   "accepts": 12,
+   "verdicts": 106
+  },
+  {
+   "accepts": 106,
+   "verdicts": 106
+  },
+  {
+   "accepts": 100,
+   "verdicts": 100
+  },
+  {
+   "accepts": 99,
+   "verdicts": 99
+  },
+  {
+   "accepts": 98,
+   "verdicts": 98
+  },
+  {
+   "accepts": 88,
+   "verdicts": 93
+  },
+  {
+   "accepts": 65,
+   "verdicts": 86
+  },
+  {
+   "accepts": 4,
+   "verdicts": 65
+  },
+  {
+   "accepts": 44,
+   "verdicts": 61
+  },
+  {
+   "accepts": 60,
+   "verdicts": 60
+  },
+  {
+   "accepts": 50,
+   "verdicts": 50
+  },
+  {
+   "accepts": 14,
+   "verdicts": 49
+  },
+  {
+   "accepts": 11,
+   "verdicts": 48
+  },
+  {
+   "accepts": 46,
+   "verdicts": 46
+  },
+  {
+   "accepts": 42,
+   "verdicts": 42
+  },
+  {
+   "accepts": 33,
+   "verdicts": 35
+  },
+  {
+   "accepts": 10,
+   "verdicts": 33
+  },
+  {
+   "accepts": 2,
+   "verdicts": 31
+  },
+  {
+   "accepts": 14,
+   "verdicts": 31
+  },
+  {
+   "accepts": 6,
+   "verdicts": 28
+  },
+  {
+   "accepts": 10,
+   "verdicts": 28
+  },
+  {
+   "accepts": 25,
+   "verdicts": 28
+  },
+  {
+   "accepts": 9,
+   "verdicts": 28
+  },
+  {
+   "accepts": 7,
+   "verdicts": 27
+  },
+  {
+   "accepts": 12,
+   "verdicts": 27
+  },
+  {
+   "accepts": 7,
+   "verdicts": 27
+  },
+  {
+   "accepts": 12,
+   "verdicts": 26
+  },
+  {
+   "accepts": 10,
+   "verdicts": 26
+  },
+  {
+   "accepts": 13,
+   "verdicts": 26
+  },
+  {
+   "accepts": 13,
+   "verdicts": 26
+  },
+  {
+   "accepts": 10,
+   "verdicts": 26
+  },
+  {
+   "accepts": 11,
+   "verdicts": 25
+  },
+  {
+   "accepts": 6,
+   "verdicts": 25
+  },
+  {
+   "accepts": 7,
+   "verdicts": 25
+  },
+  {
+   "accepts": 11,
+   "verdicts": 25
+  },
+  {
+   "accepts": 7,
+   "verdicts": 24
+  },
+  {
+   "accepts": 7,
+   "verdicts": 24
+  },
+  {
+   "accepts": 20,
+   "verdicts": 23
+  },
+  {
+   "accepts": 9,
+   "verdicts": 23
+  },
+  {
+   "accepts": 8,
+   "verdicts": 23
+  },
+  {
+   "accepts": 7,
+   "verdicts": 23
+  },
+  {
+   "accepts": 7,
+   "verdicts": 23
+  },
+  {
+   "accepts": 6,
+   "verdicts": 23
+  },
+  {
+   "accepts": 10,
+   "verdicts": 23
+  },
+  {
+   "accepts": 5,
+   "verdicts": 23
+  },
+  {
+   "accepts": 7,
+   "verdicts": 23
+  },
+  {
+   "accepts": 5,
+   "verdicts": 22
+  },
+  {
+   "accepts": 6,
+   "verdicts": 22
+  },
+  {
+   "accepts": 6,
+   "verdicts": 22
+  },
+  {
+   "accepts": 7,
+   "verdicts": 22
+  },
+  {
+   "accepts": 6,
+   "verdicts": 22
+  },
+  {
+   "accepts": 9,
+   "verdicts": 22
+  },
+  {
+   "accepts": 4,
+   "verdicts": 22
+  },
+  {
+   "accepts": 6,
+   "verdicts": 22
+  },
+  {
+   "accepts": 7,
+   "verdicts": 21
+  },
+  {
+   "accepts": 10,
+   "verdicts": 21
+  },
+  {
+   "accepts": 7,
+   "verdicts": 21
+  },
+  {
+   "accepts": 6,
+   "verdicts": 21
+  },
+  {
+   "accepts": 5,
+   "verdicts": 21
+  },
+  {
+   "accepts": 20,
+   "verdicts": 20
+  },
+  {
+   "accepts": 3,
+   "verdicts": 20
+  },
+  {
+   "accepts": 7,
+   "verdicts": 20
+  },
+  {
+   "accepts": 7,
+   "verdicts": 20
+  },
+  {
+   "accepts": 10,
+   "verdicts": 20
+  },
+  {
+   "accepts": 8,
+   "verdicts": 20
+  },
+  {
+   "accepts": 6,
+   "verdicts": 20
+  },
+  {
+   "accepts": 7,
+   "verdicts": 20
+  },
+  {
+   "accepts": 7,
+   "verdicts": 20
+  },
+  {
+   "accepts": 12,
+   "verdicts": 19
+  },
+  {
+   "accepts": 7,
+   "verdicts": 19
+  },
+  {
+   "accepts": 9,
+   "verdicts": 19
+  },
+  {
+   "accepts": 9,
+   "verdicts": 19
+  },
+  {
+   "accepts": 6,
+   "verdicts": 19
+  },
+  {
+   "accepts": 8,
+   "verdicts": 19
+  },
+  {
+   "accepts": 18,
+   "verdicts": 18
+  },
+  {
+   "accepts": 5,
+   "verdicts": 18
+  },
+  {
+   "accepts": 5,
+   "verdicts": 18
+  },
+  {
+   "accepts": 16,
+   "verdicts": 17
+  },
+  {
+   "accepts": 3,
+   "verdicts": 17
+  },
+  {
+   "accepts": 1,
+   "verdicts": 17
+  },
+  {
+   "accepts": 4,
+   "verdicts": 17
+  },
+  {
+   "accepts": 8,
+   "verdicts": 17
+  },
+  {
+   "accepts": 8,
+   "verdicts": 17
+  },
+  {
+   "accepts": 1,
+   "verdicts": 16
+  },
+  {
+   "accepts": 0,
+   "verdicts": 16
+  },
+  {
+   "accepts": 7,
+   "verdicts": 16
+  },
+  {
+   "accepts": 3,
+   "verdicts": 15
+  },
+  {
+   "accepts": 2,
+   "verdicts": 15
+  },
+  {
+   "accepts": 12,
+   "verdicts": 13
+  },
+  {
+   "accepts": 0,
+   "verdicts": 13
+  },
+  {
+   "accepts": 1,
+   "verdicts": 13
+  },
+  {
+   "accepts": 12,
+   "verdicts": 12
+  },
+  {
+   "accepts": 2,
+   "verdicts": 12
+  },
+  {
+   "accepts": 11,
+   "verdicts": 11
+  },
+  {
+   "accepts": 11,
+   "verdicts": 11
+  },
+  {
+   "accepts": 4,
+   "verdicts": 11
+  },
+  {
+   "accepts": 1,
+   "verdicts": 10
+  },
+  {
+   "accepts": 0,
+   "verdicts": 8
+  },
+  {
+   "accepts": 7,
+   "verdicts": 7
+  },
+  {
+   "accepts": 5,
+   "verdicts": 7
+  },
+  {
+   "accepts": 2,
+   "verdicts": 7
+  },
+  {
+   "accepts": 2,
+   "verdicts": 7
+  },
+  {
+   "accepts": 0,
+   "verdicts": 7
+  },
+  {
+   "accepts": 0,
+   "verdicts": 6
+  },
+  {
+   "accepts": 1,
+   "verdicts": 6
+  },
+  {
+   "accepts": 2,
+   "verdicts": 6
+  },
+  {
+   "accepts": 0,
+   "verdicts": 6
+  },
+  {
+   "accepts": 0,
+   "verdicts": 6
+  },
+  {
+   "accepts": 2,
+   "verdicts": 6
+  },
+  {
+   "accepts": 1,
+   "verdicts": 6
+  },
+  {
+   "accepts": 6,
+   "verdicts": 6
+  },
+  {
+   "accepts": 2,
+   "verdicts": 6
+  },
+  {
+   "accepts": 1,
+   "verdicts": 6
+  },
+  {
+   "accepts": 4,
+   "verdicts": 5
+  },
+  {
+   "accepts": 0,
+   "verdicts": 5
+  },
+  {
+   "accepts": 1,
+   "verdicts": 5
+  },
+  {
+   "accepts": 1,
+   "verdicts": 5
+  },
+  {
+   "accepts": 1,
+   "verdicts": 5
+  },
+  {
+   "accepts": 1,
+   "verdicts": 5
+  },
+  {
+   "accepts": 0,
+   "verdicts": 5
+  },
+  {
+   "accepts": 0,
+   "verdicts": 5
+  },
+  {
+   "accepts": 3,
+   "verdicts": 5
+  },
+  {
+   "accepts": 2,
+   "verdicts": 5
+  },
+  {
+   "accepts": 1,
+   "verdicts": 5
+  },
+  {
+   "accepts": 5,
+   "verdicts": 5
+  }
+ ]
+}
