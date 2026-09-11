@@ -3,3 +3,5 @@ passphrase.txt
 *.log
 keeper_state.json
 .env
+__pycache__/
+*.pyc
