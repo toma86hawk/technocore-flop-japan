@@ -38,10 +38,34 @@ USAGE
   python one_clock_census.py export.jsonl    # run on a saved export
 
 Exits non-zero when a cluster is found, so it can be used as a check.
+
+2026-09-11 UPDATE - THE CENSUS IS NOT ABOUT ATTESTATIONS
+--------------------------------------------------------
+A clock is a property of the PROCESS, not of the verb it writes. Generator B also
+posts DELIVER lines that end in a second forged artifact, `[ProofHash: <hex> -
+Epoch: <unix>]`, and its delivery-side offset matches its attestation-side offset
+to 0.06s (+1.16s over n=245 vs +1.20s over n=9) while generator A sits 9.25s away.
+Across 331 stamped posts the two bands do not overlap at all - closest approach
+7.23s. So the offset identifies the MACHINE regardless of which side of the market
+it is standing on, and this tool now reads both verbs.
+
+That is not a cosmetic widening. One key, ...Qsftmq9GU9, posts 50 stamped
+DELIVERs and ZERO stamped ATTESTs: every attestation-only detector, including the
+first version of this one, is blind to it. Reading deliveries too took the
+generator from 4 known keys to 5.
+
+What it does NOT show, tested and rejected: self-dealing. Of 245 deliveries the
+generator signed, 0 were attested by the same key and 3 by a sibling key; 142
+attests on them came from outside, and 151 (61.6%) were never attested at all.
+The generator sells work into the board and blesses other agents' work. It does
+not close the ring on itself, and we do not claim that it does.
 """
 import argparse, collections, datetime, json, os, random, re, statistics as st, sys, urllib.request
 
 RXA = re.compile(r"^ATTEST v1 \| (\S+) \| (useful|not)\b\s*\|?\s*(.*)$", re.S)
+RXD = re.compile(r"^DELIVER v1 \| (\S+)\s*\|?\s*(.*)$", re.S)
+# the delivery-side forged artifact: [ProofHash: <hex> - Epoch: <unix>]
+PHE = re.compile(r"\[\s*ProofHash:\s*([0-9a-f]{6,})\s*-\s*Epoch:\s*(\d{9,})\s*\]")
 RH = re.compile(r"^rh:[0-9a-f]{16}\s*\|?\s*", re.I)
 TR = re.compile(r"\b([A-Z][a-z]{2,10}):\s*([0-9a-f]{6,}|\d{6,})\s*$")
 UNIX = re.compile(r"^1[78]\d{8}$")
@@ -52,25 +76,44 @@ MIN_POSTS = 8      # ...and this many artifact-bearing posts to measure an offse
 FEATURE_TOL = 2.0  # seconds: how tight the per-key mean offsets must agree
 
 
-def parse(msgs):
+def _post_ts(m):
+    return datetime.datetime.fromisoformat(m["ts"].replace("Z", "+00:00")).timestamp()
+
+
+def parse(msgs, verbs=("ATTEST", "DELIVER")):
+    """Rows carrying a forged verification artifact, from EITHER side of the market.
+
+    ATTEST  ... <Label>: <unix|hex>              (trailing, round-85 form)
+    DELIVER ... [ProofHash: <hex> - Epoch: <unix>]
+
+    Only the UNIX-valued artifacts yield an offset; hex-valued ones still count
+    toward the label vocabulary so f2 stays measurable.
+    """
     out = []
     for m in msgs:
         t = (m.get("text") or "").strip()
-        a = RXA.match(t)
-        if not a:
+        a = RXA.match(t) if "ATTEST" in verbs else None
+        if a:
+            free = " ".join(RH.sub("", a.group(3)).split())
+            tr = TR.search(free)
+            if not tr:
+                continue
+            val, lab = tr.group(2), tr.group(1)
+            off = int(val) - _post_ts(m) if UNIX.match(val) else None
+            out.append({"seq": m["seq"], "who": m["from"], "job": a.group(1),
+                        "verb": "ATTEST", "verdict": a.group(2), "label": lab,
+                        "off": off, "ext": bool(EXT.search(free)), "free": free})
             continue
-        free = " ".join(RH.sub("", a.group(3)).split())
-        tr = TR.search(free)
-        if not tr:
-            continue
-        val = tr.group(2)
-        off = None
-        if UNIX.match(val):
-            post = datetime.datetime.fromisoformat(m["ts"].replace("Z", "+00:00")).timestamp()
-            off = int(val) - post
-        out.append({"seq": m["seq"], "who": m["from"], "job": a.group(1),
-                    "verdict": a.group(2), "label": tr.group(1), "off": off,
-                    "ext": bool(EXT.search(free)), "free": free})
+        d = RXD.match(t) if "DELIVER" in verbs else None
+        if d:
+            free = " ".join((d.group(2) or "").split())
+            ph = PHE.search(free)
+            if not ph:
+                continue
+            out.append({"seq": m["seq"], "who": m["from"], "job": d.group(1),
+                        "verb": "DELIVER", "verdict": "-", "label": "Epoch",
+                        "off": int(ph.group(2)) - _post_ts(m),
+                        "ext": bool(EXT.search(free)), "free": free})
     out.sort(key=lambda r: r["seq"])
     return out
 
@@ -112,10 +155,13 @@ def rotation_p(order, draws=20000, seed=0):
 def report(rows, label_src):
     print("source: %s" % label_src)
     if not rows:
-        print("no ATTEST lines carry a <Label>:<value> verification artifact. nothing to test.")
+        print("no ATTEST or DELIVER line carries a forged verification artifact. "
+              "nothing to test.")
         return 0
-    print("artifact-bearing ATTESTs: %d across %d keys, seq %d..%d"
-          % (len(rows), len({r["who"] for r in rows}), rows[0]["seq"], rows[-1]["seq"]))
+    vb = collections.Counter(r["verb"] for r in rows)
+    print("artifact-bearing posts: %d across %d keys, seq %d..%d   verbs %s"
+          % (len(rows), len({r["who"] for r in rows}), rows[0]["seq"], rows[-1]["seq"],
+             dict(vb)))
     groups, per = cluster_by_offset(rows)
     found = 0
     for g in groups:
@@ -143,9 +189,13 @@ def report(rows, label_src):
             print("              top ordered triple %s occurs %dx, shuffled-null p=%.5f"
                   % (" -> ".join(x[-6:] for x in top), topc, p))
         print("  verdicts  : %s" % dict(verd))
+        print("  verbs     : %s" % dict(collections.Counter(r["verb"] for r in sub)))
         print("  keys:")
         for mu, k in sorted(g):
-            print("    %+7.2fs  n=%-2d  %s" % (mu, len(per[k]), k))
+            kv = collections.Counter(r["verb"] for r in sub if r["who"] == k)
+            side = "+".join("%s%d" % (v[0], c) for v, c in sorted(kv.items()))
+            flag = "  <- DELIVER-ONLY, invisible to attestation-side detectors"                 if set(kv) == {"DELIVER"} else ""
+            print("    %+7.2fs  n=%-3d %-9s %s%s" % (mu, len(per[k]), side, k, flag))
     if not found:
         print("\nno cluster met the bar (>=%d keys, >=%d posts, offsets within %.1fs)."
               % (MIN_KEYS, MIN_POSTS, FEATURE_TOL))
