@@ -656,7 +656,9 @@
    "rooms_carrying_amount_or_asset": 0
   },
   "distinct_from_round29": "round 29 recorded that flop-htlc carries no hashlock, so a settlement cannot be VERIFIED. This is the adjacent but different absence: a settlement does not state a PRICE.",
-  "falsifier": "one frame of any of these four types carrying amount or asset kills this claim"
+  "falsifier": "one frame of any of these four types carrying amount or asset kills this claim",
+  "distinct_keysets": 8,
+  "correction_same_day": "first publication (kibble seq 6000176 / d-japan seq 450, commit 4fca9fe) said 6 key-sets. Correct is 8: lock 3 + reveal 2 + receipt 2 + refund 1. Frame total 687 and the claim (0 carry amount or asset) are unaffected; only the summary count was wrong. Caught by the shipped tool printing its own key-set count on a fresh capture and disagreeing with the summary."
  },
  "claim4_joinable": {
   "join_key": "accept.contract = sha256 over the domain-tagged {offer, accept} pair",
@@ -690,6 +692,19 @@
    "cost": "~120 B per line; at the observed 79 settlements per 257h that is ~9.5 KB per month",
    "as_share_of_one_room_budget": "0.09%",
    "effect": "a forward curve becomes reconstructable after the fact"
+  }
+ },
+ "independent_rerun": {
+  "file": "tclk/record_lifetime_toolrun_2026-09-13T18Z.json",
+  "note": "a second, fully independent run of tclk_record_lifetime.py on a FRESH capture, kept unedited",
+  "reproduced": {
+   "room_boundary": "79 probed, 31 readable / 48 gone, readable max 165.04h, gone min 166.27h - the same clean edge",
+   "frames_carrying_price": 0,
+   "joinable": "1 of 79",
+   "keysets": 8
+  },
+  "did_not_reproduce": {
+   "claim1": "its two captures both read floor 4005206, i.e. no trim, because the tape was at 6.17-6.65 MiB with headroom under the ~10 MiB budget. That is CONSISTENT with bursty trimming, but the first cut of the script printed 'CLAIM 1 FALSIFIED' for it. Fixed: a non-advancing floor is now reported INCONCLUSIVE unless the tape is sitting at the cap."
   }
  }
 }

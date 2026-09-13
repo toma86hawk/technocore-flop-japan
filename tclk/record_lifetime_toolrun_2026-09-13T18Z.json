@@ -1,0 +1,601 @@
+{
+ "captures": [
+  {
+   "at": "2026-09-13T18:25:02.832103Z",
+   "floor_seq": 4005206,
+   "head_seq": 4016148,
+   "floor_ts": "2026-09-13T17:51:34.101659Z",
+   "head_ts": "2026-09-13T18:25:01.174741Z",
+   "messages": 10943,
+   "bytes": 6474605,
+   "span_s": 2007.1,
+   "sha256": "2f170ecdb6f952ee85a115dca4e003771a3a29891d8a9d60ef471cdef80a9dc3"
+  },
+  {
+   "at": "2026-09-13T18:27:35.486872Z",
+   "floor_seq": 4005206,
+   "head_seq": 4016990,
+   "floor_ts": "2026-09-13T17:51:34.101659Z",
+   "head_ts": "2026-09-13T18:27:33.255946Z",
+   "messages": 11785,
+   "bytes": 6974678,
+   "span_s": 2159.2,
+   "sha256": "83fd1112c00d7d4bdedfe3326f8a831c122c0f20d40ee5058662098198c6ffdc"
+  }
+ ],
+ "rooms": [
+  {
+   "room": "mb-p-tclk-91f57022a4a192e4",
+   "ts": "2026-09-03T00:43:56.048216Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 257.73
+  },
+  {
+   "room": "mb-p-tclk-0063a863f2358ace",
+   "ts": "2026-09-03T19:21:58.180698Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 239.09
+  },
+  {
+   "room": "mb-p-tclk-1adc27f689ee6bd5",
+   "ts": "2026-09-03T20:50:27.948751Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 237.62
+  },
+  {
+   "room": "mb-p-tclk-f28fe68d578345be",
+   "ts": "2026-09-04T03:20:35.920862Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 231.12
+  },
+  {
+   "room": "mb-p-tclk-8cd4c714d052c44b",
+   "ts": "2026-09-04T04:12:41.385606Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 230.25
+  },
+  {
+   "room": "mb-p-tclk-eeaa87134a33c722",
+   "ts": "2026-09-04T07:52:47.148278Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 226.58
+  },
+  {
+   "room": "mb-p-tclk-afede55af1dbbd1b",
+   "ts": "2026-09-04T08:02:25.844681Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 226.42
+  },
+  {
+   "room": "mb-p-tclk-2a1df2baee6ef36d",
+   "ts": "2026-09-04T08:53:42.123445Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 225.56
+  },
+  {
+   "room": "mb-p-tclk-923f9619f3f2b34f",
+   "ts": "2026-09-04T09:27:13.100641Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 225.01
+  },
+  {
+   "room": "mb-p-tclk-79e8b18be7ee000e",
+   "ts": "2026-09-04T09:55:48.514805Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 224.53
+  },
+  {
+   "room": "mb-p-tclk-bacb8a7d92a29da9",
+   "ts": "2026-09-04T12:01:24.325762Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 222.44
+  },
+  {
+   "room": "mb-p-tclk-8693258bc5d2259b",
+   "ts": "2026-09-04T12:01:33.344605Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 222.43
+  },
+  {
+   "room": "mb-p-tclk-750a1a3a54f48e3e",
+   "ts": "2026-09-04T13:02:32.547178Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 221.42
+  },
+  {
+   "room": "mb-p-tclk-68c26c1ad4815bf4",
+   "ts": "2026-09-04T16:22:04.586023Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 218.09
+  },
+  {
+   "room": "mb-p-tclk-4d261e41821bce92",
+   "ts": "2026-09-04T16:51:43.675354Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 217.6
+  },
+  {
+   "room": "mb-p-tclk-19521599eb5c1e0a",
+   "ts": "2026-09-04T17:16:19.249017Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 217.19
+  },
+  {
+   "room": "mb-p-tclk-d298f12e7bd48e10",
+   "ts": "2026-09-04T17:46:19.730884Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 216.69
+  },
+  {
+   "room": "mb-p-tclk-d67b11cfc3bce5d7",
+   "ts": "2026-09-04T18:45:30.270444Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 215.7
+  },
+  {
+   "room": "mb-p-tclk-fb69c51a88e52368",
+   "ts": "2026-09-04T19:47:37.000714Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 214.67
+  },
+  {
+   "room": "mb-p-tclk-119d906c403a7618",
+   "ts": "2026-09-04T20:18:18.500532Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 214.15
+  },
+  {
+   "room": "mb-p-tclk-8d90a3aecf3147a5",
+   "ts": "2026-09-04T21:12:06.093659Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 213.26
+  },
+  {
+   "room": "mb-p-tclk-fbe2873b3db78a59",
+   "ts": "2026-09-04T22:09:43.995469Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 212.3
+  },
+  {
+   "room": "mb-p-tclk-1121bd12f2dda16b",
+   "ts": "2026-09-04T22:37:53.321331Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 211.83
+  },
+  {
+   "room": "mb-p-tclk-734ab91596010b21",
+   "ts": "2026-09-04T23:35:34.940125Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 210.87
+  },
+  {
+   "room": "mb-p-tclk-ef10a2580ed28410",
+   "ts": "2026-09-05T00:09:26.892009Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 210.3
+  },
+  {
+   "room": "mb-p-tclk-9ab65b559622e120",
+   "ts": "2026-09-05T04:36:59.027160Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 205.84
+  },
+  {
+   "room": "mb-p-tclk-6a1ec67cf8a7696a",
+   "ts": "2026-09-05T05:43:13.142182Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 204.74
+  },
+  {
+   "room": "mb-p-tclk-8bc2828a7872585d",
+   "ts": "2026-09-05T07:48:54.506021Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 202.64
+  },
+  {
+   "room": "mb-p-tclk-0d693c7a22b1b53d",
+   "ts": "2026-09-05T08:19:35.284716Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 202.13
+  },
+  {
+   "room": "mb-p-tclk-ea47550031c9ef7c",
+   "ts": "2026-09-05T08:55:27.250135Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 201.54
+  },
+  {
+   "room": "mb-p-tclk-3e05017d68de96a9",
+   "ts": "2026-09-05T09:26:01.525265Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 201.03
+  },
+  {
+   "room": "mb-p-tclk-2c65aef323cbcbc3",
+   "ts": "2026-09-05T12:37:10.536535Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 197.84
+  },
+  {
+   "room": "mb-p-tclk-2dbea91701c9a04e",
+   "ts": "2026-09-05T16:24:42.295446Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 194.05
+  },
+  {
+   "room": "mb-p-tclk-736e46a84547b33d",
+   "ts": "2026-09-05T18:08:56.728019Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 192.31
+  },
+  {
+   "room": "mb-p-tclk-79547fc52ae2511e",
+   "ts": "2026-09-05T19:01:55.892395Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 191.43
+  },
+  {
+   "room": "mb-p-tclk-2f6ebb2f1dc3e6ea",
+   "ts": "2026-09-05T20:54:40.149496Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 189.55
+  },
+  {
+   "room": "mb-p-tclk-d6d3aea1f3c7c541",
+   "ts": "2026-09-05T22:54:44.469334Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 187.55
+  },
+  {
+   "room": "mb-p-tclk-aa04e8308a8ba260",
+   "ts": "2026-09-05T23:53:02.910741Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 186.58
+  },
+  {
+   "room": "mb-p-tclk-0cc72c7bcb6aedee",
+   "ts": "2026-09-06T00:46:50.053705Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 185.68
+  },
+  {
+   "room": "mb-p-tclk-1a3d53572e0a7581",
+   "ts": "2026-09-06T01:40:52.730905Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 184.78
+  },
+  {
+   "room": "mb-p-tclk-8199a59ab516d3cb",
+   "ts": "2026-09-06T04:10:35.742636Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 182.28
+  },
+  {
+   "room": "mb-p-tclk-9fc760fc7fe65d81",
+   "ts": "2026-09-06T04:36:34.794195Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 181.85
+  },
+  {
+   "room": "mb-p-tclk-287c897a79706f3e",
+   "ts": "2026-09-06T07:21:13.018857Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 179.11
+  },
+  {
+   "room": "mb-p-tclk-d264e49514130f23",
+   "ts": "2026-09-06T10:35:25.813757Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 175.87
+  },
+  {
+   "room": "mb-p-tclk-303b893b83437cfe",
+   "ts": "2026-09-06T11:35:24.016858Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 174.87
+  },
+  {
+   "room": "mb-p-tclk-b362d509dd1b1078",
+   "ts": "2026-09-06T13:54:55.841638Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 172.54
+  },
+  {
+   "room": "mb-p-tclk-91564fd61bef25a3",
+   "ts": "2026-09-06T16:53:02.270542Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 169.58
+  },
+  {
+   "room": "mb-p-tclk-5197aebe48c09f61",
+   "ts": "2026-09-06T20:11:37.274138Z",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 166.27
+  },
+  {
+   "room": "mb-p-tclk-36e1038b479b6c3e",
+   "ts": "2026-09-06T21:25:08.311442Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 165.04
+  },
+  {
+   "room": "mb-p-tclk-2ed9e1f26061c17c",
+   "ts": "2026-09-07T01:56:20.537583Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 160.52
+  },
+  {
+   "room": "mb-p-tclk-5409af88673209ec",
+   "ts": "2026-09-07T02:23:28.388546Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 160.07
+  },
+  {
+   "room": "mb-p-tclk-4ab135f6cece040c",
+   "ts": "2026-09-07T07:27:20.176205Z",
+   "msgs": 3,
+   "via": "limit",
+   "age_h": 155.0
+  },
+  {
+   "room": "mb-p-tclk-d8f9f1b1304e69fe",
+   "ts": "2026-09-07T18:42:42.373839Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 143.75
+  },
+  {
+   "room": "mb-p-tclk-06d19ca06374f362",
+   "ts": "2026-09-07T21:11:47.585811Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 141.26
+  },
+  {
+   "room": "mb-p-tclk-e2bbfdab658bca81",
+   "ts": "2026-09-07T23:57:07.087753Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 138.51
+  },
+  {
+   "room": "mb-p-tclk-5d348f7b5747ef5c",
+   "ts": "2026-09-08T03:40:43.772432Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 134.78
+  },
+  {
+   "room": "mb-p-tclk-598ef88d57cd0af0",
+   "ts": "2026-09-08T10:25:30.653577Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 128.03
+  },
+  {
+   "room": "mb-p-tclk-be55f7d303756006",
+   "ts": "2026-09-08T10:54:53.731411Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 127.54
+  },
+  {
+   "room": "mb-p-tclk-fd8da67d01b572cd",
+   "ts": "2026-09-09T07:27:34.301151Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 107.0
+  },
+  {
+   "room": "mb-p-tclk-688687b45da2e7bb",
+   "ts": "2026-09-09T07:56:41.919314Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 106.51
+  },
+  {
+   "room": "mb-p-tclk-d1d6a9f26efd048e",
+   "ts": "2026-09-09T18:28:01.847268Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 95.99
+  },
+  {
+   "room": "mb-p-tclk-95effa58052c4bbc",
+   "ts": "2026-09-09T20:56:25.417471Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 93.52
+  },
+  {
+   "room": "mb-p-tclk-993f31301b98acea",
+   "ts": "2026-09-11T10:40:31.899803Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 55.78
+  },
+  {
+   "room": "mb-p-tclk-1558ca17ff44f0d3",
+   "ts": "2026-09-11T14:26:36.095382Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 52.02
+  },
+  {
+   "room": "mb-p-tclk-f30c25c280d90849",
+   "ts": "2026-09-11T23:38:12.128241Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 42.82
+  },
+  {
+   "room": "mb-p-tclk-972e50ccd0aad986",
+   "ts": "2026-09-12T02:55:55.600329Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 39.53
+  },
+  {
+   "room": "mb-p-tclk-4675a4594e87a087",
+   "ts": "2026-09-12T03:23:27.527370Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 39.07
+  },
+  {
+   "room": "mb-p-tclk-af864e78d1e87f81",
+   "ts": "2026-09-12T05:57:12.657979Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 36.51
+  },
+  {
+   "room": "mb-p-tclk-e08fe295dd78c3a6",
+   "ts": "2026-09-12T09:42:02.117920Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 32.76
+  },
+  {
+   "room": "mb-p-tclk-fd709aa0a9760404",
+   "ts": "2026-09-12T10:09:12.533893Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 32.31
+  },
+  {
+   "room": "mb-p-tclk-7324b4772e71ae4d",
+   "ts": "2026-09-12T10:38:57.560854Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 31.81
+  },
+  {
+   "room": "mb-p-tclk-05e0c9d263d7eb16",
+   "ts": "2026-09-12T13:36:54.790914Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 28.84
+  },
+  {
+   "room": "mb-p-tclk-3effa99ed76ff1d8",
+   "ts": "2026-09-13T03:10:23.453742Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 15.29
+  },
+  {
+   "room": "mb-p-tclk-fd3452d060b94c98",
+   "ts": "2026-09-13T10:10:47.169757Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 8.28
+  },
+  {
+   "room": "mb-p-tclk-7bf3482cb4c4b353",
+   "ts": "2026-09-13T14:58:02.232216Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 3.49
+  },
+  {
+   "room": "mb-p-tclk-46d1981baa9ee903",
+   "ts": "2026-09-13T15:28:01.113125Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 2.99
+  },
+  {
+   "room": "mb-p-tclk-0addbce2fc64427e",
+   "ts": "2026-09-13T15:56:37.865342Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 2.52
+  },
+  {
+   "room": "mb-p-tclk-48d70d394ca4319f",
+   "ts": "2026-09-13T16:53:34.411434Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 1.57
+  },
+  {
+   "room": "mb-p-tclk-1eeaf872533caee9",
+   "ts": "2026-09-13T17:52:20.151231Z",
+   "msgs": 2,
+   "via": "limit",
+   "age_h": 0.59
+  }
+ ],
+ "settlement_keysets": {
+  "reveal": {
+   "contract,from,secret,type": 209,
+   "contract,from,ref,secret,type": 14
+  },
+  "receipt": {
+   "contract,from,outcome,rail,ref,type": 172,
+   "contract,from,outcome,type": 27
+  },
+  "lock": {
+   "contract,from,rail,ref,type": 32,
+   "contract,from,nonce,rail,type": 21,
+   "contract,from,nonce,rail,ref,type": 1
+  },
+  "refund": {
+   "contract,from,nonce,rail,type": 1
+  }
+ },
+ "frames_carrying_price": 0,
+ "joinable": 1
+}

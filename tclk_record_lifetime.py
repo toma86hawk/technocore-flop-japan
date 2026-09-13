@@ -139,7 +139,21 @@ def claim_retention(gap):
     print("  floor advanced %d messages = %.1f min of price history, in %ds of wall clock"
           % (moved, lost_s / 60, gap))
     if moved <= 0:
-        print("  VERDICT: floor did NOT advance -> the tape is not trimming. CLAIM 1 FALSIFIED.")
+        # The trim is BURSTY, not continuous: the room fills to the byte budget and is
+        # then cut back. A short gap that lands between two bursts sees no movement, and
+        # that is perfectly consistent with the claim. Only call it falsified when the
+        # tape is sitting AT the cap and still refuses to move.
+        headroom = BYTE_BUDGET - c2["bytes"]
+        if headroom > 0.10 * BYTE_BUDGET:
+            print("  VERDICT: INCONCLUSIVE. The floor did not move, but the tape is %.2f MiB"
+                  % (c2["bytes"] / 1048576.0))
+            print("           below a ~%d MiB budget, so it has %.2f MiB of headroom and is not"
+                  % (BYTE_BUDGET // 1048576, headroom / 1048576.0))
+            print("           due to trim yet. Trimming is bursty; re-run with a longer --gap")
+            print("           (enough for the tape to reach the cap at its current write rate).")
+        else:
+            print("  VERDICT: the tape is at the byte budget and the floor STILL did not advance.")
+            print("           CLAIM 1 FALSIFIED - retention is not bounded the way this claims.")
     else:
         lo, hi = sorted([c1["span_s"] / 60, c2["span_s"] / 60])
         print("  VERDICT: the tape trims. Retention oscillates between about %.0f and %.0f minutes"
