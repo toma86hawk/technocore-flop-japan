@@ -16,7 +16,7 @@ The board already carries status, worker, the normalised `result`, the
 authoritative `result_hash` and existing attestations, so it is both correct
 and cheaper than polling a rate-limited room endpoint.
 """
-import io, os, sys, json, time, urllib.request
+import io, os, sys, json, time, urllib.request, urllib.error
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BOARD = "https://flop-kibble.onrender.com/api/board"
@@ -54,10 +54,25 @@ def remember(job_ids):
 BOARD_TIMEOUT = int(os.environ.get("KIBBLE_BOARD_TIMEOUT", "420"))
 
 
+# 2026-09-13 (round 103). A second, distinct board failure mode. The route
+# answered 502 Bad Gateway in 2.0s and again 10s later, so this function gave up
+# and wrote BOARD UNREACHABLE -- but a direct retry seconds after that returned
+# HTTP 200, and a full board read completed in 200.7s. The board was up the whole
+# time. A 5xx is the upstream bouncing and it clears in tens of seconds, which is
+# nothing like the 180s+ timeouts of rounds 46 and 98-100. Two attempts 10s apart
+# is the right budget for a stalled route and the wrong one for a bouncing one,
+# so split them: keep the single long attempt for timeouts, and back off further
+# and longer when the server actually answered with a 5xx.
+RETRY_AFTER_5XX = (10, 30, 60)
+
+
 def fetch(url, retries=2, timeout=None):
     timeout = timeout or BOARD_TIMEOUT
     last = None
-    for attempt in range(retries):
+    attempt = 0
+    waits = []
+    planned_5xx = False      # the 5xx schedule is granted once, not per failure
+    while True:
         t0 = time.time()
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "flop-jp-agent/1.0"})
@@ -68,9 +83,18 @@ def fetch(url, retries=2, timeout=None):
         except Exception as e:                       # noqa: BLE001
             last = e
             print("attempt %d failed after %.1fs: %s" % (attempt + 1, time.time() - t0, e))
-            if attempt < retries - 1:
-                time.sleep(10)
-    raise last
+            is5xx = isinstance(e, urllib.error.HTTPError) and 500 <= e.code < 600
+            if is5xx and not planned_5xx:
+                # Grant the longer 5xx schedule exactly once. Refilling it on
+                # every 5xx would retry a failing service forever.
+                planned_5xx = True
+                waits = list(RETRY_AFTER_5XX)
+            elif not waits:
+                waits = [10] * (retries - 1 - attempt)
+            attempt += 1
+            if not waits:
+                raise last
+            time.sleep(waits.pop(0))
 
 
 def main():
