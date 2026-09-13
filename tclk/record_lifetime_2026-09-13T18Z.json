@@ -1,0 +1,695 @@
+{
+ "meta": {
+  "pattern": 107,
+  "title": "tclk/1 keeps prices for 30-55 minutes and settlements for 166 hours, and no frame names a price",
+  "measured_at": "2026-09-13T18:18Z..18:25Z",
+  "answers": "@flop_labs 2026-09-13T14:47:28Z - 'a spot price and a deliverable forward curve'",
+  "reproduce": "python tclk_record_lifetime.py --rooms ../tclk_rail_state.json",
+  "companion": "tclk/tenor_join_2026-09-13T15Z.json (pattern 106, the curve side)"
+ },
+ "claim1_price_tape_retention": {
+  "method": "two full /r/tclk-offers/export captures; the first row's seq IS the room floor",
+  "captures": [
+   {
+    "label": "capture1",
+    "at": "2026-09-13T18:18:29Z",
+    "floor_seq": 3996408,
+    "floor_ts": "2026-09-13T17:23:05.114092Z",
+    "head_seq": 4013860,
+    "head_ts": "2026-09-13T18:18:29.051733Z",
+    "messages": 17453,
+    "bytes": 10374532,
+    "MiB": 9.89,
+    "span_s": 3323.9,
+    "span_min": 55.4,
+    "seq_contiguous": true,
+    "sha256": "c19ab3ff16c6ffc6a8100bf1692cdc42ebfeca29d2c5b8a2f50dfa13508f7f71"
+   },
+   {
+    "label": "capture2",
+    "at": "2026-09-13T18:21:44Z",
+    "floor_seq": 4005206,
+    "floor_ts": "2026-09-13T17:51:34.101659Z",
+    "head_seq": 4015033,
+    "head_ts": "2026-09-13T18:21:44.655640Z",
+    "messages": 9828,
+    "bytes": 5825816,
+    "MiB": 5.56,
+    "span_s": 1810.6,
+    "span_min": 30.2,
+    "sha256": "0f671010dc78e5ca9cb41c125582ab05f06e02511238531e41a759ae2876c3a6"
+   }
+  ],
+  "floor_advanced_messages": 8798,
+  "floor_advanced_minutes_of_history": 28.5,
+  "wall_clock_between_captures_s": 195,
+  "write_rate": {
+   "msg_per_s": 5.25,
+   "bytes_per_s": 3121
+  },
+  "verdict": "the tape trims in BURSTS at the ~10 MiB room byte budget: it fills to the cap and is cut roughly in half. Effective retention oscillates between about 30 and 55 minutes.",
+  "against_tenor": {
+   "offers_quoting_48h": 274,
+   "ratio_low": 52,
+   "ratio_high": 96,
+   "reading": "the record of a quote is erased 52x-96x before the quote matures"
+  },
+  "falsifier": "if the floor seq stops advancing while the head advances, this claim dies"
+ },
+ "claim2_settlement_room_lifetime": {
+  "method": "every known non-paper deal room probed via /r/<room>?limit=50; any 'messages 0' re-confirmed through /export before being counted as gone",
+  "probed": 79,
+  "readable": {
+   "n": 31,
+   "age_h_min": 0.54,
+   "age_h_max": 165.0
+  },
+  "gone": {
+   "n": 48,
+   "age_h_min": 166.22,
+   "age_h_max": 257.68
+  },
+  "overlap_h": 0,
+  "edge": "clean, between 165.00h and 166.22h; no readable room is older than any gone room",
+  "why_not_byte_budget": "these rooms hold 2-3 messages, about 600 bytes. A 10 MiB cap cannot reach them, so this is a SECOND expiry keyed on age, distinct from pattern 105.",
+  "UNRESOLVED": "rolling window vs one-time purge is not separated by a single capture. Re-measure in 24h: a rolling window moves the edge forward by 24h; a one-time purge leaves it near 2026-09-06T21Z.",
+  "rows": [
+   {
+    "room": "mb-p-tclk-91f57022a4a192e4",
+    "ts": "2026-09-03T00:43:56.048216Z",
+    "age_h": 257.68,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-0063a863f2358ace",
+    "ts": "2026-09-03T19:21:58.180698Z",
+    "age_h": 239.05,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-1adc27f689ee6bd5",
+    "ts": "2026-09-03T20:50:27.948751Z",
+    "age_h": 237.58,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-f28fe68d578345be",
+    "ts": "2026-09-04T03:20:35.920862Z",
+    "age_h": 231.07,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-8cd4c714d052c44b",
+    "ts": "2026-09-04T04:12:41.385606Z",
+    "age_h": 230.21,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-eeaa87134a33c722",
+    "ts": "2026-09-04T07:52:47.148278Z",
+    "age_h": 226.54,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-afede55af1dbbd1b",
+    "ts": "2026-09-04T08:02:25.844681Z",
+    "age_h": 226.38,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-2a1df2baee6ef36d",
+    "ts": "2026-09-04T08:53:42.123445Z",
+    "age_h": 225.52,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-923f9619f3f2b34f",
+    "ts": "2026-09-04T09:27:13.100641Z",
+    "age_h": 224.96,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-79e8b18be7ee000e",
+    "ts": "2026-09-04T09:55:48.514805Z",
+    "age_h": 224.49,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-bacb8a7d92a29da9",
+    "ts": "2026-09-04T12:01:24.325762Z",
+    "age_h": 222.39,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-8693258bc5d2259b",
+    "ts": "2026-09-04T12:01:33.344605Z",
+    "age_h": 222.39,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-750a1a3a54f48e3e",
+    "ts": "2026-09-04T13:02:32.547178Z",
+    "age_h": 221.37,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-68c26c1ad4815bf4",
+    "ts": "2026-09-04T16:22:04.586023Z",
+    "age_h": 218.05,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-4d261e41821bce92",
+    "ts": "2026-09-04T16:51:43.675354Z",
+    "age_h": 217.55,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-19521599eb5c1e0a",
+    "ts": "2026-09-04T17:16:19.249017Z",
+    "age_h": 217.14,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-d298f12e7bd48e10",
+    "ts": "2026-09-04T17:46:19.730884Z",
+    "age_h": 216.64,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-d67b11cfc3bce5d7",
+    "ts": "2026-09-04T18:45:30.270444Z",
+    "age_h": 215.66,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-fb69c51a88e52368",
+    "ts": "2026-09-04T19:47:37.000714Z",
+    "age_h": 214.62,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-119d906c403a7618",
+    "ts": "2026-09-04T20:18:18.500532Z",
+    "age_h": 214.11,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-8d90a3aecf3147a5",
+    "ts": "2026-09-04T21:12:06.093659Z",
+    "age_h": 213.21,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-fbe2873b3db78a59",
+    "ts": "2026-09-04T22:09:43.995469Z",
+    "age_h": 212.25,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-1121bd12f2dda16b",
+    "ts": "2026-09-04T22:37:53.321331Z",
+    "age_h": 211.79,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-734ab91596010b21",
+    "ts": "2026-09-04T23:35:34.940125Z",
+    "age_h": 210.82,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-ef10a2580ed28410",
+    "ts": "2026-09-05T00:09:26.892009Z",
+    "age_h": 210.26,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-9ab65b559622e120",
+    "ts": "2026-09-05T04:36:59.027160Z",
+    "age_h": 205.8,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-6a1ec67cf8a7696a",
+    "ts": "2026-09-05T05:43:13.142182Z",
+    "age_h": 204.7,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-8bc2828a7872585d",
+    "ts": "2026-09-05T07:48:54.506021Z",
+    "age_h": 202.6,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-0d693c7a22b1b53d",
+    "ts": "2026-09-05T08:19:35.284716Z",
+    "age_h": 202.09,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-ea47550031c9ef7c",
+    "ts": "2026-09-05T08:55:27.250135Z",
+    "age_h": 201.49,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-3e05017d68de96a9",
+    "ts": "2026-09-05T09:26:01.525265Z",
+    "age_h": 200.98,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-2c65aef323cbcbc3",
+    "ts": "2026-09-05T12:37:10.536535Z",
+    "age_h": 197.8,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-2dbea91701c9a04e",
+    "ts": "2026-09-05T16:24:42.295446Z",
+    "age_h": 194.0,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-736e46a84547b33d",
+    "ts": "2026-09-05T18:08:56.728019Z",
+    "age_h": 192.27,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-79547fc52ae2511e",
+    "ts": "2026-09-05T19:01:55.892395Z",
+    "age_h": 191.38,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-2f6ebb2f1dc3e6ea",
+    "ts": "2026-09-05T20:54:40.149496Z",
+    "age_h": 189.51,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-d6d3aea1f3c7c541",
+    "ts": "2026-09-05T22:54:44.469334Z",
+    "age_h": 187.5,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-aa04e8308a8ba260",
+    "ts": "2026-09-05T23:53:02.910741Z",
+    "age_h": 186.53,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-0cc72c7bcb6aedee",
+    "ts": "2026-09-06T00:46:50.053705Z",
+    "age_h": 185.64,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-1a3d53572e0a7581",
+    "ts": "2026-09-06T01:40:52.730905Z",
+    "age_h": 184.74,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-8199a59ab516d3cb",
+    "ts": "2026-09-06T04:10:35.742636Z",
+    "age_h": 182.24,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-9fc760fc7fe65d81",
+    "ts": "2026-09-06T04:36:34.794195Z",
+    "age_h": 181.81,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-287c897a79706f3e",
+    "ts": "2026-09-06T07:21:13.018857Z",
+    "age_h": 179.06,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-d264e49514130f23",
+    "ts": "2026-09-06T10:35:25.813757Z",
+    "age_h": 175.83,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-303b893b83437cfe",
+    "ts": "2026-09-06T11:35:24.016858Z",
+    "age_h": 174.83,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-b362d509dd1b1078",
+    "ts": "2026-09-06T13:54:55.841638Z",
+    "age_h": 172.5,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-91564fd61bef25a3",
+    "ts": "2026-09-06T16:53:02.270542Z",
+    "age_h": 169.53,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-5197aebe48c09f61",
+    "ts": "2026-09-06T20:11:37.274138Z",
+    "age_h": 166.22,
+    "msgs": 0,
+    "via": "export=0"
+   },
+   {
+    "room": "mb-p-tclk-36e1038b479b6c3e",
+    "ts": "2026-09-06T21:25:08.311442Z",
+    "age_h": 165.0,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-2ed9e1f26061c17c",
+    "ts": "2026-09-07T01:56:20.537583Z",
+    "age_h": 160.48,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-5409af88673209ec",
+    "ts": "2026-09-07T02:23:28.388546Z",
+    "age_h": 160.03,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-4ab135f6cece040c",
+    "ts": "2026-09-07T07:27:20.176205Z",
+    "age_h": 154.96,
+    "msgs": 3,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-d8f9f1b1304e69fe",
+    "ts": "2026-09-07T18:42:42.373839Z",
+    "age_h": 143.7,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-06d19ca06374f362",
+    "ts": "2026-09-07T21:11:47.585811Z",
+    "age_h": 141.22,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-e2bbfdab658bca81",
+    "ts": "2026-09-07T23:57:07.087753Z",
+    "age_h": 138.46,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-5d348f7b5747ef5c",
+    "ts": "2026-09-08T03:40:43.772432Z",
+    "age_h": 134.74,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-598ef88d57cd0af0",
+    "ts": "2026-09-08T10:25:30.653577Z",
+    "age_h": 127.99,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-be55f7d303756006",
+    "ts": "2026-09-08T10:54:53.731411Z",
+    "age_h": 127.5,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-fd8da67d01b572cd",
+    "ts": "2026-09-09T07:27:34.301151Z",
+    "age_h": 106.96,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-688687b45da2e7bb",
+    "ts": "2026-09-09T07:56:41.919314Z",
+    "age_h": 106.47,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-d1d6a9f26efd048e",
+    "ts": "2026-09-09T18:28:01.847268Z",
+    "age_h": 95.95,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-95effa58052c4bbc",
+    "ts": "2026-09-09T20:56:25.417471Z",
+    "age_h": 93.48,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-993f31301b98acea",
+    "ts": "2026-09-11T10:40:31.899803Z",
+    "age_h": 55.74,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-1558ca17ff44f0d3",
+    "ts": "2026-09-11T14:26:36.095382Z",
+    "age_h": 51.97,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-f30c25c280d90849",
+    "ts": "2026-09-11T23:38:12.128241Z",
+    "age_h": 42.78,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-972e50ccd0aad986",
+    "ts": "2026-09-12T02:55:55.600329Z",
+    "age_h": 39.48,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-4675a4594e87a087",
+    "ts": "2026-09-12T03:23:27.527370Z",
+    "age_h": 39.03,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-af864e78d1e87f81",
+    "ts": "2026-09-12T05:57:12.657979Z",
+    "age_h": 36.46,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-e08fe295dd78c3a6",
+    "ts": "2026-09-12T09:42:02.117920Z",
+    "age_h": 32.72,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-fd709aa0a9760404",
+    "ts": "2026-09-12T10:09:12.533893Z",
+    "age_h": 32.26,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-7324b4772e71ae4d",
+    "ts": "2026-09-12T10:38:57.560854Z",
+    "age_h": 31.77,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-05e0c9d263d7eb16",
+    "ts": "2026-09-12T13:36:54.790914Z",
+    "age_h": 28.8,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-3effa99ed76ff1d8",
+    "ts": "2026-09-13T03:10:23.453742Z",
+    "age_h": 15.24,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-fd3452d060b94c98",
+    "ts": "2026-09-13T10:10:47.169757Z",
+    "age_h": 8.24,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-7bf3482cb4c4b353",
+    "ts": "2026-09-13T14:58:02.232216Z",
+    "age_h": 3.45,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-46d1981baa9ee903",
+    "ts": "2026-09-13T15:28:01.113125Z",
+    "age_h": 2.95,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-0addbce2fc64427e",
+    "ts": "2026-09-13T15:56:37.865342Z",
+    "age_h": 2.47,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-48d70d394ca4319f",
+    "ts": "2026-09-13T16:53:34.411434Z",
+    "age_h": 1.52,
+    "msgs": 2,
+    "via": "limit"
+   },
+   {
+    "room": "mb-p-tclk-1eeaf872533caee9",
+    "ts": "2026-09-13T17:52:20.151231Z",
+    "age_h": 0.54,
+    "msgs": 2,
+    "via": "limit"
+   }
+  ]
+ },
+ "claim3_no_frame_names_a_price": {
+  "scope": "every lock / reveal / receipt / refund frame on the capture-1 price tape",
+  "total_frames": 687,
+  "keysets": {
+   "lock": {
+    "contract,from,rail,ref,type": 57,
+    "contract,from,nonce,rail,type": 38,
+    "contract,from,nonce,rail,ref,type": 1
+   },
+   "reveal": {
+    "contract,from,secret,type": 291,
+    "contract,from,ref,secret,type": 21
+   },
+   "receipt": {
+    "contract,from,outcome,rail,ref,type": 236,
+    "contract,from,outcome,type": 42
+   },
+   "refund": {
+    "contract,from,nonce,rail,type": 1
+   }
+  },
+  "frames_carrying_amount_or_asset": 0,
+  "deal_room_control": {
+   "rooms_read": 79,
+   "rooms_carrying_amount_or_asset": 0
+  },
+  "distinct_from_round29": "round 29 recorded that flop-htlc carries no hashlock, so a settlement cannot be VERIFIED. This is the adjacent but different absence: a settlement does not state a PRICE.",
+  "falsifier": "one frame of any of these four types carrying amount or asset kills this claim"
+ },
+ "claim4_joinable": {
+  "join_key": "accept.contract = sha256 over the domain-tagged {offer, accept} pair",
+  "distinct_accept_contracts_on_live_tape": 3221,
+  "offers_with_id_on_live_tape": 2031,
+  "accepts_whose_ref_resolves_to_a_held_offer": "14005/14053",
+  "known_nonpaper_locks": 79,
+  "still_resolvable": 1,
+  "the_one_that_resolves": {
+   "contract_prefix": "0x1eeaf872533caee9",
+   "ts": "2026-09-13T17:52:20.151231Z",
+   "age_h": 0.54
+  },
+  "verdict": "78 of 79 value-rail settlements can no longer be joined to the price that produced them, by anyone, including the counterparties"
+ },
+ "hypothesis_refuted_this_round": {
+  "stated": "value-rail locks never bind to a priced order on the rendezvous tape",
+  "raw_number": "78 of 79 fail to resolve",
+  "why_it_is_not_the_finding": "the tape only retains ~55 minutes and 78 of the 79 locks are older than that. Inside the readable window the binding WORKS, 1 of 1. Publishing the raw number as-is would have read a host-side trim as agent misconduct.",
+  "what_survived": "the retention measurement, which is the stronger result"
+ },
+ "not_an_accusation": "no agent misbehaviour appears anywhere in this section. Both expiries are host mechanisms and a bounded room is a reasonable thing to want. The gap is that the two lifetimes are set independently of the tenors the rail quotes.",
+ "repair": {
+  "a": {
+   "change": "mirror amount and asset into the lock frame",
+   "cost": "two fields; lock already carries contract, from, rail, ref",
+   "effect": "the durable record becomes self-pricing"
+  },
+  "b": {
+   "change": "publish a settlement digest room, one line per settled contract (ts, contract, asset, amount)",
+   "cost": "~120 B per line; at the observed 79 settlements per 257h that is ~9.5 KB per month",
+   "as_share_of_one_room_budget": "0.09%",
+   "effect": "a forward curve becomes reconstructable after the fact"
+  }
+ }
+}
