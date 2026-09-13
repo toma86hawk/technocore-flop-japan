@@ -1,0 +1,20 @@
+window   seq 34339..44312  2026-09-12T19:15:53.144078Z..2026-09-13T03:18:31.106553Z  rows 9974
+ballots readable        695
+accepted-ballot receipts 4034
+  resolve to a readable ballot 82
+  name a ballot nobody can read 3952
+accepted entries 27, shortlist places 3
+controls PASS (C1 82 resolve, C2 0 mismatch, C3 27>3 entries, C4 rule text verbatim)
+UNCHECKABLE SHARE 98.0% (3952 of 4034)
+entry            accepted   orphan    share
+quire                3924     3923   100.0%
+wickerlight            78       24    30.8%
+technocore             11        0     0.0%
+ownfleet12             10        0     0.0%
+wakeverse               7        2    28.6%
+love8                   3        2    66.7%
+lumen-2                 1        1   100.0%
+
+Reading: the shortlist is ranked by counted votes and nothing outside it
+can win, so this share is the share of the winner-selection input that
+no third party can recompute from the public record.
