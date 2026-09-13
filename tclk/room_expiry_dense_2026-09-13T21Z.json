@@ -1,0 +1,429 @@
+{
+ "at": "2026-09-13T21:20:55.444849Z",
+ "narrow": [
+  {
+   "room": "mb-p-tclk-1778648f8448afce",
+   "ts": "2026-09-06T20:54:48.446089Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.44
+  },
+  {
+   "room": "mb-p-tclk-a4b3acb178c58bbb",
+   "ts": "2026-09-06T20:55:44.502185Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.42
+  },
+  {
+   "room": "mb-p-tclk-851f78891223975e",
+   "ts": "2026-09-06T20:56:15.862584Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.41
+  },
+  {
+   "room": "mb-p-tclk-c39205cce28cb606",
+   "ts": "2026-09-06T20:56:16.935191Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.41
+  },
+  {
+   "room": "mb-p-tclk-3700f3cb68f48e73",
+   "ts": "2026-09-06T20:56:19.412019Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.41
+  },
+  {
+   "room": "mb-p-tclk-18a5bf9f811b0251",
+   "ts": "2026-09-06T20:56:22.921136Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.41
+  },
+  {
+   "room": "mb-p-tclk-1817ca112e9ad0f6",
+   "ts": "2026-09-06T20:56:29.846086Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.41
+  },
+  {
+   "room": "mb-p-tclk-c939c69c7b385f3d",
+   "ts": "2026-09-06T20:56:33.557404Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.41
+  },
+  {
+   "room": "mb-p-tclk-268c29b4370cf9fa",
+   "ts": "2026-09-06T20:56:35.084913Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.41
+  },
+  {
+   "room": "mb-p-tclk-481a3feacd97bb8d",
+   "ts": "2026-09-06T20:56:36.868004Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.41
+  },
+  {
+   "room": "mb-p-tclk-172f8a15d6b853d0",
+   "ts": "2026-09-06T20:56:43.498687Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-42bf75aade5ff169",
+   "ts": "2026-09-06T20:56:46.849528Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-9c21459075662bd9",
+   "ts": "2026-09-06T20:56:56.037817Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-38aa14cd3127cfe5",
+   "ts": "2026-09-06T20:56:57.341091Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-0c14d4eaea36301b",
+   "ts": "2026-09-06T20:56:57.579292Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-eb4c31aa4862b921",
+   "ts": "2026-09-06T20:56:58.498327Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-71e5a8a26340c6cc",
+   "ts": "2026-09-06T20:57:02.230326Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-e39262582c3855a8",
+   "ts": "2026-09-06T20:57:06.425293Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-0818f41d4a76782d",
+   "ts": "2026-09-06T20:57:09.608761Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-9e198b0a0aeac17c",
+   "ts": "2026-09-06T20:57:10.184833Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.4
+  },
+  {
+   "room": "mb-p-tclk-e437a9357cd6de67",
+   "ts": "2026-09-06T20:57:16.821273Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-97d9ac0b95cb6d58",
+   "ts": "2026-09-06T20:57:21.584322Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-d2668d6538330dd8",
+   "ts": "2026-09-06T20:57:21.585658Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-a640b8cb88b75786",
+   "ts": "2026-09-06T20:57:38.856325Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-72f204f5e613ad40",
+   "ts": "2026-09-06T20:57:38.996349Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-e788085dfc53033c",
+   "ts": "2026-09-06T20:57:39.802285Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-f062801098d2b27e",
+   "ts": "2026-09-06T20:57:40.080989Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-0fa64ff736f1d94d",
+   "ts": "2026-09-06T20:57:44.976277Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-8eb0ede44b47417f",
+   "ts": "2026-09-06T20:57:45.484114Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-4c64e5705e05fa18",
+   "ts": "2026-09-06T20:57:46.415018Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-d3546ef8d6c66bc8",
+   "ts": "2026-09-06T20:57:48.436677Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.39
+  },
+  {
+   "room": "mb-p-tclk-fa062714446717a2",
+   "ts": "2026-09-06T20:57:52.994293Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-1f4009de6cf93762",
+   "ts": "2026-09-06T20:57:57.742268Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-13f6c6019d555b30",
+   "ts": "2026-09-06T20:58:00.837351Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-c59eda932d883a68",
+   "ts": "2026-09-06T20:58:02.452355Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-c86ce168b7183521",
+   "ts": "2026-09-06T20:58:02.542800Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-eeb35720b0cbc65a",
+   "ts": "2026-09-06T20:58:03.471384Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-320abfc04a599f90",
+   "ts": "2026-09-06T20:58:04.005947Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-ce31b58ce6c5cb64",
+   "ts": "2026-09-06T20:58:07.938036Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-8b573d4912d45f5e",
+   "ts": "2026-09-06T20:58:08.490336Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-d31907549bde00de",
+   "ts": "2026-09-06T20:58:20.692740Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-33a3cbeaf3bc3e90",
+   "ts": "2026-09-06T20:58:22.228552Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-1361c0cf3d0736be",
+   "ts": "2026-09-06T20:58:24.764796Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.38
+  },
+  {
+   "room": "mb-p-tclk-66f7c758b49f1a32",
+   "ts": "2026-09-06T20:58:33.069233Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.37
+  },
+  {
+   "room": "mb-p-tclk-2749a734e9c85f10",
+   "ts": "2026-09-06T20:58:38.164977Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.37
+  },
+  {
+   "room": "mb-p-tclk-ccc647e27d068e31",
+   "ts": "2026-09-06T20:58:39.207266Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.37
+  },
+  {
+   "room": "mb-p-tclk-e6ca754a31a48935",
+   "ts": "2026-09-06T20:58:40.912928Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.37
+  },
+  {
+   "room": "mb-p-tclk-83ebf8d335875c3d",
+   "ts": "2026-09-06T20:58:48.890127Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.37
+  },
+  {
+   "room": "mb-p-tclk-05767a4bc991fa9f",
+   "ts": "2026-09-06T20:58:50.129776Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.37
+  },
+  {
+   "room": "mb-p-tclk-f34776848fa1b8ed",
+   "ts": "2026-09-06T20:58:56.061797Z",
+   "rail": "paper",
+   "msgs": 0,
+   "via": "export-confirmed",
+   "age_h": 168.37
+  },
+  {
+   "room": "mb-p-tclk-610c60f4ced25eb6",
+   "ts": "2026-09-06T21:10:10.819004Z",
+   "rail": "paper",
+   "msgs": 5,
+   "via": "limit",
+   "age_h": 168.18
+  },
+  {
+   "room": "mb-p-tclk-2e0cf30bebdd29e1",
+   "ts": "2026-09-06T21:10:25.754875Z",
+   "rail": "paper",
+   "msgs": 6,
+   "via": "limit",
+   "age_h": 168.17
+  },
+  {
+   "room": "mb-p-tclk-cad4504ae565cbd1",
+   "ts": "2026-09-06T21:12:37.233460Z",
+   "rail": "paper",
+   "msgs": 3,
+   "via": "limit",
+   "age_h": 168.14
+  }
+ ]
+}
