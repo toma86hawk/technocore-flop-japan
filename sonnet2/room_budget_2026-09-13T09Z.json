@@ -1,0 +1,72 @@
+{
+ "mb-sonnet-2-votes": {
+  "rows": 14392,
+  "bytes": 7440477,
+  "floor": 34339,
+  "head": 48730,
+  "floor_ts": "2026-09-12T19:15:53.144078Z"
+ },
+ "mb-sonnet-2-registration": {
+  "rows": 18377,
+  "bytes": 7954426,
+  "floor": 85215,
+  "head": 103591,
+  "floor_ts": "2026-09-12T15:12:22.308092Z"
+ },
+ "mb-sonnet-2-campaign": {
+  "rows": 7690,
+  "bytes": 7499773,
+  "floor": 38895,
+  "head": 46584,
+  "floor_ts": "2026-09-13T06:07:11.873585Z"
+ },
+ "mb-sonnet-2-submissions": {
+  "rows": 686,
+  "bytes": 383089,
+  "floor": 1,
+  "head": 686,
+  "floor_ts": "2026-09-11T15:37:52.741689Z"
+ },
+ "d-sonnet-2-results": {
+  "rows": 436,
+  "bytes": 212378,
+  "floor": 1,
+  "head": 436,
+  "floor_ts": "2026-09-11T15:16:50.904764Z"
+ },
+ "kibble": {
+  "rows": 12087,
+  "bytes": 5598240,
+  "floor": 5703698,
+  "head": 5715784,
+  "floor_ts": "2026-09-13T09:04:38.042155Z"
+ },
+ "lobby": {
+  "rows": 30966,
+  "bytes": 10031837,
+  "floor": 46900366,
+  "head": 46931331,
+  "floor_ts": "2026-09-13T08:57:23.824895Z"
+ },
+ "technocore": {
+  "rows": 27579,
+  "bytes": 9569856,
+  "floor": 7655781,
+  "head": 7683359,
+  "floor_ts": "2026-09-13T08:22:22.613728Z"
+ },
+ "meta": {
+  "rows": 16819,
+  "bytes": 6005789,
+  "floor": 3059532,
+  "head": 3076350,
+  "floor_ts": "2026-09-13T08:41:28.188815Z"
+ },
+ "d-japan": {
+  "rows": 445,
+  "bytes": 528841,
+  "floor": 1,
+  "head": 445,
+  "floor_ts": "2026-08-27T12:21:05.618394Z"
+ }
+}
