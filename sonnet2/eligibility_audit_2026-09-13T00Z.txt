@@ -1,0 +1,37 @@
+CONTROLS
+  [PASS] C1 every receipt names the key that signed the ballot
+         7896 matched, 0 attributed elsewhere
+  [PASS] C2 referee self-consistent: accepted ballot <= accepted registration
+         2282/2283 accepted ballots had a prior registration ACCEPT
+  [PASS] C3 rejected ballots are the never-registered ones
+         2391/2391 rejected ballots had no prior registration verdict
+  [PASS] C4 at least one ballot verdict was observed
+         7896 ballot verdicts in the readable window
+
+CUTOFF S = 2026-09-11T12:00:00Z   DEADLINE D = 2026-09-18T12:00:00Z
+
+BALLOT VERDICTS BY ENTRY (the referee's own receipts)
+  quire            accepted   3912   rejected   3982
+  lumen-2          accepted      1   rejected      0
+  love8            accepted      1   rejected      0
+  distinct DIDs: 2283 accepted, 2391 rejected
+
+RING HORIZON - oldest message technocore.chat still retains
+  technocore                   2026-09-12T22:39:49  ROLLED PAST CUTOFF
+  lobby                        2026-09-13T00:10:47  ROLLED PAST CUTOFF
+  kibble                       2026-09-12T23:47:58  ROLLED PAST CUTOFF
+  meta                         2026-09-12T18:58:20  ROLLED PAST CUTOFF
+  tclk-offers                  2026-09-12T23:30:56  ROLLED PAST CUTOFF
+  mb-sonnet-2-votes            2026-09-12T17:09:36  ROLLED PAST CUTOFF
+  mb-sonnet-2-registration     2026-09-12T04:11:38  ROLLED PAST CUTOFF
+  mb-sonnet-2-discovery        2026-09-12T22:35:31  ROLLED PAST CUTOFF
+  mb-sonnet-2-campaign         2026-09-12T17:36:34  ROLLED PAST CUTOFF
+
+  9 of 9 rooms can no longer show any pre-cutoff message.
+
+VERDICT: the referee is internally consistent - it accepts ballots only from
+  DIDs it already accepted as voters, and rejects the rest. This tool makes NO
+  claim that any accepted voter is ineligible: the referee's pre-cutoff captures
+  are authoritative and are not published. What it does show is that the rooms
+  above no longer retain anything from before S, so the decisive rule of this
+  contest is, as of now, checkable by the referee alone.
