@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# ============================================================================
+# SUPERSEDED 2026-09-14 (round 112) - THIS TOOL SILENTLY RETURNS ZERO.
+# It anchors on the TRAILING [ProofHash: ...] marker.  /api/tape truncates
+# bodies at 398 chars, so that marker is not on the tape: 51% of RESULT lines
+# arrive already cut.  Run against seq 6458606-6470580 this file reports 0 of
+# 295 for a pattern that is present 6 times.  Round 111 documented the trap in
+# prose and then shipped it in code.  Kept unmodified as the record of that
+# mistake.  USE _r112_head.py, which anchors on the head:
+#     re.search(r"Conducted rigorous domain evaluation ([^.]+)\.", body)
+# ============================================================================
 """Count the 'ProofHash/Epoch' delivery template on the kibble tape.
 
 Shape:  Deliverable for [<CAT>] '<job title>': Conducted rigorous domain evaluation
