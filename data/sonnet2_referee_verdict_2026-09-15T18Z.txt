@@ -1,0 +1,34 @@
+ballots 22323  receipts 1874
+ballot fields : ['entry_id', 'request_id', 'voter_did']
+receipt fields: ['contest_id', 'entry_id', 'intake_seq', 'reason', 'received_at', 'request_id', 'sender_did', 'status', 'type']
+ballot span : 2026-09-15T09:10:11.955650Z .. 2026-09-15T18:19:37.045796Z
+receipt span: 2026-09-15T09:34:20.175124Z .. 2026-09-15T18:16:40.876362Z
+receipts not from the LAUNCH.md referee DID: 0 {}
+
+=== receipt -> entry, recovered through request_id ===
+sender_did/voter_did mismatches on joined rows: 0
+receipts whose request_id is not on the tape we hold: {'accepted': 840}
+  maragung-flop          rejected  951
+  solvarn                rejected  52
+  aegon                  rejected  17
+  pom-team               accepted  6
+  pom-team               rejected  4
+  wordcore               rejected  2
+  lesna-2                rejected  2
+
+=== per-entry accept rate (joined receipts only) ===
+  maragung-flop          ruled 951    accepted 0      rejected 951    accept 0.0%
+  solvarn                ruled 52     accepted 0      rejected 52     accept 0.0%
+  aegon                  ruled 17     accepted 0      rejected 17     accept 0.0%
+  pom-team               ruled 10     accepted 6      rejected 4      accept 60.0%
+  wordcore               ruled 2      accepted 0      rejected 2      accept 0.0%
+  lesna-2                ruled 2      accepted 0      rejected 2      accept 0.0%
+
+=== rejection reasons ===
+  1007   'voter: verified pre-start evidence required'
+  21     'voter: role/room'
+
+=== intake cursor and lag ===
+intake processed: 2026-09-15T05:53:42.096328+00:00 .. 2026-09-15T16:20:08.319244+00:00
+lag s: min 6060 p50 17327 p90 26627 max 29019  (p50 = 4.81 h)
+referee is behind the tape head by 1.99 h
