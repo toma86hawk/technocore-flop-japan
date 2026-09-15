@@ -1,0 +1,262 @@
+{
+ "window": {
+  "msgs": 19298,
+  "seq_lo": 6888287,
+  "seq_hi": 6907584,
+  "deliveries": 3308,
+  "distinct_workers": 163
+ },
+ "midword_rate": {
+  "1700-1786": "1/38 = 2.6%",
+  "1786-1810": "27/35 = 77.1%",
+  "1810-2000": "0/15 = 0.0%"
+ },
+ "ratio_vs_below": 29.3,
+ "ratio_vs_above": "inf",
+ "cohort_keys": 18,
+ "keys_whose_every_body_is_cut_at_the_ceiling": 18,
+ "exceptions": [],
+ "control_writers_above_the_ceiling": [
+  {
+   "did": "qMBKCNireVcjK7",
+   "deliveries": 13,
+   "max_bytes": 4368
+  },
+  {
+   "did": "o9NeMVqiS4pxVp",
+   "deliveries": 202,
+   "max_bytes": 3218
+  },
+  {
+   "did": "yM4Ak4iM1jjwng",
+   "deliveries": 333,
+   "max_bytes": 3000
+  },
+  {
+   "did": "YXQQcEN122fUhC",
+   "deliveries": 1,
+   "max_bytes": 2687
+  },
+  {
+   "did": "Zk3WMS23bVLd5o",
+   "deliveries": 117,
+   "max_bytes": 2008
+  },
+  {
+   "did": "gJfq2da3Cg3jyL",
+   "deliveries": 51,
+   "max_bytes": 1989
+  }
+ ],
+ "falsifier": "midword rate in band must be >=5x BOTH neighbours and >=10 distinct keys must share the ceiling",
+ "falsifier_passed": true,
+ "cohort": [
+  {
+   "did": "did:key:z6MkwSep6MWxdNAg51DenpAu2uGDLGkTtSu9hFQTuX97kKkq",
+   "cut_at_ceiling": 4,
+   "total_deliveries": 4,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1794,
+   "max_bytes": 1803,
+   "jobs": [
+    "kadb7cef6ff",
+    "kadb7cef6ff",
+    "k2e8c6491eb",
+    "k2e8c6491eb"
+   ]
+  },
+  {
+   "did": "did:key:z6MkqoJ36vhr7pmCFy1jTKPmGGh9Vph6BkEMNgkZEkzsQ7Ar",
+   "cut_at_ceiling": 2,
+   "total_deliveries": 2,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1796,
+   "max_bytes": 1798,
+   "jobs": [
+    "k9db0016738",
+    "k7d74eb4759"
+   ]
+  },
+  {
+   "did": "did:key:z6Mkm5SgwFhdtLnMgKGVFkqVGMbsA4x77ryGQagam7XC8RMi",
+   "cut_at_ceiling": 2,
+   "total_deliveries": 2,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1798,
+   "max_bytes": 1798,
+   "jobs": [
+    "k6c900afd20",
+    "k6c900afd20"
+   ]
+  },
+  {
+   "did": "did:key:z6MkemRDsqbSMg4kFUJfN1aqGsMvWqXB8Y8uUUytuRDFEqMP",
+   "cut_at_ceiling": 2,
+   "total_deliveries": 2,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1798,
+   "max_bytes": 1798,
+   "jobs": [
+    "kd326dd84ee",
+    "kd326dd84ee"
+   ]
+  },
+  {
+   "did": "did:key:z6Mkm3FKrMUxwpWt5u9ZicYUCzy7A8c9SNEnQSmpf7y8GkQ8",
+   "cut_at_ceiling": 2,
+   "total_deliveries": 2,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1793,
+   "max_bytes": 1793,
+   "jobs": [
+    "kcf404a2794",
+    "kcf404a2794"
+   ]
+  },
+  {
+   "did": "did:key:z6MkpNTiZ5Xu5M3LJC3b8gyeH5cA9xiVWtNiJrP3VDHWg1x1",
+   "cut_at_ceiling": 2,
+   "total_deliveries": 2,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1791,
+   "max_bytes": 1791,
+   "jobs": [
+    "k969e5720af",
+    "k969e5720af"
+   ]
+  },
+  {
+   "did": "did:key:z6MkfhLHRtuqafSywkYUsES44pvSJuFFMNipghsgk9f9D7Y2",
+   "cut_at_ceiling": 2,
+   "total_deliveries": 2,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1797,
+   "max_bytes": 1797,
+   "jobs": [
+    "k855917af7b",
+    "k855917af7b"
+   ]
+  },
+  {
+   "did": "did:key:z6Mknkj6DEQB5sfRYrE8c4SeXFq7U2bEJHLADqD9vBKjfKcK",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1794,
+   "max_bytes": 1794,
+   "jobs": [
+    "k6e5d6d4d0d"
+   ]
+  },
+  {
+   "did": "did:key:z6MkoMSTRDHVLJEkdvMZaYAs8ncR8xYiW9JtGSagp52mciLK",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1797,
+   "max_bytes": 1797,
+   "jobs": [
+    "k449c4c95e3"
+   ]
+  },
+  {
+   "did": "did:key:z6Mkrvy5ekLGaKf9Zi5eF3ygYzVHREKfRBedh7MvodS7fwUF",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1802,
+   "max_bytes": 1802,
+   "jobs": [
+    "k789e04433c"
+   ]
+  },
+  {
+   "did": "did:key:z6MkgZCuuajwCLPct4koKsTs43sAqqokVzHABKBs4BeyPtcV",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1796,
+   "max_bytes": 1796,
+   "jobs": [
+    "kf6e651bc82"
+   ]
+  },
+  {
+   "did": "did:key:z6MkuCzpr8W1pKaknTkM6iVHn955VbEXKu2KdBEgbiFcr3tw",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1794,
+   "max_bytes": 1794,
+   "jobs": [
+    "k5cf0aa1be5"
+   ]
+  },
+  {
+   "did": "did:key:z6MksFmx3wa1GARqdtXBw8bJBXR5DNkarV1HJ4VzFqXXU9Xq",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1800,
+   "max_bytes": 1800,
+   "jobs": [
+    "k63ba7dab89"
+   ]
+  },
+  {
+   "did": "did:key:z6Mkr3nnc9cTX2K7VxmDHRtS6noMjPJfSFCtu7ZZYG7Z7vKH",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1799,
+   "max_bytes": 1799,
+   "jobs": [
+    "kcf51185ccd"
+   ]
+  },
+  {
+   "did": "did:key:z6Mkn47NC7TmCKJ7xvQLNkgDwtYec4waiecDP7ZmX8Mt89ap",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1800,
+   "max_bytes": 1800,
+   "jobs": [
+    "k45ffe08b57"
+   ]
+  },
+  {
+   "did": "did:key:z6MkoET79wJSuV1wiV3mpLWrs3P62w7SbSmWEEU3RDAn6LB2",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1801,
+   "max_bytes": 1801,
+   "jobs": [
+    "k65bac7d138"
+   ]
+  },
+  {
+   "did": "did:key:z6Mkm1DB6gckjinvDnJtofU8uix27TGyypf8Hu22w46s3RPG",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1798,
+   "max_bytes": 1798,
+   "jobs": [
+    "k2e0578da72"
+   ]
+  },
+  {
+   "did": "did:key:z6MkeVihT5pZgjAWeYnJScCLykPvZJV9MWkziX45owhUm7kn",
+   "cut_at_ceiling": 1,
+   "total_deliveries": 1,
+   "every_body_is_cut_at_the_ceiling": true,
+   "min_bytes": 1799,
+   "max_bytes": 1799,
+   "jobs": [
+    "kbae88dcb8b"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "window": {
+  "msgs": 19298,
+  "seq_lo": 6888287,
+  "seq_hi": 6907584
+ },
+ "base_rate": {
+  "declines": 19,
+  "deliveries": 3308,
+  "pct": 0.57
+ },
+ "falsifier": "report only >=5 declines AND >=5 spec-judged AND selfcontained_share>=0.5",
+ "reported": [],
+ "spared_by_falsifier": []
+}
