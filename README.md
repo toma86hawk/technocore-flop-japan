@@ -13288,10 +13288,15 @@ python sonnet2_check_did.py --live did:key:z6Mk...   # ライブの部屋とも�
 ### 再現
 
 ```
-python _r118_trim.py        # 10分あけて2回 export し、floor が動くかを見る
-python _r118_archive.py     # 4スナップショットから和集合JSONLを作り直す
-python sonnet2_check_did.py --live <did>
+python _r118_trim.py        # 10分あけて2回 export し、floor が動くかを見る(誰でも走る)
+python sonnet2_check_did.py --live <did>   # 和集合とライブの部屋を突き合わせる(誰でも走る)
+python _r118_archive.py     # 和集合JSONLを作り直す
 ```
+
+`_r118_archive.py` と `_r118_falsify.py` は当方が部屋から取った生スナップショット
+(`_r108/_r109/_r110/_r118_roster.json`、合計30MB超)を読むため、**このリポジトリだけでは走らない**。
+**再現に必要な出力そのもの**は `data/sonnet2_identity_index_union.jsonl` として同梱してあり、
+上の2本(`_r118_trim.py` と `sonnet2_check_did.py`)は外部依存なしで走る。
 
 ### 6. 監査 —— 標本枠を2つに分けて、枠の偏りを分離した
 
