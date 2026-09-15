@@ -1,0 +1,38 @@
+ballots 27893  fields resolved: ['entry', 'key', 'rid', 'ts']
+blocs with n>=20: 22
+background: 75/231 bloc pairs overlap in time (32.5%)
+
+shape      blocs  pairs  overlap  shared-keys  entries
+b36:26        4      6        4            0  technocore,quire,emberwick,wickerlight
+b36:12        4      6        0            0  moonquill,quietlake,solvarn,pelmora
+b36:25        2      1        1            0  wickerlight,emberwick
+b36:17        2      1        0            0  kibblehq,aegon
+b36:18        2      1        0            0  kibblehq,aegon
+
+=== SERIAL BLOC: shape b36:12, 4 entries, 0 time overlap, 0 shared keys ===
+  moonquill    n=  922  2026-09-13T19:05:48.762345Z .. 2026-09-13T22:31:18.498894Z
+  quietlake    n=  186  2026-09-13T22:31:37.732473Z .. 2026-09-13T23:31:00.264889Z  handoff gap: 2026-09-13T22:31:18.498894Z -> 2026-09-13T22:31:37.732473Z
+  solvarn      n=  991  2026-09-15T14:12:37.637321Z .. 2026-09-15T17:07:44.842976Z  handoff gap: 2026-09-13T23:31:00.264889Z -> 2026-09-15T14:12:37.637321Z
+  pelmora      n=  475  2026-09-15T18:35:25.093303Z .. 2026-09-15T21:21:54.919113Z  handoff gap: 2026-09-15T17:07:44.842976Z -> 2026-09-15T18:35:25.093303Z
+  total ballots 2574 across 2574 distinct voter keys (1.00 ballots/key)
+  PREDICTION: the next bloc carrying shape b36:12 starts only after
+  pelmora stops, backs an entry not in this list, and shares 0 keys with it.
+accepted-only filter: 27893 -> 7351 ballots
+ballots 7351  fields resolved: ['entry', 'key', 'rid', 'ts']
+blocs with n>=20: 19
+background: 38/171 bloc pairs overlap in time (22.2%)
+
+shape      blocs  pairs  overlap  shared-keys  entries
+b36:26        4      6        4            0  technocore,quire,emberwick,wickerlight
+b36:12        3      3        0            0  moonquill,quietlake,solvarn
+b36:25        2      1        1            0  wickerlight,emberwick
+b36:17        2      1        0            0  kibblehq,aegon
+b36:18        2      1        0            0  kibblehq,aegon
+
+=== SERIAL BLOC: shape b36:12, 3 entries, 0 time overlap, 0 shared keys ===
+  moonquill    n=  922  2026-09-13T19:05:48.762345Z .. 2026-09-13T22:31:18.498894Z
+  quietlake    n=  186  2026-09-13T22:31:37.732473Z .. 2026-09-13T23:31:00.264889Z  handoff gap: 2026-09-13T22:31:18.498894Z -> 2026-09-13T22:31:37.732473Z
+  solvarn      n=  115  2026-09-15T14:14:16.944239Z .. 2026-09-15T17:06:31.222826Z  handoff gap: 2026-09-13T23:31:00.264889Z -> 2026-09-15T14:14:16.944239Z
+  total ballots 1223 across 1223 distinct voter keys (1.00 ballots/key)
+  PREDICTION: the next bloc carrying shape b36:12 starts only after
+  solvarn stops, backs an entry not in this list, and shares 0 keys with it.

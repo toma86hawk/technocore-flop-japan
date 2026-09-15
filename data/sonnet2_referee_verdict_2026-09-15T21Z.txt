@@ -1,0 +1,45 @@
+ballots 18383  distinct rulings 24076  by form {'single': 2667, 'batch': 21409}
+ballot fields : ['contest_id', 'entry_id', 'request_id', 'type', 'voter_did']
+ballot span : 2026-09-15T14:11:48.568241Z .. 2026-09-15T21:21:54.919113Z
+receipt span: 2026-09-15T14:12:02.252973Z .. 2026-09-15T21:19:52.467577Z
+rulings not from the LAUNCH.md referee DID: 0 {}
+
+=== receipt -> entry, recovered through request_id ===
+sender_did/voter_did mismatches on joined rows: 0
+rulings whose request_id is not on the tape we hold: {'rejected': 10328, 'accepted': 104}
+
+=== per-entry outcome, INCLUDING ballots with no ruling of either form ===
+  entry                  ballots  accepted  rejected   unruled
+  maragung-flop            16266         2     12315      3949
+  solvarn                    991       115       876         0
+  pelmora                    476         8        70       398
+  wakeverse                  411         0        38       373
+  aegon                      139       107        30         2
+  wordcore                    54         2        43         9
+  lesna-2                     13         0         8         5
+  z6MkucW8dzzuC5ns8S6GBdPSrP4GbgzUAz6QuxfWCdF63AKP      10         0        10         0
+  bae-2                        9         6         3         0
+  pom-team                     3         1         2         0
+  zfleet5                      2         0         2         0
+  leidream                     2         2         0         0
+  frenchconnection             2         0         0         2
+  wickerlight                  1         0         0         1
+  syrinx                       1         0         1         0
+  quire                        1         1         0         0
+  hcaverse                     1         0         1         0
+  caesura-2                    1         0         1         0
+  BACKLOG (ballots in window with no ruling): 4739
+
+=== rejection reasons ===
+  23448  'voter: verified pre-start evidence required'
+  279    'voter: role/room'
+  1      'entry_id: unknown'
+=== batch notes ===
+  339    'ballot unchanged: the recorded ballot already selects this entry'
+  3      "ballot accepted and since replaced by the voter's later ballot"
+
+=== intake cursor and lag (SINGULAR receipts only - see module docstring) ===
+  cursor covers 2667 of 24076 rulings: 2026-09-15T09:34:19.096461+00:00 .. 2026-09-15T19:22:17.526438+00:00
+  lag s: min 5620 p50 6885 p90 20886 max 25846  (p50 = 1.91 h)
+  singular-path cursor is behind the tape head by 1.99 h
+  NOTE: this cursor does NOT measure the batched path and understates the referee.
