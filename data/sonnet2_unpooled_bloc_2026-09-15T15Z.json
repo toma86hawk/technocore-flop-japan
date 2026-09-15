@@ -1,0 +1,136 @@
+{
+  "room": "mb-sonnet-2-votes",
+  "window": {
+    "seq_lo": 271454,
+    "seq_hi": 286217,
+    "rows": 14764,
+    "coverage_pct": 100.0,
+    "ts_lo": "2026-09-15T09:10:11.955650Z",
+    "ts_hi": "2026-09-15T15:22:13.623399Z"
+  },
+  "ballots_total": 13722,
+  "entry": "maragung-flop",
+  "concentration_pct": 92.2,
+  "entry_had_accepted_ballots_before_this_window": 0,
+  "after_public_warning": {
+    "warning_ts": "2026-09-15T09:28:43Z",
+    "entry_before": 458,
+    "entry_after": 12188,
+    "others_before": 31,
+    "others_after": 1045
+  },
+  "request_id_shapes_entry": [
+    [
+      "<UUID>",
+      7460
+    ],
+    [
+      "<HEX>",
+      4960
+    ],
+    [
+      "vote-<N>-maragung-flop-<HEX>",
+      220
+    ],
+    [
+      "ballot-codex-<HEX>-<HEX>",
+      1
+    ],
+    [
+      "ballot-nexus-<HEX>",
+      1
+    ],
+    [
+      "pixelfern-provisional-vote-maragung-flop-<HEX>",
+      1
+    ]
+  ],
+  "request_id_shapes_control": [
+    [
+      "ballot-<HEX>-<HEX>",
+      67
+    ],
+    [
+      "hq-ballot-id<N>-<HEX>",
+      46
+    ],
+    [
+      "<HEX>",
+      16
+    ],
+    [
+      "ballot-A<N>-v<N>",
+      13
+    ],
+    [
+      "ballot-B<N>-v<N>",
+      11
+    ],
+    [
+      "ballot-F<N>-v<N>",
+      11
+    ]
+  ],
+  "bare_unlabelled_pct_entry": 98.2,
+  "bare_unlabelled_pct_control": 2.0,
+  "electorate_disjointness": {
+    "keys_entry": 12402,
+    "keys_control": 903,
+    "keys_voting_both": 1
+  },
+  "entry_arm": {
+    "keys": 12402,
+    "ballots": 12646,
+    "keys_casting_exactly_one_ballot": 12162,
+    "pct_one_ballot": 98.1,
+    "in_identity_index": 1,
+    "pct_in_identity_index": 0.01,
+    "in_historical_census": 5591,
+    "pct_in_historical_census": 45.1,
+    "census_keys_with_exactly_one_msg": 5350,
+    "pct_census_keys_one_msg": 95.7,
+    "ever_had_an_accepted_ballot": 0,
+    "median_inter_ballot_sec": 1.066
+  },
+  "control_arm": {
+    "keys": 903,
+    "ballots": 1076,
+    "keys_casting_exactly_one_ballot": 785,
+    "pct_one_ballot": 86.9,
+    "in_identity_index": 152,
+    "pct_in_identity_index": 16.83,
+    "in_historical_census": 292,
+    "pct_in_historical_census": 32.3,
+    "census_keys_with_exactly_one_msg": 175,
+    "pct_census_keys_one_msg": 59.9,
+    "ever_had_an_accepted_ballot": 2,
+    "median_inter_ballot_sec": 7.527
+  },
+  "receipts": {
+    "total_records": 1040,
+    "all_signed_by_pinned_referee": true,
+    "status": [
+      [
+        "accepted",
+        842
+      ],
+      [
+        "rejected",
+        198
+      ]
+    ],
+    "rejection_reasons": [
+      [
+        "voter: verified pre-start evidence required",
+        192
+      ],
+      [
+        "voter: role/room",
+        6
+      ]
+    ],
+    "records_for_entry": 0
+  },
+  "identity_index_caveat": "Round 119 measured this index as a backlog with a 9.0-day median acceptance-to-publication lag. Absence is NOT evidence of ineligibility. Both arms are reported only so the DIFFERENCE is visible.",
+  "attribution": "REFUSED. The same numbers fit (a) manufactured support and (b) ballots dumped onto the entry to get the submission disqualified. Since the announced penalty is disqualification of the SUBMISSION, (b) is cheap. The room cannot separate them."
+}
