@@ -197,7 +197,10 @@ def main(paths, accepted_only=False):
         sk = sum(len(keys[a] & keys[b]) for a, b in pp)
         print("%-9s %5d  %5d  %7d  %11d  %s"
               % (sh, len(ks), len(pp), ov, sk, ",".join(k[0] for k in ks)))
-        if ov == 0 and sk == 0 and len(ks) >= 3:
+        # A single handoff PAIR is the whole observable: the 19s and 22.1s baton
+        # passes (rounds 123, 124) were each measured from two blocs, not three.
+        # Requiring 3 hid exactly the evidence the finding rests on.
+        if ov == 0 and sk == 0 and len(ks) >= 2:
             suspects.append((sh, ks))
 
     for sh, ks in suspects:
@@ -214,8 +217,12 @@ def main(paths, accepted_only=False):
         allk = set().union(*(keys[k] for k in ks))
         print("  total ballots %d across %d distinct voter keys (%.2f ballots/key)"
               % (tot, len(allk), tot / len(allk)))
+        # Round 124 REFUTED the forward-only form of this prediction: the relay
+        # returned to solvarn, an entry already in the family. It CYCLES. Do not
+        # re-emit a clause we have already falsified.
         print("  PREDICTION: the next bloc carrying shape %s starts only after" % sh)
-        print("  %s stops, backs an entry not in this list, and shares 0 keys with it." % rows[-1][2])
+        print("  %s stops and shares 0 voter keys with it; the entry it backs may be" % rows[-1][2])
+        print("  ANY entry, including one already in this list (forward-only was refuted r124).")
 
 
 def _raw_rids(paths):
