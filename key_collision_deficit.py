@@ -53,6 +53,10 @@ from collections import defaultdict
 
 MIN_N = 100          # below this the bound is too weak to exclude anything
 LN20 = math.log(20)  # 95% one-sided
+EXCL_X = 10.0        # a bound must clear the OBSERVED key count by this much
+CONTRA_X = 10.0      # ... and clear a point estimate by this much to be a
+                     # contradiction.  1.0 would be arithmetically sufficient
+                     # but leaves no room for the estimator's own noise.
 
 
 def expected_repeats(K, n):
@@ -123,9 +127,20 @@ def main(path):
         if r == 0:
             bound = n * n / (2.0 * LN20)
             pool = ">= %.3g (95%% lower)" % bound
-            verdict = ("EXCLUDES the observed universe by %.0fx"
-                       % (bound / max(len(universe), 1)))
-            informative.append((entry, n, r, bound, True))
+            x = bound / max(len(universe), 1)
+            # GUARD ADDED ROUND 128.  The first version printed "EXCLUDES the
+            # observed universe by 0x" for every zero-repeat entry, including
+            # ones whose lower bound is BELOW the number of keys actually
+            # counted in the room - which excludes nothing at all.  A bound
+            # under the observed universe is simply not evidence: the room
+            # demonstrably contains that many keys.
+            if x < EXCL_X:
+                verdict = ("no exclusion: bound is %.2gx the observed universe"
+                           % x)
+                informative.append((entry, n, r, bound, None))
+            else:
+                verdict = "EXCLUDES the observed universe by %.0fx" % x
+                informative.append((entry, n, r, bound, True))
         else:
             k_hat = implied_pool(n, r)
             pool = "~ %.3g" % k_hat
@@ -136,22 +151,41 @@ def main(path):
 
     print()
     print("CONTRADICTION TEST (this is the finding; it needs no true universe size)")
-    lows = [x for x in informative if not x[4]]
-    highs = [x for x in informative if x[4]]
+    lows = [x for x in informative if x[4] is False]
+    highs = [x for x in informative if x[4] is True]
     if not lows or not highs:
-        print("  not applicable: need at least one entry with repeats and one without,")
-        print("  both at n >= %d." % MIN_N)
+        print("  not applicable: need at least one entry with repeats and one")
+        print("  whose zero-repeat bound clears the observed universe, both at")
+        print("  n >= %d." % MIN_N)
         return 0
+    shown = 0
     for he, hn, _, hb, _ in highs:
         for le, ln_, lr, lk, _ in lows:
+            # GUARD ADDED ROUND 128.  Every (zero-repeat, with-repeat) pair used
+            # to be printed under this heading, including pairs where the lower
+            # bound sits BELOW the point estimate.  Those printed as "ratio 0x"
+            # and are not contradictions - they are agreements.  Round 127
+            # retracted three labels for exactly this class of mistake; the tool
+            # written to prevent it was still emitting them.
+            if hb / lk < CONTRA_X:
+                continue
+            shown += 1
             print("  %s (n=%d, 0 repeats) implies >= %.3g keys;"
                   % (he, hn, hb))
             print("  %s (n=%d, %d repeats) implies ~ %.3g keys  ->  ratio %.0fx"
                   % (le, ln_, lr, lk, hb / lk))
+    if not shown:
+        print("  none: no zero-repeat bound exceeds a point estimate by %gx."
+              % CONTRA_X)
+        return 0
     print()
     print("  Both voted into the same room over the same hours.  A supporter pool")
     print("  cannot differ by that factor between two entries of one contest.")
-    print("  The zero-repeat entries are not sampling an electorate.")
+    print("  The zero-repeat entries printed above are not sampling an electorate.")
+    print()
+    print("  Quote the bound against the OBSERVED key count, not against another")
+    print("  entry's point estimate: the point estimate moves with n (round 127)")
+    print("  and so the pair ratio is not stable across windows.")
     return 0
 
 
