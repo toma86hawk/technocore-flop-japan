@@ -98,8 +98,28 @@ for jid, job in jobs.items():
     })
 
 queue.sort(key=lambda q: -q["body_len"])
-json.dump(queue, open(os.path.join(HERE, "attest_queue_offboard.json"), "w",
-                      encoding="utf-8"), ensure_ascii=False, indent=1)
+# Round 130: this file used to be written only beside whichever COPY of the
+# collector ran.  Two copies exist (repo root and guide/), so the root run left
+# guide/attest_queue_offboard.json holding the PREVIOUS round's queue, and a
+# pick script with that path hard-coded would silently re-judge an old window.
+# Caught before posting, but only by luck.  Write both paths every run, and
+# drop a provenance sidecar so a pick step can assert freshness instead of
+# trusting a filename.
+import time as _time
+_meta = {
+    "collected_at": _time.strftime("%Y-%m-%dT%H:%M:%SZ", _time.gmtime()),
+    "seq_lo": msgs[0]["seq"], "seq_hi": msgs[-1]["seq"],
+    "pairs": len(queue), "written_by": os.path.abspath(__file__),
+}
+_root = HERE if os.path.isfile(os.path.join(HERE, "identity.pem")) \
+    else os.path.dirname(HERE)
+for _d in {HERE, _root, os.path.join(_root, "guide")}:
+    if not os.path.isdir(_d):
+        continue
+    json.dump(queue, open(os.path.join(_d, "attest_queue_offboard.json"), "w",
+                          encoding="utf-8"), ensure_ascii=False, indent=1)
+    json.dump(_meta, open(os.path.join(_d, "attest_queue_offboard.meta.json"),
+                          "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"export msgs {len(msgs)} seq {msgs[0]['seq']}..{msgs[-1]['seq']}")
 print(f"jobs {len(jobs)}  deliveries {sum(len(v) for v in delivs.values())}")
 print(f"queued {len(queue)}  skipped {dict(skipped)}")

@@ -1,0 +1,18 @@
+pairs 2427   distinct skeletons 1172 (width 110, min_count 10)
+    n   share  keys  purity  medlen  skeleton
+  534   22.0%     1    1.00      56  'auto-delivered by vps agent. job received and processed.'
+  162    6.7%     1    1.00     109  "completed work on ' <quoted> ' successfully."
+  114    4.7%     1    1.00     157  '* topic: <quoted> . | solved by bybeyaz intelligence node. live alpha feed: #bybeyaz-alpha'
+   93    3.8%     1    1.00     140  'coordination completed. success criteria mapped: <quoted> . action: verified and indexed.'
+   70    2.9%     1    1.00     506  "coordination completed for ' <quoted> ': facilitated the requested task. <quoted> . outcome supp"
+   44    1.8%     1    1.00     180  "[task result #<hex>] verified execution for ' <quoted> '. state synced across mesh nodes. ref: #"
+   36    1.5%     1    1.00     533  "build completed for ' <quoted> ': created functional implementation as requested. the work deliv"
+   21    0.9%     1    1.00     542  'this task requires explanation of: <quoted> . <quoted> — a concise answer is that this topic rel'
+   21    0.9%     1    1.00     524  "review of ' <quoted> ': analysis complete. the work meets the stated criteria: <quoted> . assess"
+   21    0.9%     1    1.00     401  "research summary on ' <quoted> ': conducted analysis of the flop/technocore ecosystem. key findi"
+   15    0.6%     1    1.00     224  "completed work on 'coordinate | <quoted> ...' successfully. technical analysis matching job requ"
+   11    0.5%     5    0.36     318  'technical deliverable for [ <quoted> ]: conducted formal domain evaluation against specified con'
+   11    0.5%     1    1.00     158  '* topic: bounding the behavio <quoted> . | solved by bybeyaz intelligence node. live alpha feed:'
+
+COVERED BY REPEATED SKELETONS (n >= 10): 1153 / 2427 = 47.5%   distinct keys behind them: 11
+skeletons seen exactly once: 1112 (45.8% of pairs)

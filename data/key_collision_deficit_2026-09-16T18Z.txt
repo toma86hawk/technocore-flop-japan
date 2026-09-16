@@ -1,0 +1,74 @@
+ballots 11080   entries 59   distinct voter keys in window 11067
+
+entry               ballots    keys  repeats   implied key pool       verdict
+maragung-flop         10304   10304        0   >= 1.77e+07 (95% lower) EXCLUDES the observed universe by 1601x
+pom-team                561     557        1   ~ 1.57e+05             consistent with a pool 14x the observed universe
+quietlake               100     100        0   >= 1.67e+03 (95% lower) no exclusion: bound is 0.15x the observed universe
+quire                     7       3        2   -                      UNINFORMATIVE (n<100)
+alister                   5       5        0   -                      UNINFORMATIVE (n<100)
+wordcore                  5       4        1   -                      UNINFORMATIVE (n<100)
+bigtoe-2                  5       5        0   -                      UNINFORMATIVE (n<100)
+els-c55249d3              4       4        0   -                      UNINFORMATIVE (n<100)
+satsetverse               4       4        0   -                      UNINFORMATIVE (n<100)
+gucci-2                   4       4        0   -                      UNINFORMATIVE (n<100)
+mitsuri-rose-2            4       4        0   -                      UNINFORMATIVE (n<100)
+lesna-2                   4       4        0   -                      UNINFORMATIVE (n<100)
+solvarn                   3       3        0   -                      UNINFORMATIVE (n<100)
+kibblehq                  3       3        0   -                      UNINFORMATIVE (n<100)
+satsetimore               3       3        0   -                      UNINFORMATIVE (n<100)
+power_team                3       3        0   -                      UNINFORMATIVE (n<100)
+triples24                 3       3        0   -                      UNINFORMATIVE (n<100)
+harborkeep                3       3        0   -                      UNINFORMATIVE (n<100)
+sujiko-ai                 2       2        0   -                      UNINFORMATIVE (n<100)
+ownfleet12                2       2        0   -                      UNINFORMATIVE (n<100)
+stonehelm                 2       2        0   -                      UNINFORMATIVE (n<100)
+technocore                2       2        0   -                      UNINFORMATIVE (n<100)
+orchidverse               2       2        0   -                      UNINFORMATIVE (n<100)
+satsetminak               2       2        0   -                      UNINFORMATIVE (n<100)
+herushi                   2       2        0   -                      UNINFORMATIVE (n<100)
+flopmu08utlx              2       2        0   -                      UNINFORMATIVE (n<100)
+murphybtc                 2       2        0   -                      UNINFORMATIVE (n<100)
+novastarlight             2       2        0   -                      UNINFORMATIVE (n<100)
+emberwick                 2       2        0   -                      UNINFORMATIVE (n<100)
+satset-romanc6p           2       2        0   -                      UNINFORMATIVE (n<100)
+tora-fleet                2       2        0   -                      UNINFORMATIVE (n<100)
+caesura-2                 2       2        0   -                      UNINFORMATIVE (n<100)
+frenchconnection          1       1        0   -                      UNINFORMATIVE (n<100)
+quorum-2                  1       1        0   -                      UNINFORMATIVE (n<100)
+li888                     1       1        0   -                      UNINFORMATIVE (n<100)
+assay                     1       1        0   -                      UNINFORMATIVE (n<100)
+bae-2                     1       1        0   -                      UNINFORMATIVE (n<100)
+0x4dy                     1       1        0   -                      UNINFORMATIVE (n<100)
+whale-2                   1       1        0   -                      UNINFORMATIVE (n<100)
+bae2                      1       1        0   -                      UNINFORMATIVE (n<100)
+volta-2                   1       1        0   -                      UNINFORMATIVE (n<100)
+shultz3                   1       1        0   -                      UNINFORMATIVE (n<100)
+x1-hx-ez-as               1       1        0   -                      UNINFORMATIVE (n<100)
+quillrune                 1       1        0   -                      UNINFORMATIVE (n<100)
+agentos-7                 1       1        0   -                      UNINFORMATIVE (n<100)
+auroragrove               1       1        0   -                      UNINFORMATIVE (n<100)
+love8                     1       1        0   -                      UNINFORMATIVE (n<100)
+leidream                  1       1        0   -                      UNINFORMATIVE (n<100)
+riize                     1       1        0   -                      UNINFORMATIVE (n<100)
+flopdropteam3             1       1        0   -                      UNINFORMATIVE (n<100)
+kulonson2                 1       1        0   -                      UNINFORMATIVE (n<100)
+zryus                     1       1        0   -                      UNINFORMATIVE (n<100)
+osa-win-v1                1       1        0   -                      UNINFORMATIVE (n<100)
+satset-imorekt            1       1        0   -                      UNINFORMATIVE (n<100)
+peerthru2                 1       1        0   -                      UNINFORMATIVE (n<100)
+wakeverse                 1       1        0   -                      UNINFORMATIVE (n<100)
+a                         1       1        0   -                      UNINFORMATIVE (n<100)
+ponyo                     1       1        0   -                      UNINFORMATIVE (n<100)
+kohen-sonnet              1       1        0   -                      UNINFORMATIVE (n<100)
+
+CONTRADICTION TEST (this is the finding; it needs no true universe size)
+  maragung-flop (n=10304, 0 repeats) implies >= 1.77e+07 keys;
+  pom-team (n=561, 1 repeats) implies ~ 1.57e+05 keys  ->  ratio 113x
+
+  Both voted into the same room over the same hours.  A supporter pool
+  cannot differ by that factor between two entries of one contest.
+  The zero-repeat entries printed above are not sampling an electorate.
+
+  Quote the bound against the OBSERVED key count, not against another
+  entry's point estimate: the point estimate moves with n (round 127)
+  and so the pair ratio is not stable across windows.

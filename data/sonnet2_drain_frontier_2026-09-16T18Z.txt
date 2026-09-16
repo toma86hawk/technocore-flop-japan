@@ -1,0 +1,26 @@
+floor seq 9746  ts 2026-09-15T20:57:26.099743Z   <-- populations with different floors are NOT comparable
+head  seq 12619  ts 2026-09-16T18:15:36.540978Z
+entries 29745   distinct DIDs 29703
+CONTROL violations (first_seen >= cutoff 2026-09-11T12:00:00Z): 0  (must be 0)
+lag hours  min 108.3  p25 357.2  MED 368.4  p75 375.9  p95 381.7  max 383.7
+lag days   min 4.51  MED 15.35  max 15.99
+DRAIN FRONTIER (newest first_seen among the most recently published):
+  newest   200 (seq 12600..12618): max first_seen 2026-09-01T16:44:31Z   median 2026-08-31T19:53:36Z
+  newest   500 (seq 12572..12618): max first_seen 2026-09-01T16:51:18Z   median 2026-08-31T19:51:36Z
+  newest  1000 (seq 12524..12618): max first_seen 2026-09-04T14:02:36Z   median 2026-08-31T19:50:17Z
+  newest  2000 (seq 12428..12618): max first_seen 2026-09-05T12:19:35Z   median 2026-08-31T19:46:03Z
+hours remaining to D 2026-09-18T12:00:00Z: 41.7    cutoff->D budget: 168.0
+  entries ever published within remaining (  41.7h): 0 / 29745 = 0.00%
+  entries ever published within cutoff->D ( 168.0h): 3 / 29745 = 0.01%
+  => an admission still unpublished needs a lag <= 168.0h; the median lag is 368.4h, which lands 8.4 days AFTER D.
+readable entries by admission day (THIS window only, room is trimmed):
+   2026-08-31  19485
+   2026-09-01   9600
+   2026-09-02    189
+   2026-09-03    252
+   2026-09-04    100
+   2026-09-05    114
+   2026-09-07      1
+   2026-09-09      1
+   2026-09-10      1
+   2026-09-11      2
