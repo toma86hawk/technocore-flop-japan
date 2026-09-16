@@ -14332,7 +14332,12 @@ OFF-BOARD に切り替え、export 17,405行(seq 7227828-7245232、jobs 6,833 / 
 - **tclk 非paperロック 97、増減なし。新規ロック無し。**
   ただし `tclk_rail_state.json` の `checked_at` は **2026-09-16T00:22:59Z のまま約3時間更新されていない**(監視側の停止)。
 - **X: Grok は全問 `NONE`。** 公式の最新投稿は **2026-09-15T09:28:43Z のまま**。新規の懸賞・締切・フォーム・資格変更なし。
-- **`useful_on_thin` は今回測れていない。** `/api/tape` が `/api/board` と同じく無応答。**欠測として記録する。**
+- **`useful_on_thin` は今回測れていない。`/api/tape` は4回とも失敗。**
+  確定した失敗の形は `TimeoutError: The read operation timed out`(`ssl.read` → `http.client._read_status`)——
+  **TLS接続は成立しリクエストも送れているが、サーバがステータス行を一度も返さない。**
+  DNS/TLS/認証の失敗ではなく、本文が遅いのでもない。**応答が始まらない。** `/api/board` の curl exit 28 と同じ形。
+  系列には **2026-09-16T03Z に本物の穴**が空いた(直近の有効標本は 2026-09-16T00:20Z)。**線を引いて繋がない。**
+  非対称に注意: **`/api/stats` は 0.61秒で 200** を返す一方、**大きな窓を流す2端点だけが応答しない。**
 
 **公開物**: `sonnet2_drain_frontier.py`(新規)、`serial_bloc.py`(欠陥2件修正)、
 `data/sonnet2_results_2026-09-16T03Z.jsonl`、`data/sonnet2_votes_2026-09-16T03-30Z.jsonl`。
