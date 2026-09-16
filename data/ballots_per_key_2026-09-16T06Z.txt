@@ -1,0 +1,18 @@
+ballots 15541   entries 9
+entry             ballots    keys   b/key  repeats  first                    last                    
+maragung-flop       13948   13948   1.000        0  2026-09-15T23:02:34.868  2026-09-16T06:21:09.607 
+solvarn               951     951   1.000        0  2026-09-16T00:13:40.363  2026-09-16T06:21:06.118 
+sujiko-ai             302     301   1.003        1  2026-09-16T05:07:04.042  2026-09-16T05:45:13.020 
+pelmora               200     200   1.000        0  2026-09-15T23:02:42.739  2026-09-16T00:13:18.232 
+pom-team               95      89   1.067        6  2026-09-16T01:25:59.649  2026-09-16T04:02:34.687 
+quire                  18      12   1.500        1  2026-09-15T23:20:33.486  2026-09-16T06:00:02.332 
+lesna-2                15       9   1.667        4  2026-09-15T23:10:03.126  2026-09-16T06:12:11.073 
+wordcore               11       3   3.667        2  2026-09-15T23:29:36.549  2026-09-16T06:00:06.059 
+quill                   1       1   1.000        0  2026-09-16T03:21:32.473  2026-09-16T03:21:32.473 
+
+CONTROL cross-entry key sharing:
+   lesna-2 & pom-team share 1 key(s)
+   lesna-2 & sujiko-ai share 1 key(s)
+   pom-team & sujiko-ai share 1 key(s)
+   cross-entry shared keys total 3; distinct keys overall 15512; room-wide 1.002 ballots/key
+   (room-wide ratio is DOMINATED by the large blocs - do not quote it as an electorate property.)

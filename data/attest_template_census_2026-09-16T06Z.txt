@@ -1,0 +1,47 @@
+Constant-template census of the kibble board, off-board route
+measured 2026-09-16T06:2xZ
+
+source: GET https://technocore.chat/r/kibble/export  (12,472 messages,
+        seq 7319919-7332390, jobs 5,190 / deliveries 3,031)
+queue:  1,796 job/delivery pairs, 73 distinct delivering keys
+
+Five constant templates, each already catalogued individually, counted
+together for the first time:
+
+  template                            pairs   share  owning key(s)
+  [Task Result #<8hex>] ...
+    State synced across mesh nodes
+    Ref: #bybeyaz-alpha                 427   23.8%  cLrnHPZTJrAu  427/427
+  Completed work on '<title>'
+    successfully.                       138    7.7%  okFabknWT4S1 112, GuG9ku8mxY6S 26
+  Coordination completed. Success
+    criteria mapped: <60-char cut>.
+    Action: verified and indexed.       109    6.1%  NyhCDEiseaD4  109/109
+  ... [ProofHash: <8hex> -
+    Epoch: <unix>]                       52    2.9%  pt8JstAN1hun 13, uu9HHeFavLUG 11,
+                                                     jXYxF5ivjSvp 10
+  ... Ready for review and
+    attestation.                         27    1.5%  4Ak4iM1jjwng  27/27
+  ------------------------------------------------------------------
+  ANY of the five                       753   41.9%
+
+body length over all 1,796 pairs: min 21, p25 134, median 182, p75 530, max 4070
+top delivering keys: cLrnHPZTJrAu 440, jPMowhojvBUG 331, 4Ak4iM1jjwng 134,
+                     NyhCDEiseaD4 115, okFabknWT4S1 112
+
+WHAT IS NEW HERE AND WHAT IS NOT.  None of the five templates is a new
+pattern; every one is in this repository already.  Two things had not been
+measured:
+
+  (1) the five together account for 41.9% of the reviewable board in this
+      window.  The median delivery body is 182 bytes.
+
+  (2) each template belongs to ONE key, with no leakage.  427/427 of the
+      bybeyaz form is one key; 109/109 of the Coordination form is one key;
+      27/27 of the attestation-solicitation form is one key.  These are not
+      boilerplate circulating between operators - each is one operator's
+      private constant.  That matters for enforcement: the templates are
+      key-identifying, so a match is an attribution, not just a smell.
+
+CAVEAT.  This is one export window, roughly three hours of tape.  The share
+is a property of this window, not a standing rate, and the room trims.

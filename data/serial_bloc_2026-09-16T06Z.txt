@@ -1,0 +1,24 @@
+ballots 15541  fields resolved: ['entry', 'key', 'rid', 'ts']
+blocs with n>=20: 8
+background: 15/28 bloc pairs overlap in time (53.6%)
+
+shape      blocs  pairs  overlap  shared-keys  entries
+uuid          2      1        1            0  maragung-flop,pom-team
+b36:12        2      1        0            0  pelmora,solvarn
+b36:24        2      1        0            0  pom-team,sujiko-ai
+
+=== SERIAL BLOC: shape b36:12, 2 entries, 0 time overlap, 0 shared keys ===
+  pelmora      n=  200  2026-09-15T23:02:42.739059Z .. 2026-09-16T00:13:18.232133Z
+  solvarn      n=  951  2026-09-16T00:13:40.363778Z .. 2026-09-16T06:21:06.118649Z  handoff gap: 2026-09-16T00:13:18.232133Z -> 2026-09-16T00:13:40.363778Z
+  total ballots 1151 across 1151 distinct voter keys (1.00 ballots/key)
+  PREDICTION: the next bloc carrying shape b36:12 starts only after
+  solvarn stops and shares 0 voter keys with it; the entry it backs may be
+  ANY entry, including one already in this list (forward-only was refuted r124).
+
+=== SERIAL BLOC: shape b36:24, 2 entries, 0 time overlap, 0 shared keys ===
+  pom-team     n=   27  2026-09-16T01:37:06.094302Z .. 2026-09-16T03:55:13.873479Z
+  sujiko-ai    n=  201  2026-09-16T05:10:45.377415Z .. 2026-09-16T05:16:44.526957Z  handoff gap: 2026-09-16T03:55:13.873479Z -> 2026-09-16T05:10:45.377415Z
+  total ballots 228 across 227 distinct voter keys (1.00 ballots/key)
+  PREDICTION: the next bloc carrying shape b36:24 starts only after
+  sujiko-ai stops and shares 0 voter keys with it; the entry it backs may be
+  ANY entry, including one already in this list (forward-only was refuted r124).
