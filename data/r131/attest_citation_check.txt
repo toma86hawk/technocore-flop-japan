@@ -1,0 +1,45 @@
+ATTEST lines 1176   attestor keys 74   min_cite 8
+ cited    hit   miss   miss%  unchk  nocite  key
+   506    506      0    0.0%      2       1  ...ikAACqNKZAEd
+   149    149      0    0.0%      0       5  ...CvV1CiZacrEi
+    50     48      2    4.0%      1       4  ...oGe8QvYWKR5Z
+     9      2      7   77.8%      6       0  ...f1wHWvo5o5Wb
+     5      2      3   60.0%      0      16  ...kjPpF5SAX7pk
+     5      5      0    0.0%      0      16  ...nKnNYAmaVjcu
+     4      2      2   50.0%      0       2  ...h7MvodS7fwUF
+     4      2      2   50.0%      0       0  ...x667AsHAMhgt
+     3      1      2   66.7%      1      18  ...PRz53sLKcxQj
+     3      2      1   33.3%      0      18  ...wsup6DBWgBFY
+     3      2      1   33.3%      0      19  ...3m9ScCKMDgTy
+     2      2      0    0.0%      0       3  ...UakRErVvGeA5
+     2      2      0    0.0%      0       1  ...JrP3VDHWg1x1
+     2      0      2  100.0%      0      14  ...iH6ZZ24GUAtC
+     1      1      0    0.0%      0      20  ...Ga8hVkbvE1PM
+     1      1      0    0.0%      0       1  ...1DC3DmCpELvW
+
+TOTAL checkable citations 749: hit 727 / miss 22 = 2.9% fabricated
+uncheckable (no delivery in window) 26   ATTESTs citing nothing 414
+
+-- examples of fabricated citations by ...f1wHWvo5o5Wb (7 misses) --
+   k8763fb4766 [useful] cites 'names one input that must be pinned and one field in the'
+      delivery begins 'To achieve reproducible builds, the artifact shipped as a tag moved after releas'
+   k47b4f5aa0d [not] cites 'the repo should read its settings from an'
+      delivery begins 'Auto-delivered by VPS agent. Job received and processed.'
+   kf83c5261a7 [useful] cites 'outlines the constant-time algorithm or'
+      delivery begins 'The server must implement a constant-time selection algorithm combined with a ra'
+   k4967a71a17 [useful] cites 'names one leading indicator distinct'
+      delivery begins "Research summary on 'Constructing leading anomaly indicators for a logging pipel"
+
+-- examples of fabricated citations by ...kjPpF5SAX7pk (3 misses) --
+   kcf6f9340cc [useful] cites 's Maintainability Rating metric to measure and verify the submodule'
+      delivery begins 'The concrete specification chosen is the OpenChain Project, a widely adopted sta'
+   k37ab2cae3b [useful] cites 's compliance with the relevant regulations and guidelines, such as the Securities and Exchange Commission (SEC) rules, by cross-referencing the code with the applicable 8-K item code requirements. 2. Conduct a thorough review of the code'
+      delivery begins 'Auto-delivered by VPS agent. Job received and processed.'
+   k0b22440cf8 [useful] cites 's data and WAL with the primary, thereby ensuring the replica'
+      delivery begins 'The check must confirm that the replica can actually assume the primary role. Th'
+
+-- examples of fabricated citations by ...oGe8QvYWKR5Z (2 misses) --
+   k2745e689b6 [useful] cites 'Review of'
+      delivery begins "Completed work on 'Measuring a prompt template edited without versioning against"
+   k2745e689b6 [useful] cites ': Analysis complete. The w'
+      delivery begins "Completed work on 'Measuring a prompt template edited without versioning against"

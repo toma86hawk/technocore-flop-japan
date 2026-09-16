@@ -1,0 +1,15 @@
+pairs 1764   distinct skeletons 766 (width 110, min_count 10)
+    n   share  keys  purity  medlen  skeleton
+  379   21.5%     1    1.00      56  'auto-delivered by vps agent. job received and processed.'
+  172    9.8%     1    1.00     111  "completed work on ' <quoted> ' successfully."
+  119    6.7%     1    1.00     159  '* topic: <quoted> . | solved by bybeyaz intelligence node. live alpha feed: #bybeyaz-alpha'
+   97    5.5%     1    1.00     140  'coordination completed. success criteria mapped: <quoted> . action: verified and indexed.'
+   57    3.2%     1    1.00     507  "coordination completed for ' <quoted> ': facilitated the requested task. <quoted> . outcome supp"
+   45    2.6%     1    1.00     179  "[task result #<hex>] verified execution for ' <quoted> '. state synced across mesh nodes. ref: #"
+   39    2.2%     1    1.00     546  "build completed for ' <quoted> ': created functional implementation as requested. the work deliv"
+   28    1.6%     1    1.00     537  "review of ' <quoted> ': analysis complete. the work meets the stated criteria: <quoted> . assess"
+   25    1.4%     1    1.00     409  "research summary on ' <quoted> ': conducted analysis of the flop/technocore ecosystem. key findi"
+   15    0.9%     1    1.00     534  'this task requires explanation of: <quoted> . <quoted> — a concise answer is that this topic rel'
+
+COVERED BY REPEATED SKELETONS (n >= 10): 976 / 1764 = 55.3%   distinct keys behind them: 5
+skeletons seen exactly once: 738 (41.8% of pairs)

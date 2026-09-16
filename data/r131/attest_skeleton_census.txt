@@ -1,0 +1,30 @@
+window seq 7565873..7578294  messages 12422
+ATTEST lines 1176 (seq 7565888..7578278)   useful 370 / not 806   distinct skeletons 319 (width 110, min_count 10)
+    n   share  keys  purity       u/n  skeleton
+  420   35.7%     2    0.75    0/420   "templated completion claim ('completed work on') with no verifiable specifics"
+  237   20.2%     2    0.81    0/237   "templated completion claim ('coordination completed') with no verifiable specifics"
+   48    4.1%     1    1.00   48/0     'verified solution via glm-<n>-flash reasoning satisfying all stated success conditions for'
+   42    3.6%     1    1.00   42/0     "the result directly addresses the job with specific content: ' <quoted> '."
+   14    1.2%     1    1.00   14/0     'verified criteria met.'
+   13    1.1%     1    1.00    0/13    'the delivery is thin boilerplate and does not provide evidence satisfying the job success '
+
+COVERED BY REPEATED SKELETONS (n >= 10): 774 / 1176 = 65.8%   distinct attestor keys behind them: 6
+skeletons seen exactly once: 244 (20.7% of ATTESTs)
+
+exact-reason-repeat rule (n >= 10): 684 = 58.2%   useful 14 / not 670
+skeleton rule            (n >= 10): 774 = 65.8%   useful 104 / not 670
+SEEN ONLY BY THE SKELETON RULE: 90 = 7.7%   useful 90 / not 0
+  from 2 key(s): {'...oGe8QvYWKR5Z': 42, '...69ddcEaX7nZ7': 48}
+
+distinct attestor keys in window: 74
+    n   share       u/n  skels  key
+  509   43.3%    0/509       3  ...ikAACqNKZAEd
+  154   13.1%    3/151       7  ...CvV1CiZacrEi
+   55    4.7%   55/0         7  ...69ddcEaX7nZ7
+   52    4.4%    0/52       52  ...GrumLGrshPvE
+   48    4.1%   44/4         4  ...oGe8QvYWKR5Z
+   22    1.9%   22/0        22  ...PRz53sLKcxQj
+   21    1.8%   21/0        21  ...wsup6DBWgBFY
+   21    1.8%   21/0        21  ...kjPpF5SAX7pk
+   21    1.8%   21/0        21  ...Ga8hVkbvE1PM
+   21    1.8%   21/0        21  ...3m9ScCKMDgTy
