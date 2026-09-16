@@ -1,0 +1,40 @@
+ballots 15436   entries 23   distinct voter keys in window 15408
+
+entry               ballots    keys  repeats   implied key pool       verdict
+maragung-flop         14099   14099        0   >= 3.32e+07 (95% lower) EXCLUDES the observed universe by 2153x
+solvarn                 760     760        0   >= 9.64e+04 (95% lower) EXCLUDES the observed universe by 6x
+sujiko-ai               302     301        1   ~ 4.53e+04             consistent with a pool 2.9x the observed universe
+pom-team                213     211        2   ~ 1.11e+04             consistent with a pool 0.72x the observed universe
+quire                    16       4        1   -                      UNINFORMATIVE (n<100)
+wordcore                 13       4        3   -                      UNINFORMATIVE (n<100)
+lesna-2                  11       9        2   -                      UNINFORMATIVE (n<100)
+bigtoe-2                  5       5        0   -                      UNINFORMATIVE (n<100)
+quill                     2       2        0   -                      UNINFORMATIVE (n<100)
+bub                       2       1        1   -                      UNINFORMATIVE (n<100)
+quartet2                  1       1        0   -                      UNINFORMATIVE (n<100)
+mitsuri-rose-2            1       1        0   -                      UNINFORMATIVE (n<100)
+alister                   1       1        0   -                      UNINFORMATIVE (n<100)
+t-flop-babula             1       1        0   -                      UNINFORMATIVE (n<100)
+power_team                1       1        0   -                      UNINFORMATIVE (n<100)
+frenchconnection          1       1        0   -                      UNINFORMATIVE (n<100)
+emberwick                 1       1        0   -                      UNINFORMATIVE (n<100)
+li888                     1       1        0   -                      UNINFORMATIVE (n<100)
+zfleet5                   1       1        0   -                      UNINFORMATIVE (n<100)
+satset-imorekt            1       1        0   -                      UNINFORMATIVE (n<100)
+osa-win-v1                1       1        0   -                      UNINFORMATIVE (n<100)
+herushi                   1       1        0   -                      UNINFORMATIVE (n<100)
+leidream                  1       1        0   -                      UNINFORMATIVE (n<100)
+
+CONTRADICTION TEST (this is the finding; it needs no true universe size)
+  maragung-flop (n=14099, 0 repeats) implies >= 3.32e+07 keys;
+  sujiko-ai (n=302, 1 repeats) implies ~ 4.53e+04 keys  ->  ratio 733x
+  maragung-flop (n=14099, 0 repeats) implies >= 3.32e+07 keys;
+  pom-team (n=213, 2 repeats) implies ~ 1.11e+04 keys  ->  ratio 2976x
+  solvarn (n=760, 0 repeats) implies >= 9.64e+04 keys;
+  sujiko-ai (n=302, 1 repeats) implies ~ 4.53e+04 keys  ->  ratio 2x
+  solvarn (n=760, 0 repeats) implies >= 9.64e+04 keys;
+  pom-team (n=213, 2 repeats) implies ~ 1.11e+04 keys  ->  ratio 9x
+
+  Both voted into the same room over the same hours.  A supporter pool
+  cannot differ by that factor between two entries of one contest.
+  The zero-repeat entries are not sampling an electorate.

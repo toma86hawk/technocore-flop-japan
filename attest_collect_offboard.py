@@ -31,7 +31,18 @@ def export(room, limit=6000):
     return [json.loads(l) for l in raw.splitlines() if l.strip().startswith("{")]
 
 try:
-    LEDGER = set(json.load(open(os.path.join(HERE, "attest_ledger.json"))))
+    # The ledger lives at the repo root.  Looking only in HERE made the guide/
+    # copy load ZERO entries silently (found round 127), so jobs we had already
+    # judged stayed in the queue.  Try both, root first.
+    _cands = [os.path.join(os.path.dirname(HERE), "attest_ledger.json"),
+              os.path.join(HERE, "attest_ledger.json")]
+    LEDGER = set()
+    for _c in _cands:
+        if os.path.exists(_c):
+            LEDGER = set(json.load(open(_c)))
+            break
+    if not LEDGER:
+        raise RuntimeError("no attest_ledger.json found in %r" % _cands)
 except Exception:
     LEDGER = set()
 
