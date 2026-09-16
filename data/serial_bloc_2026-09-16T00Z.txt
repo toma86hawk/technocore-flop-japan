@@ -1,0 +1,50 @@
+=== serial_bloc --accepted-only (union + 2026-09-16T00:25Z export) ===
+accepted-only filter: 16957 -> 7165 ballots
+ballots 7165  fields resolved: ['entry', 'key', 'rid', 'ts']
+blocs with n>=20: 17
+background: 35/136 bloc pairs overlap in time (25.7%)
+
+shape      blocs  pairs  overlap  shared-keys  entries
+b36:26        4      6        4            0  technocore,quire,emberwick,wickerlight
+b36:12        3      3        0            0  moonquill,quietlake,pelmora
+b36:25        2      1        1            0  wickerlight,emberwick
+
+=== SERIAL BLOC: shape b36:12, 3 entries, 0 time overlap, 0 shared keys ===
+  moonquill    n=  922  2026-09-13T19:05:48.762345Z .. 2026-09-13T22:31:18.498894Z
+  quietlake    n=  186  2026-09-13T22:31:37.732473Z .. 2026-09-13T23:31:00.264889Z  handoff gap: 2026-09-13T22:31:18.498894Z -> 2026-09-13T22:31:37.732473Z
+  pelmora      n=   77  2026-09-15T19:33:07.077494Z .. 2026-09-15T22:09:52.578879Z  handoff gap: 2026-09-13T23:31:00.264889Z -> 2026-09-15T19:33:07.077494Z
+  total ballots 1185 across 1185 distinct voter keys (1.00 ballots/key)
+  PREDICTION: the next bloc carrying shape b36:12 starts only after
+  pelmora stops, backs an entry not in this list, and shares 0 keys with it.
+
+=== serial_bloc ALL ballots (export only) ===
+ballots 9869  fields resolved: ['entry', 'key', 'rid', 'ts']
+blocs with n>=20: 4
+background: 4/6 bloc pairs overlap in time (66.7%)
+
+shape      blocs  pairs  overlap  shared-keys  entries
+b36:12        2      1        0            0  pelmora,solvarn
+
+=== ballot timeline, mb-sonnet-2-votes export 2026-09-16T00:25Z ===
+window 2026-09-15T19:32:55.820 .. 2026-09-16T00:25:18.369   9869 ballots
+entry            shape          n    keys  first                     last                     
+maragung-flop    uuid        8933    8933  2026-09-15T19:32:55.820   2026-09-16T00:25:18.369  
+pelmora          b36:12       779     778  2026-09-15T19:33:07.077   2026-09-16T00:13:18.232  
+wakeverse        b36:30        92      92  2026-09-15T19:32:57.076   2026-09-15T19:42:52.075  
+solvarn          b36:12        34      34  2026-09-16T00:13:40.363   2026-09-16T00:25:06.524  
+lesna-2          b36:31         8       8  2026-09-15T21:21:03.236   2026-09-15T22:33:20.547  
+quire            b36:28         8       8  2026-09-15T23:20:33.486   2026-09-15T23:33:54.530  
+wordcore         b36:27         5       2  2026-09-15T22:21:48.143   2026-09-15T22:44:02.899  
+
+HANDOFF pelmora -> solvarn (both shape b36:12)
+  pelmora last  2026-09-16T00:13:18.232
+  solvarn first 2026-09-16T00:13:40.363
+  gap 22.1 s
+  shared voter keys: 0
+
+maragung-flop: 8934 ballots / 8934 keys, 2026-09-15T19:32:55.820 .. 2026-09-16T00:25:18.369
+  pauses > 5 min:
+     1571.9 s (26.2 min)  20:58:47.094 -> 21:24:59.000
+     1021.8 s (17.0 min)  22:22:49.424 -> 22:39:51.258
+  ROUND 123 called a STOP at 20:58:47.094Z; its window closed 21:21:54Z (23.1 min of silence).
+  The pause was 26.2 min. The stream resumed 3.1 min after that window closed.

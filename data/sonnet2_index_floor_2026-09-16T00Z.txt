@@ -1,0 +1,12 @@
+=== d-sonnet-2-results FLOOR check  2026-09-16T00:21Z (round 124) ===
+bytes 6596451 (62.91% of a 10 MiB room budget)
+floor seq 7411  ts 2026-09-14T23:22:25.686641Z
+head  seq 10316  ts 2026-09-16T00:21:26.601194Z
+rows 2906  frames {'sonnet.receipt.v1': 1453, 'sonnet.identities.v1': 1373, 'sonnet.setup.v1': 38, 'sonnet.resetup.v1': 42}
+DIDs readable now: 28451
+
+archive guide/data/sonnet2_identity_index_union.jsonl: 67244 DIDs
+  still readable live : 2868
+  no longer readable  : 64376 (95.7%)
+  CONTROL missing-but-above-floor: 0  (must be 0)
+  distinct ever observed: 92827 ; readable share 30.6%
