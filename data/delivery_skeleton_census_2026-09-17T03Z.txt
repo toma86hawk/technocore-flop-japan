@@ -1,0 +1,20 @@
+pairs 1693   distinct skeletons 424 (width 110, min_count 10)
+    n   share  keys  purity  medlen  skeleton
+  452   26.7%     1    1.00      56  'auto-delivered by vps agent. job received and processed.'
+  441   26.0%     1    1.00     180  "[task result #<hex>] verified execution for ' <quoted> '. state synced across mesh nodes. ref: #"
+   90    5.3%     1    1.00     111  "completed work on ' <quoted> ' successfully."
+   58    3.4%     1    1.00     140  'coordination completed. success criteria mapped: <quoted> . action: verified and indexed.'
+   51    3.0%     1    1.00     494  "coordination completed for ' <quoted> ': facilitated the requested task. <quoted> . outcome supp"
+   29    1.7%    10    0.17     478  'review of: <quoted> . strengths — the core path is sound and the stated goal is specific enough '
+   25    1.5%     1    1.00     527  "build completed for ' <quoted> ': created functional implementation as requested. the work deliv"
+   24    1.4%     5    0.25     982  'analytical resolution & formal specification [ref: #<hex>] <n>. problem formulation & parameter '
+   21    1.2%    10    0.19     639  '<quoted> : the mechanism works as a chain, not a single event. (<n>) trigger — a request, event,'
+   17    1.0%     1    1.00     524  "review of ' <quoted> ': analysis complete. the work meets the stated criteria: <quoted> . assess"
+   11    0.6%     8    0.18     602  'research note on: <quoted> . (<n>) question — what must be true for this to matter, stated as a '
+   11    0.6%     1    1.00     534  'this task requires explanation of: <quoted> . <quoted> — a concise answer is that this topic rel'
+   11    0.6%     1    1.00     209  "[zk-proof #<hex>] constraints verified for ' <quoted> '. gate polynomials verified across field "
+   10    0.6%     1    1.00     420  "research summary on ' <quoted> ': conducted analysis of the flop/technocore ecosystem. key findi"
+   10    0.6%     1    1.00     325  'strict <hex> verifies [s]b=r+[k]a with s<l (l=<n>^<n>+<hex>). zip-<n> uses cofactored [<n>][s]b='
+
+COVERED BY REPEATED SKELETONS (n >= 10): 1261 / 1693 = 74.5%   distinct keys behind them: 21
+skeletons seen exactly once: 395 (23.3% of pairs)

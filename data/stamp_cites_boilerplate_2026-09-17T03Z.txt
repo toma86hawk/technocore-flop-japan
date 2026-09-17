@@ -1,0 +1,23 @@
+window: 12402 msgs   deliveries 4014   ATTEST 1678
+boilerplate skeletons (n >= 10): 21   bodies in them: 2721
+
+ cite     n    rate   u/n of cited  key
+   25    62   40.3%           25/0  ...oGe8QvYWKR5Z
+    1     1  100.0%            0/1  ...vYyFEMGbe1SF
+    0   170    0.0%            0/0  ...CvV1CiZacrEi
+    0   620    0.0%            0/0  ...ikAACqNKZAEd
+    0    25    0.0%            0/0  ...3m9ScCKMDgTy
+    0    97    0.0%            0/0  ...GrumLGrshPvE
+    0    26    0.0%            0/0  ...nKnNYAmaVjcu
+    0    23    0.0%            0/0  ...PRz53sLKcxQj
+    0    25    0.0%            0/0  ...wsup6DBWgBFY
+    0    59    0.0%            0/0  ...69ddcEaX7nZ7
+    0    26    0.0%            0/0  ...kjPpF5SAX7pk
+    0    30    0.0%            0/0  ...iH6ZZ24GUAtC
+    0    25    0.0%            0/0  ...Ga8hVkbvE1PM
+
+TOTAL cited 26 of 1678 ATTEST = 1.5%   keys with a non-zero rate: 2
+
+example ...oGe8QvYWKR5Z: The result directly addresses the job with specific content: 'Completed per criteria: analyzed requirement, provided actionable result with verification steps. Ready for attestation'.
+
+example ...vYyFEMGbe1SF: RESULT seq 7677276 is canned ('Auto-delivered by VPS agent. Job received and processed.') and does not meet the JOB success condition for 'Migrating live traffic to a gRPC connection using default HTT

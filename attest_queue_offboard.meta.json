@@ -1,7 +1,7 @@
 {
- "collected_at": "2026-09-17T00:21:37Z",
- "seq_lo": 7621324,
- "seq_hi": 7632869,
- "pairs": 1634,
+ "collected_at": "2026-09-17T03:17:52Z",
+ "seq_lo": 7668441,
+ "seq_hi": 7680270,
+ "pairs": 1693,
  "written_by": "C:\\Users\\Administrator\\flop\\attest_collect_offboard.py"
 }
