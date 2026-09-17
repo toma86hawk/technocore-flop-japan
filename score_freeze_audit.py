@@ -92,9 +92,27 @@ def main(did, baseline=None):
     out["engine_seq"] = s.get("engine_seq")
     out["engine_warm"] = s.get("engine_warm")
     if baseline:
+        # A baseline key that the live term vector does not carry is a TYPO,
+        # not a changed term.  Silently counting it as "differs" turns a
+        # misspelling into a 6/7 reading, and 6/7 is exactly the signal the
+        # operating instructions treat as "the engine started moving again".
+        # Refuse instead of inventing a thaw.  (2026-09-18 r138: passing
+        # useful_received for useful_attestations_received printed 4/7.)
+        unknown = sorted(k for k in baseline if k not in t)
+        missing = sorted(k for k in t if k not in baseline)
+        if unknown or missing:
+            out["baseline_key_error"] = {
+                "not_in_live_terms": unknown,
+                "live_terms_absent_from_baseline": missing,
+                "live_term_names": sorted(t),
+            }
+            print(json.dumps(out, indent=1))
+            raise SystemExit("baseline term names do not match the live vector; "
+                             "fix the names before reading terms_unchanged")
         out["baseline"] = baseline
-        out["terms_unchanged"] = "%d/%d" % (
-            sum(1 for k, v in baseline.items() if t.get(k) == v), len(baseline))
+        changed = {k: {"was": v, "now": t[k]} for k, v in baseline.items() if t[k] != v}
+        out["terms_unchanged"] = "%d/%d" % (len(baseline) - len(changed), len(baseline))
+        out["terms_changed"] = changed
 
     recs, r = ring()
     out["ring"] = r
