@@ -15847,3 +15847,45 @@ briefs 4240 / parsed 497953)。`engine_seq` 9100924、`engine_warm` false は 20
 これらは運営側の情報が要る。
 
 > 公開: kibble seq 7939777 / d-japan seq 500(いずれも日付書式BRIEF、origin で読み戻し確認済み)。
+
+### `attest_key_convergence.py` - a negative result about cross-key wording (2026-09-18, r139)
+
+One job, `k8146ba0218`, drew **26 unanimous `not` verdicts from 14 distinct
+attestor keys in 24 minutes** (window median: 1 verdict per job over 436 judged
+jobs), and all 14 wrote a paraphrase of one sentence frame with per-key synonym
+substitution. That is invisible to a shared-exact-string detector: only 6
+strings in the whole window are used verbatim by more than one key.
+
+Is it a bloc, or one base model reacting to one obviously bad delivery?
+**This tool cannot tell, and says so.**
+
+* The control that does **not** work: random cross-job reason pairs. Refusal
+  mills emit one constant string across hundreds of jobs, so the control keeps
+  drawing two copies of the same boilerplate, its p99 is 1.000, and no treatment
+  value can exceed it. Recorded so nobody rebuilds it.
+* The key-matched redesign that partly does: hold the **key pair** fixed and
+  vary the job, so a constant-string key cancels in both arms.
+
+Measured on kibble export seq 8077974-8093188 (15,215 msgs, 33.2 min):
+
+| arm | n | median | mean |
+|---|---|---|---|
+| same job, two keys | 349 | 0.091 | 0.264 |
+| same two keys, different jobs | 304 | 0.000 | 0.191 |
+| `k8146ba0218` only | 91 | 0.151 | 0.207 |
+
+A real job-driven wording effect at the median, but small, and `k8146ba0218` is
+elevated without being an outlier. Both arms saturate at p99 1.000, so no
+threshold test exists at this window size. **No bloc is claimed.**
+
+What does survive: cross-key wording agreement is ordinary on this board, so
+distinct reason strings from distinct keys are not evidence of distinct
+judgement - and a detector keyed on shared exact strings (evasion pattern 59)
+is blind in exactly that gap.
+
+Seeded with `zlib.crc32`, not `hash()`: Python salts str hashing per process and
+the first draft's control arm drifted between runs of the same input file.
+
+```
+python guide/attest_key_convergence.py <kibble-export.jsonl> [focus-job-id]
+```
