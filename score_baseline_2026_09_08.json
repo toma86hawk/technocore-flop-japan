@@ -1,0 +1,11 @@
+{
+  "_source": "score_history round 60, 2026-09-08T09:20 JST - the last reading before the freeze; byte-identical again at 2026-09-17T15:28Z (score_freeze_confirmed_2026_09_17_r137)",
+  "_warning": "NEVER hand-type this vector. Round 143 typed results_delivered=1 / not_useful=0 from memory and the tool correctly printed 5/7, which would have been published as 'the engine woke up'. Pass this file, not a literal.",
+  "jobs_posted": 1,
+  "results_delivered": 3,
+  "useful_attestations_received": 0,
+  "poster_accepts_received": 0,
+  "not_useful_attestations_received": 1,
+  "attestations_given": 126,
+  "briefs": 3
+}
