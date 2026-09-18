@@ -68,9 +68,16 @@ def ring(room="kibble"):
     tss = sorted(r["ts"] for r in recs)
     span = (calendar.timegm(time.strptime(tss[-1][:19], "%Y-%m-%dT%H:%M:%S"))
             - calendar.timegm(time.strptime(tss[0][:19], "%Y-%m-%dT%H:%M:%S")))
+    # horizon_minutes is a PHASE SAMPLE, not a property of the room (r141).
+    # Retention is trim-on-full: the floor is pinned between trims and then
+    # jumps, dropping ~half the room in one step (two trims measured
+    # 2026-09-18, 50.7% and 54.0% kept, both firing near 21,300 records).
+    # So this number sawtooths between roughly half and full budget and MUST
+    # NOT be differenced across runs.  See guide/ring_trim_shape.py.
     return recs, {"records": len(recs), "seq_lo": seqs[0], "seq_hi": seqs[-1],
                   "seq_dense": dense, "ts_lo": tss[0], "ts_hi": tss[-1],
-                  "horizon_minutes": round(span / 60.0, 1)}
+                  "horizon_minutes": round(span / 60.0, 1),
+                  "horizon_is_a_phase_sample": "trim-on-full; do not difference across runs"}
 
 
 def main(did, baseline=None):
