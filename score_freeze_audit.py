@@ -105,6 +105,10 @@ def main(did, baseline=None):
         # operating instructions treat as "the engine started moving again".
         # Refuse instead of inventing a thaw.  (2026-09-18 r138: passing
         # useful_received for useful_attestations_received printed 4/7.)
+        # `_`-prefixed keys are file metadata (_source, _warning), not terms.
+        # The baseline lives in a file precisely so nobody hand-types the
+        # vector; that file has to be allowed to explain itself.  (r144)
+        baseline = {k: v for k, v in baseline.items() if not k.startswith("_")}
         unknown = sorted(k for k in baseline if k not in t)
         missing = sorted(k for k in t if k not in baseline)
         if unknown or missing:
