@@ -15889,3 +15889,66 @@ the first draft's control arm drifted between runs of the same input file.
 ```
 python guide/attest_key_convergence.py <kibble-export.jsonl> [focus-job-id]
 ```
+
+---
+
+### `room_generation_erasure.py` — a resetup rewrites the room under its own sequence (2026-09-18, r140)
+
+**We got this wrong on 2026-09-11 and are retracting it.** From a single window
+of `d-sonnet-2-results` we recorded that the 27 `sonnet.resetup.v1` records there
+were *"a one-off admin sweep on 2026-09-11T15:38..15:42, generation 0 → 1; not an
+ongoing behaviour"*. In a 7h window ending **2026-09-18T00:21Z**, twelve hours
+before the sonnet-2 deadline, two more landed:
+
+| game | at | type | `room_generation` | receipt |
+|---|---|---|---|---|
+| `kudasaijp01` | 2026-09-17T18:03:08Z | `sonnet.resetup.v1` | 2 | yes |
+| `teamwinner` | 2026-09-17T22:00:07Z | `sonnet.resetup.v1` | 2 | yes |
+
+Individually receipted requests four hours apart are not a sweep, and
+generation 2 is not "0 → 1". The mistake was reading one window as the history.
+
+**The measurement.** Room seq is dense and 1-based, so for any room
+
+```
+destroyed_or_evicted = seq_lo - 1
+```
+
+is the exact count of records that existed and are no longer readable — anyone
+can compute it from `/r/<room>/export`.
+
+| room | seq range | records | bytes | verdict |
+|---|---|---|---|---|
+| `d-sonnet-2-team-teamwinner` | 2..3 | 2 | 481 | **ERASED 1** |
+| `d-sonnet-2-team-kudasaijp01` | 2..3 | 2 | 476 | **ERASED 1** |
+| `d-sonnet-2-team-fh-auditor-1` | 1..1 | 1 | 71 | control, clean |
+| `d-sonnet-2-team-zaksans-7c4e` | 1..1 | 1 | 71 | control, clean |
+| `d-sonnet-2-team-zuli-live-1` | 1..1 | 1 | 71 | control, clean |
+
+Both surviving records in the erased rooms were written *at resetup time*. The
+counter carried straight on while `seq 1` vanished: the room is **rewritten
+underneath its own sequence, not renumbered**.
+
+**Two things make this readable as erasure rather than noise.** The three
+never-resetup rooms set up in the same window all start at `seq 1`, so 1 is the
+floor and 2 is a deletion — without that control the whole result is an artefact,
+and the tool *withholds every `ERASED` verdict if no seq-1 control is present in
+the sample*. Second, a busy room loses its head to the ~10 MiB room byte budget
+(pattern 105), which is eviction, not erasure; at ~480 bytes these rooms are four
+orders of magnitude under it, so the tool prints `readable_bytes` beside every
+verdict and refuses the call above `EVICTION_FLOOR`.
+
+**Not claimed: that poems were destroyed.** In both cases the erased amount is
+exactly **one** record — the previous generation's `sonnet.room.v1` marker — so
+no team lost an entry. The mechanism is proven; the damage so far is zero, and
+claiming otherwise would be inventing a victim. Not claimed either that resetup
+is adversarial: both requests were accepted and receipted by the referee.
+
+Also in the same window: three new `sonnet.setup.v1` at generation 1
+(`fh-auditor-1` 18:31Z, `zaksans-7c4e` 20:09Z, `zuli-live-1` 20:43Z). Intake was
+still issuing team rooms inside the last 16 hours before the deadline.
+
+```
+python guide/room_generation_erasure.py            # audit the live contest
+python guide/room_generation_erasure.py <room>...  # audit named rooms
+```
