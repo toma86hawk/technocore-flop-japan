@@ -1,0 +1,582 @@
+{
+ "window": "room kibble /export seq 9056385-9068984, 2026-09-19T12:2xZ, 12,600 msgs, 1,863 reviewable pairs (DISJOINT from the round-151 window 8999473-9017219)",
+ "pre_registered_in_round_151": "re-run the band; reproduce at ~32 keys with mid-word >=10x control -> raise the line; otherwise discard as window-specific",
+ "prereg_surface_result": "REPRODUCED on its stated face: 26 keys, 82.1% mid-word vs 0.6% control = 137x",
+ "prereg_was_the_wrong_test": "neither the key count nor the cut rate can tell a per-key ceiling from a coincidence, because 24 of the 26 keys emitted exactly ONE body in the window. The pre-registration measured the band's size, not its testability.",
+ "runs": {
+  "1200": {
+   "width": [
+    1200,
+    1200
+   ],
+   "shared_tail_of_band": "",
+   "window_rows": 1863,
+   "at_width": {
+    "n": 48,
+    "mid_word": 45,
+    "pct": 93.8
+   },
+   "control_below": {
+    "range": [
+     900,
+     1199
+    ],
+    "n": 136,
+    "mid_word": 4,
+    "pct": 2.9
+   },
+   "control_above": {
+    "range": [
+     1201,
+     1500
+    ],
+    "n": 108,
+    "mid_word": 1,
+    "pct": 0.9
+   },
+   "keys_at_width": {
+    "ZyKGCzcjaxKi": {
+     "n": 33,
+     "mid_word": 30
+    },
+    "pa7mQrhvzYG6": {
+     "n": 10,
+     "mid_word": 10
+    },
+    "TAs6g1ni2C8g": {
+     "n": 5,
+     "mid_word": 5
+    }
+   },
+   "key_max_body_len_in_window": {
+    "ZyKGCzcjaxKi": 1200,
+    "pa7mQrhvzYG6": 1200,
+    "TAs6g1ni2C8g": 1200
+   },
+   "key_population": {
+    "band_native": {
+     "keys": 3,
+     "suffixes": [
+      "ZyKGCzcjaxKi",
+      "pa7mQrhvzYG6",
+      "TAs6g1ni2C8g"
+     ]
+    },
+    "passer_by": {
+     "keys": 0,
+     "detail": {}
+    },
+    "untestable_single_row": {
+     "keys": 0,
+     "suffixes": []
+    },
+    "note": "a key is testable only if it emitted >=2 bodies in this window; pool disjoint windows to promote untestable keys"
+   },
+   "verdict": "BUDGET: 93.8% cut mid-word at the width against 2.9% in the control; of the 3 testable keys 3 never exceed the width and 0 do (-); 0 more are single-row and untestable. The verdict belongs to the testable keys only - a passer-by that writes far past the band does not veto a ceiling for the others, and a key with one body does not support one."
+  },
+  "1790-1800": {
+   "width": [
+    1790,
+    1800
+   ],
+   "shared_tail_of_band": "",
+   "window_rows": 1863,
+   "at_width": {
+    "n": 28,
+    "mid_word": 23,
+    "pct": 82.1
+   },
+   "control_below": {
+    "range": [
+     1490,
+     1789
+    ],
+    "n": 168,
+    "mid_word": 1,
+    "pct": 0.6
+   },
+   "control_above": {
+    "range": [
+     1801,
+     2100
+    ],
+    "n": 20,
+    "mid_word": 0,
+    "pct": 0.0
+   },
+   "keys_at_width": {
+    "NeMVqiS4pxVp": {
+     "n": 3,
+     "mid_word": 0
+    },
+    "Rvv1nipwty9E": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "iX45owhUm7kn": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "BCsG7BcXFX3f": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "st8QFeQT9hhW": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "LqZW22TA3WAy": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "Hu22w46s3RPG": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "P7ZmX8Mt89ap": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "TY3deNtMzG9V": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "HGPLr2uzUYMe": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "hpBRgWSmFTWF": {
+     "n": 1,
+     "mid_word": 0
+    },
+    "EEU3RDAn6LB2": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "GmznvbSwf7RM": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "DqD9vBKjfKcK": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "bWYwx88353py": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "9fK6RK1KNhbC": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "J4VzFqXXU9Xq": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "LaheWh6RM5eH": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "3WMS23bVLd5o": {
+     "n": 1,
+     "mid_word": 0
+    },
+    "TD5nB3rYrwz8": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "TRSx1sxkyXVx": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "BJJ9owkaaDL9": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "6YSRNFz7uNBU": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "96WFMuxri3ss": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "SgDGsQ9sna5m": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "5mVHQgiZGD4A": {
+     "n": 1,
+     "mid_word": 1
+    }
+   },
+   "key_max_body_len_in_window": {
+    "NeMVqiS4pxVp": 3459,
+    "Rvv1nipwty9E": 1798,
+    "iX45owhUm7kn": 1797,
+    "BCsG7BcXFX3f": 1797,
+    "st8QFeQT9hhW": 1797,
+    "LqZW22TA3WAy": 1797,
+    "Hu22w46s3RPG": 1797,
+    "P7ZmX8Mt89ap": 1797,
+    "TY3deNtMzG9V": 1796,
+    "HGPLr2uzUYMe": 1796,
+    "hpBRgWSmFTWF": 1796,
+    "EEU3RDAn6LB2": 1796,
+    "GmznvbSwf7RM": 1796,
+    "DqD9vBKjfKcK": 1796,
+    "bWYwx88353py": 1796,
+    "9fK6RK1KNhbC": 1796,
+    "J4VzFqXXU9Xq": 1796,
+    "LaheWh6RM5eH": 1795,
+    "3WMS23bVLd5o": 2391,
+    "TD5nB3rYrwz8": 1795,
+    "TRSx1sxkyXVx": 1795,
+    "BJJ9owkaaDL9": 1795,
+    "6YSRNFz7uNBU": 1795,
+    "96WFMuxri3ss": 1794,
+    "SgDGsQ9sna5m": 1793,
+    "5mVHQgiZGD4A": 1791
+   },
+   "key_population": {
+    "band_native": {
+     "keys": 0,
+     "suffixes": []
+    },
+    "passer_by": {
+     "keys": 2,
+     "detail": {
+      "NeMVqiS4pxVp": {
+       "rows": 159,
+       "max": 3459
+      },
+      "3WMS23bVLd5o": {
+       "rows": 203,
+       "max": 2391
+      }
+     }
+    },
+    "untestable_single_row": {
+     "keys": 24,
+     "suffixes": [
+      "Rvv1nipwty9E",
+      "iX45owhUm7kn",
+      "BCsG7BcXFX3f",
+      "st8QFeQT9hhW",
+      "LqZW22TA3WAy",
+      "Hu22w46s3RPG",
+      "P7ZmX8Mt89ap",
+      "TY3deNtMzG9V",
+      "HGPLr2uzUYMe",
+      "hpBRgWSmFTWF",
+      "EEU3RDAn6LB2",
+      "GmznvbSwf7RM",
+      "DqD9vBKjfKcK",
+      "bWYwx88353py",
+      "9fK6RK1KNhbC",
+      "J4VzFqXXU9Xq",
+      "LaheWh6RM5eH",
+      "TD5nB3rYrwz8",
+      "TRSx1sxkyXVx",
+      "BJJ9owkaaDL9",
+      "6YSRNFz7uNBU",
+      "96WFMuxri3ss",
+      "SgDGsQ9sna5m",
+      "5mVHQgiZGD4A"
+     ]
+    },
+    "note": "a key is testable only if it emitted >=2 bodies in this window; pool disjoint windows to promote untestable keys"
+   },
+   "verdict": "BUDGET: 82.1% cut mid-word at the width against 0.6% in the control; of the 2 testable keys 0 never exceed the width and 2 do (NeMVqiS4pxVp max 3459, 3WMS23bVLd5o max 2391); 24 more are single-row and untestable. The verdict belongs to the testable keys only - a passer-by that writes far past the band does not veto a ceiling for the others, and a key with one body does not support one."
+  },
+  "140": {
+   "width": [
+    140,
+    140
+   ],
+   "shared_tail_of_band": "erified and indexed.",
+   "window_rows": 1863,
+   "at_width": {
+    "n": 100,
+    "mid_word": 1,
+    "pct": 1.0
+   },
+   "control_below": {
+    "range": [
+     -160,
+     139
+    ],
+    "n": 492,
+    "mid_word": 52,
+    "pct": 10.6
+   },
+   "control_above": {
+    "range": [
+     141,
+     440
+    ],
+    "n": 465,
+    "mid_word": 340,
+    "pct": 73.1
+   },
+   "keys_at_width": {
+    "NyhCDEiseaD4": {
+     "n": 99,
+     "mid_word": 0
+    },
+    "cLrnHPZTJrAu": {
+     "n": 1,
+     "mid_word": 1
+    }
+   },
+   "key_max_body_len_in_window": {
+    "NyhCDEiseaD4": 140,
+    "cLrnHPZTJrAu": 456
+   },
+   "key_population": {
+    "band_native": {
+     "keys": 1,
+     "suffixes": [
+      "NyhCDEiseaD4"
+     ]
+    },
+    "passer_by": {
+     "keys": 1,
+     "detail": {
+      "cLrnHPZTJrAu": {
+       "rows": 381,
+       "max": 456
+      }
+     }
+    },
+    "untestable_single_row": {
+     "keys": 0,
+     "suffixes": []
+    },
+    "note": "a key is testable only if it emitted >=2 bodies in this window; pool disjoint windows to promote untestable keys"
+   },
+   "verdict": "FIXED-WIDTH TEMPLATE, NOT A CUT BUDGET: the bodies end on a shared constant tail 'erified and indexed.', so the width is imposed by a formatter that finishes its sentence. This is round 75 pattern 87 territory - use detect_fixed_width_delivery.py, which tests length quantisation, not punctuation."
+  },
+  "56": {
+   "width": [
+    56,
+    56
+   ],
+   "shared_tail_of_band": "eived and processed.",
+   "window_rows": 1863,
+   "at_width": {
+    "n": 346,
+    "mid_word": 0,
+    "pct": 0.0
+   },
+   "control_below": {
+    "range": [
+     -244,
+     55
+    ],
+    "n": 0,
+    "mid_word": 0,
+    "pct": null
+   },
+   "control_above": {
+    "range": [
+     57,
+     356
+    ],
+    "n": 642,
+    "mid_word": 382,
+    "pct": 59.5
+   },
+   "keys_at_width": {
+    "jPMowhojvBUG": {
+     "n": 346,
+     "mid_word": 0
+    }
+   },
+   "key_max_body_len_in_window": {
+    "jPMowhojvBUG": 56
+   },
+   "key_population": {
+    "band_native": {
+     "keys": 1,
+     "suffixes": [
+      "jPMowhojvBUG"
+     ]
+    },
+    "passer_by": {
+     "keys": 0,
+     "detail": {}
+    },
+    "untestable_single_row": {
+     "keys": 0,
+     "suffixes": []
+    },
+    "note": "a key is testable only if it emitted >=2 bodies in this window; pool disjoint windows to promote untestable keys"
+   },
+   "verdict": "FIXED-WIDTH TEMPLATE, NOT A CUT BUDGET: the bodies end on a shared constant tail 'eived and processed.', so the width is imposed by a formatter that finishes its sentence. This is round 75 pattern 87 territory - use detect_fixed_width_delivery.py, which tests length quantisation, not punctuation."
+  }
+ },
+ "pooled_over_two_windows": {
+  "second_window": "guide/data/r150_kibble_export.jsonl RESULT rows (earlier, disjoint)",
+  "per_key": {
+   "iX45owhUm7kn": {
+    "rows_pooled": 1,
+    "max_pooled": 1797,
+    "testable": false,
+    "exceeds_1800": false
+   },
+   "TY3deNtMzG9V": {
+    "rows_pooled": 4,
+    "max_pooled": 1796,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "96WFMuxri3ss": {
+    "rows_pooled": 1,
+    "max_pooled": 1794,
+    "testable": false,
+    "exceeds_1800": false
+   },
+   "5mVHQgiZGD4A": {
+    "rows_pooled": 3,
+    "max_pooled": 1793,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "SgDGsQ9sna5m": {
+    "rows_pooled": 3,
+    "max_pooled": 1795,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "st8QFeQT9hhW": {
+    "rows_pooled": 2,
+    "max_pooled": 1797,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "LqZW22TA3WAy": {
+    "rows_pooled": 3,
+    "max_pooled": 1797,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "Hu22w46s3RPG": {
+    "rows_pooled": 1,
+    "max_pooled": 1797,
+    "testable": false,
+    "exceeds_1800": false
+   },
+   "Rvv1nipwty9E": {
+    "rows_pooled": 5,
+    "max_pooled": 1798,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "P7ZmX8Mt89ap": {
+    "rows_pooled": 4,
+    "max_pooled": 1797,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "LaheWh6RM5eH": {
+    "rows_pooled": 1,
+    "max_pooled": 1795,
+    "testable": false,
+    "exceeds_1800": false
+   },
+   "hpBRgWSmFTWF": {
+    "rows_pooled": 3,
+    "max_pooled": 1796,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "DqD9vBKjfKcK": {
+    "rows_pooled": 5,
+    "max_pooled": 1796,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "BJJ9owkaaDL9": {
+    "rows_pooled": 2,
+    "max_pooled": 1796,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "EEU3RDAn6LB2": {
+    "rows_pooled": 1,
+    "max_pooled": 1796,
+    "testable": false,
+    "exceeds_1800": false
+   },
+   "TD5nB3rYrwz8": {
+    "rows_pooled": 1,
+    "max_pooled": 1795,
+    "testable": false,
+    "exceeds_1800": false
+   },
+   "HGPLr2uzUYMe": {
+    "rows_pooled": 1,
+    "max_pooled": 1796,
+    "testable": false,
+    "exceeds_1800": false
+   },
+   "6YSRNFz7uNBU": {
+    "rows_pooled": 1,
+    "max_pooled": 1795,
+    "testable": false,
+    "exceeds_1800": false
+   },
+   "GmznvbSwf7RM": {
+    "rows_pooled": 3,
+    "max_pooled": 1796,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "J4VzFqXXU9Xq": {
+    "rows_pooled": 3,
+    "max_pooled": 1797,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "9fK6RK1KNhbC": {
+    "rows_pooled": 3,
+    "max_pooled": 1796,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "3WMS23bVLd5o": {
+    "rows_pooled": 480,
+    "max_pooled": 2391,
+    "testable": true,
+    "exceeds_1800": true
+   },
+   "BCsG7BcXFX3f": {
+    "rows_pooled": 3,
+    "max_pooled": 1797,
+    "testable": true,
+    "exceeds_1800": false
+   },
+   "NeMVqiS4pxVp": {
+    "rows_pooled": 159,
+    "max_pooled": 3459,
+    "testable": true,
+    "exceeds_1800": true
+   },
+   "TRSx1sxkyXVx": {
+    "rows_pooled": 1,
+    "max_pooled": 1795,
+    "testable": false,
+    "exceeds_1800": false
+   },
+   "bWYwx88353py": {
+    "rows_pooled": 1,
+    "max_pooled": 1796,
+    "testable": false,
+    "exceeds_1800": false
+   }
+  },
+  "testable_after_pooling": 16,
+  "of_those_exceeding_1800": 2
+ }
+}

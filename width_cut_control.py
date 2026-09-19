@@ -73,8 +73,41 @@ def run(rows, width, span=300):
         per[k]["mid_word"] += mid_word(r["result"])
 
     keys = sorted(per, key=lambda k: -per[k]["n"])
-    over = {k[-12:]: max(r["body_len"] for r in rows if r["worker"] == k)
-            for k in keys}
+    by_key = collections.defaultdict(list)
+    for r in rows:
+        by_key[r["worker"]].append(r["body_len"])
+    over = {k[-12:]: max(by_key[k]) for k in keys}
+
+    # Round 152.  The old rule was `ceiling = all(max <= width)`, so ONE key
+    # that happens to pass through the band vetoed the ceiling for every other
+    # key in it.  In the round-151 window exactly one key of 32 did that, and
+    # the whole band was reported as "not a ceiling" on its say-so.
+    #
+    # Two things have to be separated.  A key whose ENTIRE output in the window
+    # sits in the band is a candidate for a per-key budget.  A key that writes
+    # 203 bodies up to 3,459 chars and lands in the band once is a passer-by,
+    # and its maximum says nothing about anyone else.  And a key with a single
+    # body in the window is not testable at all: "never exceeded" is vacuous
+    # at n=1, which is what 24 of 26 band keys were.
+    native, passer, untestable = [], [], []
+    for k in keys:
+        lens = by_key[k]
+        if len(lens) < 2:
+            untestable.append(k)
+        elif max(lens) > whi:
+            passer.append(k)
+        else:
+            native.append(k)
+    pop = {
+        "band_native": {"keys": len(native), "suffixes": [k[-12:] for k in native]},
+        "passer_by": {"keys": len(passer),
+                      "detail": {k[-12:]: {"rows": len(by_key[k]),
+                                           "max": max(by_key[k])} for k in passer}},
+        "untestable_single_row": {"keys": len(untestable),
+                                  "suffixes": [k[-12:] for k in untestable]},
+        "note": "a key is testable only if it emitted >=2 bodies in this window; "
+                "pool disjoint windows to promote untestable keys",
+    }
     tail = shared_tail(band)
     return {
         "width": [wlo, whi],
@@ -85,11 +118,12 @@ def run(rows, width, span=300):
         "control_above": {"range": [whi + 1, whi + span], **rate(hi)},
         "keys_at_width": {k[-12:]: per[k] for k in keys},
         "key_max_body_len_in_window": over,
-        "verdict": _verdict(rate(band), rate(ctl), rate(hi), over, whi, tail),
+        "key_population": pop,
+        "verdict": _verdict(rate(band), rate(ctl), rate(hi), pop, tail),
     }
 
 
-def _verdict(band, ctl, hi, over, width, tail):
+def _verdict(band, ctl, hi, pop, tail):
     if band["n"] < 10:
         return "INCONCLUSIVE: fewer than 10 bodies at this width"
     ref = ctl if ctl["pct"] is not None else hi
@@ -104,13 +138,25 @@ def _verdict(band, ctl, hi, over, width, tail):
                     "which tests length quantisation, not punctuation." % tail)
         return ("NOT A BUDGET: most bodies at this width end on punctuation, "
                 "so the width is where the writing ended, not where it was cut")
-    ceiling = all(v <= width for v in over.values())
-    return ("BUDGET: %.1f%% cut mid-word at the width against %.1f%% in the "
-            "control%s" % (band["pct"], ref["pct"],
-                           "; no key in the window ever exceeds the width"
-                           if ceiling else
-                           "; but at least one key exceeds the width, so it is "
-                           "a common stop, not a hard ceiling"))
+    nat = pop["band_native"]["keys"]
+    pas = pop["passer_by"]["keys"]
+    unt = pop["untestable_single_row"]["keys"]
+    head = ("BUDGET: %.1f%% cut mid-word at the width against %.1f%% in the "
+            "control" % (band["pct"], ref["pct"]))
+    if nat + pas == 0:
+        return (head + "; but NO key at this width emitted a second body in "
+                "this window (%d of %d are single-row), so nothing here can "
+                "distinguish a per-key ceiling from a coincidence. Pool a "
+                "disjoint window before claiming either." % (unt, unt))
+    return (head + "; of the %d testable keys %d never exceed the width and %d "
+            "do (%s); %d more are single-row and untestable. The verdict "
+            "belongs to the testable keys only - a passer-by that writes far "
+            "past the band does not veto a ceiling for the others, and a key "
+            "with one body does not support one."
+            % (nat + pas, nat, pas,
+               ", ".join("%s max %d" % (k, v["max"])
+                         for k, v in pop["passer_by"]["detail"].items()) or "-",
+               unt))
 
 
 if __name__ == "__main__":
