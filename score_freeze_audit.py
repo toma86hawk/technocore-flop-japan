@@ -74,7 +74,21 @@ def terms(did):
 
 
 def ring(room="kibble"):
-    recs = [json.loads(l) for l in get(f"{ORIGIN}/r/{room}/export").splitlines() if l.strip()]
+    # Round 153: this used to read the route directly and json.loads whatever
+    # came back.  During an origin degradation the export answers HTTP 200 with
+    # a body that stops in the middle of a record, so the horizon would have
+    # been computed from 139 rows out of 15,216 and reported as a collapse.
+    # fetch_export.fetch refuses a short body and retries; KIBBLE_EXPORT_FILE
+    # reuses a tape already pulled this round instead of re-reading 9.6 MB.
+    import os
+    cached = os.environ.get("KIBBLE_EXPORT_FILE")
+    if cached and room == "kibble" and os.path.exists(cached):
+        recs = [json.loads(l) for l in open(cached, encoding="utf-8")
+                if l.strip().startswith("{")]
+    else:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from fetch_export import fetch
+        recs, _raw = fetch(room)
     seqs = sorted(r["seq"] for r in recs)
     dense = (seqs[-1] - seqs[0] + 1) == len(seqs)
     tss = sorted(r["ts"] for r in recs)
