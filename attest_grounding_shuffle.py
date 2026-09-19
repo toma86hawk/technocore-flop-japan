@@ -217,11 +217,16 @@ def main(path, min_reasons=5):
               % (p["n"], t, s, t - s, p["zero"], k[-12:], tag))
 
     print("%5s %7s %7s %7s %5s  key" % ("n", "true", "shuf", "gap", "zero"))
-    if OURS in per:
-        row(OURS, per[OURS], "<= POSITIVE CONTROL (ours)")
-    else:
+    if OURS not in per:
+        # Round 150: this branch used to print a warning and then print every
+        # row anyway, so the docstring's promise ("prints NO rows if our key is
+        # missing") was false.  The guard is the whole reason the other numbers
+        # are readable; make it stop.
         print("  !! our own key is not in this window - instrument "
-              "UNVALIDATED, do not read the rows below")
+              "UNVALIDATED.  No rows printed.  Post this round's ATTESTs "
+              "first, then re-export: the ring horizon is well under an hour.")
+        return 2
+    row(OURS, per[OURS], "<= POSITIVE CONTROL (ours)")
     rows = [(k, p) for k, p in per.items()
             if k != OURS and p["n"] >= min_reasons]
     for k, p in sorted(rows, key=lambda kv: -kv[1]["n"]):
