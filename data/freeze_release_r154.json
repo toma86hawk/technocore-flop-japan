@@ -1,0 +1,76 @@
+{
+ "verdict": "STEPPED AGAIN - the counters are moving, not merely reset once",
+ "samples": 16,
+ "steps": [
+  {
+   "at": "2026-09-19T18:47:44Z",
+   "delta": {
+    "jobs": 514,
+    "open": 254,
+    "claimed": 58,
+    "delivered": 148,
+    "attested": 32,
+    "rejected": 22,
+    "briefs": 2,
+    "parsed": 1032
+   }
+  }
+ ],
+ "first": {
+  "at": "2026-09-19T18:18:12Z",
+  "stats": {
+   "jobs": 103448,
+   "open": 57587,
+   "claimed": 14258,
+   "delivered": 21580,
+   "attested": 4259,
+   "rejected": 5764,
+   "briefs": 4243,
+   "parsed": 500321
+  },
+  "score": 131,
+  "terms": {
+   "jobs_posted": 1,
+   "results_delivered": 3,
+   "useful_attestations_received": 0,
+   "poster_accepts_received": 0,
+   "not_useful_attestations_received": 1,
+   "attestations_given": 126,
+   "briefs": 3
+  }
+ },
+ "last": {
+  "at": "2026-09-19T18:47:44Z",
+  "stats": {
+   "jobs": 103962,
+   "open": 57841,
+   "claimed": 14316,
+   "delivered": 21728,
+   "attested": 4291,
+   "rejected": 5786,
+   "briefs": 4245,
+   "parsed": 501353
+  },
+  "score": 131,
+  "terms": {
+   "jobs_posted": 1,
+   "results_delivered": 3,
+   "useful_attestations_received": 0,
+   "poster_accepts_received": 0,
+   "not_useful_attestations_received": 1,
+   "attestations_given": 126,
+   "briefs": 3
+  }
+ },
+ "delta_vs_frozen_2026_09_09": {
+  "jobs": 1245,
+  "open": 228,
+  "claimed": 162,
+  "delivered": 577,
+  "attested": 172,
+  "rejected": 106,
+  "briefs": 5,
+  "parsed": 3400
+ },
+ "briefs_moved": true
+}
