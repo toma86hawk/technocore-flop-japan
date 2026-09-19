@@ -1,0 +1,306 @@
+{
+ "width": [
+  1790,
+  1800
+ ],
+ "shared_tail_of_band": "",
+ "window_rows": 1910,
+ "at_width": {
+  "n": 93,
+  "mid_word": 84,
+  "pct": 90.3
+ },
+ "control_below": {
+  "range": [
+   1490,
+   1789
+  ],
+  "n": 188,
+  "mid_word": 4,
+  "pct": 2.1
+ },
+ "control_above": {
+  "range": [
+   1801,
+   2100
+  ],
+  "n": 41,
+  "mid_word": 0,
+  "pct": 0.0
+ },
+ "keys_at_width": {
+  "xGjPVSbr6C2f": {
+   "n": 6,
+   "mid_word": 6
+  },
+  "QSmpf7y8GkQ8": {
+   "n": 4,
+   "mid_word": 4
+  },
+  "9fK6RK1KNhbC": {
+   "n": 4,
+   "mid_word": 4
+  },
+  "Jkf4prHUKijM": {
+   "n": 4,
+   "mid_word": 4
+  },
+  "9XYBjWHANzZs": {
+   "n": 4,
+   "mid_word": 4
+  },
+  "WpmSW23mUt6A": {
+   "n": 4,
+   "mid_word": 3
+  },
+  "PHXsxr2u2Gyg": {
+   "n": 4,
+   "mid_word": 4
+  },
+  "4JmzFE9J2WXA": {
+   "n": 4,
+   "mid_word": 3
+  },
+  "h2VrGTDKEeLf": {
+   "n": 4,
+   "mid_word": 3
+  },
+  "m8mLXEDhSHCW": {
+   "n": 4,
+   "mid_word": 4
+  },
+  "Rvv1nipwty9E": {
+   "n": 4,
+   "mid_word": 2
+  },
+  "NgkZEkzsQ7Ar": {
+   "n": 3,
+   "mid_word": 3
+  },
+  "UUytuRDFEqMP": {
+   "n": 3,
+   "mid_word": 3
+  },
+  "LqZW22TA3WAy": {
+   "n": 3,
+   "mid_word": 3
+  },
+  "zDBZP2maRSiG": {
+   "n": 3,
+   "mid_word": 3
+  },
+  "GSagp52mciLK": {
+   "n": 3,
+   "mid_word": 3
+  },
+  "G9YhtghYN8zv": {
+   "n": 2,
+   "mid_word": 2
+  },
+  "qZVmmz6ToUvN": {
+   "n": 2,
+   "mid_word": 2
+  },
+  "bqAKXR1KM1tN": {
+   "n": 2,
+   "mid_word": 2
+  },
+  "GmznvbSwf7RM": {
+   "n": 2,
+   "mid_word": 2
+  },
+  "x7xvTf5yySTG": {
+   "n": 2,
+   "mid_word": 2
+  },
+  "DqD9vBKjfKcK": {
+   "n": 2,
+   "mid_word": 2
+  },
+  "3WMS23bVLd5o": {
+   "n": 2,
+   "mid_word": 0
+  },
+  "LaheWh6RM5eH": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "iX45owhUm7kn": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "BCsG7BcXFX3f": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "st8QFeQT9hhW": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "QnWGo247rrkw": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "8TgqCxuz45TA": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "KsKK9emNxUto": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "HGPLr2uzUYMe": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "TRSx1sxkyXVx": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "hFQTuX97kKkq": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "Rwk4axkVkkiU": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "5mVHQgiZGD4A": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "hpBRgWSmFTWF": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "kGaavmLSFovC": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "NeMVqiS4pxVp": {
+   "n": 1,
+   "mid_word": 0
+  },
+  "BJJ9owkaaDL9": {
+   "n": 1,
+   "mid_word": 0
+  },
+  "Hu22w46s3RPG": {
+   "n": 1,
+   "mid_word": 1
+  },
+  "6YSRNFz7uNBU": {
+   "n": 1,
+   "mid_word": 1
+  }
+ },
+ "key_max_body_len_in_window": {
+  "xGjPVSbr6C2f": 1798,
+  "QSmpf7y8GkQ8": 1799,
+  "9fK6RK1KNhbC": 1799,
+  "Jkf4prHUKijM": 1798,
+  "9XYBjWHANzZs": 1798,
+  "WpmSW23mUt6A": 1798,
+  "PHXsxr2u2Gyg": 1798,
+  "4JmzFE9J2WXA": 1797,
+  "h2VrGTDKEeLf": 1797,
+  "m8mLXEDhSHCW": 1797,
+  "Rvv1nipwty9E": 1796,
+  "NgkZEkzsQ7Ar": 1798,
+  "UUytuRDFEqMP": 1797,
+  "LqZW22TA3WAy": 1796,
+  "zDBZP2maRSiG": 1796,
+  "GSagp52mciLK": 1796,
+  "G9YhtghYN8zv": 1798,
+  "qZVmmz6ToUvN": 1798,
+  "bqAKXR1KM1tN": 1796,
+  "GmznvbSwf7RM": 1796,
+  "x7xvTf5yySTG": 1796,
+  "DqD9vBKjfKcK": 1795,
+  "3WMS23bVLd5o": 2052,
+  "LaheWh6RM5eH": 1798,
+  "iX45owhUm7kn": 1797,
+  "BCsG7BcXFX3f": 1797,
+  "st8QFeQT9hhW": 1797,
+  "QnWGo247rrkw": 1797,
+  "8TgqCxuz45TA": 1797,
+  "KsKK9emNxUto": 1796,
+  "HGPLr2uzUYMe": 1796,
+  "TRSx1sxkyXVx": 1795,
+  "hFQTuX97kKkq": 1795,
+  "Rwk4axkVkkiU": 1794,
+  "5mVHQgiZGD4A": 1794,
+  "hpBRgWSmFTWF": 1794,
+  "kGaavmLSFovC": 1793,
+  "NeMVqiS4pxVp": 3137,
+  "BJJ9owkaaDL9": 1793,
+  "Hu22w46s3RPG": 1793,
+  "6YSRNFz7uNBU": 1793
+ },
+ "key_population": {
+  "band_native": {
+   "keys": 26,
+   "suffixes": [
+    "xGjPVSbr6C2f",
+    "QSmpf7y8GkQ8",
+    "9fK6RK1KNhbC",
+    "Jkf4prHUKijM",
+    "9XYBjWHANzZs",
+    "WpmSW23mUt6A",
+    "PHXsxr2u2Gyg",
+    "4JmzFE9J2WXA",
+    "h2VrGTDKEeLf",
+    "m8mLXEDhSHCW",
+    "Rvv1nipwty9E",
+    "NgkZEkzsQ7Ar",
+    "UUytuRDFEqMP",
+    "LqZW22TA3WAy",
+    "zDBZP2maRSiG",
+    "GSagp52mciLK",
+    "G9YhtghYN8zv",
+    "qZVmmz6ToUvN",
+    "bqAKXR1KM1tN",
+    "GmznvbSwf7RM",
+    "x7xvTf5yySTG",
+    "DqD9vBKjfKcK",
+    "QnWGo247rrkw",
+    "8TgqCxuz45TA",
+    "hpBRgWSmFTWF",
+    "Hu22w46s3RPG"
+   ]
+  },
+  "passer_by": {
+   "keys": 2,
+   "detail": {
+    "3WMS23bVLd5o": {
+     "rows": 221,
+     "max": 2052
+    },
+    "NeMVqiS4pxVp": {
+     "rows": 154,
+     "max": 3137
+    }
+   }
+  },
+  "untestable_single_row": {
+   "keys": 13,
+   "suffixes": [
+    "LaheWh6RM5eH",
+    "iX45owhUm7kn",
+    "BCsG7BcXFX3f",
+    "st8QFeQT9hhW",
+    "KsKK9emNxUto",
+    "HGPLr2uzUYMe",
+    "TRSx1sxkyXVx",
+    "hFQTuX97kKkq",
+    "Rwk4axkVkkiU",
+    "5mVHQgiZGD4A",
+    "kGaavmLSFovC",
+    "BJJ9owkaaDL9",
+    "6YSRNFz7uNBU"
+   ]
+  },
+  "note": "a key is testable only if it emitted >=2 bodies in this window; pool disjoint windows to promote untestable keys"
+ },
+ "verdict": "BUDGET: 90.3% cut mid-word at the width against 2.1% in the control; of the 28 testable keys 26 never exceed the width and 2 do (3WMS23bVLd5o max 2052, NeMVqiS4pxVp max 3137); 13 more are single-row and untestable. The verdict belongs to the testable keys only - a passer-by that writes far past the band does not veto a ceiling for the others, and a key with one body does not support one."
+}

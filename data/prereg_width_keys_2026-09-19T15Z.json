@@ -1,0 +1,165 @@
+{
+ "width": 1800,
+ "band": [
+  1791,
+  1798
+ ],
+ "keys_tested": 11,
+ "keys_silent": 3,
+ "exceeded": [],
+ "held": [
+  "5mVHQgiZGD4A",
+  "SgDGsQ9sna5m",
+  "st8QFeQT9hhW",
+  "LqZW22TA3WAy",
+  "Rvv1nipwty9E",
+  "hpBRgWSmFTWF",
+  "DqD9vBKjfKcK",
+  "BJJ9owkaaDL9",
+  "GmznvbSwf7RM",
+  "9fK6RK1KNhbC",
+  "BCsG7BcXFX3f"
+ ],
+ "silent": [
+  "TY3deNtMzG9V",
+  "P7ZmX8Mt89ap",
+  "J4VzFqXXU9Xq"
+ ],
+ "verdict": "SURVIVES - 11 of the 14 keys wrote in this window and none exceeded 1800; 3 had no opportunity and prove nothing.",
+ "per_key": {
+  "TY3deNtMzG9V": {
+   "rows": 0,
+   "verdict": "NO DATA - no opportunity"
+  },
+  "5mVHQgiZGD4A": {
+   "rows": 1,
+   "max": 1794,
+   "min": 1794,
+   "in_band": 1,
+   "lens": [
+    1794
+   ],
+   "verdict": "held"
+  },
+  "SgDGsQ9sna5m": {
+   "rows": 1,
+   "max": 1774,
+   "min": 1774,
+   "in_band": 0,
+   "lens": [
+    1774
+   ],
+   "verdict": "held"
+  },
+  "st8QFeQT9hhW": {
+   "rows": 1,
+   "max": 1797,
+   "min": 1797,
+   "in_band": 1,
+   "lens": [
+    1797
+   ],
+   "verdict": "held"
+  },
+  "LqZW22TA3WAy": {
+   "rows": 4,
+   "max": 1796,
+   "min": 1686,
+   "in_band": 3,
+   "lens": [
+    1686,
+    1794,
+    1796,
+    1796
+   ],
+   "verdict": "held"
+  },
+  "Rvv1nipwty9E": {
+   "rows": 4,
+   "max": 1796,
+   "min": 1794,
+   "in_band": 4,
+   "lens": [
+    1794,
+    1794,
+    1795,
+    1796
+   ],
+   "verdict": "held"
+  },
+  "P7ZmX8Mt89ap": {
+   "rows": 0,
+   "verdict": "NO DATA - no opportunity"
+  },
+  "hpBRgWSmFTWF": {
+   "rows": 2,
+   "max": 1794,
+   "min": 1789,
+   "in_band": 1,
+   "lens": [
+    1789,
+    1794
+   ],
+   "verdict": "held"
+  },
+  "DqD9vBKjfKcK": {
+   "rows": 2,
+   "max": 1795,
+   "min": 1792,
+   "in_band": 2,
+   "lens": [
+    1792,
+    1795
+   ],
+   "verdict": "held"
+  },
+  "BJJ9owkaaDL9": {
+   "rows": 1,
+   "max": 1793,
+   "min": 1793,
+   "in_band": 1,
+   "lens": [
+    1793
+   ],
+   "verdict": "held"
+  },
+  "GmznvbSwf7RM": {
+   "rows": 2,
+   "max": 1796,
+   "min": 1793,
+   "in_band": 2,
+   "lens": [
+    1793,
+    1796
+   ],
+   "verdict": "held"
+  },
+  "J4VzFqXXU9Xq": {
+   "rows": 0,
+   "verdict": "NO DATA - no opportunity"
+  },
+  "9fK6RK1KNhbC": {
+   "rows": 4,
+   "max": 1799,
+   "min": 1792,
+   "in_band": 3,
+   "lens": [
+    1792,
+    1793,
+    1796,
+    1799
+   ],
+   "verdict": "held"
+  },
+  "BCsG7BcXFX3f": {
+   "rows": 1,
+   "max": 1797,
+   "min": 1797,
+   "in_band": 1,
+   "lens": [
+    1797
+   ],
+   "verdict": "held"
+  }
+ }
+}

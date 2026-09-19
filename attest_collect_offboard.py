@@ -24,11 +24,23 @@ ROOM = "kibble"
 def sha16(s): return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
 
 def export(room, limit=6000):
-    req = urllib.request.Request(
-        f"https://technocore.chat/r/{room}/export?limit={limit}",
-        headers={"User-Agent": "flop-jp-agent/1.0"})
-    raw = urllib.request.urlopen(req, timeout=240).read().decode("utf-8", "replace")
-    return [json.loads(l) for l in raw.splitlines() if l.strip().startswith("{")]
+    """Round 153: this used to read the route directly and trusted any 200.
+
+    During an origin degradation the export answered 200 with a body that
+    stopped mid-record, so the queue would have been built from 139 rows out of
+    14,000 with nothing raising.  Delegate to fetch_export.fetch, which checks
+    the last line parses and that seq density holds, and allow a tape that was
+    already pulled to disk to be reused via KIBBLE_EXPORT_FILE so a flapping
+    origin costs one read per round instead of one per tool."""
+    cached = os.environ.get("KIBBLE_EXPORT_FILE")
+    if cached and os.path.exists(cached):
+        rows = [json.loads(l) for l in open(cached, encoding="utf-8")
+                if l.strip().startswith("{")]
+        print("export from file %s rows %d" % (cached, len(rows)))
+        return rows
+    from fetch_export import fetch
+    rows, _raw = fetch(room)
+    return rows
 
 try:
     # The ledger lives at the repo root.  Looking only in HERE made the guide/

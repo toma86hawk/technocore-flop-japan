@@ -5,3 +5,6 @@ keeper_state.json
 .env
 __pycache__/
 *.pyc
+
+# raw room tapes: 6-10 MB each, re-fetchable with fetch_export.py
+data/*_export.jsonl
