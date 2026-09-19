@@ -49,6 +49,18 @@ FREEZE_START = "2026-09-07T21:17:00Z"   # after round 59 = 2026-09-08 06:17 JST
 SEQ_AT_FREEZE = 2534512
 
 
+def step(msg):
+    """Progress to stderr.
+
+    Everything this tool learns is printed in ONE json blob at the end, so a
+    run killed by a shell timeout produced an EMPTY output and exit status 0 -
+    indistinguishable from a clean run with nothing to say.  That happened on
+    2026-09-19 r151: two runs returned nothing and the third, unbounded, took
+    ~150s.  The room export alone is ~18k records.  Say where we are.
+    """
+    print("... " + msg, file=sys.stderr, flush=True)
+
+
 def get(url, timeout=180):
     with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout) as r:
         return r.read().decode("utf-8", "replace")
@@ -83,6 +95,7 @@ def ring(room="kibble"):
 def main(did, baseline=None):
     out = {"at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
 
+    step("GET /api/stats")
     stats = json.loads(get(f"{KIB}/api/stats", timeout=60))["stats"]
     same = {k: v for k, v in FROZEN_2026_09_09.items() if stats.get(k) == v}
     # timegm, NOT mktime: FREEZE_START is UTC and this host runs JST, so
@@ -92,6 +105,7 @@ def main(did, baseline=None):
     out["differing"] = {k: (FROZEN_2026_09_09[k], stats.get(k)) for k in FROZEN_2026_09_09 if k not in same}
     out["freeze_age_hours"] = round(age_h, 1)
 
+    step("GET /api/score")
     t, s = terms(did)
     out["did"] = did
     out["terms"] = t
@@ -125,6 +139,7 @@ def main(did, baseline=None):
         out["terms_unchanged"] = "%d/%d" % (len(baseline) - len(changed), len(baseline))
         out["terms_changed"] = changed
 
+    step("GET /r/kibble/export (the slow one: ~18k records)")
     recs, r = ring()
     out["ring"] = r
     if r["seq_dense"]:

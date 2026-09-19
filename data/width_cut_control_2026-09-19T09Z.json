@@ -1,0 +1,339 @@
+{
+ "window": "room kibble /export seq 8999473-9017219, 2026-09-19T09:17:44Z, 17747 msgs, 2364 pairs",
+ "runs": {
+  "1200": {
+   "width": [
+    1200,
+    1200
+   ],
+   "shared_tail_of_band": "",
+   "window_rows": 2364,
+   "at_width": {
+    "n": 55,
+    "mid_word": 51,
+    "pct": 92.7
+   },
+   "control_below": {
+    "range": [
+     900,
+     1199
+    ],
+    "n": 146,
+    "mid_word": 4,
+    "pct": 2.7
+   },
+   "control_above": {
+    "range": [
+     1201,
+     1500
+    ],
+    "n": 187,
+    "mid_word": 1,
+    "pct": 0.5
+   },
+   "keys_at_width": {
+    "ZyKGCzcjaxKi": {
+     "n": 40,
+     "mid_word": 36
+    },
+    "pa7mQrhvzYG6": {
+     "n": 8,
+     "mid_word": 8
+    },
+    "TAs6g1ni2C8g": {
+     "n": 7,
+     "mid_word": 7
+    }
+   },
+   "key_max_body_len_in_window": {
+    "ZyKGCzcjaxKi": 1200,
+    "pa7mQrhvzYG6": 1200,
+    "TAs6g1ni2C8g": 1200
+   },
+   "verdict": "BUDGET: 92.7% cut mid-word at the width against 2.7% in the control; no key in the window ever exceeds the width"
+  },
+  "1790-1800": {
+   "width": [
+    1790,
+    1800
+   ],
+   "shared_tail_of_band": "",
+   "window_rows": 2364,
+   "at_width": {
+    "n": 34,
+    "mid_word": 30,
+    "pct": 88.2
+   },
+   "control_below": {
+    "range": [
+     1490,
+     1789
+    ],
+    "n": 262,
+    "mid_word": 2,
+    "pct": 0.8
+   },
+   "control_above": {
+    "range": [
+     1801,
+     2100
+    ],
+    "n": 47,
+    "mid_word": 0,
+    "pct": 0.0
+   },
+   "keys_at_width": {
+    "Qagam7XC8RMi": {
+     "n": 2,
+     "mid_word": 2
+    },
+    "h2VrGTDKEeLf": {
+     "n": 2,
+     "mid_word": 2
+    },
+    "Rwk4axkVkkiU": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "JrP3VDHWg1x1": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "PHXsxr2u2Gyg": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "9fK6RK1KNhbC": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "HGPLr2uzUYMe": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "bqAKXR1KM1tN": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "xGjPVSbr6C2f": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "6YSRNFz7uNBU": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "TRSx1sxkyXVx": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "P7ZmX8Mt89ap": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "3WMS23bVLd5o": {
+     "n": 1,
+     "mid_word": 0
+    },
+    "h7MvodS7fwUF": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "BJJ9owkaaDL9": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "GmznvbSwf7RM": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "DqD9vBKjfKcK": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "iX45owhUm7kn": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "qZVmmz6ToUvN": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "LaheWh6RM5eH": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "J4VzFqXXU9Xq": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "hpBRgWSmFTWF": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "x7xvTf5yySTG": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "hFQTuX97kKkq": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "5mVHQgiZGD4A": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "EEU3RDAn6LB2": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "G9YhtghYN8zv": {
+     "n": 1,
+     "mid_word": 0
+    },
+    "WpmSW23mUt6A": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "96WFMuxri3ss": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "QnWGo247rrkw": {
+     "n": 1,
+     "mid_word": 1
+    },
+    "QSmpf7y8GkQ8": {
+     "n": 1,
+     "mid_word": 0
+    },
+    "BCsG7BcXFX3f": {
+     "n": 1,
+     "mid_word": 0
+    }
+   },
+   "key_max_body_len_in_window": {
+    "Qagam7XC8RMi": 1798,
+    "h2VrGTDKEeLf": 1797,
+    "Rwk4axkVkkiU": 1798,
+    "JrP3VDHWg1x1": 1798,
+    "PHXsxr2u2Gyg": 1798,
+    "9fK6RK1KNhbC": 1797,
+    "HGPLr2uzUYMe": 1797,
+    "bqAKXR1KM1tN": 1797,
+    "xGjPVSbr6C2f": 1797,
+    "6YSRNFz7uNBU": 1797,
+    "TRSx1sxkyXVx": 1797,
+    "P7ZmX8Mt89ap": 1797,
+    "3WMS23bVLd5o": 1906,
+    "h7MvodS7fwUF": 1796,
+    "BJJ9owkaaDL9": 1796,
+    "GmznvbSwf7RM": 1796,
+    "DqD9vBKjfKcK": 1796,
+    "iX45owhUm7kn": 1796,
+    "qZVmmz6ToUvN": 1796,
+    "LaheWh6RM5eH": 1796,
+    "J4VzFqXXU9Xq": 1796,
+    "hpBRgWSmFTWF": 1795,
+    "x7xvTf5yySTG": 1795,
+    "hFQTuX97kKkq": 1795,
+    "5mVHQgiZGD4A": 1795,
+    "EEU3RDAn6LB2": 1794,
+    "G9YhtghYN8zv": 1794,
+    "WpmSW23mUt6A": 1794,
+    "96WFMuxri3ss": 1793,
+    "QnWGo247rrkw": 1792,
+    "QSmpf7y8GkQ8": 1792,
+    "BCsG7BcXFX3f": 1792
+   },
+   "verdict": "BUDGET: 88.2% cut mid-word at the width against 0.8% in the control; but at least one key exceeds the width, so it is a common stop, not a hard ceiling"
+  },
+  "140": {
+   "width": [
+    140,
+    140
+   ],
+   "shared_tail_of_band": "erified and indexed.",
+   "window_rows": 2364,
+   "at_width": {
+    "n": 121,
+    "mid_word": 0,
+    "pct": 0.0
+   },
+   "control_below": {
+    "range": [
+     -160,
+     139
+    ],
+    "n": 718,
+    "mid_word": 66,
+    "pct": 9.2
+   },
+   "control_above": {
+    "range": [
+     141,
+     440
+    ],
+    "n": 462,
+    "mid_word": 337,
+    "pct": 72.9
+   },
+   "keys_at_width": {
+    "NyhCDEiseaD4": {
+     "n": 120,
+     "mid_word": 0
+    },
+    "okFabknWT4S1": {
+     "n": 1,
+     "mid_word": 0
+    }
+   },
+   "key_max_body_len_in_window": {
+    "NyhCDEiseaD4": 140,
+    "okFabknWT4S1": 276
+   },
+   "verdict": "FIXED-WIDTH TEMPLATE, NOT A CUT BUDGET: the bodies end on a shared constant tail 'erified and indexed.', so the width is imposed by a formatter that finishes its sentence. This is round 75 pattern 87 territory - use detect_fixed_width_delivery.py, which tests length quantisation, not punctuation."
+  },
+  "56": {
+   "width": [
+    56,
+    56
+   ],
+   "shared_tail_of_band": "eived and processed.",
+   "window_rows": 2364,
+   "at_width": {
+    "n": 510,
+    "mid_word": 0,
+    "pct": 0.0
+   },
+   "control_below": {
+    "range": [
+     -244,
+     55
+    ],
+    "n": 0,
+    "mid_word": 0,
+    "pct": null
+   },
+   "control_above": {
+    "range": [
+     57,
+     356
+    ],
+    "n": 711,
+    "mid_word": 388,
+    "pct": 54.6
+   },
+   "keys_at_width": {
+    "jPMowhojvBUG": {
+     "n": 510,
+     "mid_word": 0
+    }
+   },
+   "key_max_body_len_in_window": {
+    "jPMowhojvBUG": 56
+   },
+   "verdict": "FIXED-WIDTH TEMPLATE, NOT A CUT BUDGET: the bodies end on a shared constant tail 'eived and processed.', so the width is imposed by a formatter that finishes its sentence. This is round 75 pattern 87 territory - use detect_fixed_width_delivery.py, which tests length quantisation, not punctuation."
+  }
+ }
+}
