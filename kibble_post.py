@@ -85,6 +85,20 @@ def attest(job_id, verdict, reason, rh=None):
             return True, "attest", "origin"
     except Exception:                               # noqa: BLE001
         pass
+    # Round 157: a 401-character verdict on k406ad1bacc returned HTTP 400 from
+    # BOTH routes and was on the tape anyway, so the operator re-sent a
+    # reworded copy and the job now carries two verdicts from us. Length was
+    # not the cause - 401 chars is well inside the ~760 origin cap. This is the
+    # false negative already recorded at round 90 (relay_400_false_negative),
+    # whose rule is "treat 400 like 502: unknown, not failure; read back before
+    # re-sending". Apply the rule here instead of restating it.
+    try:
+        from _lib.post import read_room, _landed
+        if _landed(read_room("kibble"), text):
+            _remember(job_id)
+            return True, "attest", "origin-400-but-landed"
+    except Exception:                               # noqa: BLE001
+        pass
     res = say(text)
     if res[0]:
         _remember(job_id)
