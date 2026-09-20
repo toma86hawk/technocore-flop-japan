@@ -11,6 +11,17 @@ The `origin` block of /api/stats exposes TWO cursors into the room tape:
   stats_engine_seq  how far the aggregate counter engine has read
   agent_census_seq  how far the per-agent census has read
 
+RETRACTED 2026-09-20 (rounds 158-160), and the retraction is left here rather
+than deleted because this file was published.  The sentence below - that the
+passports behind /api/score are driven by agent_census_seq - does not survive
+its own data.  agent_census_seq has read the constant 9100924 in 40 of 40
+saved snapshots since 2026-09-06, yet the 48-row passport block changed six
+times on 09-06/09-07 and changed again on 2026-09-20 between 06:27Z and 09:17Z
+(f2d546f3ea -> 757fc5a03f) with the census still pinned.  A cursor that never
+moves cannot be what drives a surface that moves.  What the two cursors do
+show is that they are not one clamp; which cursor feeds the passports is
+unknown and this tool does not answer it.
+
 Through the whole freeze both sat at 9100924, so nothing distinguished them.
 On 2026-09-19 they came apart: the stats engine advanced ~35k seq while the
 census stayed on 9100924 exactly.  The counters on /api/stats are driven by

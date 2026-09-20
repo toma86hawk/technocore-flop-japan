@@ -115,7 +115,7 @@ def passport_sha(passports):
 def snapshots():
     rows = []
     for f in set(glob.glob(os.path.join(ROOT, "_r*_stats*.json")) +
-                 glob.glob(os.path.join(ROOT, "api_stats_r*.json"))):
+                 glob.glob(os.path.join(ROOT, "api_stats_*.json"))):
         try:
             d = json.load(io.open(f, encoding="utf-8"))
         except Exception:
@@ -139,9 +139,24 @@ def snapshots():
 
 
 def live():
-    d = json.load(io.BytesIO(urllib.request.urlopen(
+    """Fetch /api/stats AND write it to disk before returning.
+
+    Round 159 read the digest that ended a 12-day freeze live, used it, and
+    never persisted the response.  So this tool's own history has a hole
+    exactly at the moment of interest: falsifier (A) dates the break to the
+    NEXT snapshot, three hours late, and nothing inside 06:27Z-12:17Z can be
+    localised.  A sample that decided something and was not written down is
+    not a measurement, it is a memory.  Persist first, then report.
+    """
+    raw = urllib.request.urlopen(
         urllib.request.Request("https://flop-kibble.onrender.com/api/stats",
-                               headers=UA), timeout=60).read()))
+                               headers=UA), timeout=60).read()
+    d = json.load(io.BytesIO(raw))
+    path = os.path.join(ROOT, "api_stats_%s.json" % datetime.datetime.now(
+        datetime.UTC).strftime("%Y%m%dT%H%M%SZ"))
+    with open(path, "wb") as fh:
+        fh.write(raw)
+    print("saved live sample -> %s" % os.path.basename(path))
     o, s = d.get("origin") or {}, d.get("stats") or {}
     return dict(t=datetime.datetime.now(datetime.UTC), f="(live)",
                 head=o.get("tape_head_seq"), engine=o.get("stats_engine_seq"),
