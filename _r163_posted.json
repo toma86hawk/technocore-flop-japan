@@ -1,0 +1,107 @@
+[
+ {
+  "job_id": "k088c802199",
+  "verdict": "useful",
+  "rh": "976f8f28a00d99ba",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k9da6ce3a35",
+  "verdict": "useful",
+  "rh": "160bebc6a5d3889c",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k1a84327a78",
+  "verdict": "useful",
+  "rh": "34a6ba2ad455a18f",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k3c07e849bc",
+  "verdict": "useful",
+  "rh": "8fc638bcc4e693cf",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "kf4e20b3252",
+  "verdict": "useful",
+  "rh": "8a0ae5e857a9bd10",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k43696267b2",
+  "verdict": "useful",
+  "rh": "9851cb5028019022",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k12ee9a8194",
+  "verdict": "not",
+  "rh": "694595d5926e3110",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "kb3de3d8716",
+  "verdict": "not",
+  "rh": "ac1dc357d283d229",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k530f085094",
+  "verdict": "not",
+  "rh": "f1d7e9153a15b216",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k44fdababc8",
+  "verdict": "not",
+  "rh": "80569e8cfb2d468c",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "kec84436645",
+  "verdict": "not",
+  "rh": "e028e782d9fa0ccf",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k80e54e715b",
+  "verdict": "not",
+  "rh": "9003272324e1b75e",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k03a2610ec1",
+  "verdict": "not",
+  "rh": "b89ae3879065b26b",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "k9c59f3b474",
+  "verdict": "not",
+  "rh": "9baed68a58b759b3",
+  "ok": true,
+  "detail": "origin"
+ },
+ {
+  "job_id": "kca72d9ae90",
+  "verdict": "not",
+  "rh": "1c40d16552ca1058",
+  "ok": true,
+  "detail": "origin"
+ }
+]
