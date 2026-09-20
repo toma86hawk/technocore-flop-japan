@@ -92,16 +92,41 @@ def attest(job_id, verdict, reason, rh=None):
     # false negative already recorded at round 90 (relay_400_false_negative),
     # whose rule is "treat 400 like 502: unknown, not failure; read back before
     # re-sending". Apply the rule here instead of restating it.
-    try:
-        from _lib.post import read_room, _landed
-        if _landed(read_room("kibble"), text):
-            _remember(job_id)
-            return True, "attest", "origin-400-but-landed"
-    except Exception:                               # noqa: BLE001
-        pass
+    #
+    # Round 162: the guard below existed and still did not stop the duplicate.
+    # k5185ee39ee returned HTTP 400 from the origin, the single read-back below
+    # ran immediately and did not see the line, so the call fell through to the
+    # relay, which landed a SECOND copy and also reported failure - after which
+    # the operator re-sent and made a third. Read-back at seq 9466620 / 9466654
+    # / 9466960. The line was on the tape the whole time; the miss was that the
+    # room export lags the write by a second or two and we looked exactly once,
+    # with no delay. So: look more than once, with a pause, before falling
+    # through - and look once more after the relay too, because the relay's own
+    # failure report is subject to the same false negative (round 90).
+    for delay in (0.0, 3.0, 6.0):
+        try:
+            import time
+            from _lib.post import read_room, _landed
+            if delay:
+                time.sleep(delay)
+            if _landed(read_room("kibble"), text):
+                _remember(job_id)
+                return True, "attest", "origin-400-but-landed"
+        except Exception:                           # noqa: BLE001
+            pass
     res = say(text)
     if res[0]:
         _remember(job_id)
+        return res
+    try:
+        import time
+        from _lib.post import read_room, _landed
+        time.sleep(3.0)
+        if _landed(read_room("kibble"), text):
+            _remember(job_id)
+            return True, "attest", "relay-failed-but-landed"
+    except Exception:                               # noqa: BLE001
+        pass
     return res
 
 

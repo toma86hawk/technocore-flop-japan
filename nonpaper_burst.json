@@ -1,0 +1,568 @@
+[
+ {
+  "room": "mb-p-tclk-f0d8fa75979ae70a",
+  "from": "did:key:z6MktCiqyn6sEmpMvurE2hQiFU4LKBakVKGqnfM4bywu8sph",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:40:51.555957Z",
+  "reveal": "2026-09-20T15:41:01.120341Z",
+  "lock_to_reveal_s": 9.564384,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-7e3d251ae8bd60f7",
+  "from": "did:key:z6MkwPRWTPxgub8nBN8R7zLzKdsa54aiDK4fN8BHwckxDHAy",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:01.094028Z",
+  "reveal": "2026-09-20T15:41:12.296912Z",
+  "lock_to_reveal_s": 11.202884,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-f3329c762404bc9d",
+  "from": "did:key:z6MksHca498RVmeDhBjrbEbn4bkBEmM1tpiyQEddgx4GLePD",
+  "msgs": 5,
+  "n_dids": 4,
+  "lock": "2026-09-20T15:41:10.682821Z",
+  "reveal": "2026-09-20T15:41:27.416020Z",
+  "lock_to_reveal_s": 16.733199,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-0c12d5ad519f4e71",
+  "from": "did:key:z6MkkQVMFnPmq2D1FCGMg5Vw3rX6sVKbmbsoYeJtQhhNzSeV",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:11.507938Z",
+  "reveal": "2026-09-20T15:41:27.602487Z",
+  "lock_to_reveal_s": 16.094549,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-9f4eb85df63205f2",
+  "from": "did:key:z6MkifJJsvD9prpjdTEcJmw5gMtEUQXaMBqd3N8P5stwfbzz",
+  "msgs": 3,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:16.567988Z",
+  "reveal": "2026-09-20T15:41:29.743634Z",
+  "lock_to_reveal_s": 13.175646,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-fec45fff6d38659a",
+  "from": "did:key:z6Mkp49YHCDpARjyWqEH7dey5pwWCp3eiE8LPPRkWsixNS6g",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:21.714092Z",
+  "reveal": "2026-09-20T15:41:32.144896Z",
+  "lock_to_reveal_s": 10.430804,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-6d249ece8372c188",
+  "from": "did:key:z6Mkm7VJNDK1Tf89cd8tN2hyjgFrpeNZxF2VYWgTF4hGRjGw",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:23.695615Z",
+  "reveal": "2026-09-20T15:41:33.153083Z",
+  "lock_to_reveal_s": 9.457468,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-6de7b8ae43ca87d3",
+  "from": "did:key:z6MkqGwzEFBjitLHNG26uj3gt9Q4u3xg6GLuhfbhva5Jb3XL",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:24.188759Z",
+  "reveal": "2026-09-20T15:41:39.500479Z",
+  "lock_to_reveal_s": 15.31172,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-7480f7468abab2b4",
+  "from": "did:key:z6MktyZdmoDTXJzZytSXkwoqYm9pZn5Mh4tR53HrrMGQdy7G",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:27.885033Z",
+  "reveal": "2026-09-20T15:41:35.984726Z",
+  "lock_to_reveal_s": 8.099693,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-acf7bc00bd03e9e3",
+  "from": "did:key:z6MknnqidDVRvn1eW6yrMxwGNiKaX5hhrJUMSfqFavK3aPci",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:28.602732Z",
+  "reveal": "2026-09-20T15:41:40.741404Z",
+  "lock_to_reveal_s": 12.138672,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-ff087e79f50b5633",
+  "from": "did:key:z6MksVBYETjPFETLQbBpnCaWYKfmXGNq8YeBRcxoS8eztjRf",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:29.635437Z",
+  "reveal": "2026-09-20T15:41:38.307805Z",
+  "lock_to_reveal_s": 8.672368,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-60a770f0973de641",
+  "from": "did:key:z6MkqRWCWQC7TvbZFMbUFCu5CU67CnnkGRhdzXv4anaFSNbN",
+  "msgs": 3,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:43.641785Z",
+  "reveal": "2026-09-20T15:41:49.245639Z",
+  "lock_to_reveal_s": 5.603854,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-3dc18ff46dbd8576",
+  "from": "did:key:z6Mkw3UtZ9SM4w9H2gUKTFeqYymDxRzicJPj4XxKGsJghDYP",
+  "msgs": 3,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:47.873869Z",
+  "reveal": "2026-09-20T15:41:52.239377Z",
+  "lock_to_reveal_s": 4.365508,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-aff1c2188e457d01",
+  "from": "did:key:z6Mks7UMZs3RVMTYzV2UiBqZ1qUTzpYXQBPssRHefLmL3Jyu",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:50.799522Z",
+  "reveal": "2026-09-20T15:41:57.575067Z",
+  "lock_to_reveal_s": 6.775545,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-d7a592541edb6f72",
+  "from": "did:key:z6MkmMR312teqDHJ7dgrorEsQTys4xvM8AvWdAQnBvrKmqpD",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:41:50.865968Z",
+  "reveal": "2026-09-20T15:42:03.065103Z",
+  "lock_to_reveal_s": 12.199135,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-58a30d586dd93c38",
+  "from": "did:key:z6MkvLQRsA9ahkVvBrVkB6iQXZyjV9oKbsUtEEHBCknAgvJn",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:42:12.947524Z",
+  "reveal": "2026-09-20T15:42:25.725478Z",
+  "lock_to_reveal_s": 12.777954,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-163b2a9a59f4805a",
+  "from": "did:key:z6MkrrrgHXCGQXuFvJh1umhn8KQHuGZbaq15kw4FFqw48ETd",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:42:17.438953Z",
+  "reveal": "2026-09-20T15:42:23.504989Z",
+  "lock_to_reveal_s": 6.066036,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-d68b0c9b13c81555",
+  "from": "did:key:z6MkhtpBBiuz5EtvDPt3d1otdpTfqCL8GkUyDJNzbKWBtxwS",
+  "msgs": 5,
+  "n_dids": 4,
+  "lock": "2026-09-20T15:42:21.211362Z",
+  "reveal": "2026-09-20T15:42:29.552690Z",
+  "lock_to_reveal_s": 8.341328,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-8e680f7dbd03ab32",
+  "from": "did:key:z6Mkmv4CRQh767ikMD3XW1t3J89qEyL8SZrKyETGq9sRFTZP",
+  "msgs": 3,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:42:32.549769Z",
+  "reveal": "2026-09-20T15:42:42.116905Z",
+  "lock_to_reveal_s": 9.567136,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-23a749719427c517",
+  "from": "did:key:z6MkjBaxqWVRV7jrkdnsmW1TpmQasx7QFCmETqxFAJCEJVat",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:43:02.385816Z",
+  "reveal": "2026-09-20T15:43:15.807002Z",
+  "lock_to_reveal_s": 13.421186,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-19377629f04f56b9",
+  "from": "did:key:z6MkhyAqcRpBnMWa41DdUizZoZ8huMDXHr9i2B3dvoPEYtyh",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:43:02.549152Z",
+  "reveal": "2026-09-20T15:43:07.701373Z",
+  "lock_to_reveal_s": 5.152221,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-6ec0d6d16655c8c6",
+  "from": "did:key:z6MksPBWkPsQMFpd8r8ihJmmemkg7jyAVnQFiEhHm1KnapqJ",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:43:05.975965Z",
+  "reveal": "2026-09-20T15:43:18.509384Z",
+  "lock_to_reveal_s": 12.533419,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-745c63512b9540e5",
+  "from": "did:key:z6MkkzjW8b48eWYgkNNGZV7yHoqWNBnJjhVy9Co7Lm8gGeqS",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:43:08.441423Z",
+  "reveal": "2026-09-20T15:43:22.154747Z",
+  "lock_to_reveal_s": 13.713324,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-9d47e4699998f24a",
+  "from": "did:key:z6MkkAFV7pY9Va1VDZ6GhkPan4ruTwNsJBQGihggt9ZYdQSd",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:43:13.116903Z",
+  "reveal": "2026-09-20T15:43:16.872616Z",
+  "lock_to_reveal_s": 3.755713,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-6bb21a98fd43c184",
+  "from": "did:key:z6MknbQXwaC2RdzHfCfP72VUvRqZNYEt3eRVcczpZxC2yHsK",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:43:20.444207Z",
+  "reveal": "2026-09-20T15:43:31.235137Z",
+  "lock_to_reveal_s": 10.79093,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-0b74a4d8e3b4fe2f",
+  "from": "did:key:z6MkmJ6MmGDHmqgsMtThnKsCYZG3wHR9Esb7yJArpFeDCeNG",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T15:43:23.309069Z",
+  "reveal": "2026-09-20T15:43:27.827272Z",
+  "lock_to_reveal_s": 4.518203,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-cf1c5103a5abf5e6",
+  "from": "did:key:z6MkoikdMDHMGQAum7fRy5bCG4tqBbCBeXRtb7yptoo7Z1on",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:09:15.385483Z",
+  "reveal": "2026-09-20T17:09:28.406357Z",
+  "lock_to_reveal_s": 13.020874,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-43c7e71d4af14da1",
+  "from": "did:key:z6MkwEJgxS8kMpsz7U2JT7jZMU3PLbw3r1wWmDLkav9tzFxC",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:09:26.342502Z",
+  "reveal": "2026-09-20T17:09:40.216591Z",
+  "lock_to_reveal_s": 13.874089,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-1b94c6370d21e718",
+  "from": "did:key:z6MknkRP4UtcCFz9Bet31fYxJdL25NhWfG3Z4DRBLr2BJDSE",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:09:29.952727Z",
+  "reveal": "2026-09-20T17:09:43.379329Z",
+  "lock_to_reveal_s": 13.426602,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-d7f38c5eaeafd350",
+  "from": "did:key:z6Mknfh9CZ2eBGeZpCqJ3z1tgjEuzLjAcuySHr42UiE9g8Bc",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:09:32.177364Z",
+  "reveal": "2026-09-20T17:09:49.495499Z",
+  "lock_to_reveal_s": 17.318135,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-2b3dc25eca25888c",
+  "from": "did:key:z6MkmDJgmCkavJRGVxpHKPjES54CsT2uj7ha9LMXN2huVuRU",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:09:33.426917Z",
+  "reveal": "2026-09-20T17:09:42.477119Z",
+  "lock_to_reveal_s": 9.050202,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-da45a59958565279",
+  "from": "did:key:z6MkkGMUh7GPrVgFatoseMY2KjyjQXD6Mz1TWsurtjwsP7XU",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:09:38.495975Z",
+  "reveal": "2026-09-20T17:09:43.448295Z",
+  "lock_to_reveal_s": 4.95232,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-5d6e52e7a0678db1",
+  "from": "did:key:z6Mkkowih1XtqTkLWJXKDDFF3Nw9UHtFoy9gPvFxZMb7i3S5",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:09:38.869109Z",
+  "reveal": "2026-09-20T17:09:51.809174Z",
+  "lock_to_reveal_s": 12.940065,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-50ec1f00ede3641e",
+  "from": "did:key:z6Mkqysza6nQGtzGXwsfsbcVgjLV16JMvuoxs7aUiS46nejr",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:09:40.416651Z",
+  "reveal": "2026-09-20T17:09:53.650625Z",
+  "lock_to_reveal_s": 13.233974,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-f4d441761e3135c3",
+  "from": "did:key:z6Mkf4mdwZqTfHLQ4aL6fP7d58pxMickcoshLntnxmGD69Jx",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:57:37.809481Z",
+  "reveal": "2026-09-20T17:57:59.903183Z",
+  "lock_to_reveal_s": 22.093702,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-adfcfe343f4e2ae7",
+  "from": "did:key:z6MkfMS76BESkN1NY9v6CdwdL77iSRS9fPorNfESwpwiJDHK",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:57:57.531061Z",
+  "reveal": "2026-09-20T17:58:26.074340Z",
+  "lock_to_reveal_s": 28.543279,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-9ccb6e1871bf12ad",
+  "from": "did:key:z6Mkovg2tj4nZLBCBP9oX5F75LRtdQGNR5zbmRhgqqrk7jGe",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:58:08.316811Z",
+  "reveal": "2026-09-20T17:58:33.820428Z",
+  "lock_to_reveal_s": 25.503617,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-eca5673ac11d2461",
+  "from": "did:key:z6Mkf3ngLBsJN7wqGtfCDfmLVTKF3wQs52UcADtBcbvufREF",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:58:10.355102Z",
+  "reveal": "2026-09-20T17:58:37.610225Z",
+  "lock_to_reveal_s": 27.255123,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-bf03b9aa9ffd392b",
+  "from": "did:key:z6MkrNxitpqJDVVWPATbEd6cwXB1tbQyAUns2JeLHDagkTHi",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:58:28.767554Z",
+  "reveal": "2026-09-20T17:58:32.004738Z",
+  "lock_to_reveal_s": 3.237184,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-26915cb2c3de2d81",
+  "from": "did:key:z6MkmMezxzYL4cyBgTHyhk87Lvej5VKxBipBqw8LfT6qtHsa",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock": "2026-09-20T17:58:36.435623Z",
+  "reveal": "2026-09-20T17:58:47.513209Z",
+  "lock_to_reveal_s": 11.077586,
+  "work_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ }
+]
