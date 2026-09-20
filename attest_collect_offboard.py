@@ -38,8 +38,15 @@ def export(room, limit=6000):
                 if l.strip().startswith("{")]
         print("export from file %s rows %d" % (cached, len(rows)))
         return rows
+    # Everything below prints only at exit, so a 20-minute export made this
+    # tool indistinguishable from a hang: a 0-byte log and no process output
+    # (found round 156, same shape as the round 151 score_freeze_audit fault).
+    # Say where we are on stderr, which is unbuffered and does not pollute the
+    # stdout summary that callers parse.
+    print("fetching /r/%s/export ..." % room, file=sys.stderr, flush=True)
     from fetch_export import fetch
     rows, _raw = fetch(room)
+    print("export done: %d rows" % len(rows), file=sys.stderr, flush=True)
     return rows
 
 try:
