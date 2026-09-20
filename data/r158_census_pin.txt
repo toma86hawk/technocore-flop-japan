@@ -1,0 +1,55 @@
+stats fetched          head     engine     census   uniqA   fps_n     jobs  briefs attested   passports
+-------------------------------------------------------------------------------------------------------
+09-16 03:17Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-16 09:19Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-16 18:33Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-16 21:20Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-17 03:17Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-17 03:30Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-17 06:18Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-17 06:18Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-18 21:20Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-19 00:17Z        9100924    9100924    9100924    5754    3719   102717    4240     4119 f2d546f3ea/48
+09-20 00:19Z        9216237    9212956    9100924    5754    3876   104906    4251     4401 f2d546f3ea/48
+09-20 03:17Z        9252769    9249862    9100924    5754    3888   105386    4252     4448 f2d546f3ea/48
+09-20 06:27Z        9297213    9296829    9100924    5754    3942   105967    4253     4555 f2d546f3ea/48
+09-20 06:39Z        9299196    9299018    9100924    5754    3947   105970    4253     4555 f2d546f3ea/48
+
+-- the pin --
+  agent_census_seq == 9100924 in 39 of 39 snapshots
+  span 2026-09-06 03:17Z .. 2026-09-20 06:39Z (339.4 h)
+  tape head now 9299196 -> census is 198272 lines BEHIND the head
+
+-- passport digest history (every snapshot, nothing dropped) --
+  09-06 12:17Z  dd38f3931f  <- CHANGED (census read 9100924 here)
+  09-06 21:17Z  cef78182c9  <- CHANGED (census read 9100924 here)
+  09-07 03:17Z  b37d2e6c1c  <- CHANGED (census read 9100924 here)
+  09-07 06:33Z  370ee10673  <- CHANGED (census read 9100924 here)
+  09-07 12:18Z  064e0274b7  <- CHANGED (census read 9100924 here)
+  09-07 18:17Z  c8163434c0  <- CHANGED (census read 9100924 here)
+  09-08 06:18Z  f2d546f3ea  <- CHANGED (census read 9100924 here)
+  unchanged since 2026-09-08 06:18Z: f2d546f3ea across 31 snapshots (288.4 h)
+
+-- falsifier (A): a passport term moving SINCE the freeze began --
+  NOT FIRED. sha f2d546f3ea identical across 31 snapshots since 2026-09-08 06:18Z
+  (pre-freeze the digest changed 6 times on 09-06/09-07 while
+   agent_census_seq already read 9100924, so passports are NOT gated on it)
+
+-- falsifier (B): is the fingerprint pass still running? --
+  NOT FIRED. agent_fps_n 3942 -> 3947
+
+-- falsifier (C): has the census moved? --
+  NOT FIRED. no snapshot has ever shown another value.
+
+-- falsifier (D): has unique_agents left its last value? --
+  NOT FIRED. unique_agents 5754 unchanged since 2026-09-12 15:17Z (24 snapshots, 183.4 h)
+  (it climbed 4332 -> 5754 from 09-06 to 09-12 and has not moved since -
+   a THIRD stop time, 4 days after the passport freeze, under the same pin)
+
+-- counters that DID move over the same span --
+  jobs          85340 -> 105970      delta +20630
+  briefs         4122 -> 4253        delta +131
+  attested       3740 -> 4555        delta +815
+  head        9100924 -> 9299196     delta +198272
+  engine      9100924 -> 9299018     delta +198094
+  fps            3457 -> 3947        delta +490
