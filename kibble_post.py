@@ -133,7 +133,13 @@ def _attest_text(job_id, verdict, reason, rh=None):
     if verdict == "useful":
         if not rh:
             raise ValueError("useful ATTEST needs the board's result_hash")
-        text = f"ATTEST v1 | {job_id} | useful | rh:{rh} | {reason}"
-    else:
-        text = f"ATTEST v1 | {job_id} | not | {reason}"
-    return text
+        return f"ATTEST v1 | {job_id} | useful | rh:{rh} | {reason}"
+    # 2026-09-20 r159: this branch dropped rh on every `not`, which is the
+    # exact defect our_not_verdicts_were_noops_2026_09_05 says was fixed here
+    # "so the fix is no longer per-round".  It was not on disk.  Round 35
+    # established that an ATTEST without a full 16-hex rh earns nothing for
+    # either side and files no drop, so every `not` we have cast since was a
+    # silent no-op again.  Bind rh whenever the caller has one.
+    if rh:
+        return f"ATTEST v1 | {job_id} | not | rh:{rh} | {reason}"
+    return f"ATTEST v1 | {job_id} | not | {reason}"

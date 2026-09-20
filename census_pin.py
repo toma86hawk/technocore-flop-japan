@@ -82,6 +82,22 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 UA = {"User-Agent": "flop-jp-agent/1.0"}
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PIN = 9100924
+NL = chr(10)
+
+# 2026-09-20 r159 - THE DEFECT THIS TOOL WAS BUILT TO AVOID, IN A NEW SHAPE.
+# r158 s rule was "a falsifier must carry a start date".  This tool carried
+# one, but DERIVED it from the data: freeze_from was recomputed as the most
+# recent digest change, so the window always held exactly one digest and
+# falsifier (A) could not fire under any input.  At 2026-09-20T09:17Z the
+# passport block left f2d546f3ea after 290.98 h - the event this tool exists
+# to catch - and it printed NOT FIRED and re-based its window onto the new
+# value.  Falsifier (D) had the same shape.  A start date read out of the
+# observations is not a start date; it is the observations agreeing with
+# themselves.  Pin it as a constant.
+FREEZE_SHA = "f2d546f3ea"
+FREEZE_AT = datetime.datetime(2026, 9, 8, 6, 18, tzinfo=datetime.UTC)
+UA_PIN = 5754
+UA_AT = datetime.datetime(2026, 9, 12, 15, 17, tzinfo=datetime.UTC)
 
 
 def mtime(f):
@@ -184,15 +200,23 @@ def main():
               (freeze_from.strftime("%Y-%m-%d %H:%MZ"), held[-1]["sha"],
                len(held), (held[-1]["t"] - freeze_from).total_seconds() / 3600.0))
 
-    print("\n-- falsifier (A): a passport term moving SINCE the freeze began --")
-    digests = sorted({r["sha"] for r in held})
-    if len(digests) == 1:
-        print("  NOT FIRED. sha %s identical across %d snapshots since %s"
-              % (digests[0], len(held), freeze_from.strftime("%Y-%m-%d %H:%MZ")))
-    elif digests:
-        print("  FIRED. digests since the freeze: %s" % digests)
+    print(NL + "-- falsifier (A): a passport digest other than %s at or after"
+          " %s --" % (FREEZE_SHA, FREEZE_AT.strftime("%Y-%m-%d %H:%MZ")))
+    after = [r for r in rows if r["sha"] and r["t"] >= FREEZE_AT]
+    off = [r for r in after if r["sha"] != FREEZE_SHA]
+    if off:
+        print("  FIRED. the scoring freeze is OVER - report the RESUMPTION.")
+        for r in off:
+            print("     %s  %s  (census still %s)"
+                  % (r["t"].strftime("%Y-%m-%d %H:%MZ"), r["sha"], r["census"]))
+        held_h = (off[0]["t"] - FREEZE_AT).total_seconds() / 3600.0
+        print("     %s held %.2f h / %.2f d across %d snapshots before it broke"
+              % (FREEZE_SHA, held_h, held_h / 24.0, len(after) - len(off)))
     else:
-        print("  no freeze boundary found in the snapshot set")
+        print("  NOT FIRED. sha %s in all %d snapshots at or after the pinned"
+              " start (%.1f h)" % (FREEZE_SHA, len(after),
+              (after[-1]["t"] - FREEZE_AT).total_seconds() / 3600.0
+              if after else 0.0))
     print("  (pre-freeze the digest changed 6 times on 09-06/09-07 while")
     print("   agent_census_seq already read %d, so passports are NOT gated on it)" % PIN)
 
@@ -212,20 +236,17 @@ def main():
                     "NOT FIRED. no snapshot has ever shown another value."))
 
     print("\n-- falsifier (D): has unique_agents left its last value? --")
-    ua = [r for r in rows if r["uniq"] is not None]
-    ua_from = ua[0]["t"] if ua else None
-    for a, b in zip(ua, ua[1:]):
-        if b["uniq"] != a["uniq"]:
-            ua_from = b["t"]
-    ua_held = [r for r in ua if r["t"] >= ua_from]
-    if len(set(r["uniq"] for r in ua_held)) == 1:
-        print("  NOT FIRED. unique_agents %s unchanged since %s "
-              "(%d snapshots, %.1f h)" %
-              (ua_held[-1]["uniq"], ua_from.strftime("%Y-%m-%d %H:%MZ"),
-               len(ua_held), (ua_held[-1]["t"] - ua_from).total_seconds() / 3600.0))
+    ua = [r for r in rows if r["uniq"] is not None and r["t"] >= UA_AT]
+    off_ua = [r for r in ua if r["uniq"] != UA_PIN]
+    if off_ua:
+        print("  FIRED. unique_agents left %d: %s" %
+              (UA_PIN, ", ".join("%s=%s" % (r["t"].strftime("%m-%d %H:%MZ"),
+                                            r["uniq"]) for r in off_ua)))
     else:
-        print("  FIRED. values since %s: %s" %
-              (ua_from, sorted({r["uniq"] for r in ua_held})))
+        print("  NOT FIRED. unique_agents %d in all %d snapshots at or after"
+              " the pinned start %s (%.1f h)" %
+              (UA_PIN, len(ua), UA_AT.strftime("%Y-%m-%d %H:%MZ"),
+               (ua[-1]["t"] - UA_AT).total_seconds() / 3600.0 if ua else 0.0))
     print("  (it climbed 4332 -> 5754 from 09-06 to 09-12 and has not moved since -")
     print("   a THIRD stop time, 4 days after the passport freeze, under the same pin)")
 
