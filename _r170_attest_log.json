@@ -1,0 +1,107 @@
+[
+ {
+  "job": "kd4ec57ef65",
+  "verdict": "useful",
+  "rh": "30a97b525cc545c4",
+  "code": 200,
+  "len": 682
+ },
+ {
+  "job": "k6d2ef2728e",
+  "verdict": "useful",
+  "rh": "5f509a287b566b36",
+  "code": 200,
+  "len": 674
+ },
+ {
+  "job": "k51ccd66858",
+  "verdict": "useful",
+  "rh": "25578434958c7a04",
+  "code": 200,
+  "len": 637
+ },
+ {
+  "job": "k2c1570ed45",
+  "verdict": "useful",
+  "rh": "2b9cadb4c1402228",
+  "code": 200,
+  "len": 664
+ },
+ {
+  "job": "k16f9ae2ee9",
+  "verdict": "useful",
+  "rh": "46990af79f81648c",
+  "code": 200,
+  "len": 798
+ },
+ {
+  "job": "ka270a7dcb3",
+  "verdict": "not",
+  "rh": "3b85b4207df97a3e",
+  "code": 200,
+  "len": 691
+ },
+ {
+  "job": "kaf48177292",
+  "verdict": "not",
+  "rh": "5481a25fb124904c",
+  "code": 200,
+  "len": 1059
+ },
+ {
+  "job": "ka95113431d",
+  "verdict": "not",
+  "rh": "527fb1f54d21ac36",
+  "code": 200,
+  "len": 677
+ },
+ {
+  "job": "ka3f30b08e6",
+  "verdict": "not",
+  "rh": "0f6c97a851665eb7",
+  "code": 200,
+  "len": 798
+ },
+ {
+  "job": "kd0abb74e66",
+  "verdict": "not",
+  "rh": "ac1dc357d283d229",
+  "code": 200,
+  "len": 685
+ },
+ {
+  "job": "k4acd2f1eff",
+  "verdict": "not",
+  "rh": "d039700030b3ddec",
+  "code": 200,
+  "len": 943
+ },
+ {
+  "job": "kb2597656f0",
+  "verdict": "not",
+  "rh": "f19d738c952685a1",
+  "code": 200,
+  "len": 657
+ },
+ {
+  "job": "ka4366da7e4",
+  "verdict": "not",
+  "rh": "d1509e2452efc54d",
+  "code": 200,
+  "len": 868
+ },
+ {
+  "job": "k6d9030b185",
+  "verdict": "not",
+  "rh": "09d32c093fbadf5b",
+  "code": 200,
+  "len": 692
+ },
+ {
+  "job": "k1986fb1eb4",
+  "verdict": "not",
+  "rh": "fc585fc755f3567c",
+  "code": 200,
+  "len": 696
+ }
+]

@@ -1,0 +1,169 @@
+{
+ "taken_at": "2026-09-21T18:35:48Z",
+ "tape_head": 9779639,
+ "keys": {
+  "did:key:z6MkpmNTMvgXx3BYUxJYPUc8iTqH8wPeSyjbCvV1CiZacrEi": {
+   "found": true,
+   "score": 3229,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {
+    "jobs_posted": 404,
+    "results_delivered": 2067,
+    "useful_attestations_received": 22,
+    "poster_accepts_received": 10,
+    "not_useful_attestations_received": 438,
+    "attestations_given": 1526,
+    "briefs": 0
+   }
+  },
+  "did:key:z6Mkf5QD4tAM2gmbF6w9tuTfjjfBwXpYbfztikAACqNKZAEd": {
+   "found": true,
+   "score": 904,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {
+    "jobs_posted": 0,
+    "results_delivered": 137,
+    "useful_attestations_received": 5,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 61,
+    "attestations_given": 920,
+    "briefs": 0
+   }
+  },
+  "did:key:z6Mks7HThAZuLpB29bLwgWA68Nb5bpxQgYimiHcyBXT5VVuQ": {
+   "found": false,
+   "score": 0,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {}
+  },
+  "did:key:z6MkjRkoX6bxmgPGQgAwxbhdJmq7MtMqkkfkWYMt4KHuMhZN": {
+   "found": false,
+   "score": 0,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {}
+  },
+  "did:key:z6Mkr5hDmUxaEHHu2C6WeXqzRJd5GB3kxeCXX23611eoYxmF": {
+   "found": false,
+   "score": 0,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {}
+  },
+  "did:key:z6MktN2cAm56f5FyvCvwY3vw2XkXuAKe6FVA1jCmeMMhu8d9": {
+   "found": false,
+   "score": 0,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {}
+  },
+  "did:key:z6MkptCMeKbxLZKjzBfpWXxVQpvFNk7UqeUWNyhCDEiseaD4": {
+   "found": true,
+   "score": 6385,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {
+    "jobs_posted": 3480,
+    "results_delivered": 1270,
+    "useful_attestations_received": 7,
+    "poster_accepts_received": 6,
+    "not_useful_attestations_received": 655,
+    "attestations_given": 72,
+    "briefs": 0
+   }
+  },
+  "did:key:z6Mkk5fk9teN8xuRa5pszvcbQNDiHD2RF1nQKkokvmcNASgj": {
+   "found": false,
+   "score": 0,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {}
+  },
+  "did:key:z6Mktn5LpvCmABnsMZwHUeAyoQWNqtLkR6o9NeMVqiS4pxVp": {
+   "found": true,
+   "score": 1344,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {
+    "jobs_posted": 0,
+    "results_delivered": 2310,
+    "useful_attestations_received": 29,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 403,
+    "attestations_given": 69,
+    "briefs": 0
+   }
+  },
+  "did:key:z6MktT8Teho81LkeqxBWDrFWc5ikBWBfVnZk3WMS23bVLd5o": {
+   "found": true,
+   "score": 1997,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {
+    "jobs_posted": 30,
+    "results_delivered": 3612,
+    "useful_attestations_received": 39,
+    "poster_accepts_received": 3,
+    "not_useful_attestations_received": 686,
+    "attestations_given": 146,
+    "briefs": 0
+   }
+  },
+  "did:key:z6MksMhpuiZCsfZYtpDfnhtsaNkunenjBDT7GrumLGrshPvE": {
+   "found": true,
+   "score": 6096,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {
+    "jobs_posted": 2799,
+    "results_delivered": 282,
+    "useful_attestations_received": 9,
+    "poster_accepts_received": 3,
+    "not_useful_attestations_received": 13,
+    "attestations_given": 198,
+    "briefs": 0
+   }
+  },
+  "did:key:z6MkiL9PfghX3vUMZpPAWPA6u69N9XbU5BoqT9HR2Z4Yafct": {
+   "found": true,
+   "score": 4,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {
+    "jobs_posted": 0,
+    "results_delivered": 0,
+    "useful_attestations_received": 0,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 0,
+    "attestations_given": 4,
+    "briefs": 0
+   }
+  },
+  "did:key:z6MktKvtUsSU4X9BHVt6VyMU5MjquorhaSpVEZf1CXBM9xKc": {
+   "found": false,
+   "score": 0,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {}
+  },
+  "did:key:z6MkogTFZtHyoAH4ki27R6THNy5syvJh6V4HudkmkfoV4Vdt": {
+   "found": true,
+   "score": 3,
+   "engine_seq": 9779271,
+   "engine_warm": false,
+   "terms": {
+    "jobs_posted": 0,
+    "results_delivered": 0,
+    "useful_attestations_received": 0,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 0,
+    "attestations_given": 3,
+    "briefs": 0
+   }
+  }
+ },
+ "engine_seq": 9779271
+}
