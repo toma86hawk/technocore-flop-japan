@@ -1,0 +1,82 @@
+
+FAMILY: Compliance and forensic auditing | 22 deliveries | 20 distinct systems | 1 distinct own-texts
+   [22] Direct: retain an append-only audit eventwith request ID, actor or key ID, operation, input and output hashes, decision, and timestamp. Mechanism: hash-chain the events and periodically seal the chain head in separately controlled immutable storage;replays eve
+   systems: MTU mismatch on a tunnel / TLS termination at the edge / a clock read from a different machine / a dashboard built from the same data as the alert
+
+FAMILY: Self-healing and dynamic circuit-breaking topology | 18 deliveries | 16 distinct systems | 2 distinct own-texts
+   [17] Direct: putbehind CLOSED, OPEN, and HALF_OPEN states. Mechanism: after at least 10 samples in a rolling 20-attempt window, open at 50% retryable failures, quarantine for 30 seconds, then admit three half-open probes; three successes close the circuit and any r
+   [ 1] Direct: putbehind CLOSED, OPEN, and HALF_OPEN states. Mechanism: after at least 10 samples in a rolling 20-attempt window, open at 50% retryable failures, quarantine for 30 seconds, then admit three half-open probes; three successes close the circuit and any r
+   systems: MTU mismatch on a tunnel / a DNS record with a long TTL / a TCP connection kept alive through a NAT / a datetime with no timezone
+
+FAMILY: Multi-region failover and split-brain recovery | 13 deliveries | 12 distinct systems | 1 distinct own-texts
+   [13] Direct: protectwith a three-region, two-of-three write quorum and monotonically increasing term and commit index. Mechanism: a region without quorum stops writes; recovery accepts only entries committed by a quorumescendants from the highest committed index, n
+   systems: MTU mismatch on a tunnel / a bare except clause / a cache with no expiry / a container with no memory limit
+
+FAMILY: Designing the backup and restore drill | 12 deliveries | 11 distinct systems | 2 distinct own-texts
+   [11] Direct:restore a versioned snapshotits configuration and dependency manifest, into an isolated environment. Mechanism: define as the snapshot interval and measuruntil integrity checks and one representative operation pass. Check: compare hashes, record counts,
+   [ 1] Direct:restore a versioned snapshotits configuration and dependency manifest, into an isolated environment. Mechanism: define as the snapshot interval and measuruntil integrity checks and one representative operation pass. Check: compare hashes, record counts,
+   systems: a Kubernetes service with no topology hint / a batch inference job that retries silently / a composite index with columns in the wrong order / a feature pipeline with a different timezone than training
+
+FAMILY: Assigning ownership and on-call | 10 deliveries | 10 distinct systems | 1 distinct own-texts
+   [10] Direct: give one service team end-to-end ownership of's authoritative policy, state, and write interfacets on-call alerts and rollback. Mechanism: other teams consume a versioned read or telemetry interface with an SLO and escalation route; handoffaccepted own
+   systems: a clean-up job with no logging / a coordinator with a fixed quorum size / a data model where one column stores two meanings / a database vacuum that never runs
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a dependency upgraded with no compatibility test | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a merge resolved by taking one side wholesale | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a duplicate-text filter with a length floor | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in string formatting with user data in a query | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a module-level side effect at import time | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a foreign key with no index on the child | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in an outbound request with no timeout | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a percentile computed per instance | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a rollback plan nobody rehearsed | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a tmpfs used | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: build output
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a DNS record with a long TTL | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in cache stampede on a cold key | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in MTU mismatch on a tunnel | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in a cron job with no lock | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
+
+FAMILY: Preventing cascading stampedes and cache stampedes in SSH inside a shell loop | 1 deliveries | 1 distinct systems | 1 distinct own-texts
+   [ 1] Direct: collapse requests by a canonical cache key. Mechanism: one lease-holding leader performs the refresh; concurrent callers share its future or receive a still-valid stale value, and a fencing token prevents an expired leader from overwriting a newer gene
+   systems: 
