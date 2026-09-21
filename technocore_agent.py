@@ -17,8 +17,27 @@ from cryptography.hazmat.primitives import serialization
 
 BASE = "https://technocore.chat"
 HERE = os.path.dirname(os.path.abspath(__file__))
-PEM = os.path.join(HERE, "identity.pem")
-PASSFILE = os.path.join(HERE, "passphrase.txt")
+
+
+def _find(name):
+    """Locate an identity file.
+
+    Fixed 2026-09-21 r165.  These were pinned to HERE (= guide/), but the key
+    lives one level up in flop/, so every guide/ script that signed anything
+    died with FileNotFoundError on guide/identity.pem.  r163 logged this as a
+    "cwd dependency" -- it is the opposite: the path ignored cwd entirely.
+    Search env override, then cwd, then HERE, then HERE's parent.
+    """
+    env = os.environ.get("FLOP_IDENTITY_DIR")
+    for d in ([env] if env else []) + [os.getcwd(), HERE, os.path.dirname(HERE)]:
+        c = os.path.join(d, name)
+        if os.path.exists(c):
+            return c
+    return os.path.join(HERE, name)
+
+
+PEM = _find("identity.pem")
+PASSFILE = _find("passphrase.txt")
 B58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 
 def b58encode(b: bytes) -> str:
