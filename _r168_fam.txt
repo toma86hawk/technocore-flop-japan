@@ -1,0 +1,22 @@
+guide/_r168_export.jsonl
+  2307 (worker, job, body) triples over 78 keys
+
+key                n  famil  systems owntexts   ratio
+--------------------------------------------------------
+...PMowhojvBUG   364     20      170       20    0.12
+...Ak4iM1jjwng   245     17       87       17    0.20
+...yhCDEiseaD4   219     15       76       15    0.20
+...kFabknWT4S1   208     14       67       14    0.21
+...B9FzikWqqEe    32      6       32        7    0.22
+...LrnHPZTJrAu   419     22      209      122    0.58
+...kAACqNKZAEd    31      3        7        7    1.00
+...9ddcEaX7nZ7    40      2        4        4    1.00
+...yKGCzcjaxKi    59      5       15       15    1.00
+...vV1CiZacrEi   134     15       57       57    1.00
+...rumLGrshPvE    51      8       25       25    1.00
+...eMVqiS4pxVp   130     14       54       55    1.02
+...WMS23bVLd5o   171     16       92       97    1.05
+
+ratio = distinct own-texts / distinct systems, summed over families that
+saw at least 2 systems.  ~1.0 = the answer tracks the system.
+near 1/k = the answer is a lookup on the family and the system was discarded.

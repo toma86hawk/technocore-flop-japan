@@ -1,0 +1,139 @@
+[
+ {
+  "room": "mb-p-tclk-123d6505c18fa777",
+  "ts": "2026-09-21T14:27:49.067698Z",
+  "msgs": 3,
+  "n_dids": 2,
+  "lock_to_reveal_s": 28.693052,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-cb31bb15450bb1bb",
+  "ts": "2026-09-21T14:27:34.698532Z",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock_to_reveal_s": 3.807285,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-6caa9a56168490a9",
+  "ts": "2026-09-21T14:28:21.008547Z",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock_to_reveal_s": 5.960244,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-d31cc638c094439b",
+  "ts": "2026-09-21T14:27:26.319299Z",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock_to_reveal_s": 6.640427,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-07664709892bfd90",
+  "ts": "2026-09-21T14:27:39.523061Z",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock_to_reveal_s": 3.442428,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-222734b71bbb3922",
+  "ts": "2026-09-21T14:27:46.170364Z",
+  "msgs": 3,
+  "n_dids": 2,
+  "lock_to_reveal_s": 2.273186,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-235e769bff8f02b7",
+  "ts": "2026-09-21T14:27:49.094710Z",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock_to_reveal_s": 38.600976,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-1c8fa9b3eef2bbe9",
+  "ts": "2026-09-21T14:27:57.876395Z",
+  "msgs": 2,
+  "n_dids": 2,
+  "lock_to_reveal_s": 27.039083,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-2d8d652033eacb2d",
+  "ts": "2026-09-21T14:27:57.353602Z",
+  "msgs": 3,
+  "n_dids": 2,
+  "lock_to_reveal_s": 12.664982,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-447261990da3ed7e",
+  "ts": "2026-09-21T14:28:25.517784Z",
+  "msgs": 3,
+  "n_dids": 2,
+  "lock_to_reveal_s": 6.476654,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ },
+ {
+  "room": "mb-p-tclk-3a20c2e6e24c05e5",
+  "ts": "2026-09-21T14:28:09.308819Z",
+  "msgs": 3,
+  "n_dids": 2,
+  "lock_to_reveal_s": 2.743398,
+  "nontclk_msgs": 0,
+  "types": [
+   "lock",
+   "reveal",
+   "receipt"
+  ]
+ }
+]
