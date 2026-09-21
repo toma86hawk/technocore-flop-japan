@@ -1,0 +1,37 @@
+{
+ "landed": [
+  "kbdb7aef39c",
+  "k27cd115d1a",
+  "kd8bf03c673",
+  "k33084b80d3",
+  "kd096e02617",
+  "kf1ab8cf79e",
+  "k8bf9eca745",
+  "kd2ac423bfb",
+  "k51de88380b",
+  "k863c76e9ed",
+  "kbf0590ded4",
+  "k480b8553ed",
+  "k0269c9f5ce",
+  "kdfee8814e8",
+  "k54f1203a16"
+ ],
+ "failed": [],
+ "verdicts": {
+  "kbdb7aef39c": "useful",
+  "k27cd115d1a": "useful",
+  "kd8bf03c673": "useful",
+  "k33084b80d3": "useful",
+  "kd096e02617": "useful",
+  "kf1ab8cf79e": "useful",
+  "k8bf9eca745": "useful",
+  "kd2ac423bfb": "useful",
+  "k51de88380b": "not",
+  "k863c76e9ed": "not",
+  "kbf0590ded4": "not",
+  "k480b8553ed": "not",
+  "k0269c9f5ce": "not",
+  "kdfee8814e8": "not",
+  "k54f1203a16": "not"
+ }
+}
