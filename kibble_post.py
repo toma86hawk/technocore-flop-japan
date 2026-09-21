@@ -103,31 +103,51 @@ def attest(job_id, verdict, reason, rh=None):
     # with no delay. So: look more than once, with a pause, before falling
     # through - and look once more after the relay too, because the relay's own
     # failure report is subject to the same false negative (round 90).
-    for delay in (0.0, 3.0, 6.0):
-        try:
-            import time
-            from _lib.post import read_room, _landed
-            if delay:
-                time.sleep(delay)
-            if _landed(read_room("kibble"), text):
-                _remember(job_id)
-                return True, "attest", "origin-400-but-landed"
-        except Exception:                           # noqa: BLE001
-            pass
+    # Round 165 measured what a 400 from the origin MEANS: on k...c7b17368 the
+    # origin returned HTTP 400 at 03:22:01Z and the line was already on the
+    # tape.  400 does not mean "not written"; the party returning it has
+    # written the row.  So consult the tape, and only reach for the relay when
+    # the tape says the line is genuinely absent.
+    if _on_tape(text):
+        _remember(job_id)
+        return True, "attest", "origin-400-but-landed"
     res = say(text)
     if res[0]:
         _remember(job_id)
         return res
-    try:
-        import time
-        from _lib.post import read_room, _landed
-        time.sleep(3.0)
-        if _landed(read_room("kibble"), text):
-            _remember(job_id)
-            return True, "attest", "relay-failed-but-landed"
-    except Exception:                               # noqa: BLE001
-        pass
+    # The relay's own failure report is subject to the same false negative
+    # (round 90), so read the tape back after it too.
+    if _on_tape(text):
+        _remember(job_id)
+        return True, "attest", "relay-failed-but-landed"
     return res
+
+
+def _on_tape(text, room="kibble", tries=(0.0, 3.0, 6.0)):
+    """Is this exact line already on the tape?
+
+    Round 165 recorded a fix named `_on_tape` and it was NOT ON DISK at round
+    166 - the same failure mode as the round-159 `not`-branch rh drop.  So it
+    is written here, once, in the module that posts.
+
+    Two routes because neither alone is sufficient:
+      * read_room returns only the tail of the room (~75 KB, round 162), which
+        is ample for a line written seconds ago and useless for an older one;
+      * the room export lags the write by a second or two (round 162), so a
+        single immediate look reports a false negative.
+    Look more than once, with a pause, and treat ANY hit as landed.
+    """
+    probe = sweep(text)[:110]
+    for delay in tries:
+        try:
+            from _lib.post import read_room
+            if delay:
+                time.sleep(delay)
+            if probe in read_room(room, limit=400):
+                return True
+        except Exception:                           # noqa: BLE001
+            pass
+    return False
 
 
 def _remember(job_id):
