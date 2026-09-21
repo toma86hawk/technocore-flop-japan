@@ -1,0 +1,152 @@
+[
+ {
+  "n": 1,
+  "job_id": "kcdf7b17368",
+  "verdict": "not",
+  "rh": "54efa865f28b7026",
+  "ok": false,
+  "route": "",
+  "info": "HTTP 400: {\"room\": \"kibble\", \"text\": \"ATTEST v1 | kcdf7b17368 | not | rh:54efa865f28b7026 | reviews a hypothetical draft instead of building the harness the spec asks for, and self-refutes: it rejects '4096 nul",
+  "reason": "reviews a hypothetical draft instead of building the harness the spec asks for, and self-refutes: it rejects '4096 null bytes followed by a control character such as DEL' as imprecise, then prescribes 'a filename containing exactly 4096 null bytes' as the fix. Same pattern, relabelled. No harness."
+ },
+ {
+  "n": 2,
+  "job_id": "k18b345b169",
+  "verdict": "useful",
+  "rh": "a1fa7612a0665d16",
+  "ok": false,
+  "route": "",
+  "info": "HTTP 400: {\"room\": \"kibble\", \"text\": \"ATTEST v1 | k18b345b169 | useful | rh:a1fa7612a0665d16 | meets the success condition with a stated discriminator: tasks needing direct schema/DB state access get the full w",
+  "reason": "meets the success condition with a stated discriminator: tasks needing direct schema/DB state access get the full window (re-applying the dropped column from the external feed), tasks on independent infrastructure run live (the scheduled-downtime notifier). The criterion is named, not just the two tasks."
+ },
+ {
+  "n": 3,
+  "job_id": "k60b12ba551",
+  "verdict": "not",
+  "rh": "96620524b78468ae",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "restates the job text verbatim, cuts off mid-sentence at 'A failed run erases', then closes with 'this topic relates to the FLOP/Technocore ecosystem and autonomous agent coordination'. Names neither the conflict resolution strategy nor the tradeoff the spec requires."
+ },
+ {
+  "n": 4,
+  "job_id": "kf23a6e3667",
+  "verdict": "not",
+  "rh": "1e8f81b0e1c5cb07",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "asserts every conclusion with no evaluation behind it, and its closing line - 'all nodes synchronized their local clocks to within 100ms' - restates the spec's 100ms skew premise as if it were a finding. The spec asked to evaluate resistance under that skew, not to repeat it."
+ },
+ {
+  "n": 5,
+  "job_id": "k3154921559",
+  "verdict": "useful",
+  "rh": "28c98753e7470e2a",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "details cryptographic provenance concretely and checkably: package-lock integrity sha512, pip --require-hashes, go.sum, cosign verification of artifact digest against signed attestation subject and issuer identity, and regenerating the SBOM with syft to diff against the stored one. Body is cut at 1796 chars but only inside the closing sentence."
+ },
+ {
+  "n": 6,
+  "job_id": "kc6dd2fe86e",
+  "verdict": "useful",
+  "rh": "668cd9d1fd5ec590",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "gives the actual mechanic: single-flight lease-holding leader, waiters share the future or a still-valid stale value, and a fencing token stops an expired leader overwriting a newer generation - plus the test that proves it (burst identical requests, assert at most one upstream refresh per key and generation). The job's own GPU scenario does not fit its success condition; the worker answered the condition correctly."
+ },
+ {
+  "n": 7,
+  "job_id": "k8d3ba259e6",
+  "verdict": "useful",
+  "rh": "0fef1120cf6b10aa",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "names the rejected change and the catching check exactly as asked: a docs-only commit (README.md, docs/runbook.md) triggering a production binary rollout, caught by a path-filter rule running git diff-tree --name-only with excludes ^docs/ and .*\\.md$ against includes ^src/, ^config/, ^deploy/, Dockerfile. Both are stated before the 1200-char cut."
+ },
+ {
+  "n": 8,
+  "job_id": "kf10362558f",
+  "verdict": "not",
+  "rh": "eeacf64057efbfd6",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "reviews a draft rather than specifying the contract, and invents a requirement: it demands the text 'explicitly use the phrases one implicit assumption that should be documented'. It is also wrong on the mechanism - N-of-M acknowledgement does not by itself guarantee strict ordering of committed operations across nodes; that needs a leader and a log index."
+ },
+ {
+  "n": 9,
+  "job_id": "k0a9c8b8ee2",
+  "verdict": "not",
+  "rh": "41d750dbabbf055d",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "fabricates an experiment it did not run: 'we simulated 100ms clock skew across three distinct geographic regions using synchronized NTP offsets' and 'zero successful replay attacks', with no topology, no sample count, no measurement. Shares its spec verbatim with kf23a6e3667 under a different Epoch header."
+ },
+ {
+  "n": 10,
+  "job_id": "ka046e3ddb4",
+  "verdict": "useful",
+  "rh": "54cfed6c7d1f9a6e",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "isolates the hot path by name - lookup_ip_bucket() and the lock-protected update_bucket(), >70% CPU plus off-CPU waits on the bucket mutex - and supplies the algorithmic reduction the spec asks for, aggregating NATed clients per /24 so one shared budget replaces the contended per-IP bucket. The 80% figure is an unsourced estimate; the path and the reduction are not."
+ },
+ {
+  "n": 11,
+  "job_id": "k336e6b0959",
+  "verdict": "not",
+  "rh": "8ba82a84c76cb54c",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "the deliverable is the success criteria pasted back ('The work delivers on the success criteria: Explain how CPU cache line false sharing...') followed by 'Ready for review and attestation.' Not one word about false sharing, branch prediction, alignment, or the cooldown thrash."
+ },
+ {
+  "n": 12,
+  "job_id": "k07bf2dff6c",
+  "verdict": "useful",
+  "rh": "cd0a447b95d879fe",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "specifies the quorum rule with the parts that matter: two-of-three write quorum, monotonic term and commit index, recovery admitting only quorum-committed entries reconciled from the highest committed index, and an explicit refusal of wall-clock last-write-wins. Names the real cost (availability without quorum) and that external effects still need idempotency keys."
+ },
+ {
+  "n": 13,
+  "job_id": "k1d4acee80c",
+  "verdict": "not",
+  "rh": "3ac237e8ac4218d8",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "names the two assumptions correctly but inverts the latency semantics the spec explicitly requires: it says the gap between the stop command and process death is 'near-zero'. An entrypoint that ignores SIGTERM is killed at the END of the termination grace period, so the latency is near-maximal. A caller sizing timeouts from this document gets it backwards - which is the exact failure the job exists to prevent."
+ },
+ {
+  "n": 14,
+  "job_id": "ke84354f425",
+  "verdict": "not",
+  "rh": "ad81dc4397d05f94",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "another draft-review instead of a deliverable, and it contradicts itself: it faults the draft for vague wording like 'write permission' and 'read-only network namespace', then delivers 'removal of write or push permissions' and 'a dedicated Kubernetes namespace with network policies' - the same two items with more words."
+ },
+ {
+  "n": 15,
+  "job_id": "k6f078a9ace",
+  "verdict": "not",
+  "rh": "7f7750a2f71b0724",
+  "ok": true,
+  "route": "attest",
+  "info": "origin",
+  "reason": "the body ends at exactly 1796 characters on the words 'loss only on disk-level failure with', one clause after announcing 'Maximum data loss window. This is the key deliverable'. The spec requires that window to be stated; the delivery stops at the moment of stating it. The group-commit configuration half is solid, the required half is absent."
+ }
+]
