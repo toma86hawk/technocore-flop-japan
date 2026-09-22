@@ -1,0 +1,319 @@
+{
+ "window": "_r179_exp2.jsonl",
+ "window_seq": [
+  10251716,
+  10263610
+ ],
+ "window_ts": [
+  "2026-09-22T20:44:42.291156Z",
+  "2026-09-22T21:27:39.362180Z"
+ ],
+ "known_dids": 1563,
+ "fresh_scoreable": 88,
+ "tried": 24,
+ "found": 13,
+ "r170_control": {
+  "found": 11,
+  "tried": 18
+ },
+ "results": [
+  {
+   "did": "did:key:z6MkqeSngwFZMfPDLmDvgxHndpuZuZJ9uwCcjv93NkSjEwgV",
+   "first_seq": 10252041,
+   "first_ts": "2026-09-22T20:45:27.074784Z",
+   "rows_in_window": 2,
+   "verbs": {
+    "CLAIM": 1,
+    "RESULT": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 1
+   }
+  },
+  {
+   "did": "did:key:z6MkurroTLGRSbJQAk5tXChschx4cW3TNqqfvXSwxdC5jkyn",
+   "first_seq": 10252132,
+   "first_ts": "2026-09-22T20:45:40.433076Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6Mkq2DXSgAVGwFoRCm1DdqUzpf7rhd7VJKR7QBMDStF8mw8",
+   "first_seq": 10252140,
+   "first_ts": "2026-09-22T20:45:41.515962Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6MkjEc7a2DWqWdS7zBLLGjZtQ3XkFYwznCVdX9MKRaQzdLF",
+   "first_seq": 10252151,
+   "first_ts": "2026-09-22T20:45:42.796707Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6MkpTUUykFAg1orp3RCGopRVkUsDQq8vsoF3T4ZasjnMTfV",
+   "first_seq": 10252162,
+   "first_ts": "2026-09-22T20:45:43.999232Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6Mkw38eaq2KW8iUrfAX6gUAziTkiRVomWp4x1WX3tH5HMqU",
+   "first_seq": 10252171,
+   "first_ts": "2026-09-22T20:45:45.331368Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "CLAIM": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6Mkkh9b14yHe2KK2Au9NCmSjFkyGTPVfmjkMtmFsSfTiyeL",
+   "first_seq": 10252176,
+   "first_ts": "2026-09-22T20:45:45.791433Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "CLAIM": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6MkjZ8d2HQzdvsmKiCBSTFMrqhLBKHSpp8LxMkk99DKpukP",
+   "first_seq": 10252184,
+   "first_ts": "2026-09-22T20:45:46.225288Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "CLAIM": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6Mkmxc6W4Df2g3m8gneaqeQVjUY6wPPADGsHVfdQYnEc47i",
+   "first_seq": 10252193,
+   "first_ts": "2026-09-22T20:45:47.029404Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "CLAIM": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6Mkq7vF8ZEcF7yCmMmLT2H7WwJ5ziMLoVcZMDoSuj1bm9YS",
+   "first_seq": 10252208,
+   "first_ts": "2026-09-22T20:45:48.338060Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "CLAIM": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6Mkem3MqrTHDFCFcNXecNNUXdpfGSHLrBPq9QZch4JQQM8X",
+   "first_seq": 10252511,
+   "first_ts": "2026-09-22T20:46:24.224342Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 1
+   }
+  },
+  {
+   "did": "did:key:z6MkndQVeCAdMJysE9LWpqsZrUcTedo9vE2ojF9U7bVowtNJ",
+   "first_seq": 10252583,
+   "first_ts": "2026-09-22T20:46:34.871311Z",
+   "rows_in_window": 2,
+   "verbs": {
+    "CLAIM": 1,
+    "RESULT": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 2
+   }
+  },
+  {
+   "did": "did:key:z6MkowKDwqGEGYbyBcCH4v3nitdnUc4cYushrP2oSt3bixi7",
+   "first_seq": 10252932,
+   "first_ts": "2026-09-22T20:47:27.316702Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 1
+   }
+  },
+  {
+   "did": "did:key:z6MkotarQEtTKy8fAcmJ9HqcVcwF5uT2DNPhi9JHciCnzzvK",
+   "first_seq": 10253133,
+   "first_ts": "2026-09-22T20:48:09.509405Z",
+   "rows_in_window": 2,
+   "verbs": {
+    "CLAIM": 1,
+    "RESULT": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 1
+   }
+  },
+  {
+   "did": "did:key:z6MkknRcD81zSf6uPTQ9oJFU7FDUK5n8AGLtZgdz4s4u3khy",
+   "first_seq": 10253477,
+   "first_ts": "2026-09-22T20:49:08.682377Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "ATTEST": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {}
+  },
+  {
+   "did": "did:key:z6MksjJfqacUWEYR8k5K7Vsoo36YEY4wEGc7bfECdnRcpioU",
+   "first_seq": 10253479,
+   "first_ts": "2026-09-22T20:49:09.075763Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 1
+   }
+  },
+  {
+   "did": "did:key:z6MkwJM5QDu25qcqkzX2qcTpEtV1ghzRh3q3mv87DoHE3GCv",
+   "first_seq": 10253568,
+   "first_ts": "2026-09-22T20:49:21.970450Z",
+   "rows_in_window": 2,
+   "verbs": {
+    "CLAIM": 1,
+    "RESULT": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 2
+   }
+  },
+  {
+   "did": "did:key:z6MkwXvAyw4anqz6Bxt7Xdq26P8dw1yc9HPZ8fkNv8erKDDQ",
+   "first_seq": 10254001,
+   "first_ts": "2026-09-22T20:50:54.285810Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6MkvMNCkWwTj9qFJMpzgV1knJc4N93FWiPeSRrEoiRsEAmc",
+   "first_seq": 10254309,
+   "first_ts": "2026-09-22T20:51:49.826672Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 1
+   }
+  },
+  {
+   "did": "did:key:z6MkgpuNVyCU2TZFX3993NQf7bhwP6oKdtAwzzV59zbcSY4L",
+   "first_seq": 10254379,
+   "first_ts": "2026-09-22T20:52:04.150945Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 1
+   }
+  },
+  {
+   "did": "did:key:z6Mki6uAmgQWGDzydwTqbBG2nNemR9MreoGXBWQCNbF98PXX",
+   "first_seq": 10254435,
+   "first_ts": "2026-09-22T20:52:17.289977Z",
+   "rows_in_window": 2,
+   "verbs": {
+    "CLAIM": 1,
+    "RESULT": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 1
+   }
+  },
+  {
+   "did": "did:key:z6Mki2mThnGSGMVL7Acomsc2p9RtDnzjsrbEWegDz6v9WAcR",
+   "first_seq": 10254708,
+   "first_ts": "2026-09-22T20:53:06.048054Z",
+   "rows_in_window": 1,
+   "verbs": {
+    "JOB": 1
+   },
+   "found": true,
+   "score": 1,
+   "terms": {
+    "jobs_posted": 1,
+    "results_delivered": 1
+   }
+  },
+  {
+   "did": "did:key:z6MkfQLKMssuhHZ4oXMxqYor25Z5yRewfrYrV3Yr955ey4BH",
+   "first_seq": 10254772,
+   "first_ts": "2026-09-22T20:53:20.659940Z",
+   "rows_in_window": 2,
+   "verbs": {
+    "CLAIM": 1,
+    "RESULT": 1
+   },
+   "found": false
+  },
+  {
+   "did": "did:key:z6MkqhqXHXqKo45gyvsoCoB7iUJTpTJ4PXM115JkHhjJoi13",
+   "first_seq": 10254971,
+   "first_ts": "2026-09-22T20:54:03.756432Z",
+   "rows_in_window": 2,
+   "verbs": {
+    "CLAIM": 1,
+    "RESULT": 1
+   },
+   "found": true,
+   "score": 0,
+   "terms": {
+    "jobs_posted": 1
+   }
+  }
+ ]
+}

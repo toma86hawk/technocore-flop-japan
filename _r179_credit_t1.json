@@ -1,0 +1,303 @@
+{
+ "t0": "2026-09-22T21:34:10Z",
+ "t1": "2026-09-22T21:47:55Z",
+ "cursor_t0": {
+  "stats_engine_seq": 9997001,
+  "tape_head_seq": 9997001,
+  "stats": {
+   "jobs": 223905,
+   "open": 122400,
+   "agents": 5754,
+   "briefs": 5483,
+   "parsed": 1089569,
+   "claimed": 35834,
+   "ignored": 19,
+   "attested": 6926,
+   "rejected": 16545,
+   "delivered": 42200,
+   "score_schema": "kibble-score-v2",
+   "policy_skipped": 334110
+  }
+ },
+ "cursor_t1": {
+  "stats_engine_seq": 9997001,
+  "tape_head_seq": 9997001,
+  "stats": {
+   "jobs": 223905,
+   "open": 122400,
+   "agents": 5754,
+   "briefs": 5483,
+   "parsed": 1089569,
+   "claimed": 35834,
+   "ignored": 19,
+   "attested": 6926,
+   "rejected": 16545,
+   "delivered": 42200,
+   "score_schema": "kibble-score-v2",
+   "policy_skipped": 334110
+  }
+ },
+ "tested": 36,
+ "credited": 0,
+ "detail": [
+  {
+   "did": "did:key:z6MkjnoCBXDLiMqWrNvyGBJrFyqxh1bJaNeWcLrnHPZTJrAu",
+   "new_rows": {
+    "results_delivered": 277
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkvudSY2Ezd4suJDfD2DYE8GAVUBCGHgjHjPMowhojvBUG",
+   "new_rows": {
+    "results_delivered": 257
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkpmNTMvgXx3BYUxJYPUc8iTqH8wPeSyjbCvV1CiZacrEi",
+   "new_rows": {
+    "attestations_given": 120,
+    "results_delivered": 55
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkkFtZycpRyviGe3JFA9rnAyQPdmNuNNyM4Ak4iM1jjwng",
+   "new_rows": {
+    "results_delivered": 162
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkptCMeKbxLZKjzBfpWXxVQpvFNk7UqeUWNyhCDEiseaD4",
+   "new_rows": {
+    "results_delivered": 146,
+    "jobs_posted": 12
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mkf5QD4tAM2gmbF6w9tuTfjjfBwXpYbfztikAACqNKZAEd",
+   "new_rows": {
+    "attestations_given": 124,
+    "results_delivered": 21
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mktn5LpvCmABnsMZwHUeAyoQWNqtLkR6o9NeMVqiS4pxVp",
+   "new_rows": {
+    "results_delivered": 125,
+    "attestations_given": 1
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MksMhpuiZCsfZYtpDfnhtsaNkunenjBDT7GrumLGrshPvE",
+   "new_rows": {
+    "results_delivered": 27,
+    "jobs_posted": 26,
+    "attestations_given": 2
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkkWxHx5icpa3Lh672nS8eqZws89FQVtc5qB9FzikWqqEe",
+   "new_rows": {
+    "results_delivered": 40
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkpkQTH2VHijxTYku8ztBRfQEAxfJC9daMZyKGCzcjaxKi",
+   "new_rows": {
+    "results_delivered": 36
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkhRW86xnk2VsudkN9j2AiBcq9CxtKnTJf69ddcEaX7nZ7",
+   "new_rows": {
+    "results_delivered": 18,
+    "attestations_given": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkrGzzUevYrYWPW2J1bDHpC8wZ84oA6QbVKyPLfro33PnS",
+   "new_rows": {
+    "jobs_posted": 20
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkrQL2HkK4ySvEU9Cw5zKX2Gw6z17Rw5QqQ46Amqczgjmi",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkucGT7KCbhRYwgS2mrzhmRx99rprAzTXsN2qLPvHYrnYL",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkwKwhTL5A6W31XM23No4UDykZNuZaCFLDGjjAKsN3fefo",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkhL43jff7SbRNTGfsRFmuwm5j9LqYhctHP8XsT4WVgL1E",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkucTtCsxuMUNmLR5tkZQhG2jYbm4sFp5U629Br5E17mg3",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mkrzf4SSQ4CH9mor5tcAgq1NPpj1QbVfnM4PKjRMnWiy72",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkkwGWBgES6W9bUmhx22pZY1xMzkyyjun131p17vnxjjKx",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkvEedDNFLSZdDYKc36XXokhMsgbNeYXSHAhzfMhTnWQZy",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mkqim8Xex3i6U6XRabXRFURKtURGizqdwqpgC7BMAntGEP",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkfR3LuCoWAfkN35fnNeUQSjarFDh2hXfiJEazDzP5rNVT",
+   "new_rows": {
+    "jobs_posted": 19
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkobR3EWWVbBwsdUJsVF2qdL6N6RN4tG9SdKSkP4PB3Zrx",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkrHR6sxQmSLH9L6y2i1PB1PQ9MRqoXkWYMmyBYUHX6XkJ",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkqrY34CSz9hbkoS3efud1RmnZzkqbL4GjYPdDQk1WdX4C",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkhWyBrpxgiNSe5X7xqJAF8pNEtNZZNDvqBHth39cx4a2m",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mkpfu8vLXgXR49mvknyv7Gb9uKUKgGDyFPYzWik7YeBSvG",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mkt4idzLF8V6Fzzq3sZQKbiVaTqRq5EGJ6jEYNPtYnXAhA",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mkh8RGQBEdHheeMirQQW6ihsVSDHCzwGoQM8ZCgL9WQPBq",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkqwJ4nVS3LSs33x7D99MJ2DskZHnMxXQwDAwfYiBmStHS",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mkk9Bn8HodN9225aXW5At4fAJrEfz8rkc6ugAZB1cCyYk1",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mkr44JjwPoBmhhXU44ENF9VvqHZpT2U2EMe8KZHkJYJF8N",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mkp1bcHjpZ7XKRNwAs9uhCa3hLsXc24L9YrMvoLxjUgcTM",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkiMi2WE6GMx5CGhfcqrWTbV8XPazqWvkPfFTZviGNT7hb",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6Mko56bMjVEnsVt2CPEbB26EpFLr1wageDuSWoQ5TtsLLBN",
+   "new_rows": {
+    "jobs_posted": 18
+   },
+   "moved": {}
+  },
+  {
+   "did": "did:key:z6MkfUPQnWTdwhyucDTeDUGvwbEXeCYPZyNxhNxQJEFDuhca",
+   "new_rows": {
+    "jobs_posted": 11
+   },
+   "moved": {}
+  }
+ ]
+}
