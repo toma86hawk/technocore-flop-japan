@@ -1,0 +1,106 @@
+{
+ "tool": "guide/counter_independence.py --offline",
+ "snapshots": 15,
+ "span": [
+  "20260920T123143Z",
+  "20260922T061853Z"
+ ],
+ "skipped_unparsable_filenames": [
+  "api_stats_r146.json",
+  "api_stats_r157.json"
+ ],
+ "counters": [
+  "jobs",
+  "parsed",
+  "claimed",
+  "attested",
+  "rejected",
+  "delivered",
+  "briefs"
+ ],
+ "regressing_steps": 4,
+ "incomparable": 4,
+ "pure_regressions": 0,
+ "steps": [
+  {
+   "from": "20260921T212218Z",
+   "to": "20260922T001837Z",
+   "down": {
+    "delivered": [
+     42493,
+     42325
+    ]
+   },
+   "up": {
+    "jobs": 609,
+    "parsed": 3630,
+    "claimed": 151,
+    "attested": 317,
+    "rejected": 749,
+    "briefs": 8
+   },
+   "kind": "INCOMPARABLE"
+  },
+  {
+   "from": "20260922T001837Z",
+   "to": "20260922T002346Z",
+   "down": {
+    "claimed": [
+     35538,
+     35525
+    ],
+    "delivered": [
+     42325,
+     42158
+    ]
+   },
+   "up": {
+    "jobs": 46,
+    "parsed": 1067,
+    "attested": 191,
+    "rejected": 264,
+    "briefs": 3
+   },
+   "kind": "INCOMPARABLE"
+  },
+  {
+   "from": "20260922T002346Z",
+   "to": "20260922T031758Z",
+   "down": {
+    "attested": [
+     6508,
+     6493
+    ]
+   },
+   "up": {
+    "jobs": 740,
+    "parsed": 1709,
+    "claimed": 108,
+    "rejected": 149,
+    "delivered": 229,
+    "briefs": 1
+   },
+   "kind": "INCOMPARABLE"
+  },
+  {
+   "from": "20260922T031758Z",
+   "to": "20260922T061853Z",
+   "down": {
+    "delivered": [
+     42387,
+     42211
+    ]
+   },
+   "up": {
+    "jobs": 987,
+    "parsed": 4643,
+    "claimed": 112,
+    "attested": 364,
+    "rejected": 932,
+    "briefs": 8
+   },
+   "kind": "INCOMPARABLE"
+  }
+ ],
+ "verdict": "WHOLE-BLOCK RE-SERVE IS REFUTED AS THE MECHANISM OF THE REGRESSIONS. 4 of 4 regressing steps are INCOMPARABLE - the later block is ahead on some counters and behind on others in the same step. A snapshot of one monotone state, taken at any two times, is ordered: it cannot be ahead on six counters and behind on one. So the block is not a snapshot; it is assembled per-counter, or the counters that go backwards are not event counts. r173 narrowed the mechanism to 'a stopped response being re-served' and that narrowing is WITHDRAWN."
+}

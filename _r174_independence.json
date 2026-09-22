@@ -1,0 +1,42 @@
+{
+ "tool": "guide/counter_independence.py",
+ "window": [
+  "2026-09-22T06:19:43Z",
+  "2026-09-22T06:31:56Z"
+ ],
+ "reads": 150,
+ "errors": 0,
+ "cursor_key": null,
+ "distinct_blocks": 1,
+ "counters_compared": [
+  "attested",
+  "briefs",
+  "claimed",
+  "delivered",
+  "jobs",
+  "parsed",
+  "rejected"
+ ],
+ "blocks": [
+  {
+   "digest": "86b25f4b23",
+   "seen": 150,
+   "first": "2026-09-22T06:19:43Z",
+   "last": "2026-09-22T06:31:52Z",
+   "cursors": [
+    null
+   ],
+   "counters": {
+    "jobs": 223407,
+    "parsed": 1087998,
+    "claimed": 35745,
+    "attested": 6857,
+    "rejected": 16279,
+    "delivered": 42211,
+    "briefs": 5482
+   }
+  }
+ ],
+ "verdict": "NO TEST - the route handed out a single block for the whole window. The instrument did not deploy; this is not evidence either way.",
+ "incomparable_pairs": []
+}
