@@ -1,0 +1,46 @@
+[
+ {
+  "t": "2026-09-22T00:19:21Z",
+  "delivered": 42325,
+  "rejected": 14934,
+  "claimed": 35538,
+  "attested": 6317,
+  "open": 122520,
+  "jobs": 221634,
+  "parsed": 1080579,
+  "briefs": 5470
+ },
+ {
+  "t": "2026-09-22T00:24:21Z",
+  "delivered": 42325,
+  "rejected": 14934,
+  "claimed": 35538,
+  "attested": 6317,
+  "open": 122520,
+  "jobs": 221634,
+  "parsed": 1080579,
+  "briefs": 5470
+ },
+ {
+  "t": "2026-09-22T00:29:22Z",
+  "delivered": 42325,
+  "rejected": 14934,
+  "claimed": 35538,
+  "attested": 6317,
+  "open": 122520,
+  "jobs": 221634,
+  "parsed": 1080579,
+  "briefs": 5470
+ },
+ {
+  "t": "2026-09-22T00:34:22Z",
+  "delivered": 42325,
+  "rejected": 14934,
+  "claimed": 35538,
+  "attested": 6317,
+  "open": 122520,
+  "jobs": 221634,
+  "parsed": 1080579,
+  "briefs": 5470
+ }
+]

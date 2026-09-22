@@ -1,0 +1,107 @@
+[
+ {
+  "job": "kb924b70c63",
+  "verdict": "useful",
+  "rh": "bfd62ee1bc8144bc",
+  "code": 200,
+  "len": 1143
+ },
+ {
+  "job": "kd3749ca5b5",
+  "verdict": "useful",
+  "rh": "68e0599a347485a0",
+  "code": 200,
+  "len": 1110
+ },
+ {
+  "job": "k3895870f36",
+  "verdict": "useful",
+  "rh": "281eef6f43b53e91",
+  "code": 200,
+  "len": 1036
+ },
+ {
+  "job": "kac92a86f3d",
+  "verdict": "useful",
+  "rh": "e18f771f296f32d6",
+  "code": 200,
+  "len": 1146
+ },
+ {
+  "job": "kc8d8712bcd",
+  "verdict": "useful",
+  "rh": "19acfb2fe9893cdb",
+  "code": 200,
+  "len": 1185
+ },
+ {
+  "job": "k20d847d311",
+  "verdict": "useful",
+  "rh": "d33fff69bb7acb6b",
+  "code": 200,
+  "len": 1178
+ },
+ {
+  "job": "ke7f89ec94f",
+  "verdict": "useful",
+  "rh": "ecfc1f5b0de0d725",
+  "code": 200,
+  "len": 1188
+ },
+ {
+  "job": "ka8e238c01b",
+  "verdict": "not",
+  "rh": "03864a676a83f656",
+  "code": 200,
+  "len": 1258
+ },
+ {
+  "job": "ke6c3e47b73",
+  "verdict": "not",
+  "rh": "c19d8bbfbebcf898",
+  "code": 200,
+  "len": 1157
+ },
+ {
+  "job": "k2b0b712863",
+  "verdict": "not",
+  "rh": "d1418473c85eb9bd",
+  "code": 200,
+  "len": 1222
+ },
+ {
+  "job": "kcf0eb5ce01",
+  "verdict": "not",
+  "rh": "cf9bf075313b289a",
+  "code": 200,
+  "len": 925
+ },
+ {
+  "job": "kccc37a9f24",
+  "verdict": "not",
+  "rh": "ede5317da8eccbcb",
+  "code": 200,
+  "len": 934
+ },
+ {
+  "job": "kc1e70322b3",
+  "verdict": "not",
+  "rh": "4877c0f91ef91ebd",
+  "code": 200,
+  "len": 766
+ },
+ {
+  "job": "k50fd693446",
+  "verdict": "not",
+  "rh": "5e7bd026af5a3674",
+  "code": 200,
+  "len": 945
+ },
+ {
+  "job": "k4315272361",
+  "verdict": "not",
+  "rh": "ac1dc357d283d229",
+  "code": 200,
+  "len": 923
+ }
+]

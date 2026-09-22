@@ -94,8 +94,22 @@ NL = chr(10)
 # value.  Falsifier (D) had the same shape.  A start date read out of the
 # observations is not a start date; it is the observations agreeing with
 # themselves.  Pin it as a constant.
-FREEZE_SHA = "f2d546f3ea"
-FREEZE_AT = datetime.datetime(2026, 9, 8, 6, 18, tzinfo=datetime.UTC)
+# 2026-09-22 r172 - RE-PIN.  f2d546f3ea broke on 2026-09-20T09:17Z, exactly as
+# the note above describes, and from 2026-09-20T12:18Z a NEW plateau stood at
+# 757fc5a03f.  Leaving the old constant in place made falsifier (A) print FIRED
+# on every single run from r159 onward - true, resolved, and therefore noise,
+# which is the same way the 8/8 counter check died at r158.  The rule is not
+# "never touch the pin": it is "the pin is a constant set by hand when a new
+# plateau is DECLARED, never recomputed from the data".  So epochs are listed
+# explicitly, oldest first.  (A) tests only the LAST one; the earlier entries
+# stay as resolved history and are reprinted, not re-fired.
+FREEZE_EPOCHS = [
+    ("f2d546f3ea", datetime.datetime(2026, 9, 8, 6, 18, tzinfo=datetime.UTC),
+     "RESOLVED r159: broke 2026-09-20T09:17Z after 290.98 h"),
+    ("757fc5a03f", datetime.datetime(2026, 9, 20, 12, 18, tzinfo=datetime.UTC),
+     "OPEN: declared r172 2026-09-22 over 15 snapshots / 33.1 h"),
+]
+FREEZE_SHA, FREEZE_AT, _FREEZE_NOTE = FREEZE_EPOCHS[-1]
 UA_PIN = 5754
 UA_AT = datetime.datetime(2026, 9, 12, 15, 17, tzinfo=datetime.UTC)
 
@@ -234,6 +248,9 @@ def main():
               if after else 0.0))
     print("  (pre-freeze the digest changed 6 times on 09-06/09-07 while")
     print("   agent_census_seq already read %d, so passports are NOT gated on it)" % PIN)
+    for sha, at, note in FREEZE_EPOCHS[:-1]:
+        print("  prior epoch %s from %s - %s"
+              % (sha, at.strftime("%Y-%m-%d %H:%MZ"), note))
 
     fps = [r["fps"] for r in rows if r["fps"] is not None]
     print("\n-- falsifier (B): is the fingerprint pass still running? --")

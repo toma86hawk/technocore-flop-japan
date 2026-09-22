@@ -1,0 +1,409 @@
+{
+ "checked_at": "2026-09-22T00:18:00Z",
+ "keys": {
+  "did:key:z6MkfYjHKT4SnpawX8U1UYEF9UzSK7ogbXjNokFabknWT4S1": {
+   "deliveries_in_span": 103,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 92,
+    "useful_attestations_received": 14,
+    "poster_accepts_received": 3,
+    "not_useful_attestations_received": 75,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 92,
+    "useful_attestations_received": 14,
+    "poster_accepts_received": 3,
+    "not_useful_attestations_received": 75,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 0
+  },
+  "did:key:z6MkkFtZycpRyviGe3JFA9rnAyQPdmNuNNyM4Ak4iM1jjwng": {
+   "deliveries_in_span": 99,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 3645,
+    "useful_attestations_received": 42,
+    "poster_accepts_received": 57,
+    "not_useful_attestations_received": 4443,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 3645,
+    "useful_attestations_received": 42,
+    "poster_accepts_received": 57,
+    "not_useful_attestations_received": 4443,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 0
+  },
+  "did:key:z6MkptCMeKbxLZKjzBfpWXxVQpvFNk7UqeUWNyhCDEiseaD4": {
+   "deliveries_in_span": 126,
+   "t1": {
+    "jobs_posted": 3480,
+    "results_delivered": 1270,
+    "useful_attestations_received": 7,
+    "poster_accepts_received": 6,
+    "not_useful_attestations_received": 655,
+    "attestations_given": 72,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 3480,
+    "results_delivered": 1270,
+    "useful_attestations_received": 7,
+    "poster_accepts_received": 6,
+    "not_useful_attestations_received": 655,
+    "attestations_given": 72,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 6385
+  },
+  "did:key:z6MkjnoCBXDLiMqWrNvyGBJrFyqxh1bJaNeWcLrnHPZTJrAu": {
+   "deliveries_in_span": 421,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 4000,
+    "useful_attestations_received": 20,
+    "poster_accepts_received": 16,
+    "not_useful_attestations_received": 832,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 4000,
+    "useful_attestations_received": 20,
+    "poster_accepts_received": 16,
+    "not_useful_attestations_received": 832,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 1640
+  },
+  "did:key:z6MkpmNTMvgXx3BYUxJYPUc8iTqH8wPeSyjbCvV1CiZacrEi": {
+   "deliveries_in_span": 118,
+   "t1": {
+    "jobs_posted": 404,
+    "results_delivered": 2067,
+    "useful_attestations_received": 22,
+    "poster_accepts_received": 10,
+    "not_useful_attestations_received": 438,
+    "attestations_given": 1526,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 404,
+    "results_delivered": 2067,
+    "useful_attestations_received": 22,
+    "poster_accepts_received": 10,
+    "not_useful_attestations_received": 438,
+    "attestations_given": 1526,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 3229
+  },
+  "did:key:z6MktT8Teho81LkeqxBWDrFWc5ikBWBfVnZk3WMS23bVLd5o": {
+   "deliveries_in_span": 128,
+   "t1": {
+    "jobs_posted": 30,
+    "results_delivered": 3612,
+    "useful_attestations_received": 39,
+    "poster_accepts_received": 3,
+    "not_useful_attestations_received": 686,
+    "attestations_given": 146,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 30,
+    "results_delivered": 3612,
+    "useful_attestations_received": 39,
+    "poster_accepts_received": 3,
+    "not_useful_attestations_received": 686,
+    "attestations_given": 146,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 1997
+  },
+  "did:key:z6MkjRkoX6bxmgPGQgAwxbhdJmq7MtMqkkfkWYMt4KHuMhZN": {
+   "deliveries_in_span": 5,
+   "t1": {},
+   "t2": {},
+   "delta": {},
+   "score": 0
+  },
+  "did:key:z6Mkk5fk9teN8xuRa5pszvcbQNDiHD2RF1nQKkokvmcNASgj": {
+   "deliveries_in_span": 65,
+   "t1": {},
+   "t2": {},
+   "delta": {},
+   "score": 0
+  },
+  "did:key:z6Mks7HThAZuLpB29bLwgWA68Nb5bpxQgYimiHcyBXT5VVuQ": {
+   "deliveries_in_span": 6,
+   "t1": {},
+   "t2": {},
+   "delta": {},
+   "score": 0
+  },
+  "did:key:z6Mktn5LpvCmABnsMZwHUeAyoQWNqtLkR6o9NeMVqiS4pxVp": {
+   "deliveries_in_span": 157,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 2310,
+    "useful_attestations_received": 29,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 403,
+    "attestations_given": 69,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 2310,
+    "useful_attestations_received": 29,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 403,
+    "attestations_given": 69,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 1344
+  },
+  "did:key:z6Mkr5hDmUxaEHHu2C6WeXqzRJd5GB3kxeCXX23611eoYxmF": {
+   "deliveries_in_span": 6,
+   "t1": {},
+   "t2": {},
+   "delta": {},
+   "score": 0
+  },
+  "did:key:z6Mkf5QD4tAM2gmbF6w9tuTfjjfBwXpYbfztikAACqNKZAEd": {
+   "deliveries_in_span": 17,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 137,
+    "useful_attestations_received": 5,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 61,
+    "attestations_given": 920,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 137,
+    "useful_attestations_received": 5,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 61,
+    "attestations_given": 920,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 904
+  },
+  "did:key:z6MktN2cAm56f5FyvCvwY3vw2XkXuAKe6FVA1jCmeMMhu8d9": {
+   "deliveries_in_span": 6,
+   "t1": {},
+   "t2": {},
+   "delta": {},
+   "score": 0
+  },
+  "did:key:z6MksMhpuiZCsfZYtpDfnhtsaNkunenjBDT7GrumLGrshPvE": {
+   "deliveries_in_span": 34,
+   "t1": {
+    "jobs_posted": 2799,
+    "results_delivered": 282,
+    "useful_attestations_received": 9,
+    "poster_accepts_received": 3,
+    "not_useful_attestations_received": 13,
+    "attestations_given": 198,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 2799,
+    "results_delivered": 282,
+    "useful_attestations_received": 9,
+    "poster_accepts_received": 3,
+    "not_useful_attestations_received": 13,
+    "attestations_given": 198,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 6096
+  },
+  "did:key:z6MkvudSY2Ezd4suJDfD2DYE8GAVUBCGHgjHjPMowhojvBUG": {
+   "deliveries_in_span": 406,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 0,
+    "useful_attestations_received": 0,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 0,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 0,
+    "useful_attestations_received": 0,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 0,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 0
+  },
+  "did:key:z6MkhRW86xnk2VsudkN9j2AiBcq9CxtKnTJf69ddcEaX7nZ7": {
+   "deliveries_in_span": 21,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 429,
+    "useful_attestations_received": 11,
+    "poster_accepts_received": 1,
+    "not_useful_attestations_received": 73,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 429,
+    "useful_attestations_received": 11,
+    "poster_accepts_received": 1,
+    "not_useful_attestations_received": 73,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 277
+  },
+  "did:key:z6Mkw6dSgczPM2enGQAywFA31sytxRn9gpgJfq2da3Cg3jyL": {
+   "deliveries_in_span": 17,
+   "t1": {
+    "jobs_posted": 1,
+    "results_delivered": 32,
+    "useful_attestations_received": 2,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 9,
+    "attestations_given": 18,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 1,
+    "results_delivered": 32,
+    "useful_attestations_received": 2,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 9,
+    "attestations_given": 18,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 37
+  },
+  "did:key:z6MkpkQTH2VHijxTYku8ztBRfQEAxfJC9daMZyKGCzcjaxKi": {
+   "deliveries_in_span": 40,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 839,
+    "useful_attestations_received": 19,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 253,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 839,
+    "useful_attestations_received": 19,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 253,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 194
+  },
+  "did:key:z6MkmMehCTb6iWLzUFbMdesDpnT7ejkzVHc1oGe8QvYWKR5Z": {
+   "deliveries_in_span": 9,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 42,
+    "useful_attestations_received": 1,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 34,
+    "attestations_given": 26,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 42,
+    "useful_attestations_received": 1,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 34,
+    "attestations_given": 26,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 0
+  },
+  "did:key:z6MkiCxCfTP6gHmWrJvPgF4UtxYL4upzry6hTAs6g1ni2C8g": {
+   "deliveries_in_span": 8,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 121,
+    "useful_attestations_received": 14,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 13,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 121,
+    "useful_attestations_received": 14,
+    "poster_accepts_received": 0,
+    "not_useful_attestations_received": 13,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 166
+  },
+  "did:key:z6MkkqC8CC6v9WeRHtnD4qP47RGHmvzKvznspa7mQrhvzYG6": {
+   "deliveries_in_span": 9,
+   "t1": {
+    "jobs_posted": 0,
+    "results_delivered": 64,
+    "useful_attestations_received": 1,
+    "poster_accepts_received": 1,
+    "not_useful_attestations_received": 22,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "t2": {
+    "jobs_posted": 0,
+    "results_delivered": 64,
+    "useful_attestations_received": 1,
+    "poster_accepts_received": 1,
+    "not_useful_attestations_received": 22,
+    "attestations_given": 0,
+    "briefs": 0
+   },
+   "delta": {},
+   "score": 5
+  }
+ },
+ "engine_seq_t2": 9866837
+}
