@@ -1,0 +1,11 @@
+reads 187 (errors 4) over 20 min
+distinct (engine, block) pairs in order:
+  03:17:54Z engine 9917190 head 9918342 {'jobs': 222420, 'open': 122560, 'briefs': 5474, 'parsed': 1083355, 'claimed': 35633, 'attested': 6493, 'rejected': 15347, 'delivered': 42387}
+  03:18:33Z engine 9917190 head 9918342 {'jobs': 222155, 'open': 122495, 'briefs': 5474, 'parsed': 1082549, 'claimed': 35602, 'attested': 6442, 'rejected': 15226, 'delivered': 42390}
+  03:18:45Z engine 9917190 head 9918342 {'jobs': 222420, 'open': 122560, 'briefs': 5474, 'parsed': 1083355, 'claimed': 35633, 'attested': 6493, 'rejected': 15347, 'delivered': 42387}
+  03:19:54Z engine 9917190 head 9920135 {'jobs': 222155, 'open': 122495, 'briefs': 5474, 'parsed': 1082549, 'claimed': 35602, 'attested': 6442, 'rejected': 15226, 'delivered': 42390}
+  03:20:14Z engine 9917190 head 9920135 {'jobs': 222420, 'open': 122560, 'briefs': 5474, 'parsed': 1083355, 'claimed': 35633, 'attested': 6493, 'rejected': 15347, 'delivered': 42387}
+  03:35:09Z engine 9925266 head 9925366 {'jobs': 222455, 'open': 122425, 'briefs': 5474, 'parsed': 1083905, 'claimed': 35655, 'attested': 6539, 'rejected': 15498, 'delivered': 42338}
+  03:36:43Z engine 9925266 head 9925366 {'jobs': 222420, 'open': 122560, 'briefs': 5474, 'parsed': 1083355, 'claimed': 35633, 'attested': 6493, 'rejected': 15347, 'delivered': 42387}
+
+FALSIFIER NOT FIRED: engine position(s) [9917190, 9925266] each served more than one counter block.

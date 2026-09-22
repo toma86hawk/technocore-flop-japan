@@ -1,0 +1,94 @@
+{
+ "snapshots": 14,
+ "steps": 13,
+ "span": [
+  "20260920T123143Z",
+  "20260922T031758Z"
+ ],
+ "regressing_steps": 3,
+ "detail": [
+  {
+   "from": "20260921T212218Z",
+   "to": "20260922T001837Z",
+   "regressions": [
+    {
+     "counter": "delivered",
+     "from": 42493,
+     "to": 42325,
+     "drop": 168
+    }
+   ],
+   "hours": 2.94,
+   "engine_from": 9827071,
+   "engine_to": 9866837
+  },
+  {
+   "from": "20260922T001837Z",
+   "to": "20260922T002346Z",
+   "regressions": [
+    {
+     "counter": "claimed",
+     "from": 35538,
+     "to": 35525,
+     "drop": 13
+    },
+    {
+     "counter": "delivered",
+     "from": 42325,
+     "to": 42158,
+     "drop": 167
+    }
+   ],
+   "hours": 0.09,
+   "engine_from": 9866837,
+   "engine_to": 9875475
+  },
+  {
+   "from": "20260922T002346Z",
+   "to": "20260922T031758Z",
+   "regressions": [
+    {
+     "counter": "attested",
+     "from": 6508,
+     "to": 6493,
+     "drop": 15
+    }
+   ],
+   "hours": 2.9,
+   "engine_from": 9875475,
+   "engine_to": 9917190
+  }
+ ],
+ "duration_matched": {
+  "median_step_hours": 3.0,
+  "tolerance_hours": 0.5,
+  "kept": 11,
+  "dropped": [
+   {
+    "from": "20260920T211730Z",
+    "to": "20260921T031744Z",
+    "hours": 6.0
+   },
+   {
+    "from": "20260922T001837Z",
+    "to": "20260922T002346Z",
+    "hours": 0.09
+   }
+  ],
+  "bunching": {
+   "steps": 11,
+   "regressing": 2,
+   "comb": 55,
+   "p": 0.01818181818181818,
+   "as_fraction": "1/55"
+  }
+ },
+ "pattern": "ALL 3 REGRESSING STEPS ARE THE LAST 3 OF 13",
+ "p_uniform": 0.0034965034965034965,
+ "p_as_fraction": "1/286",
+ "onset_window": [
+  "20260921T212218Z",
+  "20260922T001837Z"
+ ],
+ "verdict": "ONSET, AND IT SURVIVES THE CADENCE CONTROL. All 3 regressing steps are the last 3 of 13 (p 1/286 under uniform placement). Restricting to the 11 steps within 0.5 h of the median length - which drops the short steps that make a stale read look like a decrease - it is still all 2 at the end, p 1/55. The route began doing this between 20260921T212218Z and 20260922T001837Z."
+}

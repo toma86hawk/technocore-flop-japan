@@ -1,0 +1,116 @@
+{
+ "at": "2026-09-22T03:37:58Z",
+ "reads": 187,
+ "errors": 4,
+ "engines_with_multiple_blocks": {
+  "9917190": 2,
+  "9925266": 2
+ },
+ "order": [
+  {
+   "t": "03:17:54Z",
+   "engine": 9917190,
+   "head": 9918342,
+   "block": {
+    "jobs": 222420,
+    "open": 122560,
+    "briefs": 5474,
+    "parsed": 1083355,
+    "claimed": 35633,
+    "attested": 6493,
+    "rejected": 15347,
+    "delivered": 42387
+   }
+  },
+  {
+   "t": "03:18:33Z",
+   "engine": 9917190,
+   "head": 9918342,
+   "block": {
+    "jobs": 222155,
+    "open": 122495,
+    "briefs": 5474,
+    "parsed": 1082549,
+    "claimed": 35602,
+    "attested": 6442,
+    "rejected": 15226,
+    "delivered": 42390
+   }
+  },
+  {
+   "t": "03:18:45Z",
+   "engine": 9917190,
+   "head": 9918342,
+   "block": {
+    "jobs": 222420,
+    "open": 122560,
+    "briefs": 5474,
+    "parsed": 1083355,
+    "claimed": 35633,
+    "attested": 6493,
+    "rejected": 15347,
+    "delivered": 42387
+   }
+  },
+  {
+   "t": "03:19:54Z",
+   "engine": 9917190,
+   "head": 9920135,
+   "block": {
+    "jobs": 222155,
+    "open": 122495,
+    "briefs": 5474,
+    "parsed": 1082549,
+    "claimed": 35602,
+    "attested": 6442,
+    "rejected": 15226,
+    "delivered": 42390
+   }
+  },
+  {
+   "t": "03:20:14Z",
+   "engine": 9917190,
+   "head": 9920135,
+   "block": {
+    "jobs": 222420,
+    "open": 122560,
+    "briefs": 5474,
+    "parsed": 1083355,
+    "claimed": 35633,
+    "attested": 6493,
+    "rejected": 15347,
+    "delivered": 42387
+   }
+  },
+  {
+   "t": "03:35:09Z",
+   "engine": 9925266,
+   "head": 9925366,
+   "block": {
+    "jobs": 222455,
+    "open": 122425,
+    "briefs": 5474,
+    "parsed": 1083905,
+    "claimed": 35655,
+    "attested": 6539,
+    "rejected": 15498,
+    "delivered": 42338
+   }
+  },
+  {
+   "t": "03:36:43Z",
+   "engine": 9925266,
+   "head": 9925366,
+   "block": {
+    "jobs": 222420,
+    "open": 122560,
+    "briefs": 5474,
+    "parsed": 1083355,
+    "claimed": 35633,
+    "attested": 6493,
+    "rejected": 15347,
+    "delivered": 42387
+   }
+  }
+ ]
+}

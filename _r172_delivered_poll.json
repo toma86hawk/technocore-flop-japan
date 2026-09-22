@@ -1,46 +1,166 @@
-[
- {
-  "t": "2026-09-22T00:19:21Z",
-  "delivered": 42325,
-  "rejected": 14934,
-  "claimed": 35538,
-  "attested": 6317,
-  "open": 122520,
-  "jobs": 221634,
-  "parsed": 1080579,
-  "briefs": 5470
- },
- {
-  "t": "2026-09-22T00:24:21Z",
-  "delivered": 42325,
-  "rejected": 14934,
-  "claimed": 35538,
-  "attested": 6317,
-  "open": 122520,
-  "jobs": 221634,
-  "parsed": 1080579,
-  "briefs": 5470
- },
- {
-  "t": "2026-09-22T00:29:22Z",
-  "delivered": 42325,
-  "rejected": 14934,
-  "claimed": 35538,
-  "attested": 6317,
-  "open": 122520,
-  "jobs": 221634,
-  "parsed": 1080579,
-  "briefs": 5470
- },
- {
-  "t": "2026-09-22T00:34:22Z",
-  "delivered": 42325,
-  "rejected": 14934,
-  "claimed": 35538,
-  "attested": 6317,
-  "open": 122520,
-  "jobs": 221634,
-  "parsed": 1080579,
-  "briefs": 5470
- }
-]
+{
+ "samples": [
+  {
+   "t": "2026-09-22T00:19:21Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T00:24:21Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T00:29:22Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T00:34:22Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T00:39:22Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T00:44:22Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T00:49:23Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T00:54:23Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T00:59:23Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T01:04:23Z",
+   "delivered": 42269,
+   "rejected": 15053,
+   "claimed": 35572,
+   "attested": 6361,
+   "open": 122406,
+   "jobs": 221661,
+   "parsed": 1081019,
+   "briefs": 5472
+  },
+  {
+   "t": "2026-09-22T01:09:24Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T01:14:24Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T01:19:25Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  },
+  {
+   "t": "2026-09-22T01:24:25Z",
+   "delivered": 42325,
+   "rejected": 14934,
+   "claimed": 35538,
+   "attested": 6317,
+   "open": 122520,
+   "jobs": 221634,
+   "parsed": 1080579,
+   "briefs": 5470
+  }
+ ],
+ "drops": [
+  [
+   "2026-09-22T00:59:23Z",
+   "2026-09-22T01:04:23Z",
+   42325,
+   42269
+  ]
+ ]
+}

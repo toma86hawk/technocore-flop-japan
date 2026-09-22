@@ -1,0 +1,5 @@
+try 1 OK 11242 rows seq 9912223..9923464 (6.5 MB)
+export rows 2
+Traceback (most recent call last):
+  File "<stdin>", line 10, in <module>
+AttributeError: 'list' object has no attribute 'get'
