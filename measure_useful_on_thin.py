@@ -4,7 +4,7 @@ Prints counts only; writes the raw window to useful_on_thin_<stamp>.json."""
 import json, urllib.request, collections, time, re, sys
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-with urllib.request.urlopen("https://flop-kibble.onrender.com/api/tape?limit=1500", timeout=120) as r:
+with urllib.request.urlopen("https://flop-kibble.onrender.com/api/tape?limit=1500", timeout=300) as r:
     d = json.loads(r.read().decode())
 msgs = d.get("messages", [])
 stamp = time.strftime("%Y%m%d-%H%M")
@@ -27,6 +27,25 @@ useful = [m for m in attests if str(m.get("verdict", "")).lower() == "useful"]
 useful_on_thin = [m for m in useful if m.get("job_id") in thin_jobs]
 print("attests", len(attests), "useful", len(useful), "useful_on_thin", len(useful_on_thin),
       "(%.1f%% of useful)" % (100.0 * len(useful_on_thin) / max(1, len(useful))))
+
+# --- r175: never print the headline number without its ceiling beside it ---
+# useful_on_thin is a JOIN inside THIS response: a useful verdict can only be
+# counted if the result row of its job is also here.  join% is the ceiling that
+# imposes, and it is a property of the response, not of any auditor.  Measured
+# across 137 saved windows it fell 65.9% -> 22.0% while the headline fell
+# 17.2% -> 7.8%, so the headline alone is not readable as a trend.
+result_jobs = {m.get("job_id") for m in results}
+joinable = [m for m in useful if m.get("job_id") in result_jobs]
+join_pct = 100.0 * len(joinable) / max(1, len(useful))
+cond_pct = (100.0 * len(useful_on_thin) / len(joinable)) if joinable else None
+print("join%% (CEILING) %.1f%%  = %d of %d useful verdicts whose job's result row is in this response"
+      % (join_pct, len(joinable), len(useful)))
+print("conditional rate %s  = useful_on_thin among those that COULD join  <- the behavioural number"
+      % ("n/a" if cond_pct is None else "%.1f%%" % cond_pct))
+print("attests per result %.2f  (this is what moves the ceiling)"
+      % (len(attests) / float(max(1, len(results)))))
+assert len(useful_on_thin) <= len(joinable), "bound violated - the join logic changed"
+
 by_did = collections.Counter(m.get("did") or m.get("from") for m in useful_on_thin)
 print("useful_on_thin attestors", len(by_did), by_did.most_common(6))
 for m in useful_on_thin[:5]:
