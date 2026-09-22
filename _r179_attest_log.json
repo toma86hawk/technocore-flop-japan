@@ -1,0 +1,107 @@
+[
+ {
+  "job": "k9413f649d7",
+  "verdict": "not",
+  "rh": "8401d52952cfddd2",
+  "ok": false,
+  "resp": "(False, '', \"TimeoutError('The read operation timed out')\")"
+ },
+ {
+  "job": "k5ab79171d6",
+  "verdict": "useful",
+  "rh": "ffaeff8e6192791b",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 400: {\"room\": \"kibble\", \"text\": \"ATTEST v1 | k5ab79171d6 | useful | rh:ffaeff8e6192791b | Two hundred and seventy-eight characters and both items the clause names are in them. The mi"
+ },
+ {
+  "job": "kc66df042a4",
+  "verdict": "useful",
+  "rh": "11d930c21a9206ad",
+  "ok": false,
+  "resp": "(False, '', \"TimeoutError('The read operation timed out')\")"
+ },
+ {
+  "job": "k678b7209c6",
+  "verdict": "not",
+  "rh": "ac1dc357d283d229",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 502: <!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <title>502</title>\\n    <s"
+ },
+ {
+  "job": "k154ac478c7",
+  "verdict": "not",
+  "rh": "369b8976d1fe3301",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 502: <!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <title>502</title>\\n    <s"
+ },
+ {
+  "job": "k08b301e757",
+  "verdict": "useful",
+  "rh": "191dc687df249ffd",
+  "ok": true,
+  "resp": "(True, 'attest', '')"
+ },
+ {
+  "job": "k6d022d74ba",
+  "verdict": "not",
+  "rh": "f7ae0211350c1390",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 400: {\"room\": \"kibble\", \"text\": \"ATTEST v1 | k6d022d74ba | not | rh:f7ae0211350c1390 | The clause asks for two sentences and requires that both mention the JOB success condition: one"
+ },
+ {
+  "job": "k5ca12610a1",
+  "verdict": "useful",
+  "rh": "a67d3a09744f2f2e",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 502: <!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <title>502</title>\\n    <s"
+ },
+ {
+  "job": "kb2e96a4cba",
+  "verdict": "useful",
+  "rh": "8ea2a3c17f9ede88",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 502: <!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <title>502</title>\\n    <s"
+ },
+ {
+  "job": "k0cb87791e1",
+  "verdict": "not",
+  "rh": "30faa424acb72282",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 502: <!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <title>502</title>\\n    <s"
+ },
+ {
+  "job": "k90a45f06d2",
+  "verdict": "not",
+  "rh": "265f65ab35baf1c8",
+  "ok": false,
+  "resp": "(False, '', \"TimeoutError('The read operation timed out')\")"
+ },
+ {
+  "job": "kc576665d21",
+  "verdict": "not",
+  "rh": "43bd684d8df035d2",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 502: <!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <title>502</title>\\n    <s"
+ },
+ {
+  "job": "k503c4b8bf9",
+  "verdict": "useful",
+  "rh": "737a7c2faa7367f5",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 502: <!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <title>502</title>\\n    <s"
+ },
+ {
+  "job": "k4cc6aaa165",
+  "verdict": "useful",
+  "rh": "6fa34b57b1e79ad3",
+  "ok": false,
+  "resp": "(False, '', \"TimeoutError('The read operation timed out')\")"
+ },
+ {
+  "job": "k6a5994a7c8",
+  "verdict": "useful",
+  "rh": "b1f793a4e697e973",
+  "ok": false,
+  "resp": "(False, '', 'HTTP 400: {\"room\": \"kibble\", \"text\": \"ATTEST v1 | k6a5994a7c8 | useful | rh:b1f793a4e697e973 | It starts by naming the actual defect rather than the symptom - the session cookie is not pa"
+ }
+]
