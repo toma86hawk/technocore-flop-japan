@@ -2,39 +2,45 @@
 # -*- coding: utf-8 -*-
 """Which /api/tape responses were actually a window?
 
-useful_on_thin_series has 139 points.  Every one of them is computed over a
-single GET /api/tape?limit=1500 and read as "the last few thousand rows".
-r175 tested that reading and reported it CONFIRMED: seq_hi advanced in 136 of
-136 consecutive steps, so the series is indexed by time.
+useful_on_thin_series has 139 points.  Every one is computed over a single
+GET /api/tape?limit=1500 and read as "the last few thousand rows".  r175 tested
+that reading with: did seq_hi advance from one archived response to the next?
+It did, 136 of 136, and r175 recorded the tail reading as CONFIRMED.
 
-That test is insufficient, and this tool is the demonstration.  seq_hi advancing
-says only that the newest row in the response got newer.  It says nothing about
-where the other 999 rows came from.  A response holding one recent row and 999
-rows from the far end of the tape passes it.
+seq_hi advancing constrains only the NEWEST row in a response.  It cannot see a
+response whose BULK moved somewhere else.
 
-The test that works is DENSITY:
+THE FIRST DRAFT OF THIS TOOL WAS WRONG AND THAT IS RECORDED HERE ON PURPOSE.
+It used density = (seq_hi - seq_lo + 1) / rows and flagged 13 responses as
+"spanning the whole tape".  They do not.  Each is an ordinary contiguous tail
+read that happens to carry 1-4 stray rows near seq 400.  Density is a function
+of the MINIMUM, so one outlier row set it, and one row was allowed to condemn
+999 others.  That is the r152 mistake - a single passer-by vetoing a population
+claim - with the sign reversed.  Any statistic resting on an extreme of the
+sample has this defect.  Use the bulk.
 
-    density = (seq_hi - seq_lo + 1) / rows_returned
+WHAT THIS MEASURES NOW
+  bulk    = median seq of the response
+  strays  = rows further than STRAY from the bulk (reported, never fatal)
+  RESET   = the bulk fell below RESET_RATIO of the highest bulk any STRICTLY
+            EARLIER response reached.  The tape's ordinal restarted: rows carry
+            CURRENT timestamps at LOW seq and seq is no longer unique.
+  TAIL    = the bulk kept advancing.
 
-A contiguous tail read of 1000 rows spans a few thousand seq, so density is a
-small number.  A response scattered across the whole tape has a density in the
-thousands.  The two are three orders of magnitude apart; there is no threshold
-to tune.
+The baseline is taken from strictly earlier responses, never from the archive
+maximum.  A falsifier without an as-of date is a history display that fires on
+normal growth (the r158 rule, applied to this tool).
 
-  TAIL      density < 100 and the response starts near where the tape already was
-  SCATTER   density >= 100       the response spans the tape, the point is not a window
-  REWOUND   contiguous but seq_lo is far behind what earlier responses had already
-            reached - the endpoint served the START of the tape
-
-Every SCATTER and REWOUND response observed so far begins at exactly seq 400.
-
-Run with no arguments to classify every archived window in the parent directory.
-Points classified SCATTER or REWOUND must not be compared with points classified
-TAIL, and must not be plotted on the same axis without saying so.
+OBSERVED 2026-09-22: between the 06:26Z and 09:38Z responses the bulk fell from
+9,971,168 to 897.  The 12:32Z response holds 1,000 rows at seq 400..1393 whose
+timestamps run 11:30:30Z..12:17:14Z - current traffic at low seq - and seq 400
+appears 7 times inside it.  /api/stats tape_head_seq froze at 9,997,001 on the
+same step and still read 9,997,001 at 12:41Z.
 """
-import json, glob, os, sys, io, statistics
+import json, glob, os, sys, io, statistics, collections
 
-CUT = 100.0
+STRAY = 50000
+RESET_RATIO = 0.5
 
 
 def rows(pattern):
@@ -48,10 +54,15 @@ def rows(pattern):
         s = [x["seq"] for x in m if x.get("seq") is not None]
         if not s:
             continue
-        span = max(s) - min(s) + 1
+        med = statistics.median(s)
+        ts = sorted(x["ts"] for x in m if x.get("ts"))
+        c = collections.Counter(s)
         out.append({"file": os.path.basename(f), "rows": len(m),
-                    "seq_lo": min(s), "seq_hi": max(s), "span": span,
-                    "density": span / float(len(s))})
+                    "seq_lo": min(s), "seq_hi": max(s), "bulk": int(med),
+                    "strays": sum(1 for v in s if abs(v - med) > STRAY),
+                    "max_seq_multiplicity": max(c.values()),
+                    "ts_lo": ts[0][:19] if ts else None,
+                    "ts_hi": ts[-1][:19] if ts else None})
     return out
 
 
@@ -60,49 +71,39 @@ def main():
         os.path.dirname(os.path.abspath(__file__)), "..", "useful_on_thin_*.json")
     rs = rows(pat)
     if not rs:
-        print("no archived windows matched %s" % pat)
+        print("no archived responses matched %s" % pat)
         return
-    # The threshold must have a "since when", or it is a history display that
-    # fires on normal growth and reports the opposite (the r158 correction,
-    # applied to this falsifier).  A window is judged against the tape as it
-    # stood WHEN IT WAS TAKEN, approximated by the highest seq any STRICTLY
-    # EARLIER response reached - never against the archive maximum.
     reached = 0
     for r in rs:
-        if reached == 0:
-            r["kind"] = "UNKNOWN"          # no predecessor, nothing to judge against
-        elif r["seq_lo"] < 0.5 * reached:
-            r["kind"] = "SCATTER" if r["density"] >= CUT else "REWOUND"
-        else:
-            r["kind"] = "SCATTER" if r["density"] >= CUT else "TAIL"
-        r["reached"] = reached
-        reached = max(reached, r["seq_hi"])
-    bad = [r for r in rs if r["kind"] not in ("TAIL", "UNKNOWN")]
+        r["baseline"] = reached
+        r["kind"] = ("UNKNOWN" if reached == 0
+                     else "RESET" if r["bulk"] < RESET_RATIO * reached
+                     else "TAIL")
+        reached = max(reached, r["bulk"])
     tail = [r for r in rs if r["kind"] == "TAIL"]
+    reset = [r for r in rs if r["kind"] == "RESET"]
+    stray = [r for r in rs if r["strays"]]
     print("archived responses: %d" % len(rs))
-    print("  TAIL    %3d  density median %.2f, max %.2f"
-          % (len(tail), statistics.median(r["density"] for r in tail),
-             max(r["density"] for r in tail)))
-    print("  SCATTER %3d  (spans the tape; density >= %.0f)"
-          % (sum(1 for r in bad if r["kind"] == "SCATTER"), CUT))
-    print("  REWOUND %3d  (contiguous, but starts far behind what the tape had already reached)"
-          % sum(1 for r in bad if r["kind"] == "REWOUND"))
-    print("\nNOT COMPARABLE - drop these points or label them:")
-    for r in bad:
-        print("  %-34s %-7s rows=%-5d seq %9d..%-9d density=%9.1f"
-              % (r["file"], r["kind"], r["rows"], r["seq_lo"], r["seq_hi"],
-                 r["density"]))
-        print("      tape had already reached seq %d before this response" % r["reached"])
-    print("\nshare of the published series that is not a window: %d/%d = %.1f%%"
-          % (len(bad), len(rs), 100.0 * len(bad) / len(rs)))
-    print("\nwhy r175's check missed them: seq_hi advanced on every one of these.")
-    prev = None
-    regress = 0
-    for r in rs:
-        if prev is not None and r["seq_hi"] <= prev:
-            regress += 1
-        prev = r["seq_hi"]
-    print("  seq_hi regressions across all %d steps: %d" % (len(rs) - 1, regress))
+    print("  TAIL    %3d  (bulk kept advancing)" % len(tail))
+    print("  RESET   %3d  (bulk fell below %.0f%% of every earlier bulk)"
+          % (len(reset), RESET_RATIO * 100))
+    print("  carrying stray rows >%d from the bulk: %d responses, %d..%d strays each"
+          % (STRAY, len(stray),
+             min([r["strays"] for r in stray] or [0]),
+             max([r["strays"] for r in stray] or [0])))
+    print("  -> strays are a handful of rows out of 1000 and do NOT void a response")
+    for r in reset:
+        print("\nRESET at %s" % r["file"])
+        print("  bulk %d, while every earlier response reached a bulk of %d"
+              % (r["bulk"], r["baseline"]))
+        print("  rows %d  seq %d..%d  one seq repeated up to %d times"
+              % (r["rows"], r["seq_lo"], r["seq_hi"], r["max_seq_multiplicity"]))
+        print("  timestamps inside it: %s .. %s" % (r["ts_lo"], r["ts_hi"]))
+    first = rs.index(reset[0]) if reset else len(rs)
+    print("\npoints taken BEFORE the first reset: %d of %d - seq-based reasoning "
+          "holds inside that stretch" % (first, len(rs)))
+    print("points taken AT OR AFTER it: %d - their seq cannot be compared with the "
+          "earlier ones and must be labelled" % (len(rs) - first))
 
 
 if __name__ == "__main__":
