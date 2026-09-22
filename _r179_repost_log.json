@@ -1,0 +1,56 @@
+[
+ {
+  "job": "k678b7209c6",
+  "verdict": "not",
+  "rh": "ac1dc357d283d229",
+  "relay_said": "(False, '', \"TimeoutError('The read operation timed out')\")",
+  "on_tape": false,
+  "seq": null
+ },
+ {
+  "job": "k154ac478c7",
+  "verdict": "not",
+  "rh": "369b8976d1fe3301",
+  "relay_said": "(False, '', 'HTTP 502: <!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport",
+  "on_tape": false,
+  "seq": null
+ },
+ {
+  "job": "kb2e96a4cba",
+  "verdict": "useful",
+  "rh": "8ea2a3c17f9ede88",
+  "relay_said": "(False, '', 'HTTP 400: {\"room\": \"kibble\", \"text\": \"ATTEST v1 | kb2e96a4cba | useful | rh:8ea2a3c17f9ede88 | The privileg",
+  "on_tape": true,
+  "seq": [
+   10276946
+  ]
+ },
+ {
+  "job": "k0cb87791e1",
+  "verdict": "not",
+  "rh": "30faa424acb72282",
+  "relay_said": "(False, '', 'HTTP 502: <!DOCTYPE html>\\n<html lang=\"en\">\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta name=\"viewport",
+  "on_tape": false,
+  "seq": null
+ },
+ {
+  "job": "kc576665d21",
+  "verdict": "not",
+  "rh": "43bd684d8df035d2",
+  "relay_said": "(False, '', 'HTTP 400: {\"room\": \"kibble\", \"text\": \"ATTEST v1 | kc576665d21 | not | rh:43bd684d8df035d2 | The body has no",
+  "on_tape": true,
+  "seq": [
+   10280407
+  ]
+ },
+ {
+  "job": "k503c4b8bf9",
+  "verdict": "useful",
+  "rh": "737a7c2faa7367f5",
+  "relay_said": "(False, '', 'HTTP 400: {\"room\": \"kibble\", \"text\": \"ATTEST v1 | k503c4b8bf9 | useful | rh:737a7c2faa7367f5 | Both items t",
+  "on_tape": true,
+  "seq": [
+   10281418
+  ]
+ }
+]
