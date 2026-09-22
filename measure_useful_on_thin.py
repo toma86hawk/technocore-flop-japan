@@ -1,17 +1,65 @@
 #!/usr/bin/env python3
 """Re-measure useful-on-thin in the current /api/tape window, for the X reply numbers.
 Prints counts only; writes the raw window to useful_on_thin_<stamp>.json."""
-import json, urllib.request, collections, time, re, sys
+import json, urllib.request, collections, time, re, sys, os, statistics
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-with urllib.request.urlopen("https://flop-kibble.onrender.com/api/tape?limit=1500", timeout=300) as r:
-    d = json.loads(r.read().decode())
+# r178: this fetch had no handler. On 2026-09-22 /api/tape?limit=1500 answered
+# 502 after ~78 s, the script died on its first line, and three invocations that
+# printed nothing were read as "the tool emits nothing" before the endpoint was
+# probed directly. A measurement tool must say which of its dependencies failed
+# and must not exit 0 when it produced no series point.
+URL = "https://flop-kibble.onrender.com/api/tape?limit=1500"
+try:
+    with urllib.request.urlopen(URL, timeout=300) as r:
+        d = json.loads(r.read().decode())
+except Exception as e:
+    print("NO SERIES POINT: %s is unreadable - %s: %s"
+          % (URL, type(e).__name__, str(e)[:200]))
+    print("This is an upstream failure, not a result. Do not record a gap in "
+          "useful_on_thin_series without naming this cause.")
+    sys.exit(3)
 msgs = d.get("messages", [])
 stamp = time.strftime("%Y%m%d-%H%M")
 json.dump(d, open("useful_on_thin_%s.json" % stamp, "w"), indent=0)
 
 seqs = [m.get("seq") for m in msgs if m.get("seq") is not None]
 print("window: msgs", len(msgs), "seq", min(seqs), "-", max(seqs))
+
+# --- r176 GUARD: certify the response shape before the numbers are read. ---
+# Every point in useful_on_thin_series since 2026-08-31 assumed /api/tape?limit=1500
+# returns the newest rows.  r175 checked that by asking whether seq_hi advanced,
+# which constrains only the newest row in the response.  On 2026-09-22 the tape's
+# ordinal RESET: the 12:32Z response held 1,000 rows at seq 400..1393 carrying
+# timestamps 11:30:30Z..12:17:14Z - current traffic at low seq, with seq 400
+# appearing seven times - while /api/stats still reported tape_head_seq 9,997,001.
+# Test the BULK (median), not an extreme: a statistic resting on min or max is set
+# by one stray row, which is how the first draft of the certificate tool condemned
+# 13 good responses.
+import glob as _glob
+bulk = statistics.median(seqs)
+prev = sorted(_glob.glob("useful_on_thin_*.json"), key=os.path.getmtime)[:-1]
+prev_bulk = None
+if prev:
+    try:
+        _p = [m["seq"] for m in json.load(open(prev[-1]))["messages"] if m.get("seq") is not None]
+        prev_bulk = statistics.median(_p)
+    except Exception:
+        pass
+print("bulk (median seq) %d   previous response bulk %s" % (bulk, prev_bulk))
+CERTIFIED = True
+if prev_bulk and bulk < 0.5 * prev_bulk:
+    CERTIFIED = False
+    print("*** TAPE ORDINAL RESET - the bulk fell from %d to %d. ***" % (prev_bulk, bulk))
+    print("*** This response's seq cannot be compared with earlier points. ***")
+dups = len(seqs) - len(set(seqs))
+if dups:
+    CERTIFIED = False
+    print("*** %d duplicate seq values in one response - seq is not unique here. ***" % dups)
+print("certified as a comparable series point: %s" % CERTIFIED)
+if not CERTIFIED:
+    print("*** DO NOT append the numbers below to useful_on_thin_series. ***")
+
 kinds = collections.Counter(m.get("kind") for m in msgs)
 print("kinds", dict(kinds))
 
