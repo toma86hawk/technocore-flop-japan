@@ -1,9 +1,9 @@
 {
  "tool": "guide/counter_independence.py --offline",
- "snapshots": 15,
+ "snapshots": 16,
  "span": [
   "20260920T123143Z",
-  "20260922T061853Z"
+  "20260922T091806Z"
  ],
  "skipped_unparsable_filenames": [
   "api_stats_r146.json",
@@ -18,8 +18,8 @@
   "delivered",
   "briefs"
  ],
- "regressing_steps": 4,
- "incomparable": 4,
+ "regressing_steps": 5,
+ "incomparable": 5,
  "pure_regressions": 0,
  "steps": [
   {
@@ -100,7 +100,26 @@
     "briefs": 8
    },
    "kind": "INCOMPARABLE"
+  },
+  {
+   "from": "20260922T061853Z",
+   "to": "20260922T091806Z",
+   "down": {
+    "delivered": [
+     42211,
+     42200
+    ]
+   },
+   "up": {
+    "jobs": 498,
+    "parsed": 1571,
+    "claimed": 89,
+    "attested": 69,
+    "rejected": 266,
+    "briefs": 1
+   },
+   "kind": "INCOMPARABLE"
   }
  ],
- "verdict": "WHOLE-BLOCK RE-SERVE IS REFUTED AS THE MECHANISM OF THE REGRESSIONS. 4 of 4 regressing steps are INCOMPARABLE - the later block is ahead on some counters and behind on others in the same step. A snapshot of one monotone state, taken at any two times, is ordered: it cannot be ahead on six counters and behind on one. So the block is not a snapshot; it is assembled per-counter, or the counters that go backwards are not event counts. r173 narrowed the mechanism to 'a stopped response being re-served' and that narrowing is WITHDRAWN."
+ "verdict": "WHOLE-BLOCK RE-SERVE IS REFUTED AS THE MECHANISM OF THE REGRESSIONS. 5 of 5 regressing steps are INCOMPARABLE - the later block is ahead on some counters and behind on others in the same step. A snapshot of one monotone state, taken at any two times, is ordered: it cannot be ahead on six counters and behind on one. So the block is not a snapshot; it is assembled per-counter, or the counters that go backwards are not event counts. r173 narrowed the mechanism to 'a stopped response being re-served' and that narrowing is WITHDRAWN."
 }

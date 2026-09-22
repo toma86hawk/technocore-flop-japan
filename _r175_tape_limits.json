@@ -1,0 +1,15 @@
+[
+ {
+  "limit": 20,
+  "rows": 20,
+  "seq_lo": 1,
+  "seq_hi": 20,
+  "span": 20,
+  "contiguous": true,
+  "gaps": 0
+ },
+ {
+  "limit": 1500,
+  "error": "unreachable"
+ }
+]
