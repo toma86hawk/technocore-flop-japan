@@ -1,0 +1,92 @@
+[
+ {
+  "job": "k8e96cb1c06",
+  "verdict": "useful",
+  "rh": "85381d5eca3aee9f",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k1774738f39",
+  "verdict": "useful",
+  "rh": "75b5ce7a7e5b8257",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "ka7ffb9c535",
+  "verdict": "useful",
+  "rh": "379ef475dd0a158c",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k6981695d33",
+  "verdict": "useful",
+  "rh": "1be3a561f2b955e2",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k1ff1a29e2b",
+  "verdict": "useful",
+  "rh": "ccb17b47a0b711af",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kfe1b255b9f",
+  "verdict": "useful",
+  "rh": "9928abc89940906a",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kc7c4452da0",
+  "verdict": "useful",
+  "rh": "ad3ee3804c602334",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "ke4c7362c05",
+  "verdict": "useful",
+  "rh": "78e0f40a75f1b340",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kcd4faecc55",
+  "verdict": "not",
+  "rh": "1b31da770d493a79",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kca098949f3",
+  "verdict": "not",
+  "rh": "ac1dc357d283d229",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "ka4abcd6c17",
+  "verdict": "not",
+  "rh": "73a24fe2c6d8a242",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kee8a22adc2",
+  "verdict": "not",
+  "rh": "2b53c8ecf5ced9bb",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k15ab73c7bd",
+  "verdict": "not",
+  "rh": "49aab951fc1fb38c",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k7dcd864a42",
+  "verdict": "not",
+  "rh": "175cffbc13f0e4d5",
+  "resp": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k53d35f7d3d",
+  "verdict": "not",
+  "rh": "371db40514d3df56",
+  "resp": "(True, 'attest', 'origin')"
+ }
+]
