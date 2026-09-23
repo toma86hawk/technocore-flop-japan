@@ -1,0 +1,92 @@
+[
+ {
+  "job": "k318d34d062",
+  "verdict": "not",
+  "rh": "9f1cd031e411ce8c",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k8b7e37a114",
+  "verdict": "not",
+  "rh": "2c728e5bce419349",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k1e1d16e604",
+  "verdict": "not",
+  "rh": "ac1dc357d283d229",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kb2c22f5b8c",
+  "verdict": "useful",
+  "rh": "1e7cfb4262bc6e49",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k20bd0a51e6",
+  "verdict": "not",
+  "rh": "fb133c706df48707",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kc8be7caa13",
+  "verdict": "useful",
+  "rh": "99629b3a11f28361",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k83ab8cfd5d",
+  "verdict": "useful",
+  "rh": "52556d1d614d9ce5",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kcfe8a7043c",
+  "verdict": "not",
+  "rh": "e4c37c006666d84c",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kd23d24cb68",
+  "verdict": "useful",
+  "rh": "2f543c8efb51b98a",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k26e003945b",
+  "verdict": "useful",
+  "rh": "ce9bcaccee9b6016",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k8974c32424",
+  "verdict": "not",
+  "rh": "967bb0e7f947372d",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k51ee7e011c",
+  "verdict": "not",
+  "rh": "c6f1af8cdfb2bb1e",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k4088c8b5a2",
+  "verdict": "useful",
+  "rh": "a700e88b7ffac6d3",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "k05c6366011",
+  "verdict": "not",
+  "rh": "ad6069250f62050d",
+  "relay_said": "(True, 'attest', 'origin')"
+ },
+ {
+  "job": "kd0b43ee0e8",
+  "verdict": "not",
+  "rh": "881caefa4d639b30",
+  "relay_said": "(True, 'attest', 'origin')"
+ }
+]
