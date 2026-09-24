@@ -15,10 +15,11 @@ Usage:
 import argparse, json, sys
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-# Published genesis-pool figures (flop.finance/teaser, as read 2026-08-27).
-GENESIS_POOL = 3_500_000_000        # total testnet genesis pool, FLOP
+# Published genesis-pool figures (flop.finance/teaser, as read 2026-08-27), updated to
+# yellowpaper 0.5.0 sync 2026-09-24 (flop-labs/yellowpaper@3c97bbc8, decision D-0440).
+GENESIS_POOL = 4_400_000_000        # total testnet genesis pool, FLOP (was 3.5B before D-0440)
 MINER_POOL = 1_200_000_000          # miner share of the genesis pool
-VALIDATOR_POOL = 305_000_000        # validator share of the genesis pool
+VALIDATOR_POOL = 1_200_000_000      # validator share = 1,000 seats x 1,200,000 bond (was 305,505,000)
 VALIDATOR_SLOTS = 1_000             # only the top N validators by uptime/accuracy
 AGENT_SPEND_RATIO = 3               # 3 FLOP spent on inference -> 1 FLOP airdropped
 TESTNET_DAYS = 90                   # testnet runs roughly 90 days
@@ -71,7 +72,7 @@ def main():
         {"role": "miner", "flop": miner, "usd_cost": miner_cost,
          "note": f"{a.gpu_hours:,.0f} of {a.network_gpu_hours:,.0f} network GPU-hours"},
         {"role": "validator", "flop": validator, "usd_cost": 0.0,
-         "note": (f"rank {a.validator_rank} of {VALIDATOR_SLOTS}"
+         "note": (f"rank {a.validator_rank} of {VALIDATOR_SLOTS} (bonded, locked)"
                   if validator else f"rank {a.validator_rank} is outside the top {VALIDATOR_SLOTS}")},
     ]
 
