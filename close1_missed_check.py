@@ -8,14 +8,21 @@ history". The flow post has a `missed` field for exactly that, and it is NOT
 always empty. Measured 2026-09-25T18:3xZ from /r/d-close1-flow/export (78 posts,
 all signed by the referee key ...AAMzte):
 
-  close1 missed ranges, sweeps 20-41 (13:44Z-16:03Z), none before or since:
+  close1 missed ranges, sweeps 20-41 (13:44Z-16:03Z) as of 18:3xZ:
     s20 188639-190784    2,146     s35 519099-521916    2,818
     s24 280099-335672   55,574     s37 560285-580334   20,050
     s33 439292-449160    9,869     s38 602480-609607    7,128
     s34 474984-492694   17,711     s41 659472-667358    7,887
     total 123,183 close1 seqs
 
-These fall inside the opening surge (up to ~24k new owners per sweep), while
+UPDATE 2026-09-25T21:3xZ (r203): the ranges did not stop at sweep 41. Sweep 85
+(19:11:23Z) adds close1 833674-846145 (12,472) and 866247-875759 (9,513), total
+145,168 (first reported by kivica on issue #7). Tested over all 112 sweeps: lateness
+does NOT predict a range (s35 and s38 were on time, 17 of 26 late sweeps had none)
+and neither does the sweep's mint count. Check every message; this script reads the
+export live, so new ranges are covered.
+
+The first ranges fall inside the opening surge (up to ~24k new owners per sweep), while
 sweeps ran up to 41.7 min late and the price reference sat on one trade
 (225.03 @ 13:49:57Z) for sweeps 23-50, age_s up to 8,402.
 
