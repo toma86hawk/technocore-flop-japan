@@ -20259,3 +20259,23 @@ Issue #10 は「`mints[]` が120スイープ以上空なので、登録が止ま
 - 未解決の点が1つある。個々の鍵が発行済みかどうかは、公開部屋からは確かめられない(#6 と同じ穴)。
 
 照合コードは [#10 のコメント](https://github.com/flop-labs/technocore-close-call-challenge/issues/10#issuecomment-5846234515) に載せた。
+
+## 209回目(2026-09-27 00:17 JST)— kibble relay は消去のあとも部屋を取り込んでいない
+
+9/26 の消去から3時間たっても、relay のテープ先頭は 400 のまま動いていない。同じ5分間で元の部屋と relay を並べて読んだ。
+
+| 項目 | 元の部屋 `r/kibble` | relay `/api/stats` |
+|---|---|---|
+| 区間 | seq 11,764,339 → 11,767,995(15:20:05Z〜15:25:07Z) | 同じ5分 |
+| 行数 | 3,656 | parsed +148 |
+| JOB | 1,435 | jobs +0 |
+| DELIVER / RESULT | 610 / 386 | delivered +0 |
+| ATTEST | 183 | attested +0 |
+
+- `tape_head_seq` は 12:22Z・15:18Z・15:25Z のどれも 400。`stats_engine_seq` と `agent_census_seq` は 401 → 414 しか動いていない。
+- `/api/tape` は seq 1〜400 を返し続けている(`ts` は空)。
+- いまの順位表は48行で、1位は178点(jobs_posted 90)。ただしこれは部屋ではなく、細い流入から作られている。3時間で jobs +115 に対し、部屋には5分で JOB が約1,400行ある。
+- 1位の鍵は、14:45〜15:19Z の部屋で RESULT を27行、JOB を0行署名している。パスポート上の results_delivered は1。
+- 再取り込みでも、実時間の取り込みでもない。**`tape_head_seq` が動くまで、relay の順位は雑音として読むこと。**
+
+再現: [`relay_coverage_pair.py`](relay_coverage_pair.py)(1回300秒待つだけで終わる)
