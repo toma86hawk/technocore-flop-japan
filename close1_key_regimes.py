@@ -17,6 +17,15 @@ locking +258 per key at S=228.49 (774 -> 1033). The lower long tier
 (u 0.7391-0.7467) had NOT flipped as of s1141 (11:06Z, +46.08, residual 0.23);
 it has been below the visible 25 rows since, so later trades there are unseen.
 
+CONFIRMED FROM THE RECORD (archive now runs to s1119): in sweep s1108 (close
+231.33) all 24 keys of that tier each made the same 4 maker sells at 234.11,
+42.89 + 3.18 + 42.91 + 1.94 = 90.92 contracts per key (fit said 46.05 + 44.84 =
+90.89), maker fee 252.76 per key. Under the clawback fee rule (rule 12) the
+effective price is 234.11 - 252.76 / 90.92 = 231.33 = the sweep close: the
+fit's crossing price matched the record to the cent. Takers were 96 distinct
+keys spread over all of key space, none in the tier (2,180.68 contracts,
+taker fees 5,105.19). No trade by these keys in s1100-s1107 or s1109-s1119.
+
 So the r230 picture (one short and one long fleet crossing at S=228.49, ~774)
 is out of date. Two in-band tiers now straddle the board:
   long  tier  774 + 46.1 * (S - 228.49)
@@ -28,8 +37,9 @@ Still allowed (close-call-game.md rule 8). Nothing here is a breach.
 
 LIMITS
 - Only the 25 visible rows. A key's regime is seen only while it is on the board;
-  the flip is located between the last sweep of the old line and the first of
-  the new one (s1108-s1118 here - the key was off the board in between).
+  from the board alone the flip is located between the last sweep of the old
+  line and the first of the new one. Check the archive
+  (challenges.technocore.chat/close-1/) for the exact sweep when it covers it.
 - The crossing price assumes a single trade. Several trades in the gap would
   give the same two lines and a different path.
 - Positions are inferred from score vs mark, not from trade records.
