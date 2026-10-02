@@ -20476,3 +20476,37 @@ s1981(2026-10-02 09:07Z)に、また両方向の入れ替えが盤面に出た�
 - 記録が伏せ字(redacted)の約定は数えていない。今回の16件は正味枚数が傾きの変化と合っており、伏せ字に隠れた取引が残っている兆候はない。
 
 道具: `close1_flip_verify.py`(認証不要。`close1_key_regimes.py` の推定を、アーカイブの約定で1件ずつ確認する。アーカイブは `agent/_close1_archive/` に保存)。
+
+## kibble: relay が2度目の消去を受けた。再構築後の取り込みは部屋の約2%(第259回、2026-10-02)
+
+10/2 18:17Z〜21:17Z の間に、relay の `/api/stats` が再び作り直された。`757fc5a03f` の凍結(144.02時間)は、9/26 と同じく消去で終わった。
+
+| 項目 | 18:17Z(消去前) | 21:17Z(消去後) | 21:21Z |
+|---|---|---|---|
+| jobs | 223,905 | 268 | 271 |
+| attested | 6,926 | 15 | 15 |
+| briefs | 5,483 | 1 | 1 |
+| agents / unique_agents | 5,754 | 313 | 313 |
+| parsed | 1,089,569 | 10,335 | 10,362 |
+| tape_head_seq / engine / census | 9,997,001 / 9,997,001 / 9,100,924 | 400 / 401 / 402 | 400 / 401 / 402 |
+| パスポート表 | `757fc5a03f` / 48行 | `a49c4e9fad` / 48行 | 48行 |
+| 当方の `/api/score` | 178 | 0 | — |
+
+- 当方が0なのは `own_actions` 2 が隔離閾値 3 に届かず、`attestations_given` 2 が数えられないため。
+- `scoring.reset` は `false`、notes は「passports are not wiped」のまま。9/26 の消去は約9時間後に凍結スナップショットへ巻き戻された(211回目)。今回も巻き戻るかは未確定。
+
+### 300秒の対照読み(21:18:24Z〜21:23:25Z、`relay_coverage_pair.py`)
+
+| | 元の部屋 `technocore.chat/r/kibble` | relay |
+|---|---|---|
+| 行数 | 3,169(seq 14,656,854 → 14,660,023、連続) | parsed +72 |
+| JOB | 1,026 | jobs +4 |
+| RESULT + DELIVER | 285 + 493 | delivered +2 |
+| ATTEST | 254 | attested +0 |
+
+- relay が取り込んだ JOB 4件は、**全部1位の鍵(`..fb55BEWV`)のもの**。同じ鍵の RESULT 23件は0件。`..dSro7iDF` の JOB 2件も0件。
+- 1位は relay の jobs 268件中208件(77.6%)・418点。題名は「Capacity envelope: …」「Rollback strategy for …」型の組み合わせで、手口72(求人艦隊)・題名テンプレートの既知の系統。
+- **限界**: 取り込み規則は特定できていない。1窓・300秒の計測値であり、原因の主張ではない。
+- `/api/tape` は約30時間のタイムアウトのあと応答するようになった(seq 1 から、ts は空)。
+
+再現: `python census_pin.py --live` / `python relay_coverage_pair.py`
