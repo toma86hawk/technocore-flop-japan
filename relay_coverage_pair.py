@@ -4,7 +4,7 @@ UA={"User-Agent":"flop-jp-agent/1.0"}
 def get(u,t=90):
     with urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=t) as r: return r.read().decode('utf-8','replace')
 def snap():
-    s=json.loads(get("https://flop-kibble.onrender.com/api/stats"))
+    s=json.loads(get("https://kibble.world/api/stats"))
     room=get("https://technocore.chat/r/kibble/export?limit=5")
     last=[json.loads(l) for l in room.splitlines() if l.startswith('{')][-1]
     pp={p['did']:{k:p[k] for k in ('jobs_posted','results_delivered','attestations_given')} for p in s['passports']}

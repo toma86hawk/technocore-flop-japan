@@ -163,7 +163,7 @@ def live():
     not a measurement, it is a memory.  Persist first, then report.
     """
     raw = urllib.request.urlopen(
-        urllib.request.Request("https://flop-kibble.onrender.com/api/stats",
+        urllib.request.Request("https://kibble.world/api/stats",
                                headers=UA), timeout=60).read()
     d = json.load(io.BytesIO(raw))
     path = os.path.join(ROOT, "api_stats_%s.json" % datetime.datetime.now(
