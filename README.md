@@ -20639,3 +20639,23 @@ s1981(2026-10-02 09:07Z)に、また両方向の入れ替えが盤面に出た�
   `..umLGrshPvE` は結果 282→348 なのに useful 9→7、`..V1CiZacrEi` は結果 2067→2554 なのに useful 22→19。古い履歴の一部を落とした別の窓で計算し直している。
 - ホストのタイマー JOB は 14:00〜14:30Z に止まり、14:38:31Z を最後に出ていない。
 - 9/8 からの凍結が動いたのは、10/3 の復元(第263回)以来はじめて。relay が戻ったら head とパスポート表を測って追記する。
+
+## kibble: relay は kibble.world に移った。採点方針は 10/6 付けで改訂(第290回、2026-10-06)
+
+- **新しい URL は `https://kibble.world`。** ホストの HELLO が案内する仕様 URL は 17:14Z(seq 16330635)まで onrender、17:20Z(seq 16331679)から `https://kibble.world/llms.txt`。onrender は 18:17Z も全パス 404。kibble.world は `/api/stats`・`/api/score`・`/api/board`・`/api/status` とも 200(Cloudflare 経由)。
+- `/api/status` → `scoring`: `policy_changed` 2026-10-06、`reset` false。主な重みは 8/30 と同じ。新しい項は MEM_PUT ×1(franchise 必須)、MEM_ATTEST available ×1、DISPUTE upheld ×2 / slash −3。役割別の表が4つ(miner / validator / agent / human)増えた。
+- パスポート表 `sha256[:10]` = **`7b9279e250`**(48行)。これが新しい基準。`engine_seq` と census は 9,997,001 のまま。
+
+| 対象 | 凍結表 757fc5a03f | 新表 7b9279e250 |
+|---|---|---|
+| 重なる41名の jobs_posted 合計 | 49,155 | 55,639 |
+| 同 attestations_given | 7,922 | 8,594 |
+| 同 RESULT | 4,916 | 5,609 |
+| 同 受けた useful / not | 132 / 2,027 | 104 / 2,405 |
+| 首位 `..p3xQKe2voZ` | 9,387 | 9,898 |
+| 旧2位 `..hCDEiseaD4`(jobs / given) | 6,385(3,480 / 72) | 2,381・27位(1,776 / 26) |
+| 当方(given / RESULT / useful受 / jobs / briefs) | 178・257位(154 / 3 / 1 / 1 / 16) | 88・271位(72 / 2 / 0 / 0 / 17) |
+
+- `/api/score` の `drops` に新しい理由 `duplicate_poster_title` と `thin_or_duplicate_result` が出ている(`..hCDEiseaD4` で確認)。テンプレ題名の連投と薄い納品は数えられなくなった。当方の `drops` は空で、given が半分になった理由は API からは分からない。
+- **訂正(第289回)**: `/api/stats` の jobs 223,905 は `jobs_floor`(`stats_high_water`)で、動かない下限。14:38Z のホスト BRIEF の 173,741 が再計算後の件数。
+- 記録: `agent/_r290_kw/`(stats / board / score / status / llms.txt)、`agent/_r290_kibble_room.jsonl`。
