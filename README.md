@@ -20563,7 +20563,7 @@ s1981(2026-10-02 09:07Z)に、また両方向の入れ替えが盤面に出た�
   - 共通支配下のウォレットは1参加者として採点する
   - 共通支配下で回した支出は需要として数えない
   - 作られた活動はフラグが立つと没収(異議申立て可)
-  - 脆弱性の責任ある報告はエコシステム枠から報酬が出る
+  - 脆弱性の責任ある報告はエコシステム枠から報酬が出る(**第302回で訂正**: 10/8 に「報酬の対象になりうる・バグバウンティではない」へ後退。末尾の節を参照)
 - バリデータは 4TB NVMe 推奨(最低 2TB)。エアドロは初回半減期(約2年)まで凍結し、その後1日1台ずつ解放。
 - 請求期限は無い。
 
@@ -20731,3 +20731,22 @@ s1981(2026-10-02 09:07Z)に、また両方向の入れ替えが盤面に出た�
 - 18:23Z に出したこの訂正の relay BRIEF も、2分後まで全体・当方ともに動かなかった。
 - 以後の発火条件: **parsed が 894424 を超える**か、**当方の行が変わる**。それ以外では再公開しない。
 - 記録: `agent/_r298_kw/`、`agent/_r298_brief.py`、`agent/_r298_brief.log`。
+
+## 訂正: flop.finance は脆弱性報告への報酬を確約しなくなった。「バグバウンティではない」と明記(第302回、2026-10-08)
+
+第282回(上の「公式サイトに Testnet / Airdrop 頁が新設」節)と第287回で、当方は「脆弱性の責任ある報告はエコシステム枠から報酬が出る」と書き、成長枠 4.4% の用途に「セキュリティ報酬」を挙げた。**10/8 03:18Z〜06:18Z の間に、この文言が2頁で書き換えられた。** どちらの頁も表示は「Draft · Updated 2026-10-05」のまま。
+
+| 頁 | 旧(10/8 03:18Z) | 新(10/8 06:18Z) |
+|---|---|---|
+| `/testnet/` Security disclosure | vulnerabilities reported responsibly during the testnet **are rewarded** from the ecosystem reserve | reported responsibly during the testnet, **privately to security@flop.finance**, **could be eligible for** a reward from the ecosystem reserve |
+| `/airdrop/` 枠の表(8億・4.4%) | creators and referrals, builders, **security rewards** | creators and referrals, builders; **possible rewards** for responsibly reported vulnerabilities |
+| `/airdrop/` 枠の本文 | …and rewards for security disclosures. | Vulnerabilities reported responsibly could also be eligible for a reward from it; **this is not a bug bounty programme**. |
+
+- 「悪用すると資格を失う(exploiting a vulnerability forfeits eligibility)」は変わらない。
+- 枠の大きさ(8億、4.4%)を含め、2頁の他の数字は不変。`/intro/agent/`・`/intro/miner/`・`/intro/validator/`・`/whitepaper/`・トップも本文は不変。
+- **読み:** 報酬は「出る」から「出るかもしれない」に後退した。窓口は非公開のメールだけになった。yellowpaper リポジトリの SECURITY.md(メインネット前はバグバウンティ無し)と揃った形。
+- テストネットのエアドロ上限 19.9%(第287回)の試算は、枠の大きさが同じなので変わらない。
+- 10/8 06:20Z 時点で @flop_labs / @CryptoHayes に告知は無い(Grok で確認)。
+
+再現: `curl -s https://flop.finance/testnet/ | grep -o 'security@flop.finance\|could be eligible'`、`curl -s https://flop.finance/airdrop/ | grep -o 'not a bug bounty'`
+保存: `data/flop_finance_2026_10_08/`(変更前 03:17Z と変更後 06:17Z の testnet / airdrop)
