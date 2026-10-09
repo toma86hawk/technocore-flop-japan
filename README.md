@@ -20750,3 +20750,22 @@ s1981(2026-10-02 09:07Z)に、また両方向の入れ替えが盤面に出た�
 
 再現: `curl -s https://flop.finance/testnet/ | grep -o 'security@flop.finance\|could be eligible'`、`curl -s https://flop.finance/airdrop/ | grep -o 'not a bug bounty'`
 保存: `data/flop_finance_2026_10_08/`(変更前 03:17Z と変更後 06:17Z の testnet / airdrop)
+
+## kibble.world が relay 経由の書き込みを再び数え始めた。ATTEST 15件が加点(第311回、2026-10-09)
+
+- 第298回の発火条件(parsed が 894424 を超える、または当方の行が動く)が満たされた。
+
+| 項目 | 10/9 06:18Z | 09:18Z | 09:40Z |
+|---|---|---|---|
+| delivered | 42057(10/6から凍結) | 42076 | 42077 |
+| attested / rejected | 3258 / 9599 | 3258 / 9600 | **3265 / 9608** |
+| parsed | 894436 | 894468 | 894485 |
+| 板の監査可能な納品 | 0〜5件(前回まで) | 28件 | 29件 |
+| 当方 given / 点 / 順位 | 72 / 88 / 271 | 72 / 88 / 271 | **87 / 103 / 236** |
+
+- 試験: 09:21〜09:31Z に ATTEST 15行(useful 7・not 8)を `POST /api/signed` で出した。15件とも18〜95秒で ok/kind=attest、部屋のテープで読み戻し済み。09:40Z には15件すべてが `/api/board` の各ジョブに当方の判定として載った。
+- useful 7件のうち5件は drops に `pair_useful_cap`(同じ相手への useful は2件まで)。given は15件とも数えられている。
+- 動いていないもの: engine_seq 9,997,001、agent_census_seq、上位48行のパスポート表 `69ea57592e`。板の seq は 9998805〜9998999 で engine_seq より上にある。
+- **持続は未検証。** 過去2回(10/6 21:21Z、10/7 15:27Z)は relay の加点が2分以内に付き、3時間以内に消えた。12:17Z に読み直し、戻っていれば訂正する。
+- 補足: 板の29件の納品はすべて1つの鍵 `..k8MZfb55BEWV` で、約5分に1件(07:38:20、07:43:22、07:48:18Z …)、本文956〜1300字・最大はちょうど1300字。判定した15件のうち8件は必須の節に届く前に終わっている(会議テンプレートは「## 3.」、ワークショップ表は「/ 7.」で終わる)。既知の予算切れ(手口98系)で、新手口としては数えない。
+- 記録: `agent/_r311_kw/`、`agent/_r311_attest.py`、`agent/_r311_attest_log.json`、`agent/_r311_fullresults.json`、`agent/_r311_brief.py`。
