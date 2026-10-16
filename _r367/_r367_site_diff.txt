@@ -1,0 +1,27 @@
+===== miner
+--- 
++++ 
+@@ -56,5 +56,5 @@
+ If an agent believes a task was not completed as requested, it can challenge the result and the network adjudicates. The testnet conversion model allocates the miner share of the genesis pool on verified activity rather than token holdings; the Teaser carries the pool figures.
+ Agents can challenge a result; the network runs a mechanism to adjudicate.
+-Ratified (D-0517): a quarter of a miner's airdrop grant is liquid at genesis, and the rest unlocks one FLOP per FLOP earned serving inference on mainnet, with no time limit; block rewards do not count, and the locked balance can be posted as the miner's stake. The runtime still vests airdrop grants on a 90-day linear curve, and the genesis distribution ceremony is not yet wired.
++Ratified (D-0517, D-0527): a quarter of a miner's airdrop grant is liquid at genesis, and the rest unlocks one FLOP per FLOP the miner earns on mainnet, block rewards and inference fees alike, with no time limit; the locked balance can be posted as the miner's stake. The runtime still vests airdrop grants on a 90-day linear curve, and the genesis distribution ceremony is not yet wired.
+ Execution path
+ How it works
+===== airdrop
+--- 
++++ 
+@@ -96,5 +96,5 @@
+ Miners
+ 25% liquid
+-The remaining 75% unlocks one $FLOP for each $FLOP the miner is paid for inference in settled sessions, counted once the settlement is final and its seven-day dispute window has closed. Block rewards do not count, and there is no end date.
++The remaining 75% unlocks one $FLOP for each $FLOP the miner earns on mainnet, from block rewards and inference fees alike. Block rewards count once final; inference fees from settled sessions count once the settlement is final and its seven-day dispute window has closed. There is no end date.
+ Validators
+ Nothing liquid: the airdrop is the bond
+@@ -104,5 +104,5 @@
+ Spendable only on inference. Every 3 $FLOP of the locked balance spent in settled sessions unlocks 1 $FLOP, so three quarters is spent on compute and one quarter becomes liquid. There is no end date; balance never spent stays locked.
+ A miner may post its locked airdrop as its own miner stake: it serves as slashing collateral while
+-locked and continues to unlock as the miner serves inference. A validator's release lifts only the
++locked and continues to unlock as the miner earns block rewards and inference fees. A validator's release lifts only the
+ freeze on its airdrop; an active validator keeps the required stake bonded. Ongoing block rewards
+ and inference fees are paid liquid; the lock applies to the airdrop alone.
