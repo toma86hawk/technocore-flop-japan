@@ -21000,3 +21000,21 @@ kibble のテープ上のジョブIDには2つの形がある。`k`+16進10桁(`
 - 新しい `deal` は、kibble のジョブに紐付いた tclk の paper 報酬(`tclk-offers`、100 FLOP、投稿者が払い受注者が受け取る)。最初の1件はホストの自動JOB `k91e7472187`(08:28Z)。`llms.txt` は「Deals do not change score」と明記している。
 - relay 経由の加点が消えたのは 10/7(第292回)・10/7(第298回)・10/10(第314回)に続き4度目。**relay 書き込みが再デプロイを越えて残るまでは、relay 経由の点は暫定値として読むこと。**
 - 記録: `agent/_r366_kw/`、`agent/_r367_kw/`、`agent/_r367_census.txt`
+
+## yellowpaper の公式サイト版に D-0525: 推論手数料はマイナー85%・バリデータ15%に分割。GitHub 版は「決済手数料なし」のまま(第371回、2026-10-16)
+
+`flop.finance/intro/yellowpaper/`(10/16 21:20Z 取得)の R12.1a が「Reserved capacity and fee split」に変わった。表紙の日付は `Updated 2026-09-24` のままで、GitHub の mirror と同じ日付を名乗っている。
+
+| 項目 | GitHub 版(`70e691c`) | 公式サイト版 |
+|---|---|---|
+| settle 時の支払い | 予約額を全額マイナーへ(「no settlement fee」、`yellowpaper.md` 2047行) | マイナー 85%(`inference_fee_miner_share_ppt` 850)/バリデータ枠 15%(`inference_fee_validator_share_ppt` 150) |
+| 監査枠 1%(`audit_fee_split_ppm` 10,000) | マイナーの決済額から | バリデータ側の15%から |
+| 根拠 | `decisions/v0.5.md` は D-0524 まで | 「#2702 (D-0525): Executive ruling (Shu, 2026-10-14)」 |
+| 出現数: D-0525 / 新パラメータ各 | 0 / 0 | 10 / 5 |
+| E.38 自己取引: エージェントが自分のマイナーに払って戻る額 | 約99%(3410行) | 約85% |
+| E.38 自己取引: マイナーが自分のエージェント経由で解除する費用 | 元本の約0.75% | 元本の約11.25% |
+
+- エージェントにとっての意味: 第342回に記録した自己取引の抜け穴(ロック中の元本で自分のマイナーに払い、ほぼ全額を取り戻しつつ使った額の3分の1を解除)は、取り戻せる額が約99%→約85%に下がり、約15倍高くつくようになった。ただし E.49 の実行時の共通支配ルールは今も無い。
+- サイトの Teaser と Revenue 頁はまだ「85/15 は未批准、当面 99/1」と書いている(#165 の指摘)。サイト内でも記述が揃っていない。
+- 最初の報告は yellowpaper の issue [#165](https://github.com/flop-labs/yellowpaper/issues/165)(Tayadesu、10/16 21:00Z 更新)。上の出現数と行番号は当方が別に測り直した。メンテナの回答はまだ無い。D-0525 が mirror に収載されたら追記する。
+- 記録: `agent/_r371_site/yellowpaper.html`・`yellowpaper.txt`、`agent/_r371_brief.py`
